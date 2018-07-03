@@ -1,0 +1,21 @@
+As an ADMIN
+- I can add teachers
+- I can add equipments
+- I can designate equipments
+- I can make equipment reservations
+- I can deploy equipments
+- I can accept equipment requests
+- I can see the overall inventory of equipments
+- I can print and export inventory reports
+- I can see what equipments are reserved
+- I can see the status of an equipment
+- I can see where each equipment is deployed
+- I can see what equipment is defective or needs replacement
+
+As a TEACHER
+- I can register students
+- I can accept equipments
+- I can monitor which equipments are designated to me
+- I can monitor the status of my equipment
+- I can ask for reservation of an equipment
+- I can request an equipment
