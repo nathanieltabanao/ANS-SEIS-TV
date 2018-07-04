@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ANS_SEIS_TV.DataClasses1DataContext" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DQIAASABoAAwAgKAIAAAAiKAQCAAiwAgACggQCgAACE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.TBLEQEUIPMENTTYPE" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAgAAQBAIgABABAQAEAAAABiCAAAAAAAAAAQAACAgQ=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ANS_SEIS_TV.USERTYPE" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAQAAAAAAAAAAABAAAAAAAAAAAEAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.TBLEQUIPMENTDETAIL" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAgAxQJAgoAAALAYAEAAAgBiGACCABQACAAABABAAQ=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ANS_SEIS_TV.TBLLOGIN_LOG" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQwAAABAAAAgAgIYAEEgAEViCgBAABSCBIAAgAEAgA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ANS_SEIS_TV.TBLUSERDETAIL" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAgoQk1AAiCgCgCQBUGBsIRjGkJEVCTARGARqBECwA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ANS_SEIS_TV.TBLUSERLOGINREPORT" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQwAAADAAAAgBgIUAEGgAEViCmBAAAACFIBAgAFIAQ=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ANS_SEIS_TV.sp_UserViewResult" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIgBAAhAAAAABAFQAAEAAAIABAACAAIAAEgAAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.sp_EquipmentSearchResult" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABQAAAgAAAAAAAAAAAgBAAAAAABAACAAABAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.sp_EquipmentViewResult" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABQAAAgAAAAAAAAAAAgBAAAAAABAACAAABAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.sp_UserLoginResult" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAQAAAAAAAAAAAAAAQCAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.sp_UserLoginReportViewResult" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAgAAAEAACgAEAAAEBAAAAAAIAAgAFAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.sp_UserSearchResult" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIgBAAhAAAAABAFQAAEAAAIABAACAAIAAEgAAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.Form1" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.LoginForm" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAACAQABAAAACAAAACAAAAAAAAAFIAAABAAAA=</HashCode>
+      <FileName>LoginForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.Program" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.UserLibrary">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FAEGgEAAACAQiQQABVAQAAQAAAKAgDECIAoAAAAAAAg=</HashCode>
+      <FileName>UserLibrary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.Properties.Resources" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAII=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.Properties.Settings" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

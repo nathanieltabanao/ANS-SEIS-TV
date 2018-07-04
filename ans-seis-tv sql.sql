@@ -170,9 +170,7 @@ INSERT INTO TBLUSERLOGINREPORT
 VALUES(@ID,@username,@password,@action,@timestamp,@USERTYPE_ID)
 
 
-create proc sp_UserLoginReportView
-as
-Select * from TBLUSERLOGINREPORT
+F
 
 
 
