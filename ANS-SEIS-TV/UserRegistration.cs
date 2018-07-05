@@ -29,7 +29,7 @@ namespace ANS_SEIS_TV
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtMiddleName;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtLastName;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtAddress;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker kryptonDateTimePicker1;
+        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpBirthdate;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtEmail;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
@@ -47,6 +47,8 @@ namespace ANS_SEIS_TV
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private DevComponents.DotNetBar.Controls.DataGridViewX dgvView;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
+        private MaterialRaisedButton btnInsert;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSearch;
 
         public UserRegistration()
@@ -91,9 +93,26 @@ namespace ANS_SEIS_TV
 
         }
 
+        public void Clear()
+        {
+            txtConfirmPassword.Text = null;
+            txtAddress.Text = null;
+            txtEmail.Text = null;
+            txtFirstName.Text = null;
+            txtFname.Text = null;
+            txtFirstName.Text = null;
+            txtID.Text = null;
+            txtLastName.Text = null;
+            txtMiddleName.Text = null;
+            txtPassword.Text = null;
+            txtSecurityAnswer.Text = null;
+            txtUsername.Text = null;
+            rdoAdmin.Checked = true;
+        }
+
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdoStudent = new MaterialSkin.Controls.MaterialRadioButton();
@@ -110,7 +129,7 @@ namespace ANS_SEIS_TV
             this.txtMiddleName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtLastName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtAddress = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonDateTimePicker1 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.dtpBirthdate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.txtEmail = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -121,14 +140,16 @@ namespace ANS_SEIS_TV
             this.txtConfirmPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.drpSecurityQuestion = new DevComponents.DotNetBar.Controls.TextBoxDropDown();
             this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
             this.txtSecurityAnswer = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.drpSecurityQuestion = new DevComponents.DotNetBar.Controls.TextBoxDropDown();
             this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dgvView = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnInsert = new MaterialSkin.Controls.MaterialRaisedButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -151,6 +172,7 @@ namespace ANS_SEIS_TV
             this.rdoAdmin.TabIndex = 2;
             this.rdoAdmin.Text = "Administrator";
             this.rdoAdmin.UseVisualStyleBackColor = true;
+            this.rdoAdmin.CheckedChanged += new System.EventHandler(this.rdoAdmin_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -181,6 +203,7 @@ namespace ANS_SEIS_TV
             this.rdoStudent.TabIndex = 4;
             this.rdoStudent.Text = "Student";
             this.rdoStudent.UseVisualStyleBackColor = true;
+            this.rdoStudent.CheckedChanged += new System.EventHandler(this.rdoStudent_CheckedChanged);
             // 
             // rdoTeacher
             // 
@@ -197,6 +220,7 @@ namespace ANS_SEIS_TV
             this.rdoTeacher.TabIndex = 3;
             this.rdoTeacher.Text = "Teacher";
             this.rdoTeacher.UseVisualStyleBackColor = true;
+            this.rdoTeacher.CheckedChanged += new System.EventHandler(this.rdoTeacher_CheckedChanged);
             // 
             // txtID
             // 
@@ -222,7 +246,6 @@ namespace ANS_SEIS_TV
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Enabled = false;
             this.txtFirstName.Location = new System.Drawing.Point(145, 24);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(210, 23);
@@ -303,18 +326,17 @@ namespace ANS_SEIS_TV
             this.materialLabel9.AutoSize = true;
             this.materialLabel9.BackColor = System.Drawing.SystemColors.Window;
             this.materialLabel9.Depth = 0;
-            this.materialLabel9.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel9.Location = new System.Drawing.Point(25, 167);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(97, 20);
+            this.materialLabel9.Size = new System.Drawing.Size(114, 19);
             this.materialLabel9.TabIndex = 12;
             this.materialLabel9.Text = "Email Address :";
             // 
             // txtMiddleName
             // 
-            this.txtMiddleName.Enabled = false;
             this.txtMiddleName.Location = new System.Drawing.Point(145, 53);
             this.txtMiddleName.Name = "txtMiddleName";
             this.txtMiddleName.Size = new System.Drawing.Size(210, 23);
@@ -322,7 +344,6 @@ namespace ANS_SEIS_TV
             // 
             // txtLastName
             // 
-            this.txtLastName.Enabled = false;
             this.txtLastName.Location = new System.Drawing.Point(145, 82);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(210, 23);
@@ -330,23 +351,21 @@ namespace ANS_SEIS_TV
             // 
             // txtAddress
             // 
-            this.txtAddress.Enabled = false;
             this.txtAddress.Location = new System.Drawing.Point(145, 111);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(210, 23);
             this.txtAddress.TabIndex = 15;
             // 
-            // kryptonDateTimePicker1
+            // dtpBirthdate
             // 
-            this.kryptonDateTimePicker1.Location = new System.Drawing.Point(145, 140);
-            this.kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
-            this.kryptonDateTimePicker1.Size = new System.Drawing.Size(210, 21);
-            this.kryptonDateTimePicker1.TabIndex = 16;
-            this.kryptonDateTimePicker1.ValueNullable = new System.DateTime(2018, 7, 5, 22, 41, 20, 0);
+            this.dtpBirthdate.Location = new System.Drawing.Point(145, 140);
+            this.dtpBirthdate.Name = "dtpBirthdate";
+            this.dtpBirthdate.Size = new System.Drawing.Size(210, 21);
+            this.dtpBirthdate.TabIndex = 16;
+            this.dtpBirthdate.ValueNullable = new System.DateTime(2018, 7, 5, 22, 41, 20, 0);
             // 
             // txtEmail
             // 
-            this.txtEmail.Enabled = false;
             this.txtEmail.Location = new System.Drawing.Point(145, 167);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(210, 23);
@@ -358,7 +377,7 @@ namespace ANS_SEIS_TV
             this.groupBox2.Controls.Add(this.materialLabel4);
             this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.txtFirstName);
-            this.groupBox2.Controls.Add(this.kryptonDateTimePicker1);
+            this.groupBox2.Controls.Add(this.dtpBirthdate);
             this.groupBox2.Controls.Add(this.materialLabel5);
             this.groupBox2.Controls.Add(this.txtAddress);
             this.groupBox2.Controls.Add(this.materialLabel6);
@@ -406,7 +425,6 @@ namespace ANS_SEIS_TV
             // 
             // txtUsername
             // 
-            this.txtUsername.Enabled = false;
             this.txtUsername.Location = new System.Drawing.Point(148, 22);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(210, 23);
@@ -442,7 +460,6 @@ namespace ANS_SEIS_TV
             // 
             // txtConfirmPassword
             // 
-            this.txtConfirmPassword.Enabled = false;
             this.txtConfirmPassword.Location = new System.Drawing.Point(148, 80);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(210, 23);
@@ -450,7 +467,6 @@ namespace ANS_SEIS_TV
             // 
             // txtPassword
             // 
-            this.txtPassword.Enabled = false;
             this.txtPassword.Location = new System.Drawing.Point(148, 51);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(210, 23);
@@ -469,6 +485,20 @@ namespace ANS_SEIS_TV
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Account Recovery";
+            // 
+            // drpSecurityQuestion
+            // 
+            // 
+            // 
+            // 
+            this.drpSecurityQuestion.BackgroundStyle.Class = "TextBoxBorder";
+            this.drpSecurityQuestion.ButtonDropDown.Visible = true;
+            this.drpSecurityQuestion.Location = new System.Drawing.Point(148, 20);
+            this.drpSecurityQuestion.Name = "drpSecurityQuestion";
+            this.drpSecurityQuestion.Size = new System.Drawing.Size(210, 25);
+            this.drpSecurityQuestion.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.drpSecurityQuestion.TabIndex = 14;
+            this.drpSecurityQuestion.Text = "";
             // 
             // materialLabel12
             // 
@@ -500,25 +530,10 @@ namespace ANS_SEIS_TV
             // 
             // txtSecurityAnswer
             // 
-            this.txtSecurityAnswer.Enabled = false;
             this.txtSecurityAnswer.Location = new System.Drawing.Point(148, 51);
             this.txtSecurityAnswer.Name = "txtSecurityAnswer";
             this.txtSecurityAnswer.Size = new System.Drawing.Size(210, 23);
             this.txtSecurityAnswer.TabIndex = 13;
-            // 
-            // drpSecurityQuestion
-            // 
-            // 
-            // 
-            // 
-            this.drpSecurityQuestion.BackgroundStyle.Class = "TextBoxBorder";
-            this.drpSecurityQuestion.ButtonDropDown.Visible = true;
-            this.drpSecurityQuestion.Location = new System.Drawing.Point(148, 20);
-            this.drpSecurityQuestion.Name = "drpSecurityQuestion";
-            this.drpSecurityQuestion.Size = new System.Drawing.Size(210, 25);
-            this.drpSecurityQuestion.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.drpSecurityQuestion.TabIndex = 14;
-            this.drpSecurityQuestion.Text = "";
             // 
             // txtSearch
             // 
@@ -558,25 +573,49 @@ namespace ANS_SEIS_TV
             this.dgvView.AllowUserToResizeRows = false;
             this.dgvView.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvView.Location = new System.Drawing.Point(385, 103);
             this.dgvView.Name = "dgvView";
             this.dgvView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvView.Size = new System.Drawing.Size(734, 507);
             this.dgvView.TabIndex = 25;
             // 
+            // kryptonButton1
+            // 
+            this.kryptonButton1.Location = new System.Drawing.Point(208, 614);
+            this.kryptonButton1.Name = "kryptonButton1";
+            this.kryptonButton1.Size = new System.Drawing.Size(90, 25);
+            this.kryptonButton1.TabIndex = 26;
+            this.kryptonButton1.Values.Text = "Edit";
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.Depth = 0;
+            this.btnInsert.Location = new System.Drawing.Point(304, 616);
+            this.btnInsert.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Primary = true;
+            this.btnInsert.Size = new System.Drawing.Size(75, 23);
+            this.btnInsert.TabIndex = 27;
+            this.btnInsert.Text = "Insert";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            // 
             // UserRegistration
             // 
-            this.ClientSize = new System.Drawing.Size(1128, 642);
+            this.ClientSize = new System.Drawing.Size(1128, 670);
+            this.Controls.Add(this.btnInsert);
+            this.Controls.Add(this.kryptonButton1);
             this.Controls.Add(this.dgvView);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.bunifuCustomLabel1);
@@ -614,13 +653,96 @@ namespace ANS_SEIS_TV
         private void UserRegistration_Load_2(object sender, EventArgs e)
         {
             //ViewData();
-            dgvView.DataSource = db.sp_UserView();
+            View();
+            Admin();
 
+
+
+        }
+
+        public void View()
+        {
+            dgvView.DataSource = db.sp_UserView();
+        }
+
+        public void Admin()
+        {
+            if (u.UserID() == 1)
+            {
+                txtID.Text = "AD-" + (u.UserID().ToString().PadLeft(5, '0'));
+            }
+            else
+            {
+                txtID.Text = "AD-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
+            }
+            u.Usertype = 110;
+        }
+
+        public void Teacher()
+        {
+            if (u.UserID() == 1)
+            {
+                txtID.Text = "TR-" + (u.UserID().ToString().PadLeft(5, '0'));
+            }
+            else
+            {
+                txtID.Text = "TR-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
+            }
+            u.Usertype = 111;
+        }
+
+        public void Student()
+        {
+            if (u.UserID() == 1)
+            {
+                txtID.Text = "ST-" + (u.UserID().ToString().PadLeft(5, '0'));
+            }
+            else
+            {
+                txtID.Text = "ST-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
+            }
+            u.Usertype = 112;
         }
 
         private void dgvview1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void materialFlatButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            u.Username = txtUsername.Text;
+            u.Password = txtPassword.Text;
+            u.FirstName = txtFirstName.Text;
+            u.MiddleName = txtMiddleName.Text;
+            u.LastName = txtLastName.Text;
+            u.Address = txtAddress.Text;
+            u.Email = txtEmail.Text;
+            u.SecurityQuestion = drpSecurityQuestion.Text;
+            u.SecurityAnswer = txtSecurityAnswer.Text;
+            u.ID = txtID.Text;
+            u.UserInsert();
+            View();
+        }
+
+        private void rdoAdmin_CheckedChanged(object sender, EventArgs e)
+        {
+            Admin();
+        }
+
+        private void rdoTeacher_CheckedChanged(object sender, EventArgs e)
+        {
+            Teacher();
+        }
+
+        private void rdoStudent_CheckedChanged(object sender, EventArgs e)
+        {
+            Student();
         }
     }
 }

@@ -178,5 +178,10 @@ namespace ANS_SEIS_TV
             }
             db.sp_UserLoginReport(ID, Username, Password, status, DateTime.Now, Usertype);
         }
+
+        public int UserID()
+        {
+            return Convert.ToInt32(db.sp_UserID());
+        }
     }
 }
