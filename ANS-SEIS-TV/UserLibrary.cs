@@ -16,23 +16,40 @@ namespace ANS_SEIS_TV
 
 
         //Declare Variables
-        string Address { get; set; }
-        string Email { get; set; }
-        string FirstName { get; set; }
-        string MiddleName { get; set; }
-        string LastName { get; set; }
-        string Username { get; set; }
-        string Password { get; set; }
-        string GENID { get; set; }
-        string ID { get; set; }
-        string SecurityQuestion { get; set; }
-        string SecurityAnswer { get; set; }
-        int Usertype { get; set; }
-        DateTime Birthdate { get; set; }
-        int Age { get; set; }
-        int LoginResult { get; set; }
-
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string GENID { get; set; }
+        public string ID { get; set; }
+        public string SecurityQuestion { get; set; }
+        public string SecurityAnswer { get; set; }
+        public int Usertype { get; set; }
+        public DateTime Birthdate { get; set; }
+        public int Age { get; set; }
+        public int LoginResult { get; set; }
         int result;
+
+        public void Clear()
+        {
+            Address = null;
+            Email = null;
+            FirstName = null;
+            MiddleName = null;
+            LastName = null;
+            Username = null;
+            Password = null;
+            GENID = null;
+            ID = null;
+            SecurityAnswer = null;
+            SecurityQuestion = null;
+            Username = null;
+            //Age = null;
+            //LoginResult = null;
+        }
 
         public int LoginIsEmpty()
         {
@@ -131,17 +148,17 @@ namespace ANS_SEIS_TV
             db.sp_UserDelete(ID);
         }
 
-        public int UserLogin()
+        public void UserLogin(/*string Username,string Password*/)
         {
             result = db.sp_UserLogin(Username, Password).Count();
 
             if (result == 1)
             {
-                return 0;
+                LoginResult = 1;
             }
             else
             {
-                return 1;
+                LoginResult = 0;
             }
         }
 

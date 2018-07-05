@@ -170,7 +170,13 @@ INSERT INTO TBLUSERLOGINREPORT
 VALUES(@ID,@username,@password,@action,@timestamp,@USERTYPE_ID)
 
 
-F
+create proc sp_UserLoginReportView
+(
+	@SearchKey varchar(50)
+)
+as
+select * from TBLUSERLOGINREPORT
+where LoginID like '%'+@SearchKey+'%' or ID like '%'+@SearchKey+'%' or username like '%'+@SearchKey+'%' or password like '%'+@SearchKey+'%' or action like '%'+@SearchKey+'%' or USERTYPE_ID like '%'+@SearchKey+'%'
 
 
 

@@ -3,7 +3,7 @@
   <Class Name="ANS_SEIS_TV.DataClasses1DataContext" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>DQIAASABoAAwAgKAIAAAAiKAQCAAiwAgACggQCgAACE=</HashCode>
+      <HashCode>DQIAASABoAAwAgKAIAAAAiKAQCAAigAAAAggQCgAACA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="ANS_SEIS_TV.TBLEQEUIPMENTTYPE" Collapsed="true" BaseTypeListCollapsed="true">
@@ -26,17 +26,10 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ANS_SEIS_TV.TBLLOGIN_LOG" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.5" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ACQwAAABAAAAgAgIYAEEgAEViCgBAABSCBIAAgAEAgA=</HashCode>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
   <Class Name="ANS_SEIS_TV.TBLUSERDETAIL" BaseTypeListCollapsed="true">
     <Position X="0.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAgoQk1AAiCgCgCQBUGBsIRjGkJEVCTARGARqBECwA=</HashCode>
+      <HashCode>CAAgoQgVAAiCgCgCQBUGBsIRjGkJEFCTARGARqBECwA=</HashCode>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
@@ -93,7 +86,7 @@
   <Class Name="ANS_SEIS_TV.LoginForm" Collapsed="true">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAACAQABAAAACAAAACAAAAAAAAAFIAAABAAAA=</HashCode>
+      <HashCode>AAgAAAAAACAQABAAAACAAAACAAAAAAACAFIAAABAAAA=</HashCode>
       <FileName>LoginForm.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -107,7 +100,7 @@
   <Class Name="ANS_SEIS_TV.UserLibrary">
     <Position X="4" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>FAEGgEAAACAQiQQABVAQAAQAAAKAgDECIAoAAAAAAAg=</HashCode>
+      <HashCode>FAEGgEAAACAQiQQABVAQAAQAAAKAgDECIAoAAABAAAg=</HashCode>
       <FileName>UserLibrary.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -121,6 +114,13 @@
     <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAEAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ANS_SEIS_TV.UserRegistration" Collapsed="true">
+    <Position X="0.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>cgAAAAQAAigAABABABCAAAACAAAYAAAgAAAAAACAAAI=</HashCode>
+      <FileName>UserRegistration.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

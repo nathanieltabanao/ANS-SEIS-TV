@@ -36,9 +36,6 @@ namespace ANS_SEIS_TV
     partial void InsertTBLEQUIPMENTDETAIL(TBLEQUIPMENTDETAIL instance);
     partial void UpdateTBLEQUIPMENTDETAIL(TBLEQUIPMENTDETAIL instance);
     partial void DeleteTBLEQUIPMENTDETAIL(TBLEQUIPMENTDETAIL instance);
-    partial void InsertTBLLOGIN_LOG(TBLLOGIN_LOG instance);
-    partial void UpdateTBLLOGIN_LOG(TBLLOGIN_LOG instance);
-    partial void DeleteTBLLOGIN_LOG(TBLLOGIN_LOG instance);
     partial void InsertTBLUSERDETAIL(TBLUSERDETAIL instance);
     partial void UpdateTBLUSERDETAIL(TBLUSERDETAIL instance);
     partial void DeleteTBLUSERDETAIL(TBLUSERDETAIL instance);
@@ -98,14 +95,6 @@ namespace ANS_SEIS_TV
 			get
 			{
 				return this.GetTable<TBLEQUIPMENTDETAIL>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TBLLOGIN_LOG> TBLLOGIN_LOGs
-		{
-			get
-			{
-				return this.GetTable<TBLLOGIN_LOG>();
 			}
 		}
 		
@@ -202,13 +191,6 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_UserLoginResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserLoginAttempt")]
-		public int sp_UserLoginAttempt([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="VarChar(50)")] string iD, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string login_status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPE_ID", DbType="Int")] System.Nullable<int> uSERTYPE_ID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, username, password, login_status, uSERTYPE_ID);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserLoginReport")]
 		public int sp_UserLoginReport([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="VarChar(50)")] string iD, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Action", DbType="VarChar(100)")] string action, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Timestamp", DbType="DateTime")] System.Nullable<System.DateTime> timestamp, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPE_ID", DbType="Int")] System.Nullable<int> uSERTYPE_ID)
 		{
@@ -217,9 +199,9 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserLoginReportView")]
-		public ISingleResult<sp_UserLoginReportViewResult> sp_UserLoginReportView()
+		public ISingleResult<sp_UserLoginReportViewResult> sp_UserLoginReportView([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchKey", DbType="VarChar(50)")] string searchKey)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchKey);
 			return ((ISingleResult<sp_UserLoginReportViewResult>)(result.ReturnValue));
 		}
 		
@@ -613,229 +595,6 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLLOGIN_LOGS")]
-	public partial class TBLLOGIN_LOG : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _LOG_ID;
-		
-		private string _ID;
-		
-		private string _username;
-		
-		private string _password;
-		
-		private string _login_status;
-		
-		private System.Nullable<int> _USERTYPE_ID;
-		
-		private EntityRef<TBLUSERDETAIL> _TBLUSERDETAIL;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLOG_IDChanging(int value);
-    partial void OnLOG_IDChanged();
-    partial void OnIDChanging(string value);
-    partial void OnIDChanged();
-    partial void OnusernameChanging(string value);
-    partial void OnusernameChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
-    partial void Onlogin_statusChanging(string value);
-    partial void Onlogin_statusChanged();
-    partial void OnUSERTYPE_IDChanging(System.Nullable<int> value);
-    partial void OnUSERTYPE_IDChanged();
-    #endregion
-		
-		public TBLLOGIN_LOG()
-		{
-			this._TBLUSERDETAIL = default(EntityRef<TBLUSERDETAIL>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOG_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int LOG_ID
-		{
-			get
-			{
-				return this._LOG_ID;
-			}
-			set
-			{
-				if ((this._LOG_ID != value))
-				{
-					this.OnLOG_IDChanging(value);
-					this.SendPropertyChanging();
-					this._LOG_ID = value;
-					this.SendPropertyChanged("LOG_ID");
-					this.OnLOG_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="VarChar(50)")]
-		public string ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					if (this._TBLUSERDETAIL.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50)")]
-		public string username
-		{
-			get
-			{
-				return this._username;
-			}
-			set
-			{
-				if ((this._username != value))
-				{
-					this.OnusernameChanging(value);
-					this.SendPropertyChanging();
-					this._username = value;
-					this.SendPropertyChanged("username");
-					this.OnusernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(MAX)")]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this.OnpasswordChanging(value);
-					this.SendPropertyChanging();
-					this._password = value;
-					this.SendPropertyChanged("password");
-					this.OnpasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_login_status", DbType="VarChar(100)")]
-		public string login_status
-		{
-			get
-			{
-				return this._login_status;
-			}
-			set
-			{
-				if ((this._login_status != value))
-				{
-					this.Onlogin_statusChanging(value);
-					this.SendPropertyChanging();
-					this._login_status = value;
-					this.SendPropertyChanged("login_status");
-					this.Onlogin_statusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", DbType="Int")]
-		public System.Nullable<int> USERTYPE_ID
-		{
-			get
-			{
-				return this._USERTYPE_ID;
-			}
-			set
-			{
-				if ((this._USERTYPE_ID != value))
-				{
-					this.OnUSERTYPE_IDChanging(value);
-					this.SendPropertyChanging();
-					this._USERTYPE_ID = value;
-					this.SendPropertyChanged("USERTYPE_ID");
-					this.OnUSERTYPE_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLLOGIN_LOG", Storage="_TBLUSERDETAIL", ThisKey="ID", OtherKey="ID", IsForeignKey=true)]
-		public TBLUSERDETAIL TBLUSERDETAIL
-		{
-			get
-			{
-				return this._TBLUSERDETAIL.Entity;
-			}
-			set
-			{
-				TBLUSERDETAIL previousValue = this._TBLUSERDETAIL.Entity;
-				if (((previousValue != value) 
-							|| (this._TBLUSERDETAIL.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBLUSERDETAIL.Entity = null;
-						previousValue.TBLLOGIN_LOGs.Remove(this);
-					}
-					this._TBLUSERDETAIL.Entity = value;
-					if ((value != null))
-					{
-						value.TBLLOGIN_LOGs.Add(this);
-						this._ID = value.ID;
-					}
-					else
-					{
-						this._ID = default(string);
-					}
-					this.SendPropertyChanged("TBLUSERDETAIL");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLUSERDETAILS")]
 	public partial class TBLUSERDETAIL : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -867,8 +626,6 @@ namespace ANS_SEIS_TV
 		private string _SECURITY_ANSWER;
 		
 		private System.Nullable<int> _USERTYPE_ID;
-		
-		private EntitySet<TBLLOGIN_LOG> _TBLLOGIN_LOGs;
 		
 		private EntitySet<TBLUSERLOGINREPORT> _TBLUSERLOGINREPORTs;
 		
@@ -906,7 +663,6 @@ namespace ANS_SEIS_TV
 		
 		public TBLUSERDETAIL()
 		{
-			this._TBLLOGIN_LOGs = new EntitySet<TBLLOGIN_LOG>(new Action<TBLLOGIN_LOG>(this.attach_TBLLOGIN_LOGs), new Action<TBLLOGIN_LOG>(this.detach_TBLLOGIN_LOGs));
 			this._TBLUSERLOGINREPORTs = new EntitySet<TBLUSERLOGINREPORT>(new Action<TBLUSERLOGINREPORT>(this.attach_TBLUSERLOGINREPORTs), new Action<TBLUSERLOGINREPORT>(this.detach_TBLUSERLOGINREPORTs));
 			OnCreated();
 		}
@@ -1171,19 +927,6 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLLOGIN_LOG", Storage="_TBLLOGIN_LOGs", ThisKey="ID", OtherKey="ID")]
-		public EntitySet<TBLLOGIN_LOG> TBLLOGIN_LOGs
-		{
-			get
-			{
-				return this._TBLLOGIN_LOGs;
-			}
-			set
-			{
-				this._TBLLOGIN_LOGs.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLUSERLOGINREPORT", Storage="_TBLUSERLOGINREPORTs", ThisKey="ID", OtherKey="ID")]
 		public EntitySet<TBLUSERLOGINREPORT> TBLUSERLOGINREPORTs
 		{
@@ -1215,18 +958,6 @@ namespace ANS_SEIS_TV
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_TBLLOGIN_LOGs(TBLLOGIN_LOG entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLUSERDETAIL = this;
-		}
-		
-		private void detach_TBLLOGIN_LOGs(TBLLOGIN_LOG entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLUSERDETAIL = null;
 		}
 		
 		private void attach_TBLUSERLOGINREPORTs(TBLUSERLOGINREPORT entity)

@@ -17,6 +17,11 @@ namespace ANS_SEIS_TV
             InitializeComponent();            
         }
 
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            
+        }
+
         UserLibrary u = new UserLibrary();
 
         DataClasses1DataContext db = new DataClasses1DataContext();
@@ -24,23 +29,23 @@ namespace ANS_SEIS_TV
         //loginbutton
         private void button1_Click(object sender, EventArgs e)
         {
-            int result = db.sp_UserLogin(txtUsername.Text.Trim(), txtPassword.Text.Trim()).Count();
-            if (result==1)
+            u.Username = txtUsername.Text;
+            u.Password = txtPassword.Text;
+
+            u.UserLogin(/*txtUsername.Text, txtPassword.Text*/);
+
+            if (u.LoginResult == 1)
             {
                 Form1 f = new Form1();
                 this.Hide();
                 f.Show();
             }
             else
-            {
+            { 
                 MessageBox.Show("lol");
             }
-
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
