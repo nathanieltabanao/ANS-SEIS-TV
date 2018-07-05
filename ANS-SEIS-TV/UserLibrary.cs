@@ -14,6 +14,7 @@ namespace ANS_SEIS_TV
         //Initate SQL Connection
         DataClasses1DataContext db = new DataClasses1DataContext();
 
+        
 
         //Declare Variables
         public string Address { get; set; }
@@ -31,6 +32,7 @@ namespace ANS_SEIS_TV
         public DateTime Birthdate { get; set; }
         public int Age { get; set; }
         public int LoginResult { get; set; }
+        public string Searchkey { get; set; }
         int result;
 
         public void Clear()

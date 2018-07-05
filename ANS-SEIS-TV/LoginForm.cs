@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
 
 namespace ANS_SEIS_TV
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : MaterialForm
     {
         public LoginForm()
         {
-            InitializeComponent();            
+            InitializeComponent();   
+            
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -46,6 +48,9 @@ namespace ANS_SEIS_TV
             }
         }
 
-        
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
