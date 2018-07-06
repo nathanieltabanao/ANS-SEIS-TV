@@ -20,16 +20,9 @@ namespace ANS_SEIS_TV
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtID;
         private MaterialLabel materialLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtFirstName;
-        private MaterialLabel materialLabel4;
-        private MaterialLabel materialLabel5;
-        private MaterialLabel materialLabel6;
-        private MaterialLabel materialLabel7;
-        private MaterialLabel materialLabel8;
-        private MaterialLabel materialLabel9;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtMiddleName;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtLastName;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtAddress;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpBirthdate;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtEmail;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
@@ -40,16 +33,25 @@ namespace ANS_SEIS_TV
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtConfirmPassword;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPassword;
         private GroupBox groupBox4;
-        private DevComponents.DotNetBar.Controls.TextBoxDropDown drpSecurityQuestion;
         private MaterialLabel materialLabel12;
         private MaterialLabel materialLabel13;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSecurityAnswer;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private DevComponents.DotNetBar.Controls.DataGridViewX dgvView;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
-        private MaterialRaisedButton btnInsert;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSearch;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
+        private MaterialLabel materialLabel5;
+        private MaterialLabel materialLabel6;
+        private MaterialLabel materialLabel7;
+        private MaterialLabel materialLabel8;
+        private MaterialLabel materialLabel9;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnInsert;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDelete;
+        private DateTimePicker dtpBirthdate;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnClear;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox drpSecurityQuestion;
+        private MaterialSingleLineTextField txtSearch;
 
         public UserRegistration()
         {
@@ -99,7 +101,7 @@ namespace ANS_SEIS_TV
             txtAddress.Text = null;
             txtEmail.Text = null;
             txtFirstName.Text = null;
-            txtFname.Text = null;
+            //txtFname.Text = null;
             txtFirstName.Text = null;
             txtID.Text = null;
             txtLastName.Text = null;
@@ -108,11 +110,25 @@ namespace ANS_SEIS_TV
             txtSecurityAnswer.Text = null;
             txtUsername.Text = null;
             rdoAdmin.Checked = true;
+            dtpBirthdate.Value = DateTime.Today;
+
+            u.Address = null;
+            u.FirstName = null;
+            u.MiddleName = null;
+            u.LastName = null;
+            u.ID = null;
+            u.Username = null;
+            u.Password = null;
+            u.SecurityAnswer = null;
+            u.SecurityQuestion = null;
+            u.Usertype = 0;
+            u.Email = null;
+
         }
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdoStudent = new MaterialSkin.Controls.MaterialRadioButton();
@@ -120,16 +136,9 @@ namespace ANS_SEIS_TV
             this.txtID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.txtFirstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.txtMiddleName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtLastName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtAddress = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.dtpBirthdate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.txtEmail = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -140,21 +149,31 @@ namespace ANS_SEIS_TV
             this.txtConfirmPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.drpSecurityQuestion = new DevComponents.DotNetBar.Controls.TextBoxDropDown();
             this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
             this.txtSecurityAnswer = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dgvView = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnInsert = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.txtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btnInsert = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
+            this.btnClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.drpSecurityQuestion = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drpSecurityQuestion)).BeginInit();
             this.SuspendLayout();
             // 
             // rdoAdmin
@@ -248,136 +267,44 @@ namespace ANS_SEIS_TV
             // 
             this.txtFirstName.Location = new System.Drawing.Point(145, 24);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(210, 23);
+            this.txtFirstName.Size = new System.Drawing.Size(233, 23);
             this.txtFirstName.TabIndex = 6;
-            // 
-            // materialLabel4
-            // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.BackColor = System.Drawing.SystemColors.Window;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(48, 24);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(91, 19);
-            this.materialLabel4.TabIndex = 7;
-            this.materialLabel4.Text = "First Name :";
-            // 
-            // materialLabel5
-            // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.BackColor = System.Drawing.SystemColors.Window;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel5.Location = new System.Drawing.Point(34, 53);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(106, 19);
-            this.materialLabel5.TabIndex = 8;
-            this.materialLabel5.Text = "Middle Name :";
-            // 
-            // materialLabel6
-            // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.BackColor = System.Drawing.SystemColors.Window;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(51, 82);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(90, 19);
-            this.materialLabel6.TabIndex = 9;
-            this.materialLabel6.Text = "Last Name :";
-            // 
-            // materialLabel7
-            // 
-            this.materialLabel7.AutoSize = true;
-            this.materialLabel7.BackColor = System.Drawing.SystemColors.Window;
-            this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(67, 111);
-            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(72, 19);
-            this.materialLabel7.TabIndex = 10;
-            this.materialLabel7.Text = "Address :";
-            // 
-            // materialLabel8
-            // 
-            this.materialLabel8.AutoSize = true;
-            this.materialLabel8.BackColor = System.Drawing.SystemColors.Window;
-            this.materialLabel8.Depth = 0;
-            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel8.Location = new System.Drawing.Point(64, 140);
-            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(77, 19);
-            this.materialLabel8.TabIndex = 11;
-            this.materialLabel8.Text = "Birthdate :";
-            // 
-            // materialLabel9
-            // 
-            this.materialLabel9.AutoSize = true;
-            this.materialLabel9.BackColor = System.Drawing.SystemColors.Window;
-            this.materialLabel9.Depth = 0;
-            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel9.Location = new System.Drawing.Point(25, 167);
-            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(114, 19);
-            this.materialLabel9.TabIndex = 12;
-            this.materialLabel9.Text = "Email Address :";
             // 
             // txtMiddleName
             // 
             this.txtMiddleName.Location = new System.Drawing.Point(145, 53);
             this.txtMiddleName.Name = "txtMiddleName";
-            this.txtMiddleName.Size = new System.Drawing.Size(210, 23);
+            this.txtMiddleName.Size = new System.Drawing.Size(233, 23);
             this.txtMiddleName.TabIndex = 13;
             // 
             // txtLastName
             // 
             this.txtLastName.Location = new System.Drawing.Point(145, 82);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(210, 23);
+            this.txtLastName.Size = new System.Drawing.Size(233, 23);
             this.txtLastName.TabIndex = 14;
             // 
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(145, 111);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(210, 23);
+            this.txtAddress.Size = new System.Drawing.Size(233, 23);
             this.txtAddress.TabIndex = 15;
-            // 
-            // dtpBirthdate
-            // 
-            this.dtpBirthdate.Location = new System.Drawing.Point(145, 140);
-            this.dtpBirthdate.Name = "dtpBirthdate";
-            this.dtpBirthdate.Size = new System.Drawing.Size(210, 21);
-            this.dtpBirthdate.TabIndex = 16;
-            this.dtpBirthdate.ValueNullable = new System.DateTime(2018, 7, 5, 22, 41, 20, 0);
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(145, 167);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(210, 23);
+            this.txtEmail.Size = new System.Drawing.Size(233, 23);
             this.txtEmail.TabIndex = 17;
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBox2.Controls.Add(this.materialLabel4);
+            this.groupBox2.Controls.Add(this.dtpBirthdate);
+            this.groupBox2.Controls.Add(this.bunifuCustomLabel3);
             this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.txtFirstName);
-            this.groupBox2.Controls.Add(this.dtpBirthdate);
             this.groupBox2.Controls.Add(this.materialLabel5);
             this.groupBox2.Controls.Add(this.txtAddress);
             this.groupBox2.Controls.Add(this.materialLabel6);
@@ -388,10 +315,11 @@ namespace ANS_SEIS_TV
             this.groupBox2.Controls.Add(this.materialLabel9);
             this.groupBox2.Location = new System.Drawing.Point(12, 192);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(367, 199);
+            this.groupBox2.Size = new System.Drawing.Size(384, 199);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "User Details";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // groupBox3
             // 
@@ -404,7 +332,7 @@ namespace ANS_SEIS_TV
             this.groupBox3.Controls.Add(this.txtPassword);
             this.groupBox3.Location = new System.Drawing.Point(16, 397);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(363, 117);
+            this.groupBox3.Size = new System.Drawing.Size(380, 117);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Account Details";
@@ -427,7 +355,7 @@ namespace ANS_SEIS_TV
             // 
             this.txtUsername.Location = new System.Drawing.Point(148, 22);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(210, 23);
+            this.txtUsername.Size = new System.Drawing.Size(226, 23);
             this.txtUsername.TabIndex = 6;
             // 
             // materialLabel10
@@ -462,14 +390,14 @@ namespace ANS_SEIS_TV
             // 
             this.txtConfirmPassword.Location = new System.Drawing.Point(148, 80);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(210, 23);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(226, 23);
             this.txtConfirmPassword.TabIndex = 14;
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(148, 51);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(210, 23);
+            this.txtPassword.Size = new System.Drawing.Size(226, 23);
             this.txtPassword.TabIndex = 13;
             // 
             // groupBox4
@@ -481,24 +409,10 @@ namespace ANS_SEIS_TV
             this.groupBox4.Controls.Add(this.txtSecurityAnswer);
             this.groupBox4.Location = new System.Drawing.Point(18, 520);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(361, 90);
+            this.groupBox4.Size = new System.Drawing.Size(378, 90);
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Account Recovery";
-            // 
-            // drpSecurityQuestion
-            // 
-            // 
-            // 
-            // 
-            this.drpSecurityQuestion.BackgroundStyle.Class = "TextBoxBorder";
-            this.drpSecurityQuestion.ButtonDropDown.Visible = true;
-            this.drpSecurityQuestion.Location = new System.Drawing.Point(148, 20);
-            this.drpSecurityQuestion.Name = "drpSecurityQuestion";
-            this.drpSecurityQuestion.Size = new System.Drawing.Size(210, 25);
-            this.drpSecurityQuestion.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.drpSecurityQuestion.TabIndex = 14;
-            this.drpSecurityQuestion.Text = "";
             // 
             // materialLabel12
             // 
@@ -532,15 +446,8 @@ namespace ANS_SEIS_TV
             // 
             this.txtSecurityAnswer.Location = new System.Drawing.Point(148, 51);
             this.txtSecurityAnswer.Name = "txtSecurityAnswer";
-            this.txtSecurityAnswer.Size = new System.Drawing.Size(210, 23);
+            this.txtSecurityAnswer.Size = new System.Drawing.Size(224, 23);
             this.txtSecurityAnswer.TabIndex = 13;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(909, 74);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(210, 23);
-            this.txtSearch.TabIndex = 22;
             // 
             // bunifuCustomLabel1
             // 
@@ -558,7 +465,7 @@ namespace ANS_SEIS_TV
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.BackColor = System.Drawing.SystemColors.Window;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(840, 75);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(931, 75);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(63, 19);
             this.bunifuCustomLabel2.TabIndex = 24;
@@ -573,53 +480,210 @@ namespace ANS_SEIS_TV
             this.dgvView.AllowUserToResizeRows = false;
             this.dgvView.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dgvView.Location = new System.Drawing.Point(385, 103);
+            this.dgvView.Location = new System.Drawing.Point(402, 103);
             this.dgvView.Name = "dgvView";
             this.dgvView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvView.Size = new System.Drawing.Size(734, 507);
+            this.dgvView.Size = new System.Drawing.Size(790, 536);
             this.dgvView.TabIndex = 25;
             // 
-            // kryptonButton1
+            // btnEdit
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(208, 614);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.Size = new System.Drawing.Size(90, 25);
-            this.kryptonButton1.TabIndex = 26;
-            this.kryptonButton1.Values.Text = "Edit";
+            this.btnEdit.Location = new System.Drawing.Point(210, 614);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(90, 25);
+            this.btnEdit.TabIndex = 26;
+            this.btnEdit.Values.Text = "Edit User";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Depth = 0;
+            this.txtSearch.Hint = "";
+            this.txtSearch.Location = new System.Drawing.Point(991, 75);
+            this.txtSearch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PasswordChar = '\0';
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.SelectionLength = 0;
+            this.txtSearch.SelectionStart = 0;
+            this.txtSearch.Size = new System.Drawing.Size(201, 23);
+            this.txtSearch.TabIndex = 28;
+            this.txtSearch.UseSystemPasswordChar = false;
+            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // materialLabel9
+            // 
+            this.materialLabel9.AutoSize = true;
+            this.materialLabel9.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel9.Depth = 0;
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel9.Location = new System.Drawing.Point(25, 167);
+            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel9.Name = "materialLabel9";
+            this.materialLabel9.Size = new System.Drawing.Size(114, 19);
+            this.materialLabel9.TabIndex = 12;
+            this.materialLabel9.Text = "Email Address :";
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.AutoSize = true;
+            this.materialLabel8.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(64, 140);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(77, 19);
+            this.materialLabel8.TabIndex = 11;
+            this.materialLabel8.Text = "Birthdate :";
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel7.Location = new System.Drawing.Point(67, 111);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(72, 19);
+            this.materialLabel7.TabIndex = 10;
+            this.materialLabel7.Text = "Address :";
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel6.Location = new System.Drawing.Point(51, 82);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(90, 19);
+            this.materialLabel6.TabIndex = 9;
+            this.materialLabel6.Text = "Last Name :";
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel5.Location = new System.Drawing.Point(34, 53);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(106, 19);
+            this.materialLabel5.TabIndex = 8;
+            this.materialLabel5.Text = "Middle Name :";
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(48, 24);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(91, 19);
+            this.bunifuCustomLabel3.TabIndex = 24;
+            this.bunifuCustomLabel3.Text = "First Name :";
             // 
             // btnInsert
             // 
-            this.btnInsert.Depth = 0;
-            this.btnInsert.Location = new System.Drawing.Point(304, 616);
-            this.btnInsert.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnInsert.Location = new System.Drawing.Point(306, 614);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Primary = true;
-            this.btnInsert.Size = new System.Drawing.Size(75, 23);
-            this.btnInsert.TabIndex = 27;
-            this.btnInsert.Text = "Insert";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            this.btnInsert.Size = new System.Drawing.Size(90, 25);
+            this.btnInsert.TabIndex = 29;
+            this.btnInsert.Values.Text = "Add User";
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(114, 614);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(90, 25);
+            this.btnDelete.TabIndex = 30;
+            this.btnDelete.Values.Text = "Delete User";
+            // 
+            // dtpBirthdate
+            // 
+            this.dtpBirthdate.CalendarTitleBackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dtpBirthdate.CalendarTrailingForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dtpBirthdate.Location = new System.Drawing.Point(145, 136);
+            this.dtpBirthdate.Name = "dtpBirthdate";
+            this.dtpBirthdate.Size = new System.Drawing.Size(233, 25);
+            this.dtpBirthdate.TabIndex = 31;
+            this.dtpBirthdate.Value = new System.DateTime(2018, 7, 6, 7, 41, 9, 0);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(18, 614);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(90, 25);
+            this.btnClear.TabIndex = 31;
+            this.btnClear.Values.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // drpSecurityQuestion
+            // 
+            this.drpSecurityQuestion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.drpSecurityQuestion.DropDownWidth = 224;
+            this.drpSecurityQuestion.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.drpSecurityQuestion.Items.AddRange(new object[] {
+            "In what city were you born?",
+            "What high school did you attend?",
+            "What is the first and last name of your first boyfriend or girlfriend?",
+            "What is the name of your favorite pet?",
+            "What is the name of your first grade teacher?",
+            "What is the name of your first school?",
+            "What is your father\'s middle name?",
+            "What is your favorite color?",
+            "what is your favorite forum",
+            "What is your favorite movie?",
+            "what is your favorite online platform",
+            "what is your favorite social media website",
+            "what is your favorite website",
+            "What is your mother\'s maiden name?",
+            "What street did you grow up on?",
+            "What was the make of your first car?",
+            "What was your favorite place to visit as a child?",
+            "What was your high school mascot?",
+            "When is your anniversary?",
+            "Which is your favorite web browser?",
+            "Which phone number do you remember most from your childhood?",
+            "Who is your favorite actor, musician, or artist?"});
+            this.drpSecurityQuestion.Location = new System.Drawing.Point(148, 21);
+            this.drpSecurityQuestion.Name = "drpSecurityQuestion";
+            this.drpSecurityQuestion.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
+            this.drpSecurityQuestion.Size = new System.Drawing.Size(224, 21);
+            this.drpSecurityQuestion.TabIndex = 14;
             // 
             // UserRegistration
             // 
-            this.ClientSize = new System.Drawing.Size(1128, 670);
+            this.ClientSize = new System.Drawing.Size(1204, 670);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnInsert);
-            this.Controls.Add(this.kryptonButton1);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvView);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.bunifuCustomLabel1);
-            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -640,6 +704,7 @@ namespace ANS_SEIS_TV
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drpSecurityQuestion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -654,10 +719,7 @@ namespace ANS_SEIS_TV
         {
             //ViewData();
             View();
-            Admin();
-
-
-
+            rdoAdmin.Checked = true;
         }
 
         public void View()
@@ -716,18 +778,7 @@ namespace ANS_SEIS_TV
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            u.Username = txtUsername.Text;
-            u.Password = txtPassword.Text;
-            u.FirstName = txtFirstName.Text;
-            u.MiddleName = txtMiddleName.Text;
-            u.LastName = txtLastName.Text;
-            u.Address = txtAddress.Text;
-            u.Email = txtEmail.Text;
-            u.SecurityQuestion = drpSecurityQuestion.Text;
-            u.SecurityAnswer = txtSecurityAnswer.Text;
-            u.ID = txtID.Text;
-            u.UserInsert();
-            View();
+            
         }
 
         private void rdoAdmin_CheckedChanged(object sender, EventArgs e)
@@ -743,6 +794,47 @@ namespace ANS_SEIS_TV
         private void rdoStudent_CheckedChanged(object sender, EventArgs e)
         {
             Student();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            u.Username = txtUsername.Text;
+            u.Password = txtPassword.Text;
+            u.FirstName = txtFirstName.Text;
+            u.MiddleName = txtMiddleName.Text;
+            u.LastName = txtLastName.Text;
+            u.Address = txtAddress.Text;
+            u.Email = txtEmail.Text;
+            u.Birthdate = dtpBirthdate.Value;
+            u.SecurityQuestion = drpSecurityQuestion.Text;
+            u.SecurityAnswer = txtSecurityAnswer.Text;
+            u.ID = txtID.Text;
+            u.UserInsert();
+            rdoAdmin.Checked = true;
+            View();
+            Clear();
+        }
+
+        private void txtSearch_Click(object sender, EventArgs e)
+        {
+            //u.Searchkey = txtSearch.Text;
+            //dgvView.DataSource = db.sp_UserSearch(txtSearch.Text);
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            u.Searchkey = txtSearch.Text;
+            dgvView.DataSource = db.sp_UserSearch(u.Searchkey);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
     }
 }
