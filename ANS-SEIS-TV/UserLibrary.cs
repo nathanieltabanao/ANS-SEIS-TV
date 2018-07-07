@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Sql;
 using System.IO;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace ANS_SEIS_TV
 {
@@ -34,6 +35,7 @@ namespace ANS_SEIS_TV
         public int LoginResult { get; set; }
         public string Searchkey { get; set; }
         int result;
+        public string CurrentUserID { get; set; }
 
         public void Clear()
         {
@@ -66,6 +68,18 @@ namespace ANS_SEIS_TV
 
         }
 
+        public int IncompleteUserData()
+        {
+            if (string.IsNullOrEmpty(Address) || string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(MiddleName) || string.IsNullOrEmpty(LastName) || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(SecurityAnswer) || string.IsNullOrEmpty(SecurityQuestion)) 
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         public string UserRegistered()
         {
             return "User Registered!";
@@ -86,15 +100,36 @@ namespace ANS_SEIS_TV
             return "Error!";
         }
 
-        public string EmailError()
+        public int EmailError()
         {
-            return "Invalid Email!";
+            if (IsValidEmail(Email))
+            {
+                return 0;
+            }
+            else
+            { 
+            return 1;
+            }
+        }
+
+        public string InvalidEmail()
+        {
+            return "Invalid Email Address!";
+        }
+
+        bool IsValidEmail(string strIn)//Do not Delete
+        {
+            // Return true if strIn is in valid e-mail format.
+            return Regex.IsMatch(strIn, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
 
         public string EmptyUsername()
         {
+            
             return "Please fill your username!";
         }
+
+
 
         public string EmptyPassword()
         {
@@ -138,6 +173,7 @@ namespace ANS_SEIS_TV
         public void UserInsert()
         {
             db.sp_UserInsert(null, ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer, Usertype);
+            db.sp_UserActionReport(CurrentUserID, "Registered a user", DateTime.Now);
         }
 
         public void UserEdit()

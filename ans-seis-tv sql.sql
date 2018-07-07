@@ -11,6 +11,10 @@ DROP TABLE TBLUSERDETAILS
 
 SELECT * FROM TBLUSERDETAILS
 
+truncate table tbluserdetails
+
+delete tbluserdetails
+
 --for tables of user
 CREATE TABLE TBLUSERDETAILS
 (
@@ -98,8 +102,8 @@ CREATE PROC sp_UserSearch
 	@SearchKey VARCHAR(50)
 )
 AS
-SELECT id,username,firstname,middlename,lastname,address,birthdate,emailaddress,usertype_ID FROM TBLUSERDETAILS
-where id like '%'+@SearchKey+'%' or firstname like '%'+@SearchKey+'%' or middlename like '%'+@SearchKey+'%' or lastname like '%'+@SearchKey+'%'
+SELECT genid as "General ID", id as "ID",username as "Username",firstname as "First Name",middlename as "Middle Name",lastname as "Last Name",address as "Address",birthdate as "Birthdate",emailaddress as "Email Address",usertype_ID as "Usertype ID" FROM TBLUSERDETAILS
+where genid like '%'+@SearchKey+'%' or id like '%'+@SearchKey+'%' or firstname like '%'+@SearchKey+'%' or middlename like '%'+@SearchKey+'%' or lastname like '%'+@SearchKey+'%'
 
 
 -- User Login
@@ -117,7 +121,7 @@ RETURN 0
 -- User Table View
 CREATE PROC sp_UserView
 as
-SELECT id,username,firstname,middlename,lastname,address,birthdate,emailaddress,usertype_ID FROM TBLUSERDETAILS
+SELECT genid as "General ID", id as "ID",username as "Username",firstname as "First Name",middlename as "Middle Name",lastname as "Last Name",address as "Address",birthdate as "Birthdate",emailaddress as "Email Address",usertype_ID as "Usertype ID" FROM TBLUSERDETAILS
 
 ------------------------------------------------------------------------------------------
 
@@ -269,3 +273,22 @@ CREATE TABLE EQUIPMENT_DESIGNATION
 
 
 ---------------------------------------------------------------------------------
+
+CREATE TABLE TBLUSERACTIONREPORT
+(
+	ActionID int primary key identity(90000000,1),
+	ID varchar(50) FOREIGN KEY REFERENCES TBLUSERDETAILS(ID),
+	Action varchar (50),
+	Timestamp datetime
+)
+
+
+create proc sp_UserActionReport
+(
+	@ID varchar(50),
+	@Action varchar (50),
+	@Timestamp datetime
+)
+as
+insert into TBLUSERACTIONREPORT
+VALUES (@id,@Action,@Timestamp)
