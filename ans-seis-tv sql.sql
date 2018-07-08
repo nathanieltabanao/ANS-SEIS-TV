@@ -11,10 +11,14 @@ DROP TABLE TBLUSERDETAILS
 
 SELECT * FROM TBLUSERDETAILS
 
+truncate table tbluserdetails
+
+delete tbluserdetails
+
 --for tables of user
 CREATE TABLE TBLUSERDETAILS
 (
-	GENID INT IDENTITY(10000000,1),
+	GENID INT UNIQUE IDENTITY(10000000,1),
 	ID VARCHAR(50) PRIMARY KEY,
 	USERNAME VARCHAR(50),
 	PASSWORD VARCHAR(MAX),
@@ -39,6 +43,17 @@ as
 declare @GENID int
 select  @GENID = IDENT_CURRENT('TBLUSERDETAILS')
 return @GENID
+
+--Return UserID
+create proc sp_UserReturnID
+(
+	@username varchar(50),
+	@userID int
+)
+as
+select USERTYPE_ID from TBLUSERDETAILS
+where USERNAME=@username
+return @userid
 
 -- Insert User
 CREATE PROCEDURE sp_UserInsert
@@ -98,8 +113,8 @@ CREATE PROC sp_UserSearch
 	@SearchKey VARCHAR(50)
 )
 AS
-SELECT id,username,firstname,middlename,lastname,address,birthdate,emailaddress,usertype_ID FROM TBLUSERDETAILS
-where id like '%'+@SearchKey+'%' or firstname like '%'+@SearchKey+'%' or middlename like '%'+@SearchKey+'%' or lastname like '%'+@SearchKey+'%'
+SELECT genid as "General ID", id as "ID",username as "Username",firstname as "First Name",middlename as "Middle Name",lastname as "Last Name",address as "Address",birthdate as "Birthdate",emailaddress as "Email Address",usertype_ID as "Usertype ID" FROM TBLUSERDETAILS
+where genid like '%'+@SearchKey+'%' or id like '%'+@SearchKey+'%' or firstname like '%'+@SearchKey+'%' or middlename like '%'+@SearchKey+'%' or lastname like '%'+@SearchKey+'%'
 
 
 -- User Login
@@ -117,7 +132,7 @@ RETURN 0
 -- User Table View
 CREATE PROC sp_UserView
 as
-SELECT id,username,firstname,middlename,lastname,address,birthdate,emailaddress,usertype_ID FROM TBLUSERDETAILS
+SELECT genid as "General ID", id as "ID",username as "Username",firstname as "First Name",middlename as "Middle Name",lastname as "Last Name",address as "Address",birthdate as "Birthdate",emailaddress as "Email Address",usertype_ID as "Usertype ID" FROM TBLUSERDETAILS
 
 ------------------------------------------------------------------------------------------
 
@@ -147,7 +162,7 @@ SELECT * from TBLUSERLOGINREPORT
 CREATE TABLE TBLUSERLOGINREPORT
 (
 	LoginID int identity(00000000,1) PRIMARY KEY,
-	ID varchar(50) foreign key references tbluserdetails(ID),
+	GENID INT foreign key references tbluserdetails(GENID),
 	username varchar(50),
 	password varchar(max),
 	Action varchar(100),
@@ -158,7 +173,7 @@ CREATE TABLE TBLUSERLOGINREPORT
 --Login Attempt
 CREATE PROC sp_UserLoginReport
 (
-	@ID varchar(50),
+	@ID int,
 	@username varchar(50),
 	@password varchar(max),
 	@Action varchar(100),
@@ -176,7 +191,7 @@ create proc sp_UserLoginReportView
 )
 as
 select * from TBLUSERLOGINREPORT
-where LoginID like '%'+@SearchKey+'%' or ID like '%'+@SearchKey+'%' or username like '%'+@SearchKey+'%' or password like '%'+@SearchKey+'%' or action like '%'+@SearchKey+'%' or USERTYPE_ID like '%'+@SearchKey+'%'
+where LoginID like '%'+@SearchKey+'%' or  username like '%'+@SearchKey+'%' or password like '%'+@SearchKey+'%' or action like '%'+@SearchKey+'%' or USERTYPE_ID like '%'+@SearchKey+'%'
 
 
 
@@ -184,9 +199,11 @@ where LoginID like '%'+@SearchKey+'%' or ID like '%'+@SearchKey+'%' or username 
 
 SELECT * FROM TBLEQUIPMENTDETAILS
 
+DROP TABLE TBLEQUIPMENTDETAILS
+
 CREATE TABLE TBLEQUIPMENTDETAILS
 (
-	EQUIPMENT_ID INT identity (20000000,1),
+	EQUIPMENT_ID INT UNIQUE identity (20000000,1),
 	EQBARCODE VARCHAR(100) Primary Key,
 	EQUIPMENT_NAME VARCHAR(200),
 	EQUIPMENT_TYPE_ID INT FOREIGN KEY REFERENCES TBLEQEUIPMENTTYPE(EQUIPMENT_TYPE_ID),
@@ -259,7 +276,7 @@ CREATE TABLE TBLEQEUIPMENTTYPE
 CREATE TABLE EQUIPMENT_DESIGNATION
 (
 	EQ_DESIGNATION_ID INT PRIMARY KEY IDENTITY(800000,1),
-	ID varchar(50) FOREIGN KEY REFERENCES TBLUSERDETAILS(ID),
+	GENID INT foreign key references tbluserdetails(GENID),
 	EQUIPMENT_ID INT FOREIGN KEY REFERENCES TBLEQUIPMENTDETAILS(EQUIPMENT_ID),
 	DATE_DESIGNATED DATETIME,
 	DATE_RETURNED DATETIME,
@@ -269,3 +286,30 @@ CREATE TABLE EQUIPMENT_DESIGNATION
 
 
 ---------------------------------------------------------------------------------
+
+drop table TBLUSERACTIONREPORT
+
+CREATE TABLE TBLUSERACTIONREPORT
+(
+	ActionID int primary key identity(90000000,1),
+	GENID INT foreign key references tbluserdetails(GENID),
+	username varchar(50),
+	Action varchar (50),
+	Timestamp datetime
+)
+
+
+create proc sp_UserActionReport
+(
+	@ID int,
+	@Username varchar(50),
+	@Action varchar (50),
+	@Timestamp datetime
+)
+as
+insert into TBLUSERACTIONREPORT
+VALUES (@id,@username,@Action,@Timestamp)
+
+create proc sp_UserActionReportView
+as
+SELECT * FROM TBLUSERACTIONREPORT
