@@ -38,9 +38,13 @@ namespace ANS_SEIS_TV
 
             if (u.LoginResult == 1)
             {
-                Form1 f = new Form1();
                 this.Hide();
-                f.Show();
+                UserRegistration r = new UserRegistration();
+                u.CurrentUsername = u.Username;
+                //u.CurrentUserID = u.ReturnUserID();
+                //u.UserLoginLog();
+                r.Show();
+                
             }
             else
             { 

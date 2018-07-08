@@ -25,7 +25,7 @@ namespace ANS_SEIS_TV
         public string LastName { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public string GENID { get; set; }
+        public int GENID { get; set; }
         public string ID { get; set; }
         public string SecurityQuestion { get; set; }
         public string SecurityAnswer { get; set; }
@@ -35,7 +35,10 @@ namespace ANS_SEIS_TV
         public int LoginResult { get; set; }
         public string Searchkey { get; set; }
         int result;
-        public string CurrentUserID { get; set; }
+        public int CurrentUserID { get; set; }
+        public string CurrentUsername { get; set; }
+        public int CurrentUsertype { get; set; }
+        public string Action { get; set; }
 
         public void Clear()
         {
@@ -46,7 +49,7 @@ namespace ANS_SEIS_TV
             LastName = null;
             Username = null;
             Password = null;
-            GENID = null;
+            //GENID = null;
             ID = null;
             SecurityAnswer = null;
             SecurityQuestion = null;
@@ -173,7 +176,7 @@ namespace ANS_SEIS_TV
         public void UserInsert()
         {
             db.sp_UserInsert(null, ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer, Usertype);
-            db.sp_UserActionReport(CurrentUserID, "Registered a user", DateTime.Now);
+            db.sp_UserActionReport(CurrentUserID, CurrentUsername, "Registered a user", DateTime.Now);
         }
 
         public void UserEdit()
@@ -212,12 +215,24 @@ namespace ANS_SEIS_TV
             {
                 status = "Login Failed";
             }
-            db.sp_UserLoginReport(ID, Username, Password, status, DateTime.Now, Usertype);
+            db.sp_UserLoginReport(GENID, Username, Password, status, DateTime.Now, Usertype);
         }
 
         public int UserID()
         {
             return Convert.ToInt32(db.sp_UserID());
+        }
+
+
+        //dunno why this doens't work
+        //public int ReturnUserID()
+        //{
+        //    return Convert.ToInt32(db.sp_UserReturnID(Username, Usertype));
+        //}
+
+        public void ActionReport()
+        {
+            db.sp_UserLoginReport(CurrentUserID, CurrentUsername, Password, Action, DateTime.Now, CurrentUsertype);
         }
     }
 }

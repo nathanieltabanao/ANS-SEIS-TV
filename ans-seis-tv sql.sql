@@ -18,7 +18,7 @@ delete tbluserdetails
 --for tables of user
 CREATE TABLE TBLUSERDETAILS
 (
-	GENID INT IDENTITY(10000000,1),
+	GENID INT UNIQUE IDENTITY(10000000,1),
 	ID VARCHAR(50) PRIMARY KEY,
 	USERNAME VARCHAR(50),
 	PASSWORD VARCHAR(MAX),
@@ -43,6 +43,17 @@ as
 declare @GENID int
 select  @GENID = IDENT_CURRENT('TBLUSERDETAILS')
 return @GENID
+
+--Return UserID
+create proc sp_UserReturnID
+(
+	@username varchar(50),
+	@userID int
+)
+as
+select USERTYPE_ID from TBLUSERDETAILS
+where USERNAME=@username
+return @userid
 
 -- Insert User
 CREATE PROCEDURE sp_UserInsert
@@ -151,7 +162,7 @@ SELECT * from TBLUSERLOGINREPORT
 CREATE TABLE TBLUSERLOGINREPORT
 (
 	LoginID int identity(00000000,1) PRIMARY KEY,
-	ID varchar(50) foreign key references tbluserdetails(ID),
+	GENID INT foreign key references tbluserdetails(GENID),
 	username varchar(50),
 	password varchar(max),
 	Action varchar(100),
@@ -162,7 +173,7 @@ CREATE TABLE TBLUSERLOGINREPORT
 --Login Attempt
 CREATE PROC sp_UserLoginReport
 (
-	@ID varchar(50),
+	@ID int,
 	@username varchar(50),
 	@password varchar(max),
 	@Action varchar(100),
@@ -180,7 +191,7 @@ create proc sp_UserLoginReportView
 )
 as
 select * from TBLUSERLOGINREPORT
-where LoginID like '%'+@SearchKey+'%' or ID like '%'+@SearchKey+'%' or username like '%'+@SearchKey+'%' or password like '%'+@SearchKey+'%' or action like '%'+@SearchKey+'%' or USERTYPE_ID like '%'+@SearchKey+'%'
+where LoginID like '%'+@SearchKey+'%' or  username like '%'+@SearchKey+'%' or password like '%'+@SearchKey+'%' or action like '%'+@SearchKey+'%' or USERTYPE_ID like '%'+@SearchKey+'%'
 
 
 
@@ -188,9 +199,11 @@ where LoginID like '%'+@SearchKey+'%' or ID like '%'+@SearchKey+'%' or username 
 
 SELECT * FROM TBLEQUIPMENTDETAILS
 
+DROP TABLE TBLEQUIPMENTDETAILS
+
 CREATE TABLE TBLEQUIPMENTDETAILS
 (
-	EQUIPMENT_ID INT identity (20000000,1),
+	EQUIPMENT_ID INT UNIQUE identity (20000000,1),
 	EQBARCODE VARCHAR(100) Primary Key,
 	EQUIPMENT_NAME VARCHAR(200),
 	EQUIPMENT_TYPE_ID INT FOREIGN KEY REFERENCES TBLEQEUIPMENTTYPE(EQUIPMENT_TYPE_ID),
@@ -263,7 +276,7 @@ CREATE TABLE TBLEQEUIPMENTTYPE
 CREATE TABLE EQUIPMENT_DESIGNATION
 (
 	EQ_DESIGNATION_ID INT PRIMARY KEY IDENTITY(800000,1),
-	ID varchar(50) FOREIGN KEY REFERENCES TBLUSERDETAILS(ID),
+	GENID INT foreign key references tbluserdetails(GENID),
 	EQUIPMENT_ID INT FOREIGN KEY REFERENCES TBLEQUIPMENTDETAILS(EQUIPMENT_ID),
 	DATE_DESIGNATED DATETIME,
 	DATE_RETURNED DATETIME,
@@ -274,10 +287,13 @@ CREATE TABLE EQUIPMENT_DESIGNATION
 
 ---------------------------------------------------------------------------------
 
+drop table TBLUSERACTIONREPORT
+
 CREATE TABLE TBLUSERACTIONREPORT
 (
 	ActionID int primary key identity(90000000,1),
-	ID varchar(50) FOREIGN KEY REFERENCES TBLUSERDETAILS(ID),
+	GENID INT foreign key references tbluserdetails(GENID),
+	username varchar(50),
 	Action varchar (50),
 	Timestamp datetime
 )
@@ -285,10 +301,15 @@ CREATE TABLE TBLUSERACTIONREPORT
 
 create proc sp_UserActionReport
 (
-	@ID varchar(50),
+	@ID int,
+	@Username varchar(50),
 	@Action varchar (50),
 	@Timestamp datetime
 )
 as
 insert into TBLUSERACTIONREPORT
-VALUES (@id,@Action,@Timestamp)
+VALUES (@id,@username,@Action,@Timestamp)
+
+create proc sp_UserActionReportView
+as
+SELECT * FROM TBLUSERACTIONREPORT

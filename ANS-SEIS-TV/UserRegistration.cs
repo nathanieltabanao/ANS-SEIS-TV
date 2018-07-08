@@ -274,7 +274,7 @@ namespace ANS_SEIS_TV
 
         private void dgvView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            u.GENID = dgvView.CurrentRow.Cells[0].Value.ToString();
+            u.GENID = int.Parse(dgvView.CurrentRow.Cells[0].Value.ToString());
             u.ID = dgvView.CurrentRow.Cells[1].Value.ToString();
             u.Username = dgvView.CurrentRow.Cells[2].Value.ToString();
             u.FirstName = dgvView.CurrentRow.Cells[3].Value.ToString();
