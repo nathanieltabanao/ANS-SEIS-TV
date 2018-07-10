@@ -421,28 +421,28 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtFname;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtLname;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtMname;
-        //private DevComponents.DotNetBar.Controls.TextBoxX txtAddress;
-        private DevComponents.Editors.DateTimeAdv.DateTimeInput dtiBdate;
-        private DevComponents.DotNetBar.LabelX lblGenID;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbUserType;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbSecQues;
-        private System.Windows.Forms.Label label12;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtSecAns;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        //private System.Windows.Forms.Label label1;
+        //private System.Windows.Forms.Label label2;
+        //private System.Windows.Forms.Label label3;
+        //private System.Windows.Forms.Label label4;
+        //private System.Windows.Forms.Label label5;
+        //private System.Windows.Forms.Label label6;
+        //private System.Windows.Forms.Label label7;
+        //private System.Windows.Forms.Label label8;
+        //private System.Windows.Forms.Label label9;
+        //private DevComponents.DotNetBar.Controls.TextBoxX txtFname;
+        //private DevComponents.DotNetBar.Controls.TextBoxX txtLname;
+        //private DevComponents.DotNetBar.Controls.TextBoxX txtMname;
+        ////private DevComponents.DotNetBar.Controls.TextBoxX txtAddress;
+        //private DevComponents.Editors.DateTimeAdv.DateTimeInput dtiBdate;
+        //private DevComponents.DotNetBar.LabelX lblGenID;
+        //private DevComponents.DotNetBar.Controls.ComboBoxEx cmbUserType;
+        //private System.Windows.Forms.Label label10;
+        //private System.Windows.Forms.Label label11;
+        //private DevComponents.DotNetBar.Controls.ComboBoxEx cmbSecQues;
+        //private System.Windows.Forms.Label label12;
+        //private DevComponents.DotNetBar.Controls.TextBoxX txtSecAns;
+        //private System.Windows.Forms.Button button1;
+        //private System.Windows.Forms.Button button2;
     }
 }

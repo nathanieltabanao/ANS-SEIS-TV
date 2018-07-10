@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Sql;
 using System.IO;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace ANS_SEIS_TV
 {
@@ -24,7 +25,7 @@ namespace ANS_SEIS_TV
         public string LastName { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public string GENID { get; set; }
+        public int GENID { get; set; }
         public string ID { get; set; }
         public string SecurityQuestion { get; set; }
         public string SecurityAnswer { get; set; }
@@ -34,6 +35,10 @@ namespace ANS_SEIS_TV
         public int LoginResult { get; set; }
         public string Searchkey { get; set; }
         int result;
+        public int CurrentUserID { get; set; }
+        public string CurrentUsername { get; set; }
+        public int CurrentUsertype { get; set; }
+        public string Action { get; set; }
 
         public void Clear()
         {
@@ -44,7 +49,7 @@ namespace ANS_SEIS_TV
             LastName = null;
             Username = null;
             Password = null;
-            GENID = null;
+            //GENID = null;
             ID = null;
             SecurityAnswer = null;
             SecurityQuestion = null;
@@ -64,6 +69,18 @@ namespace ANS_SEIS_TV
                 return 0;
             }
 
+        }
+
+        public int IncompleteUserData()
+        {
+            if (string.IsNullOrEmpty(Address) || string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(MiddleName) || string.IsNullOrEmpty(LastName) || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(SecurityAnswer) || string.IsNullOrEmpty(SecurityQuestion)) 
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public string UserRegistered()
@@ -86,15 +103,36 @@ namespace ANS_SEIS_TV
             return "Error!";
         }
 
-        public string EmailError()
+        public int EmailError()
         {
-            return "Invalid Email!";
+            if (IsValidEmail(Email))
+            {
+                return 0;
+            }
+            else
+            { 
+            return 1;
+            }
+        }
+
+        public string InvalidEmail()
+        {
+            return "Invalid Email Address!";
+        }
+
+        bool IsValidEmail(string strIn)//Do not Delete
+        {
+            // Return true if strIn is in valid e-mail format.
+            return Regex.IsMatch(strIn, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
 
         public string EmptyUsername()
         {
+            
             return "Please fill your username!";
         }
+
+
 
         public string EmptyPassword()
         {
@@ -138,6 +176,7 @@ namespace ANS_SEIS_TV
         public void UserInsert()
         {
             db.sp_UserInsert(null, ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer, Usertype);
+            db.sp_UserActionReport(CurrentUserID, CurrentUsername, "Registered a user", DateTime.Now);
         }
 
         public void UserEdit()
@@ -176,12 +215,24 @@ namespace ANS_SEIS_TV
             {
                 status = "Login Failed";
             }
-            db.sp_UserLoginReport(ID, Username, Password, status, DateTime.Now, Usertype);
+            db.sp_UserLoginReport(GENID, Username, Password, status, DateTime.Now, Usertype);
         }
 
         public int UserID()
         {
             return Convert.ToInt32(db.sp_UserID());
+        }
+
+
+        //dunno why this doens't work
+        //public int ReturnUserID()
+        //{
+        //    return Convert.ToInt32(db.sp_UserReturnID(Username, Usertype));
+        //}
+
+        public void ActionReport()
+        {
+            db.sp_UserLoginReport(CurrentUserID, CurrentUsername, Password, Action, DateTime.Now, CurrentUsertype);
         }
     }
 }
