@@ -215,7 +215,9 @@ namespace ANS_SEIS_TV
             {
                 status = "Login Failed";
             }
-            db.sp_UserLoginReport(GENID, Username, Password, status, DateTime.Now, Usertype);
+
+            //log for user login that doesn't work
+            //db.sp_UserLoginReport(GENID, Username, Password, status, DateTime.Now, CurrentUsertype);
         }
 
         public int UserID()
@@ -232,6 +234,7 @@ namespace ANS_SEIS_TV
 
         public void ActionReport()
         {
+            CurrentUsertype = 110;
             db.sp_UserLoginReport(CurrentUserID, CurrentUsername, Password, Action, DateTime.Now, CurrentUsertype);
         }
     }
