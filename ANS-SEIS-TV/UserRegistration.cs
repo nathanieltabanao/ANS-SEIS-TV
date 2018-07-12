@@ -404,7 +404,7 @@ namespace ANS_SEIS_TV
             this.groupBox1.Controls.Add(this.rdoStudent);
             this.groupBox1.Controls.Add(this.rdoTeacher);
             this.groupBox1.Controls.Add(this.rdoAdmin);
-            this.groupBox1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(16, 98);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(280, 51);
@@ -481,6 +481,7 @@ namespace ANS_SEIS_TV
             this.txtMiddleName.Name = "txtMiddleName";
             this.txtMiddleName.Size = new System.Drawing.Size(233, 23);
             this.txtMiddleName.TabIndex = 3;
+            this.txtMiddleName.TextChanged += new System.EventHandler(this.txtMiddleName_TextChanged);
             // 
             // txtLastName
             // 
@@ -532,7 +533,7 @@ namespace ANS_SEIS_TV
             this.dtpBirthdate.CalendarTrailingForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dtpBirthdate.Location = new System.Drawing.Point(145, 136);
             this.dtpBirthdate.Name = "dtpBirthdate";
-            this.dtpBirthdate.Size = new System.Drawing.Size(233, 25);
+            this.dtpBirthdate.Size = new System.Drawing.Size(233, 23);
             this.dtpBirthdate.TabIndex = 6;
             this.dtpBirthdate.Value = new System.DateTime(2018, 7, 6, 7, 41, 9, 0);
             // 
@@ -540,10 +541,10 @@ namespace ANS_SEIS_TV
             // 
             this.bunifuCustomLabel3.AutoSize = true;
             this.bunifuCustomLabel3.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel3.Location = new System.Drawing.Point(48, 24);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(91, 19);
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(89, 18);
             this.bunifuCustomLabel3.TabIndex = 24;
             this.bunifuCustomLabel3.Text = "First Name :";
             // 
@@ -787,10 +788,10 @@ namespace ANS_SEIS_TV
             // 
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Roboto Medium", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(17, 163);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(66, 20);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(66, 18);
             this.bunifuCustomLabel1.TabIndex = 23;
             this.bunifuCustomLabel1.Text = "User ID :";
             // 
@@ -799,10 +800,10 @@ namespace ANS_SEIS_TV
             this.bunifuCustomLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.Location = new System.Drawing.Point(931, 75);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(63, 19);
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(63, 18);
             this.bunifuCustomLabel2.TabIndex = 24;
             this.bunifuCustomLabel2.Text = "Search :";
             // 
@@ -820,7 +821,7 @@ namespace ANS_SEIS_TV
             this.dgvView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -905,7 +906,7 @@ namespace ANS_SEIS_TV
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.materialLabel1);
-            this.Font = new System.Drawing.Font("Roboto Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UserRegistration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Registration";
@@ -922,6 +923,11 @@ namespace ANS_SEIS_TV
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
+        }
+
+        private void txtMiddleName_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
