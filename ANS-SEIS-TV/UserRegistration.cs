@@ -453,6 +453,7 @@ namespace ANS_SEIS_TV
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(210, 23);
             this.txtID.TabIndex = 4;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // materialLabel1
             // 
@@ -922,6 +923,11 @@ namespace ANS_SEIS_TV
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
