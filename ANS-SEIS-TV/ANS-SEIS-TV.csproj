@@ -63,6 +63,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="EquipmentInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EquipmentInventory.Designer.cs">
+      <DependentUpon>EquipmentInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="EquipmentRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserRegistration.Designer.cs" />
+    <EmbeddedResource Include="EquipmentInventory.resx">
+      <DependentUpon>EquipmentInventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserRegistration.resx">
       <DependentUpon>UserRegistration.cs</DependentUpon>
     </EmbeddedResource>

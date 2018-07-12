@@ -333,7 +333,7 @@ namespace ANS_SEIS_TV
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdoStudent = new MaterialSkin.Controls.MaterialRadioButton();
@@ -384,9 +384,10 @@ namespace ANS_SEIS_TV
             // rdoAdmin
             // 
             this.rdoAdmin.AutoSize = true;
+            this.rdoAdmin.BackColor = System.Drawing.Color.Transparent;
             this.rdoAdmin.Depth = 0;
             this.rdoAdmin.Font = new System.Drawing.Font("Roboto", 10F);
-            this.rdoAdmin.Location = new System.Drawing.Point(2, 13);
+            this.rdoAdmin.Location = new System.Drawing.Point(5, 18);
             this.rdoAdmin.Margin = new System.Windows.Forms.Padding(0);
             this.rdoAdmin.MouseLocation = new System.Drawing.Point(-1, -1);
             this.rdoAdmin.MouseState = MaterialSkin.MouseState.HOVER;
@@ -395,7 +396,7 @@ namespace ANS_SEIS_TV
             this.rdoAdmin.Size = new System.Drawing.Size(114, 30);
             this.rdoAdmin.TabIndex = 2;
             this.rdoAdmin.Text = "Administrator";
-            this.rdoAdmin.UseVisualStyleBackColor = true;
+            this.rdoAdmin.UseVisualStyleBackColor = false;
             this.rdoAdmin.CheckedChanged += new System.EventHandler(this.rdoAdmin_CheckedChanged);
             // 
             // groupBox1
@@ -404,10 +405,10 @@ namespace ANS_SEIS_TV
             this.groupBox1.Controls.Add(this.rdoStudent);
             this.groupBox1.Controls.Add(this.rdoTeacher);
             this.groupBox1.Controls.Add(this.rdoAdmin);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(16, 98);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(280, 51);
+            this.groupBox1.Size = new System.Drawing.Size(380, 51);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Type";
@@ -415,9 +416,10 @@ namespace ANS_SEIS_TV
             // rdoStudent
             // 
             this.rdoStudent.AutoSize = true;
+            this.rdoStudent.BackColor = System.Drawing.Color.Transparent;
             this.rdoStudent.Depth = 0;
             this.rdoStudent.Font = new System.Drawing.Font("Roboto", 10F);
-            this.rdoStudent.Location = new System.Drawing.Point(195, 13);
+            this.rdoStudent.Location = new System.Drawing.Point(256, 18);
             this.rdoStudent.Margin = new System.Windows.Forms.Padding(0);
             this.rdoStudent.MouseLocation = new System.Drawing.Point(-1, -1);
             this.rdoStudent.MouseState = MaterialSkin.MouseState.HOVER;
@@ -426,15 +428,16 @@ namespace ANS_SEIS_TV
             this.rdoStudent.Size = new System.Drawing.Size(77, 30);
             this.rdoStudent.TabIndex = 4;
             this.rdoStudent.Text = "Student";
-            this.rdoStudent.UseVisualStyleBackColor = true;
+            this.rdoStudent.UseVisualStyleBackColor = false;
             this.rdoStudent.CheckedChanged += new System.EventHandler(this.rdoStudent_CheckedChanged);
             // 
             // rdoTeacher
             // 
             this.rdoTeacher.AutoSize = true;
+            this.rdoTeacher.BackColor = System.Drawing.Color.Transparent;
             this.rdoTeacher.Depth = 0;
             this.rdoTeacher.Font = new System.Drawing.Font("Roboto", 10F);
-            this.rdoTeacher.Location = new System.Drawing.Point(116, 13);
+            this.rdoTeacher.Location = new System.Drawing.Point(143, 18);
             this.rdoTeacher.Margin = new System.Windows.Forms.Padding(0);
             this.rdoTeacher.MouseLocation = new System.Drawing.Point(-1, -1);
             this.rdoTeacher.MouseState = MaterialSkin.MouseState.HOVER;
@@ -443,7 +446,7 @@ namespace ANS_SEIS_TV
             this.rdoTeacher.Size = new System.Drawing.Size(79, 30);
             this.rdoTeacher.TabIndex = 3;
             this.rdoTeacher.Text = "Teacher";
-            this.rdoTeacher.UseVisualStyleBackColor = true;
+            this.rdoTeacher.UseVisualStyleBackColor = false;
             this.rdoTeacher.CheckedChanged += new System.EventHandler(this.rdoTeacher_CheckedChanged);
             // 
             // txtID
@@ -519,6 +522,7 @@ namespace ANS_SEIS_TV
             this.groupBox2.Controls.Add(this.txtMiddleName);
             this.groupBox2.Controls.Add(this.materialLabel8);
             this.groupBox2.Controls.Add(this.materialLabel9);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox2.Location = new System.Drawing.Point(12, 192);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(384, 199);
@@ -533,7 +537,7 @@ namespace ANS_SEIS_TV
             this.dtpBirthdate.CalendarTrailingForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dtpBirthdate.Location = new System.Drawing.Point(145, 136);
             this.dtpBirthdate.Name = "dtpBirthdate";
-            this.dtpBirthdate.Size = new System.Drawing.Size(233, 23);
+            this.dtpBirthdate.Size = new System.Drawing.Size(233, 24);
             this.dtpBirthdate.TabIndex = 6;
             this.dtpBirthdate.Value = new System.DateTime(2018, 7, 6, 7, 41, 9, 0);
             // 
@@ -611,7 +615,7 @@ namespace ANS_SEIS_TV
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel9.Location = new System.Drawing.Point(25, 167);
+            this.materialLabel9.Location = new System.Drawing.Point(27, 167);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
             this.materialLabel9.Size = new System.Drawing.Size(114, 19);
@@ -627,6 +631,7 @@ namespace ANS_SEIS_TV
             this.groupBox3.Controls.Add(this.materialLabel11);
             this.groupBox3.Controls.Add(this.txtConfirmPassword);
             this.groupBox3.Controls.Add(this.txtPassword);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox3.Location = new System.Drawing.Point(16, 397);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(380, 117);
@@ -708,6 +713,7 @@ namespace ANS_SEIS_TV
             this.groupBox4.Controls.Add(this.materialLabel12);
             this.groupBox4.Controls.Add(this.materialLabel13);
             this.groupBox4.Controls.Add(this.txtSecurityAnswer);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox4.Location = new System.Drawing.Point(18, 520);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(378, 90);
@@ -788,10 +794,10 @@ namespace ANS_SEIS_TV
             // 
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(17, 163);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(66, 18);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(69, 20);
             this.bunifuCustomLabel1.TabIndex = 23;
             this.bunifuCustomLabel1.Text = "User ID :";
             // 
@@ -801,7 +807,7 @@ namespace ANS_SEIS_TV
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.BackColor = System.Drawing.SystemColors.Window;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(931, 75);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(824, 75);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(63, 18);
             this.bunifuCustomLabel2.TabIndex = 24;
@@ -819,21 +825,21 @@ namespace ANS_SEIS_TV
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvView.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvView.Location = new System.Drawing.Point(402, 103);
             this.dgvView.Name = "dgvView";
             this.dgvView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvView.Size = new System.Drawing.Size(790, 536);
+            this.dgvView.Size = new System.Drawing.Size(790, 545);
             this.dgvView.TabIndex = 25;
             this.dgvView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvView_CellContentDoubleClick);
             // 
@@ -841,7 +847,7 @@ namespace ANS_SEIS_TV
             // 
             this.btnEdit.Location = new System.Drawing.Point(210, 614);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(90, 25);
+            this.btnEdit.Size = new System.Drawing.Size(90, 34);
             this.btnEdit.TabIndex = 26;
             this.btnEdit.Values.Text = "Edit User";
             // 
@@ -850,14 +856,14 @@ namespace ANS_SEIS_TV
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Depth = 0;
             this.txtSearch.Hint = "";
-            this.txtSearch.Location = new System.Drawing.Point(991, 75);
+            this.txtSearch.Location = new System.Drawing.Point(893, 75);
             this.txtSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.SelectedText = "";
             this.txtSearch.SelectionLength = 0;
             this.txtSearch.SelectionStart = 0;
-            this.txtSearch.Size = new System.Drawing.Size(201, 23);
+            this.txtSearch.Size = new System.Drawing.Size(299, 23);
             this.txtSearch.TabIndex = 28;
             this.txtSearch.UseSystemPasswordChar = false;
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
@@ -867,7 +873,7 @@ namespace ANS_SEIS_TV
             // 
             this.btnInsert.Location = new System.Drawing.Point(306, 614);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(90, 25);
+            this.btnInsert.Size = new System.Drawing.Size(90, 34);
             this.btnInsert.TabIndex = 29;
             this.btnInsert.Values.Text = "Add User";
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
@@ -876,7 +882,7 @@ namespace ANS_SEIS_TV
             // 
             this.btnDelete.Location = new System.Drawing.Point(114, 614);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(90, 25);
+            this.btnDelete.Size = new System.Drawing.Size(90, 34);
             this.btnDelete.TabIndex = 30;
             this.btnDelete.Values.Text = "Delete User";
             // 
@@ -884,14 +890,14 @@ namespace ANS_SEIS_TV
             // 
             this.btnClear.Location = new System.Drawing.Point(18, 614);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(90, 25);
+            this.btnClear.Size = new System.Drawing.Size(90, 34);
             this.btnClear.TabIndex = 31;
             this.btnClear.Values.Text = "Clear";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // UserRegistration
             // 
-            this.ClientSize = new System.Drawing.Size(1204, 647);
+            this.ClientSize = new System.Drawing.Size(1204, 660);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnInsert);
