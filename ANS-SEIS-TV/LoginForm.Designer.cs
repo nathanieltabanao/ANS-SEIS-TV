@@ -28,34 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.txtUsername = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(543, 168);
-            this.txtUsername.Multiline = true;
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(229, 26);
-            this.txtUsername.TabIndex = 3;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(543, 200);
-            this.txtPassword.Multiline = true;
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(229, 26);
-            this.txtPassword.TabIndex = 4;
-            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // pictureBox1
             // 
@@ -102,7 +82,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnLogin.ForeColor = System.Drawing.Color.DimGray;
-            this.btnLogin.Location = new System.Drawing.Point(674, 232);
+            this.btnLogin.Location = new System.Drawing.Point(643, 232);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(98, 39);
             this.btnLogin.TabIndex = 5;
@@ -110,17 +90,47 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txtUsername
+            // 
+            this.txtUsername.Depth = 0;
+            this.txtUsername.Hint = "";
+            this.txtUsername.Location = new System.Drawing.Point(543, 168);
+            this.txtUsername.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.PasswordChar = '\0';
+            this.txtUsername.SelectedText = "";
+            this.txtUsername.SelectionLength = 0;
+            this.txtUsername.SelectionStart = 0;
+            this.txtUsername.Size = new System.Drawing.Size(198, 23);
+            this.txtUsername.TabIndex = 1;
+            this.txtUsername.UseSystemPasswordChar = false;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Depth = 0;
+            this.txtPassword.Hint = "";
+            this.txtPassword.Location = new System.Drawing.Point(541, 203);
+            this.txtPassword.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.SelectedText = "";
+            this.txtPassword.SelectionLength = 0;
+            this.txtPassword.SelectionStart = 0;
+            this.txtPassword.Size = new System.Drawing.Size(198, 23);
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.UseSystemPasswordChar = true;
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 449);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.pictureBox1);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -135,11 +145,11 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.TextBox txtPassword;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.Button btnLogin;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtUsername;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtPassword;
     }
 }
 
