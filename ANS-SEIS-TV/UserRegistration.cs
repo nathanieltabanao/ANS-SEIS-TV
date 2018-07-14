@@ -326,6 +326,37 @@ namespace ANS_SEIS_TV
             btnDelete.Enabled = false;
         }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            u.ID = txtID.Text;
+            u.Username = txtUsername.Text;
+            u.Password = txtPassword.Text;
+            u.FirstName = txtFirstName.Text;
+            u.MiddleName = txtMiddleName.Text;
+            u.LastName = txtLastName.Text;
+            u.SecurityQuestion = drpSecurityQuestion.Text;
+            u.SecurityAnswer = txtSecurityAnswer.Text;
+
+            u.UserEdit();
+            InsertMode();
+            View();
+            Clear();
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            u.Clear();
+            u.ID = txtID.Text;
+            u.UserDelete();
+            Clear();
+            View();
+        }
+
 
         //WATEVER MAY HAPEN PLIZ DO NAT TACH DIZ AREA OF CODE IF YOU DONT WANA DAY
 
@@ -844,6 +875,7 @@ namespace ANS_SEIS_TV
             this.btnEdit.Size = new System.Drawing.Size(90, 25);
             this.btnEdit.TabIndex = 26;
             this.btnEdit.Values.Text = "Edit User";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // txtSearch
             // 
@@ -851,6 +883,7 @@ namespace ANS_SEIS_TV
             this.txtSearch.Depth = 0;
             this.txtSearch.Hint = "";
             this.txtSearch.Location = new System.Drawing.Point(991, 75);
+            this.txtSearch.MaxLength = 32767;
             this.txtSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
@@ -859,6 +892,7 @@ namespace ANS_SEIS_TV
             this.txtSearch.SelectionStart = 0;
             this.txtSearch.Size = new System.Drawing.Size(201, 23);
             this.txtSearch.TabIndex = 28;
+            this.txtSearch.TabStop = false;
             this.txtSearch.UseSystemPasswordChar = false;
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -879,6 +913,7 @@ namespace ANS_SEIS_TV
             this.btnDelete.Size = new System.Drawing.Size(90, 25);
             this.btnDelete.TabIndex = 30;
             this.btnDelete.Values.Text = "Delete User";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClear
             // 
@@ -923,11 +958,6 @@ namespace ANS_SEIS_TV
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
-        }
-
-        private void txtID_TextChanged(object sender, EventArgs e)
-        {
 
         }
     }

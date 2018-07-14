@@ -39,6 +39,7 @@ namespace ANS_SEIS_TV
         public string CurrentUsername { get; set; }
         public int CurrentUsertype { get; set; }
         public string Action { get; set; }
+        public string status;
 
         public void Clear()
         {
@@ -176,7 +177,7 @@ namespace ANS_SEIS_TV
         public void UserInsert()
         {
             db.sp_UserInsert(null, ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer, Usertype);
-            db.sp_UserActionReport(CurrentUserID, CurrentUsername, "Registered a user", DateTime.Now);
+            //db.sp_UserActionReport(CurrentUserID, CurrentUsername, "Registered a user", DateTime.Now); //for testing
         }
 
         public void UserEdit()
@@ -205,7 +206,6 @@ namespace ANS_SEIS_TV
 
         public void UserLoginLog()
         {
-            string status;
 
             if (LoginResult == 0)
             {
