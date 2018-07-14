@@ -506,6 +506,7 @@ namespace ANS_SEIS_TV
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(233, 23);
             this.txtFirstName.TabIndex = 2;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // txtMiddleName
             // 
@@ -958,6 +959,11 @@ namespace ANS_SEIS_TV
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
