@@ -23,13 +23,15 @@ namespace ANS_SEIS_TV
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtMiddleName;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox kryptonComboBox2;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox eqDesig;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox kryptonComboBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbEqtpye;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnClear;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnDelete;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnInsert;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbEqstatus;
+        private MaterialLabel materialLabel1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
 
         public EquipmentRegistration()
@@ -39,29 +41,32 @@ namespace ANS_SEIS_TV
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.dgvView = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.eqDesig = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtFirstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.txtMiddleName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.kryptonComboBox1 = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonComboBox2 = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.cmbEqtpye = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.btnClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnInsert = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.cmbEqstatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eqDesig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbEqtpye)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbEqstatus)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -92,14 +97,14 @@ namespace ANS_SEIS_TV
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvView.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvView.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvView.Location = new System.Drawing.Point(427, 103);
@@ -126,7 +131,7 @@ namespace ANS_SEIS_TV
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(12, 85);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(12, 105);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(66, 20);
             this.bunifuCustomLabel1.TabIndex = 33;
@@ -135,7 +140,7 @@ namespace ANS_SEIS_TV
             // txtID
             // 
             this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(163, 85);
+            this.txtID.Location = new System.Drawing.Point(163, 105);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(252, 23);
             this.txtID.TabIndex = 32;
@@ -143,19 +148,29 @@ namespace ANS_SEIS_TV
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.kryptonComboBox2);
+            this.groupBox2.Controls.Add(this.cmbEqstatus);
+            this.groupBox2.Controls.Add(this.materialLabel1);
+            this.groupBox2.Controls.Add(this.eqDesig);
             this.groupBox2.Controls.Add(this.bunifuCustomLabel3);
             this.groupBox2.Controls.Add(this.txtFirstName);
             this.groupBox2.Controls.Add(this.materialLabel5);
             this.groupBox2.Controls.Add(this.materialLabel6);
             this.groupBox2.Controls.Add(this.txtMiddleName);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox2.Location = new System.Drawing.Point(12, 155);
+            this.groupBox2.Location = new System.Drawing.Point(12, 175);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(409, 154);
+            this.groupBox2.Size = new System.Drawing.Size(409, 191);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Equipment Details";
+            // 
+            // eqDesig
+            // 
+            this.eqDesig.DropDownWidth = 252;
+            this.eqDesig.Location = new System.Drawing.Point(151, 98);
+            this.eqDesig.Name = "eqDesig";
+            this.eqDesig.Size = new System.Drawing.Size(252, 21);
+            this.eqDesig.TabIndex = 37;
             // 
             // bunifuCustomLabel3
             // 
@@ -215,27 +230,19 @@ namespace ANS_SEIS_TV
             this.bunifuCustomLabel4.AutoSize = true;
             this.bunifuCustomLabel4.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(12, 119);
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(12, 139);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(120, 20);
             this.bunifuCustomLabel4.TabIndex = 35;
             this.bunifuCustomLabel4.Text = "Equipment type";
             // 
-            // kryptonComboBox1
+            // cmbEqtpye
             // 
-            this.kryptonComboBox1.DropDownWidth = 252;
-            this.kryptonComboBox1.Location = new System.Drawing.Point(163, 117);
-            this.kryptonComboBox1.Name = "kryptonComboBox1";
-            this.kryptonComboBox1.Size = new System.Drawing.Size(252, 21);
-            this.kryptonComboBox1.TabIndex = 36;
-            // 
-            // kryptonComboBox2
-            // 
-            this.kryptonComboBox2.DropDownWidth = 252;
-            this.kryptonComboBox2.Location = new System.Drawing.Point(151, 98);
-            this.kryptonComboBox2.Name = "kryptonComboBox2";
-            this.kryptonComboBox2.Size = new System.Drawing.Size(252, 21);
-            this.kryptonComboBox2.TabIndex = 37;
+            this.cmbEqtpye.DropDownWidth = 252;
+            this.cmbEqtpye.Location = new System.Drawing.Point(163, 137);
+            this.cmbEqtpye.Name = "cmbEqtpye";
+            this.cmbEqtpye.Size = new System.Drawing.Size(252, 21);
+            this.cmbEqtpye.TabIndex = 36;
             // 
             // btnClear
             // 
@@ -247,7 +254,7 @@ namespace ANS_SEIS_TV
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(112, 548);
+            this.btnDelete.Location = new System.Drawing.Point(119, 548);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(90, 34);
             this.btnDelete.TabIndex = 39;
@@ -255,7 +262,7 @@ namespace ANS_SEIS_TV
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(304, 548);
+            this.btnInsert.Location = new System.Drawing.Point(325, 548);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(90, 34);
             this.btnInsert.TabIndex = 38;
@@ -263,11 +270,33 @@ namespace ANS_SEIS_TV
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(208, 548);
+            this.btnEdit.Location = new System.Drawing.Point(224, 548);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(90, 34);
             this.btnEdit.TabIndex = 37;
             this.btnEdit.Values.Text = "Edit";
+            // 
+            // cmbEqstatus
+            // 
+            this.cmbEqstatus.DropDownWidth = 252;
+            this.cmbEqstatus.Location = new System.Drawing.Point(151, 133);
+            this.cmbEqstatus.Name = "cmbEqstatus";
+            this.cmbEqstatus.Size = new System.Drawing.Size(252, 21);
+            this.cmbEqstatus.TabIndex = 39;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(89, 133);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(56, 19);
+            this.materialLabel1.TabIndex = 38;
+            this.materialLabel1.Text = "Status:";
             // 
             // EquipmentRegistration
             // 
@@ -276,7 +305,7 @@ namespace ANS_SEIS_TV
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.kryptonComboBox1);
+            this.Controls.Add(this.cmbEqtpye);
             this.Controls.Add(this.bunifuCustomLabel4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.bunifuCustomLabel1);
@@ -290,8 +319,9 @@ namespace ANS_SEIS_TV
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eqDesig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbEqtpye)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbEqstatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
