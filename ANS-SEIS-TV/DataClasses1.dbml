@@ -87,6 +87,20 @@
     <Parameter Name="EQBARCODE" Parameter="eQBARCODE" Type="System.String" DbType="VarChar(100)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.sp_UserView" Method="sp_UserView">
+    <ElementType Name="sp_UserViewResult">
+      <Column Name="[General ID]" Member="General_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[First Name]" Member="First_Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="[Middle Name]" Member="Middle_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[Last Name]" Member="Last_Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Birthdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="[Email Address]" Member="Email_Address" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="[Usertype ID]" Member="Usertype_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.sp_EquipmentInsert" Method="sp_EquipmentInsert">
     <Parameter Name="EQBARCODE" Parameter="eQBARCODE" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="EQUIPMENT_NAME" Parameter="eQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" />
@@ -212,20 +226,6 @@
   <Function Name="dbo.sp_UserSearch" Method="sp_UserSearch">
     <Parameter Name="SearchKey" Parameter="searchKey" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="sp_UserSearchResult">
-      <Column Name="[General ID]" Member="General_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="[First Name]" Member="First_Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="[Middle Name]" Member="Middle_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="[Last Name]" Member="Last_Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Birthdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="[Email Address]" Member="Email_Address" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="[Usertype ID]" Member="Usertype_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_UserView" Method="sp_UserView">
-    <ElementType Name="sp_UserViewResult">
       <Column Name="[General ID]" Member="General_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />

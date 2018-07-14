@@ -24,6 +24,11 @@ namespace ANS_SEIS_TV
             
         }
 
+        public void Clear()
+        {
+
+        }
+
         UserLibrary u = new UserLibrary();
 
         DataClasses1DataContext db = new DataClasses1DataContext();
@@ -48,7 +53,7 @@ namespace ANS_SEIS_TV
             }
             else
             { 
-                MessageBox.Show("lol");
+                MessageBox.Show("Invalid Username or Password");
             }
         }
 
