@@ -21,17 +21,15 @@ namespace ANS_SEIS_TV
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtFirstName;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
-        private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtMiddleName;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox eqDesig;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbEqtpye;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnClear;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnDelete;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnInsert;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbEqstatus;
         private MaterialLabel materialLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown numQuantity;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
 
         public EquipmentRegistration()
@@ -41,18 +39,16 @@ namespace ANS_SEIS_TV
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.dgvView = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.eqDesig = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtFirstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.txtMiddleName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.cmbEqtpye = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -60,13 +56,11 @@ namespace ANS_SEIS_TV
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnInsert = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.cmbEqstatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.numQuantity = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eqDesig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbEqtpye)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEqstatus)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -75,6 +69,7 @@ namespace ANS_SEIS_TV
             this.txtSearch.Depth = 0;
             this.txtSearch.Hint = "";
             this.txtSearch.Location = new System.Drawing.Point(877, 74);
+            this.txtSearch.MaxLength = 32767;
             this.txtSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
@@ -83,6 +78,7 @@ namespace ANS_SEIS_TV
             this.txtSearch.SelectionStart = 0;
             this.txtSearch.Size = new System.Drawing.Size(299, 23);
             this.txtSearch.TabIndex = 31;
+            this.txtSearch.TabStop = false;
             this.txtSearch.UseSystemPasswordChar = false;
             // 
             // dgvView
@@ -97,14 +93,14 @@ namespace ANS_SEIS_TV
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvView.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvView.Location = new System.Drawing.Point(427, 103);
@@ -133,9 +129,9 @@ namespace ANS_SEIS_TV
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(12, 105);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(66, 20);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(113, 20);
             this.bunifuCustomLabel1.TabIndex = 33;
-            this.bunifuCustomLabel1.Text = "Barcode";
+            this.bunifuCustomLabel1.Text = "Equipment ID :";
             // 
             // txtID
             // 
@@ -148,29 +144,19 @@ namespace ANS_SEIS_TV
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.cmbEqstatus);
+            this.groupBox2.Controls.Add(this.numQuantity);
             this.groupBox2.Controls.Add(this.materialLabel1);
-            this.groupBox2.Controls.Add(this.eqDesig);
             this.groupBox2.Controls.Add(this.bunifuCustomLabel3);
             this.groupBox2.Controls.Add(this.txtFirstName);
             this.groupBox2.Controls.Add(this.materialLabel5);
-            this.groupBox2.Controls.Add(this.materialLabel6);
             this.groupBox2.Controls.Add(this.txtMiddleName);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox2.Location = new System.Drawing.Point(12, 175);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(409, 191);
+            this.groupBox2.Size = new System.Drawing.Size(409, 153);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Equipment Details";
-            // 
-            // eqDesig
-            // 
-            this.eqDesig.DropDownWidth = 252;
-            this.eqDesig.Location = new System.Drawing.Point(151, 98);
-            this.eqDesig.Name = "eqDesig";
-            this.eqDesig.Size = new System.Drawing.Size(252, 21);
-            this.eqDesig.TabIndex = 37;
             // 
             // bunifuCustomLabel3
             // 
@@ -200,23 +186,9 @@ namespace ANS_SEIS_TV
             this.materialLabel5.Location = new System.Drawing.Point(40, 67);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(106, 19);
+            this.materialLabel5.Size = new System.Drawing.Size(94, 19);
             this.materialLabel5.TabIndex = 8;
-            this.materialLabel5.Text = "Manufacturer :";
-            // 
-            // materialLabel6
-            // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(52, 98);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(93, 19);
-            this.materialLabel6.TabIndex = 9;
-            this.materialLabel6.Text = "Designation:";
+            this.materialLabel5.Text = "Description :";
             // 
             // txtMiddleName
             // 
@@ -276,14 +248,6 @@ namespace ANS_SEIS_TV
             this.btnEdit.TabIndex = 37;
             this.btnEdit.Values.Text = "Edit";
             // 
-            // cmbEqstatus
-            // 
-            this.cmbEqstatus.DropDownWidth = 252;
-            this.cmbEqstatus.Location = new System.Drawing.Point(151, 133);
-            this.cmbEqstatus.Name = "cmbEqstatus";
-            this.cmbEqstatus.Size = new System.Drawing.Size(252, 21);
-            this.cmbEqstatus.TabIndex = 39;
-            // 
             // materialLabel1
             // 
             this.materialLabel1.AutoSize = true;
@@ -291,12 +255,35 @@ namespace ANS_SEIS_TV
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(89, 133);
+            this.materialLabel1.Location = new System.Drawing.Point(73, 96);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(56, 19);
-            this.materialLabel1.TabIndex = 38;
-            this.materialLabel1.Text = "Status:";
+            this.materialLabel1.Size = new System.Drawing.Size(72, 19);
+            this.materialLabel1.TabIndex = 25;
+            this.materialLabel1.Text = "Quantity :";
+            // 
+            // numQuantity
+            // 
+            this.numQuantity.Location = new System.Drawing.Point(151, 93);
+            this.numQuantity.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numQuantity.Name = "numQuantity";
+            this.numQuantity.Size = new System.Drawing.Size(252, 22);
+            this.numQuantity.TabIndex = 26;
+            this.numQuantity.ThousandsSeparator = true;
+            this.numQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // EquipmentRegistration
             // 
@@ -319,9 +306,7 @@ namespace ANS_SEIS_TV
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eqDesig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbEqtpye)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEqstatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

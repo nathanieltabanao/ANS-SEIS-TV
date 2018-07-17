@@ -69,10 +69,17 @@
     <Compile Include="EquipmentInventory.Designer.cs">
       <DependentUpon>EquipmentInventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="EquipmentLibrary.cs" />
     <Compile Include="EquipmentRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EquipmentRegistration.Designer.cs" />
+    <Compile Include="FirstLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstLoginForm.Designer.cs">
+      <DependentUpon>FirstLoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +107,9 @@
     <Compile Include="UserRegistration.Designer.cs" />
     <EmbeddedResource Include="EquipmentInventory.resx">
       <DependentUpon>EquipmentInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstLoginForm.resx">
+      <DependentUpon>FirstLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
