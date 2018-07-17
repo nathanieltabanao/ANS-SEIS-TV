@@ -160,6 +160,11 @@ namespace ANS_SEIS_TV
                 txtID.Text = "AD-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
             }
             u.Usertype = 110;
+            txtUsername.Enabled = true;
+            txtPassword.Enabled = true;
+            txtConfirmPassword.Enabled = true;
+            drpSecurityQuestion.Enabled = true;
+            txtSecurityAnswer.Enabled = true;
         }
 
         public void Teacher()
@@ -173,6 +178,11 @@ namespace ANS_SEIS_TV
                 txtID.Text = "TR-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
             }
             u.Usertype = 111;
+            txtUsername.Enabled = false;
+            txtPassword.Enabled = false;
+            drpSecurityQuestion.Enabled = false;
+            txtSecurityAnswer.Enabled = false;
+            txtConfirmPassword.Enabled = false;
         }
 
         public void Student()
@@ -333,7 +343,7 @@ namespace ANS_SEIS_TV
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdoStudent = new MaterialSkin.Controls.MaterialRadioButton();
@@ -412,12 +422,14 @@ namespace ANS_SEIS_TV
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Type";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // rdoStudent
             // 
             this.rdoStudent.AutoSize = true;
             this.rdoStudent.BackColor = System.Drawing.Color.Transparent;
             this.rdoStudent.Depth = 0;
+            this.rdoStudent.Enabled = false;
             this.rdoStudent.Font = new System.Drawing.Font("Roboto", 10F);
             this.rdoStudent.Location = new System.Drawing.Point(256, 18);
             this.rdoStudent.Margin = new System.Windows.Forms.Padding(0);
@@ -633,9 +645,9 @@ namespace ANS_SEIS_TV
             this.groupBox3.Controls.Add(this.txtConfirmPassword);
             this.groupBox3.Controls.Add(this.txtPassword);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox3.Location = new System.Drawing.Point(16, 397);
+            this.groupBox3.Location = new System.Drawing.Point(12, 397);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(380, 117);
+            this.groupBox3.Size = new System.Drawing.Size(384, 117);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Account Details";
@@ -658,7 +670,7 @@ namespace ANS_SEIS_TV
             // 
             this.txtUsername.Location = new System.Drawing.Point(148, 22);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(226, 23);
+            this.txtUsername.Size = new System.Drawing.Size(230, 23);
             this.txtUsername.TabIndex = 8;
             // 
             // materialLabel10
@@ -694,7 +706,7 @@ namespace ANS_SEIS_TV
             this.txtConfirmPassword.Location = new System.Drawing.Point(148, 80);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '●';
-            this.txtConfirmPassword.Size = new System.Drawing.Size(226, 23);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(230, 23);
             this.txtConfirmPassword.TabIndex = 10;
             this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
@@ -703,7 +715,7 @@ namespace ANS_SEIS_TV
             this.txtPassword.Location = new System.Drawing.Point(148, 51);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
-            this.txtPassword.Size = new System.Drawing.Size(226, 23);
+            this.txtPassword.Size = new System.Drawing.Size(230, 23);
             this.txtPassword.TabIndex = 8;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
@@ -715,9 +727,9 @@ namespace ANS_SEIS_TV
             this.groupBox4.Controls.Add(this.materialLabel13);
             this.groupBox4.Controls.Add(this.txtSecurityAnswer);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox4.Location = new System.Drawing.Point(18, 520);
+            this.groupBox4.Location = new System.Drawing.Point(12, 520);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(378, 90);
+            this.groupBox4.Size = new System.Drawing.Size(384, 90);
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Account Recovery";
@@ -753,7 +765,7 @@ namespace ANS_SEIS_TV
             this.drpSecurityQuestion.Location = new System.Drawing.Point(148, 21);
             this.drpSecurityQuestion.Name = "drpSecurityQuestion";
             this.drpSecurityQuestion.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
-            this.drpSecurityQuestion.Size = new System.Drawing.Size(224, 21);
+            this.drpSecurityQuestion.Size = new System.Drawing.Size(230, 21);
             this.drpSecurityQuestion.TabIndex = 11;
             // 
             // materialLabel12
@@ -788,7 +800,7 @@ namespace ANS_SEIS_TV
             // 
             this.txtSecurityAnswer.Location = new System.Drawing.Point(148, 51);
             this.txtSecurityAnswer.Name = "txtSecurityAnswer";
-            this.txtSecurityAnswer.Size = new System.Drawing.Size(224, 23);
+            this.txtSecurityAnswer.Size = new System.Drawing.Size(230, 23);
             this.txtSecurityAnswer.TabIndex = 12;
             // 
             // bunifuCustomLabel1
@@ -826,14 +838,14 @@ namespace ANS_SEIS_TV
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvView.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvView.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvView.Location = new System.Drawing.Point(402, 103);
@@ -858,6 +870,7 @@ namespace ANS_SEIS_TV
             this.txtSearch.Depth = 0;
             this.txtSearch.Hint = "";
             this.txtSearch.Location = new System.Drawing.Point(893, 75);
+            this.txtSearch.MaxLength = 32767;
             this.txtSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
@@ -866,6 +879,7 @@ namespace ANS_SEIS_TV
             this.txtSearch.SelectionStart = 0;
             this.txtSearch.Size = new System.Drawing.Size(299, 23);
             this.txtSearch.TabIndex = 28;
+            this.txtSearch.TabStop = false;
             this.txtSearch.UseSystemPasswordChar = false;
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -939,6 +953,11 @@ namespace ANS_SEIS_TV
         }
 
         private void txtMiddleName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

@@ -7,6 +7,18 @@ USE MASTER
 DROP DATABASE ANS_SEIS_TV
 -------------------------------------------------
 
+
+--THIS ARE OF THE SQL CODE IS FOR USERS ONLY
+
+
+-------------------------------------------------
+
+-------------------------------------------------
+
+--MAIN USER TABLES
+
+--------------------------------------------------
+
 DROP TABLE TBLUSERDETAILS
 
 SELECT * FROM TBLUSERDETAILS
@@ -18,7 +30,7 @@ delete tbluserdetails
 --for tables of user
 CREATE TABLE TBLUSERDETAILS
 (
-	GENID INT UNIQUE IDENTITY(10000000,1),
+	GENID INT UNIQUE IDENTITY(1000000,1),
 	ID VARCHAR(50) PRIMARY KEY,
 	USERNAME VARCHAR(50),
 	PASSWORD VARCHAR(MAX),
@@ -30,12 +42,15 @@ CREATE TABLE TBLUSERDETAILS
 	EMAILADDRESS VARCHAR(150),
 	SECURITY_QUESTION VARCHAR(MAX),
 	SECURITY_ANSWER VARCHAR(MAX),
-	USERTYPE_ID INT FOREIGN KEY references USERTYPE(USERTYPE_ID)
+	USERTYPE_ID INT FOREIGN KEY references USERTYPE(USERTYPE_ID),
+	ISFIRSTLOGIN INT
 )
 
 --SAMPLE INTRO
 insert into TBLUSERDETAILS
-values ('10000001','nathan','1234','nathaniel','angelico','tabanao','test','7-23-98','test','test','test','110')
+values ('1000000','nathan','1234','nathaniel','angelico','tabanao','test','7-23-98','test','test','test','110','1'),
+('1000001','test','1234','nathaniel','angelico','tabanao','test','7-23-98','test','test','test','110','1'),
+('1000002','nathan','1234','nathaniel','angelico','tabanao','test','7-23-98','test','test','test','110','1')
 
 --User ID Generation
 create procedure sp_UserID
@@ -52,8 +67,10 @@ create proc sp_UserReturnID
 )
 as
 select USERTYPE_ID from TBLUSERDETAILS
-where USERNAME=@username
+where USERNAME=@username and @userID=USERTYPE_ID
 return @userid
+
+--return
 
 -- Insert User
 CREATE PROCEDURE sp_UserInsert
@@ -70,11 +87,24 @@ CREATE PROCEDURE sp_UserInsert
 	@EMAILADDRESS VARCHAR(150),
 	@SECURITY_QUESTION VARCHAR(MAX),
 	@SECURITY_ANSWER VARCHAR(MAX),
-	@USERTYPE_ID INT
+	@USERTYPE_ID INT,
+	@ISFIRSTLOGIN INT
 )
 AS
 INSERT INTO TBLUSERDETAILS
-VALUES(@ID,@USERNAME,@PASSWORD,@FIRSTNAME,@MIDDLENAME,@LASTNAME,@ADDRESS,@BIRTHDATE,@EMAILADDRESS,@SECURITY_QUESTION,@SECURITY_ANSWER,@USERTYPE_ID)
+VALUES(@ID,@USERNAME,@PASSWORD,@FIRSTNAME,@MIDDLENAME,@LASTNAME,@ADDRESS,@BIRTHDATE,@EMAILADDRESS,@SECURITY_QUESTION,@SECURITY_ANSWER,@USERTYPE_ID,@ISFIRSTLOGIN)
+
+
+--first login edit
+CREATE PROC sp_UserFirstLoginEdit
+(
+@GENID int,
+@ISFIRSTLOGIN INT
+)
+as
+update TBLUSERDETAILS
+set ISFIRSTLOGIN=@ISFIRSTLOGIN
+where GENID=@GENID
 
 -- Edit User
 
@@ -150,12 +180,17 @@ USERTYPE_DESCRIPTION VARCHAR(50)
 
 --insert stuff
 INSERT INTO USERTYPE
-VALUES	('ADMINISTRATOR');
-	('TEACHER');
-	('STUDENT');
-
+VALUES	('ADMINISTRATOR'),
+	('TEACHER'),
+	('STUDENT')
 
 ------------------------------------------------------------------------------------------
+
+-------------------------------------------------
+
+--USER LOGS & REPORTING TABLES
+
+--------------------------------------------------
 
 SELECT * from TBLUSERLOGINREPORT
 
@@ -194,16 +229,147 @@ select * from TBLUSERLOGINREPORT
 where LoginID like '%'+@SearchKey+'%' or  username like '%'+@SearchKey+'%' or password like '%'+@SearchKey+'%' or action like '%'+@SearchKey+'%' or USERTYPE_ID like '%'+@SearchKey+'%'
 
 
+-------------------------------------------------------------------
+
+drop table TBLUSERACTIONREPORT
+
+CREATE TABLE TBLUSERACTIONREPORT
+(
+	ActionID int primary key identity(90000000,1),
+	GENID INT foreign key references tbluserdetails(GENID),
+	username varchar(50),
+	Action varchar (50),
+	Timestamp datetime
+)
+
+
+create proc sp_UserActionReport
+(
+	@ID int,
+	@Username varchar(50),
+	@Action varchar (50),
+	@Timestamp datetime
+)
+as
+insert into TBLUSERACTIONREPORT
+VALUES (@id,@username,@Action,@Timestamp)
+
+create proc sp_UserActionReportView
+as
+SELECT * FROM TBLUSERACTIONREPORT
+
+
+
+------------------------------------------------------------------------------------------
+
+
+-- THINGS REGARDING ABOUT USERS ENDS HERE
+
+
+------------------------------------------------------------------------------------------
+
+
+-- THINGS REGARDING ABOUT EQUIPMENTS STARTS HERE
+
 
 -------------------------------------------------------------------------------------------
 
+
+-------------------------------------------------
+
+--MAIN EQUIPMENT TABLES
+
+--------------------------------------------------
+
+
+CREATE TABLE TBLEQEUIPMENTTYPE
+(
+ EQUIPMENT_TYPE_ID INT PRIMARY KEY,
+ EQUIPMENT_TYPE_DESCRIPTION VARCHAR(100)
+)
+
+--------------------------------------------------------------------------------------------------------
+
+CREATE TABLE EQUIPMENT_DESIGNATION
+(
+	EQ_DESIGNATION_ID INT PRIMARY KEY IDENTITY(800000,1),
+	GENID INT foreign key references tbluserdetails(GENID),
+	EQUIPMENT_ID INT FOREIGN KEY REFERENCES TBLEQUIPMENTDETAILS(EQUIPMENT_ID),
+	DATE_DESIGNATED DATETIME,
+	DATE_RETURNED DATETIME,
+	DESIGNATION_STATUS VARCHAR(50)
+)
+
+
+
+---------------------------------------------------------------------------------
+
+
+
+TRUNCATE TABLE TBLEQUIPMENTDETAILS
+
+DROP TABLE TBLEQUIPMENTDETAILS
+
+CREATE TABLE TBLEQUIPMENTDETAILS
+(
+	EQUIPMENT_ID INT UNIQUE identity (2000000,1),
+	EQBARCODE VARCHAR(100) Primary Key, --TO BE DISCUSSED
+	EQUIPMENT_NAME VARCHAR(200),
+	EQUIPMENT_DESCRIPTION VARCHAR(100),
+	EQUIPMENT_TYPE_ID INT FOREIGN KEY REFERENCES TBLEQEUIPMENTTYPE(EQUIPMENT_TYPE_ID),
+	EQUIPMENT_QUANTITY INT
+)
+
+CREATE PROCEDURE sp_EquipmentRegister
+(
+	--@EQUIPMENT_ID INT UNIQUE identity (20000000,1),
+	@EQBARCODE VARCHAR(100),
+	@EQUIPMENT_NAME VARCHAR(200),
+	@EQUIPMENT_DESCRIPTION VARCHAR(100),
+	@EQUIPMENT_TYPE_ID INT,
+	@EQUIPMENT_QUANTITY INT
+)
+as
+INSERT INTO TBLEQUIPMENTDETAILS
+VALUES(@EQBARCODE,@EQUIPMENT_NAME,@EQUIPMENT_DESCRIPTION,@EQUIPMENT_TYPE_ID,@EQUIPMENT_QUANTITY)
+
+CREATE PROCEDURE sp_EquipmentQuantityEdit
+(
+ @EQUIPMENT_ID INT,
+ @EQUIPMENT_QUANTITY INT
+ )
+ AS
+ UPDATE TBLEQUIPMENTDETAILS
+ SET EQUIPMENT_QUANTITY=@EQUIPMENT_QUANTITY
+ WHERE EQUIPMENT_ID=@EQUIPMENT_ID
+ 
+
+ CREATE PROCEDURE sp_EquipmentDelete
+ (
+	@EQUIPMENT_ID INT
+)
+as
+DELETE TBLEQUIPMENTDETAILS
+WHERE EQUIPMENT_ID=@EQUIPMENT_ID
+
+CREATE PROC sp_EquipmentView
+(
+	@SearchKey varchar(50)
+)
+as
+select equipment_id,EQUIPMENT_NAME,equipment_description,equipment_type_id,equipment_quantity from TBLEQUIPMENTDETAILS
+where EQUIPMENT_ID  like '%'+@SearchKey+'%' or EQUIPMENT_NAME like '%'+@SearchKey+'%' or EQUIPMENT_DESCRIPTION  like '%'+@SearchKey+'%'
+	
+
+	------------------------------------------------------------------
+	
 SELECT * FROM TBLEQUIPMENTDETAILS
 
 DROP TABLE TBLEQUIPMENTDETAILS
 
 CREATE TABLE TBLEQUIPMENTDETAILS
 (
-	EQUIPMENT_ID INT UNIQUE identity (20000000,1),
+	EQUIPMENT_ID INT UNIQUE identity (2000000,1),
 	EQBARCODE VARCHAR(100) Primary Key,
 	EQUIPMENT_NAME VARCHAR(200),
 	EQUIPMENT_TYPE_ID INT FOREIGN KEY REFERENCES TBLEQEUIPMENTTYPE(EQUIPMENT_TYPE_ID),
@@ -265,51 +431,15 @@ select EQBARCODE, EQUIPMENT_NAME, EQUIPMENT_TYPE_ID, EQUIPMENT_STATUS from TBLEQ
 ----------------------------------------------------------------------------------------------------------------------
 
 
-CREATE TABLE TBLEQEUIPMENTTYPE
-(
- EQUIPMENT_TYPE_ID INT PRIMARY KEY,
- EQUIPMENT_TYPE_DESCRIPTION VARCHAR(100)
-)
+-------------------------------------------------
 
---------------------------------------------------------------------------------------------------------
+--EQUIPMENT LOGS TABLES	
 
-CREATE TABLE EQUIPMENT_DESIGNATION
-(
-	EQ_DESIGNATION_ID INT PRIMARY KEY IDENTITY(800000,1),
-	GENID INT foreign key references tbluserdetails(GENID),
-	EQUIPMENT_ID INT FOREIGN KEY REFERENCES TBLEQUIPMENTDETAILS(EQUIPMENT_ID),
-	DATE_DESIGNATED DATETIME,
-	DATE_RETURNED DATETIME,
-	DESIGNATION_STATUS VARCHAR(50)
-)
+--------------------------------------------------
+
+------------------------------------------------------
+
+-- THINGS ABOUT EQUIPMENTS ENDS HERE
 
 
-
----------------------------------------------------------------------------------
-
-drop table TBLUSERACTIONREPORT
-
-CREATE TABLE TBLUSERACTIONREPORT
-(
-	ActionID int primary key identity(90000000,1),
-	GENID INT foreign key references tbluserdetails(GENID),
-	username varchar(50),
-	Action varchar (50),
-	Timestamp datetime
-)
-
-
-create proc sp_UserActionReport
-(
-	@ID int,
-	@Username varchar(50),
-	@Action varchar (50),
-	@Timestamp datetime
-)
-as
-insert into TBLUSERACTIONREPORT
-VALUES (@id,@username,@Action,@Timestamp)
-
-create proc sp_UserActionReportView
-as
-SELECT * FROM TBLUSERACTIONREPORT
+--------------------------------------------------------

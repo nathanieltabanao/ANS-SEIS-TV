@@ -175,7 +175,8 @@ namespace ANS_SEIS_TV
 
         public void UserInsert()
         {
-            db.sp_UserInsert(null, ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer, Usertype);
+            int IsFirstLogin = 1;
+            db.sp_UserInsert(null, ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer, Usertype,IsFirstLogin);
             db.sp_UserActionReport(CurrentUserID, CurrentUsername, "Registered a user", DateTime.Now);
         }
 
