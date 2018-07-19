@@ -7,40 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MaterialSkin.Controls;
 using MaterialSkin;
-
+using MaterialSkin.Controls;
 
 namespace ANS_SEIS_TV
 {
-    public partial class MainForm : MaterialForm
+    public partial class Main : MaterialForm
     {
         private readonly MaterialSkinManager materialSkinManager;
 
-        public MainForm()
+        public Main()
         {
             InitializeComponent();
 
+            // Initialize MaterialSkinManager
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void buttonItem15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void contextMenuBar1_ItemClick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void Main_Load(object sender, EventArgs e)
         {
 
         }

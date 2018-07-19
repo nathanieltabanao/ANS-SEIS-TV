@@ -33,12 +33,12 @@
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monitoringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.borrowAndReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.requestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pullOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deploymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borrowAndReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,6 +95,24 @@
             this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(141, 29);
             this.activitiesToolStripMenuItem.Text = "More Activities";
             // 
+            // requestToolStripMenuItem
+            // 
+            this.requestToolStripMenuItem.Name = "requestToolStripMenuItem";
+            this.requestToolStripMenuItem.Size = new System.Drawing.Size(182, 30);
+            this.requestToolStripMenuItem.Text = "Request";
+            // 
+            // pullOutToolStripMenuItem
+            // 
+            this.pullOutToolStripMenuItem.Name = "pullOutToolStripMenuItem";
+            this.pullOutToolStripMenuItem.Size = new System.Drawing.Size(182, 30);
+            this.pullOutToolStripMenuItem.Text = "Pull Out";
+            // 
+            // deploymentToolStripMenuItem
+            // 
+            this.deploymentToolStripMenuItem.Name = "deploymentToolStripMenuItem";
+            this.deploymentToolStripMenuItem.Size = new System.Drawing.Size(182, 30);
+            this.deploymentToolStripMenuItem.Text = "Deployment";
+            // 
             // borrowAndReturnToolStripMenuItem
             // 
             this.borrowAndReturnToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -116,29 +134,11 @@
             this.manageAccountsToolStripMenuItem.Size = new System.Drawing.Size(166, 29);
             this.manageAccountsToolStripMenuItem.Text = "Manage Accounts";
             // 
-            // requestToolStripMenuItem
-            // 
-            this.requestToolStripMenuItem.Name = "requestToolStripMenuItem";
-            this.requestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.requestToolStripMenuItem.Text = "Request";
-            // 
-            // pullOutToolStripMenuItem
-            // 
-            this.pullOutToolStripMenuItem.Name = "pullOutToolStripMenuItem";
-            this.pullOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pullOutToolStripMenuItem.Text = "Pull Out";
-            // 
-            // deploymentToolStripMenuItem
-            // 
-            this.deploymentToolStripMenuItem.Name = "deploymentToolStripMenuItem";
-            this.deploymentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deploymentToolStripMenuItem.Text = "Deployment";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 488);
+            this.ClientSize = new System.Drawing.Size(1002, 567);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
