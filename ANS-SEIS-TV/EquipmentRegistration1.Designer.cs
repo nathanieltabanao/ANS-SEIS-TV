@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ANS_SEIS_TV.Properties {
+namespace ANS_SEIS_TV {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace ANS_SEIS_TV.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class EquipmentRegistration {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal EquipmentRegistration() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ANS_SEIS_TV.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ANS_SEIS_TV.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ANS_SEIS_TV.EquipmentRegistration", typeof(EquipmentRegistration).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,26 +57,6 @@ namespace ANS_SEIS_TV.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap subtab {
-            get {
-                object obj = ResourceManager.GetObject("subtab", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap UIDESIGN_LOGIN {
-            get {
-                object obj = ResourceManager.GetObject("UIDESIGN_LOGIN", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
