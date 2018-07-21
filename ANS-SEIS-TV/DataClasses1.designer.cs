@@ -30,21 +30,21 @@ namespace ANS_SEIS_TV
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertTBLUSERLOGINREPORT(TBLUSERLOGINREPORT instance);
-    partial void UpdateTBLUSERLOGINREPORT(TBLUSERLOGINREPORT instance);
-    partial void DeleteTBLUSERLOGINREPORT(TBLUSERLOGINREPORT instance);
-    partial void InsertTBLUSERDETAIL(TBLUSERDETAIL instance);
-    partial void UpdateTBLUSERDETAIL(TBLUSERDETAIL instance);
-    partial void DeleteTBLUSERDETAIL(TBLUSERDETAIL instance);
-    partial void InsertTBLUSERACTIONREPORT(TBLUSERACTIONREPORT instance);
-    partial void UpdateTBLUSERACTIONREPORT(TBLUSERACTIONREPORT instance);
-    partial void DeleteTBLUSERACTIONREPORT(TBLUSERACTIONREPORT instance);
-    partial void InsertTBLEQUIPMENTDETAIL(TBLEQUIPMENTDETAIL instance);
-    partial void UpdateTBLEQUIPMENTDETAIL(TBLEQUIPMENTDETAIL instance);
-    partial void DeleteTBLEQUIPMENTDETAIL(TBLEQUIPMENTDETAIL instance);
     partial void InsertTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
     partial void UpdateTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
     partial void DeleteTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
+    partial void InsertTBLEQUIPMENTDETAIL(TBLEQUIPMENTDETAIL instance);
+    partial void UpdateTBLEQUIPMENTDETAIL(TBLEQUIPMENTDETAIL instance);
+    partial void DeleteTBLEQUIPMENTDETAIL(TBLEQUIPMENTDETAIL instance);
+    partial void InsertTBLUSERACTIONREPORT(TBLUSERACTIONREPORT instance);
+    partial void UpdateTBLUSERACTIONREPORT(TBLUSERACTIONREPORT instance);
+    partial void DeleteTBLUSERACTIONREPORT(TBLUSERACTIONREPORT instance);
+    partial void InsertTBLUSERDETAIL(TBLUSERDETAIL instance);
+    partial void UpdateTBLUSERDETAIL(TBLUSERDETAIL instance);
+    partial void DeleteTBLUSERDETAIL(TBLUSERDETAIL instance);
+    partial void InsertTBLUSERLOGINREPORT(TBLUSERLOGINREPORT instance);
+    partial void UpdateTBLUSERLOGINREPORT(TBLUSERLOGINREPORT instance);
+    partial void DeleteTBLUSERLOGINREPORT(TBLUSERLOGINREPORT instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -77,11 +77,11 @@ namespace ANS_SEIS_TV
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<TBLUSERLOGINREPORT> TBLUSERLOGINREPORTs
+		public System.Data.Linq.Table<TBLEQEUIPMENTTYPE> TBLEQEUIPMENTTYPEs
 		{
 			get
 			{
-				return this.GetTable<TBLUSERLOGINREPORT>();
+				return this.GetTable<TBLEQEUIPMENTTYPE>();
 			}
 		}
 		
@@ -93,11 +93,11 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		public System.Data.Linq.Table<TBLUSERDETAIL> TBLUSERDETAILs
+		public System.Data.Linq.Table<TBLEQUIPMENTDETAIL> TBLEQUIPMENTDETAILs
 		{
 			get
 			{
-				return this.GetTable<TBLUSERDETAIL>();
+				return this.GetTable<TBLEQUIPMENTDETAIL>();
 			}
 		}
 		
@@ -109,19 +109,19 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		public System.Data.Linq.Table<TBLEQUIPMENTDETAIL> TBLEQUIPMENTDETAILs
+		public System.Data.Linq.Table<TBLUSERDETAIL> TBLUSERDETAILs
 		{
 			get
 			{
-				return this.GetTable<TBLEQUIPMENTDETAIL>();
+				return this.GetTable<TBLUSERDETAIL>();
 			}
 		}
 		
-		public System.Data.Linq.Table<TBLEQEUIPMENTTYPE> TBLEQEUIPMENTTYPEs
+		public System.Data.Linq.Table<TBLUSERLOGINREPORT> TBLUSERLOGINREPORTs
 		{
 			get
 			{
-				return this.GetTable<TBLEQEUIPMENTTYPE>();
+				return this.GetTable<TBLUSERLOGINREPORT>();
 			}
 		}
 		
@@ -132,11 +132,18 @@ namespace ANS_SEIS_TV
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserView")]
-		public ISingleResult<sp_UserViewResult> sp_UserView()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentEdit")]
+		public int sp_EquipmentEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQBARCODE", DbType="VarChar(100)")] string eQBARCODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_NAME", DbType="VarChar(200)")] string eQUIPMENT_NAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_DESCRIPTION", DbType="VarChar(100)")] string eQUIPMENT_DESCRIPTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_TYPE_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_TYPE_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_QUANTITY", DbType="Int")] System.Nullable<int> eQUIPMENT_QUANTITY)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID, eQBARCODE, eQUIPMENT_NAME, eQUIPMENT_DESCRIPTION, eQUIPMENT_TYPE_ID, eQUIPMENT_QUANTITY);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentID")]
+		public int sp_EquipmentID()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_UserViewResult>)(result.ReturnValue));
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentQuantityEdit")]
@@ -182,9 +189,16 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserEdit")]
-		public int sp_UserEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="VarChar(50)")] string iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(MAX)")] string pASSWORD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIRSTNAME", DbType="VarChar(150)")] string fIRSTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MIDDLENAME", DbType="VarChar(50)")] string mIDDLENAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LASTNAME", DbType="VarChar(100)")] string lASTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADDRESS", DbType="VarChar(MAX)")] string aDDRESS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BIRTHDATE", DbType="Date")] System.Nullable<System.DateTime> bIRTHDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EMAILADDRESS", DbType="VarChar(150)")] string eMAILADDRESS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_QUESTION", DbType="VarChar(MAX)")] string sECURITY_QUESTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_ANSWER", DbType="VarChar(MAX)")] string sECURITY_ANSWER)
+		public int sp_UserEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="VarChar(50)")] string iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(MAX)")] string pASSWORD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIRSTNAME", DbType="VarChar(150)")] string fIRSTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MIDDLENAME", DbType="VarChar(50)")] string mIDDLENAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LASTNAME", DbType="VarChar(100)")] string lASTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_QUESTION", DbType="VarChar(MAX)")] string sECURITY_QUESTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_ANSWER", DbType="VarChar(MAX)")] string sECURITY_ANSWER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPE_ID", DbType="Int")] System.Nullable<int> uSERTYPE_ID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, uSERNAME, pASSWORD, fIRSTNAME, mIDDLENAME, lASTNAME, aDDRESS, bIRTHDATE, eMAILADDRESS, sECURITY_QUESTION, sECURITY_ANSWER);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID, iD, uSERNAME, pASSWORD, fIRSTNAME, mIDDLENAME, lASTNAME, sECURITY_QUESTION, sECURITY_ANSWER, uSERTYPE_ID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserFirstLogin")]
+		public int sp_UserFirstLogin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(MAX)")] string pASSWORD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_QUESTION", DbType="VarChar(MAX)")] string sECURITY_QUESTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_ANSWER", DbType="VarChar(MAX)")] string sECURITY_ANSWER)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID, uSERNAME, pASSWORD, sECURITY_QUESTION, sECURITY_ANSWER);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -203,9 +217,9 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserInsert")]
-		public int sp_UserInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="VarChar(50)")] string iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(MAX)")] string pASSWORD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIRSTNAME", DbType="VarChar(150)")] string fIRSTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MIDDLENAME", DbType="VarChar(50)")] string mIDDLENAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LASTNAME", DbType="VarChar(100)")] string lASTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADDRESS", DbType="VarChar(MAX)")] string aDDRESS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BIRTHDATE", DbType="Date")] System.Nullable<System.DateTime> bIRTHDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EMAILADDRESS", DbType="VarChar(150)")] string eMAILADDRESS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_QUESTION", DbType="VarChar(MAX)")] string sECURITY_QUESTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_ANSWER", DbType="VarChar(MAX)")] string sECURITY_ANSWER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPE_ID", DbType="Int")] System.Nullable<int> uSERTYPE_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISFIRSTLOGIN", DbType="Int")] System.Nullable<int> iSFIRSTLOGIN)
+		public int sp_UserInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="VarChar(50)")] string iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(MAX)")] string pASSWORD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIRSTNAME", DbType="VarChar(150)")] string fIRSTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MIDDLENAME", DbType="VarChar(50)")] string mIDDLENAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LASTNAME", DbType="VarChar(100)")] string lASTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_QUESTION", DbType="VarChar(MAX)")] string sECURITY_QUESTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_ANSWER", DbType="VarChar(MAX)")] string sECURITY_ANSWER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPE_ID", DbType="Int")] System.Nullable<int> uSERTYPE_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISFIRSTLOGIN", DbType="Int")] System.Nullable<int> iSFIRSTLOGIN)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID, iD, uSERNAME, pASSWORD, fIRSTNAME, mIDDLENAME, lASTNAME, aDDRESS, bIRTHDATE, eMAILADDRESS, sECURITY_QUESTION, sECURITY_ANSWER, uSERTYPE_ID, iSFIRSTLOGIN);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, uSERNAME, pASSWORD, fIRSTNAME, mIDDLENAME, lASTNAME, sECURITY_QUESTION, sECURITY_ANSWER, uSERTYPE_ID, iSFIRSTLOGIN);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -230,18 +244,957 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_UserLoginReportViewResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserReturnID")]
-		public ISingleResult<sp_UserReturnIDResult> sp_UserReturnID([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, userID);
-			return ((ISingleResult<sp_UserReturnIDResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserSearch")]
 		public ISingleResult<sp_UserSearchResult> sp_UserSearch([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchKey", DbType="VarChar(50)")] string searchKey)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchKey);
 			return ((ISingleResult<sp_UserSearchResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserView")]
+		public ISingleResult<sp_UserViewResult> sp_UserView()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_UserViewResult>)(result.ReturnValue));
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLEQEUIPMENTTYPE")]
+	public partial class TBLEQEUIPMENTTYPE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EQUIPMENT_TYPE_ID;
+		
+		private string _EQUIPMENT_TYPE_DESCRIPTION;
+		
+		private EntitySet<TBLEQUIPMENTDETAIL> _TBLEQUIPMENTDETAILs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEQUIPMENT_TYPE_IDChanging(int value);
+    partial void OnEQUIPMENT_TYPE_IDChanged();
+    partial void OnEQUIPMENT_TYPE_DESCRIPTIONChanging(string value);
+    partial void OnEQUIPMENT_TYPE_DESCRIPTIONChanged();
+    #endregion
+		
+		public TBLEQEUIPMENTTYPE()
+		{
+			this._TBLEQUIPMENTDETAILs = new EntitySet<TBLEQUIPMENTDETAIL>(new Action<TBLEQUIPMENTDETAIL>(this.attach_TBLEQUIPMENTDETAILs), new Action<TBLEQUIPMENTDETAIL>(this.detach_TBLEQUIPMENTDETAILs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_TYPE_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int EQUIPMENT_TYPE_ID
+		{
+			get
+			{
+				return this._EQUIPMENT_TYPE_ID;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_TYPE_ID != value))
+				{
+					this.OnEQUIPMENT_TYPE_IDChanging(value);
+					this.SendPropertyChanging();
+					this._EQUIPMENT_TYPE_ID = value;
+					this.SendPropertyChanged("EQUIPMENT_TYPE_ID");
+					this.OnEQUIPMENT_TYPE_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_TYPE_DESCRIPTION", DbType="VarChar(100)")]
+		public string EQUIPMENT_TYPE_DESCRIPTION
+		{
+			get
+			{
+				return this._EQUIPMENT_TYPE_DESCRIPTION;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_TYPE_DESCRIPTION != value))
+				{
+					this.OnEQUIPMENT_TYPE_DESCRIPTIONChanging(value);
+					this.SendPropertyChanging();
+					this._EQUIPMENT_TYPE_DESCRIPTION = value;
+					this.SendPropertyChanged("EQUIPMENT_TYPE_DESCRIPTION");
+					this.OnEQUIPMENT_TYPE_DESCRIPTIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLEQEUIPMENTTYPE_TBLEQUIPMENTDETAIL", Storage="_TBLEQUIPMENTDETAILs", ThisKey="EQUIPMENT_TYPE_ID", OtherKey="EQUIPMENT_TYPE_ID")]
+		public EntitySet<TBLEQUIPMENTDETAIL> TBLEQUIPMENTDETAILs
+		{
+			get
+			{
+				return this._TBLEQUIPMENTDETAILs;
+			}
+			set
+			{
+				this._TBLEQUIPMENTDETAILs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TBLEQUIPMENTDETAILs(TBLEQUIPMENTDETAIL entity)
+		{
+			this.SendPropertyChanging();
+			entity.TBLEQEUIPMENTTYPE = this;
+		}
+		
+		private void detach_TBLEQUIPMENTDETAILs(TBLEQUIPMENTDETAIL entity)
+		{
+			this.SendPropertyChanging();
+			entity.TBLEQEUIPMENTTYPE = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USERTYPE")]
+	public partial class USERTYPE
+	{
+		
+		private int _USERTYPE_ID;
+		
+		private string _USERTYPE_DESCRIPTION;
+		
+		public USERTYPE()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int USERTYPE_ID
+		{
+			get
+			{
+				return this._USERTYPE_ID;
+			}
+			set
+			{
+				if ((this._USERTYPE_ID != value))
+				{
+					this._USERTYPE_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_DESCRIPTION", DbType="VarChar(50)")]
+		public string USERTYPE_DESCRIPTION
+		{
+			get
+			{
+				return this._USERTYPE_DESCRIPTION;
+			}
+			set
+			{
+				if ((this._USERTYPE_DESCRIPTION != value))
+				{
+					this._USERTYPE_DESCRIPTION = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLEQUIPMENTDETAILS")]
+	public partial class TBLEQUIPMENTDETAIL : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EQUIPMENT_ID;
+		
+		private string _EQBARCODE;
+		
+		private string _EQUIPMENT_NAME;
+		
+		private string _EQUIPMENT_DESCRIPTION;
+		
+		private System.Nullable<int> _EQUIPMENT_TYPE_ID;
+		
+		private System.Nullable<int> _EQUIPMENT_QUANTITY;
+		
+		private EntityRef<TBLEQEUIPMENTTYPE> _TBLEQEUIPMENTTYPE;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEQUIPMENT_IDChanging(int value);
+    partial void OnEQUIPMENT_IDChanged();
+    partial void OnEQBARCODEChanging(string value);
+    partial void OnEQBARCODEChanged();
+    partial void OnEQUIPMENT_NAMEChanging(string value);
+    partial void OnEQUIPMENT_NAMEChanged();
+    partial void OnEQUIPMENT_DESCRIPTIONChanging(string value);
+    partial void OnEQUIPMENT_DESCRIPTIONChanged();
+    partial void OnEQUIPMENT_TYPE_IDChanging(System.Nullable<int> value);
+    partial void OnEQUIPMENT_TYPE_IDChanged();
+    partial void OnEQUIPMENT_QUANTITYChanging(System.Nullable<int> value);
+    partial void OnEQUIPMENT_QUANTITYChanged();
+    #endregion
+		
+		public TBLEQUIPMENTDETAIL()
+		{
+			this._TBLEQEUIPMENTTYPE = default(EntityRef<TBLEQEUIPMENTTYPE>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int EQUIPMENT_ID
+		{
+			get
+			{
+				return this._EQUIPMENT_ID;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_ID != value))
+				{
+					this.OnEQUIPMENT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._EQUIPMENT_ID = value;
+					this.SendPropertyChanged("EQUIPMENT_ID");
+					this.OnEQUIPMENT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQBARCODE", DbType="VarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string EQBARCODE
+		{
+			get
+			{
+				return this._EQBARCODE;
+			}
+			set
+			{
+				if ((this._EQBARCODE != value))
+				{
+					this.OnEQBARCODEChanging(value);
+					this.SendPropertyChanging();
+					this._EQBARCODE = value;
+					this.SendPropertyChanged("EQBARCODE");
+					this.OnEQBARCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_NAME", DbType="VarChar(200)")]
+		public string EQUIPMENT_NAME
+		{
+			get
+			{
+				return this._EQUIPMENT_NAME;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_NAME != value))
+				{
+					this.OnEQUIPMENT_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._EQUIPMENT_NAME = value;
+					this.SendPropertyChanged("EQUIPMENT_NAME");
+					this.OnEQUIPMENT_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_DESCRIPTION", DbType="VarChar(100)")]
+		public string EQUIPMENT_DESCRIPTION
+		{
+			get
+			{
+				return this._EQUIPMENT_DESCRIPTION;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_DESCRIPTION != value))
+				{
+					this.OnEQUIPMENT_DESCRIPTIONChanging(value);
+					this.SendPropertyChanging();
+					this._EQUIPMENT_DESCRIPTION = value;
+					this.SendPropertyChanged("EQUIPMENT_DESCRIPTION");
+					this.OnEQUIPMENT_DESCRIPTIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_TYPE_ID", DbType="Int")]
+		public System.Nullable<int> EQUIPMENT_TYPE_ID
+		{
+			get
+			{
+				return this._EQUIPMENT_TYPE_ID;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_TYPE_ID != value))
+				{
+					if (this._TBLEQEUIPMENTTYPE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEQUIPMENT_TYPE_IDChanging(value);
+					this.SendPropertyChanging();
+					this._EQUIPMENT_TYPE_ID = value;
+					this.SendPropertyChanged("EQUIPMENT_TYPE_ID");
+					this.OnEQUIPMENT_TYPE_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_QUANTITY", DbType="Int")]
+		public System.Nullable<int> EQUIPMENT_QUANTITY
+		{
+			get
+			{
+				return this._EQUIPMENT_QUANTITY;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_QUANTITY != value))
+				{
+					this.OnEQUIPMENT_QUANTITYChanging(value);
+					this.SendPropertyChanging();
+					this._EQUIPMENT_QUANTITY = value;
+					this.SendPropertyChanged("EQUIPMENT_QUANTITY");
+					this.OnEQUIPMENT_QUANTITYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLEQEUIPMENTTYPE_TBLEQUIPMENTDETAIL", Storage="_TBLEQEUIPMENTTYPE", ThisKey="EQUIPMENT_TYPE_ID", OtherKey="EQUIPMENT_TYPE_ID", IsForeignKey=true)]
+		public TBLEQEUIPMENTTYPE TBLEQEUIPMENTTYPE
+		{
+			get
+			{
+				return this._TBLEQEUIPMENTTYPE.Entity;
+			}
+			set
+			{
+				TBLEQEUIPMENTTYPE previousValue = this._TBLEQEUIPMENTTYPE.Entity;
+				if (((previousValue != value) 
+							|| (this._TBLEQEUIPMENTTYPE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TBLEQEUIPMENTTYPE.Entity = null;
+						previousValue.TBLEQUIPMENTDETAILs.Remove(this);
+					}
+					this._TBLEQEUIPMENTTYPE.Entity = value;
+					if ((value != null))
+					{
+						value.TBLEQUIPMENTDETAILs.Add(this);
+						this._EQUIPMENT_TYPE_ID = value.EQUIPMENT_TYPE_ID;
+					}
+					else
+					{
+						this._EQUIPMENT_TYPE_ID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TBLEQEUIPMENTTYPE");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLUSERACTIONREPORT")]
+	public partial class TBLUSERACTIONREPORT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ActionID;
+		
+		private System.Nullable<int> _GENID;
+		
+		private string _username;
+		
+		private string _Action;
+		
+		private System.Nullable<System.DateTime> _Timestamp;
+		
+		private EntityRef<TBLUSERDETAIL> _TBLUSERDETAIL;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnActionIDChanging(int value);
+    partial void OnActionIDChanged();
+    partial void OnGENIDChanging(System.Nullable<int> value);
+    partial void OnGENIDChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void OnActionChanging(string value);
+    partial void OnActionChanged();
+    partial void OnTimestampChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimestampChanged();
+    #endregion
+		
+		public TBLUSERACTIONREPORT()
+		{
+			this._TBLUSERDETAIL = default(EntityRef<TBLUSERDETAIL>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActionID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ActionID
+		{
+			get
+			{
+				return this._ActionID;
+			}
+			set
+			{
+				if ((this._ActionID != value))
+				{
+					this.OnActionIDChanging(value);
+					this.SendPropertyChanging();
+					this._ActionID = value;
+					this.SendPropertyChanged("ActionID");
+					this.OnActionIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENID", DbType="Int")]
+		public System.Nullable<int> GENID
+		{
+			get
+			{
+				return this._GENID;
+			}
+			set
+			{
+				if ((this._GENID != value))
+				{
+					if (this._TBLUSERDETAIL.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGENIDChanging(value);
+					this.SendPropertyChanging();
+					this._GENID = value;
+					this.SendPropertyChanged("GENID");
+					this.OnGENIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50)")]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Action", DbType="VarChar(50)")]
+		public string Action
+		{
+			get
+			{
+				return this._Action;
+			}
+			set
+			{
+				if ((this._Action != value))
+				{
+					this.OnActionChanging(value);
+					this.SendPropertyChanging();
+					this._Action = value;
+					this.SendPropertyChanged("Action");
+					this.OnActionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Timestamp", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Timestamp
+		{
+			get
+			{
+				return this._Timestamp;
+			}
+			set
+			{
+				if ((this._Timestamp != value))
+				{
+					this.OnTimestampChanging(value);
+					this.SendPropertyChanging();
+					this._Timestamp = value;
+					this.SendPropertyChanged("Timestamp");
+					this.OnTimestampChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLUSERACTIONREPORT", Storage="_TBLUSERDETAIL", ThisKey="GENID", OtherKey="GENID", IsForeignKey=true)]
+		public TBLUSERDETAIL TBLUSERDETAIL
+		{
+			get
+			{
+				return this._TBLUSERDETAIL.Entity;
+			}
+			set
+			{
+				TBLUSERDETAIL previousValue = this._TBLUSERDETAIL.Entity;
+				if (((previousValue != value) 
+							|| (this._TBLUSERDETAIL.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TBLUSERDETAIL.Entity = null;
+						previousValue.TBLUSERACTIONREPORTs.Remove(this);
+					}
+					this._TBLUSERDETAIL.Entity = value;
+					if ((value != null))
+					{
+						value.TBLUSERACTIONREPORTs.Add(this);
+						this._GENID = value.GENID;
+					}
+					else
+					{
+						this._GENID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TBLUSERDETAIL");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLUSERDETAILS")]
+	public partial class TBLUSERDETAIL : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _GENID;
+		
+		private string _ID;
+		
+		private string _USERNAME;
+		
+		private string _PASSWORD;
+		
+		private string _FIRSTNAME;
+		
+		private string _MIDDLENAME;
+		
+		private string _LASTNAME;
+		
+		private string _SECURITY_QUESTION;
+		
+		private string _SECURITY_ANSWER;
+		
+		private System.Nullable<int> _USERTYPE_ID;
+		
+		private System.Nullable<int> _ISFIRSTLOGIN;
+		
+		private EntitySet<TBLUSERACTIONREPORT> _TBLUSERACTIONREPORTs;
+		
+		private EntitySet<TBLUSERLOGINREPORT> _TBLUSERLOGINREPORTs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnGENIDChanging(int value);
+    partial void OnGENIDChanged();
+    partial void OnIDChanging(string value);
+    partial void OnIDChanged();
+    partial void OnUSERNAMEChanging(string value);
+    partial void OnUSERNAMEChanged();
+    partial void OnPASSWORDChanging(string value);
+    partial void OnPASSWORDChanged();
+    partial void OnFIRSTNAMEChanging(string value);
+    partial void OnFIRSTNAMEChanged();
+    partial void OnMIDDLENAMEChanging(string value);
+    partial void OnMIDDLENAMEChanged();
+    partial void OnLASTNAMEChanging(string value);
+    partial void OnLASTNAMEChanged();
+    partial void OnSECURITY_QUESTIONChanging(string value);
+    partial void OnSECURITY_QUESTIONChanged();
+    partial void OnSECURITY_ANSWERChanging(string value);
+    partial void OnSECURITY_ANSWERChanged();
+    partial void OnUSERTYPE_IDChanging(System.Nullable<int> value);
+    partial void OnUSERTYPE_IDChanged();
+    partial void OnISFIRSTLOGINChanging(System.Nullable<int> value);
+    partial void OnISFIRSTLOGINChanged();
+    #endregion
+		
+		public TBLUSERDETAIL()
+		{
+			this._TBLUSERACTIONREPORTs = new EntitySet<TBLUSERACTIONREPORT>(new Action<TBLUSERACTIONREPORT>(this.attach_TBLUSERACTIONREPORTs), new Action<TBLUSERACTIONREPORT>(this.detach_TBLUSERACTIONREPORTs));
+			this._TBLUSERLOGINREPORTs = new EntitySet<TBLUSERLOGINREPORT>(new Action<TBLUSERLOGINREPORT>(this.attach_TBLUSERLOGINREPORTs), new Action<TBLUSERLOGINREPORT>(this.detach_TBLUSERLOGINREPORTs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int GENID
+		{
+			get
+			{
+				return this._GENID;
+			}
+			set
+			{
+				if ((this._GENID != value))
+				{
+					this.OnGENIDChanging(value);
+					this.SendPropertyChanging();
+					this._GENID = value;
+					this.SendPropertyChanged("GENID");
+					this.OnGENIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(50)")]
+		public string USERNAME
+		{
+			get
+			{
+				return this._USERNAME;
+			}
+			set
+			{
+				if ((this._USERNAME != value))
+				{
+					this.OnUSERNAMEChanging(value);
+					this.SendPropertyChanging();
+					this._USERNAME = value;
+					this.SendPropertyChanged("USERNAME");
+					this.OnUSERNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASSWORD", DbType="VarChar(MAX)")]
+		public string PASSWORD
+		{
+			get
+			{
+				return this._PASSWORD;
+			}
+			set
+			{
+				if ((this._PASSWORD != value))
+				{
+					this.OnPASSWORDChanging(value);
+					this.SendPropertyChanging();
+					this._PASSWORD = value;
+					this.SendPropertyChanged("PASSWORD");
+					this.OnPASSWORDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIRSTNAME", DbType="VarChar(150)")]
+		public string FIRSTNAME
+		{
+			get
+			{
+				return this._FIRSTNAME;
+			}
+			set
+			{
+				if ((this._FIRSTNAME != value))
+				{
+					this.OnFIRSTNAMEChanging(value);
+					this.SendPropertyChanging();
+					this._FIRSTNAME = value;
+					this.SendPropertyChanged("FIRSTNAME");
+					this.OnFIRSTNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIDDLENAME", DbType="VarChar(50)")]
+		public string MIDDLENAME
+		{
+			get
+			{
+				return this._MIDDLENAME;
+			}
+			set
+			{
+				if ((this._MIDDLENAME != value))
+				{
+					this.OnMIDDLENAMEChanging(value);
+					this.SendPropertyChanging();
+					this._MIDDLENAME = value;
+					this.SendPropertyChanged("MIDDLENAME");
+					this.OnMIDDLENAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LASTNAME", DbType="VarChar(100)")]
+		public string LASTNAME
+		{
+			get
+			{
+				return this._LASTNAME;
+			}
+			set
+			{
+				if ((this._LASTNAME != value))
+				{
+					this.OnLASTNAMEChanging(value);
+					this.SendPropertyChanging();
+					this._LASTNAME = value;
+					this.SendPropertyChanged("LASTNAME");
+					this.OnLASTNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SECURITY_QUESTION", DbType="VarChar(MAX)")]
+		public string SECURITY_QUESTION
+		{
+			get
+			{
+				return this._SECURITY_QUESTION;
+			}
+			set
+			{
+				if ((this._SECURITY_QUESTION != value))
+				{
+					this.OnSECURITY_QUESTIONChanging(value);
+					this.SendPropertyChanging();
+					this._SECURITY_QUESTION = value;
+					this.SendPropertyChanged("SECURITY_QUESTION");
+					this.OnSECURITY_QUESTIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SECURITY_ANSWER", DbType="VarChar(MAX)")]
+		public string SECURITY_ANSWER
+		{
+			get
+			{
+				return this._SECURITY_ANSWER;
+			}
+			set
+			{
+				if ((this._SECURITY_ANSWER != value))
+				{
+					this.OnSECURITY_ANSWERChanging(value);
+					this.SendPropertyChanging();
+					this._SECURITY_ANSWER = value;
+					this.SendPropertyChanged("SECURITY_ANSWER");
+					this.OnSECURITY_ANSWERChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", DbType="Int")]
+		public System.Nullable<int> USERTYPE_ID
+		{
+			get
+			{
+				return this._USERTYPE_ID;
+			}
+			set
+			{
+				if ((this._USERTYPE_ID != value))
+				{
+					this.OnUSERTYPE_IDChanging(value);
+					this.SendPropertyChanging();
+					this._USERTYPE_ID = value;
+					this.SendPropertyChanged("USERTYPE_ID");
+					this.OnUSERTYPE_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISFIRSTLOGIN", DbType="Int")]
+		public System.Nullable<int> ISFIRSTLOGIN
+		{
+			get
+			{
+				return this._ISFIRSTLOGIN;
+			}
+			set
+			{
+				if ((this._ISFIRSTLOGIN != value))
+				{
+					this.OnISFIRSTLOGINChanging(value);
+					this.SendPropertyChanging();
+					this._ISFIRSTLOGIN = value;
+					this.SendPropertyChanged("ISFIRSTLOGIN");
+					this.OnISFIRSTLOGINChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLUSERACTIONREPORT", Storage="_TBLUSERACTIONREPORTs", ThisKey="GENID", OtherKey="GENID")]
+		public EntitySet<TBLUSERACTIONREPORT> TBLUSERACTIONREPORTs
+		{
+			get
+			{
+				return this._TBLUSERACTIONREPORTs;
+			}
+			set
+			{
+				this._TBLUSERACTIONREPORTs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLUSERLOGINREPORT", Storage="_TBLUSERLOGINREPORTs", ThisKey="GENID", OtherKey="GENID")]
+		public EntitySet<TBLUSERLOGINREPORT> TBLUSERLOGINREPORTs
+		{
+			get
+			{
+				return this._TBLUSERLOGINREPORTs;
+			}
+			set
+			{
+				this._TBLUSERLOGINREPORTs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TBLUSERACTIONREPORTs(TBLUSERACTIONREPORT entity)
+		{
+			this.SendPropertyChanging();
+			entity.TBLUSERDETAIL = this;
+		}
+		
+		private void detach_TBLUSERACTIONREPORTs(TBLUSERACTIONREPORT entity)
+		{
+			this.SendPropertyChanging();
+			entity.TBLUSERDETAIL = null;
+		}
+		
+		private void attach_TBLUSERLOGINREPORTs(TBLUSERLOGINREPORT entity)
+		{
+			this.SendPropertyChanging();
+			entity.TBLUSERDETAIL = this;
+		}
+		
+		private void detach_TBLUSERLOGINREPORTs(TBLUSERLOGINREPORT entity)
+		{
+			this.SendPropertyChanging();
+			entity.TBLUSERDETAIL = null;
 		}
 	}
 	
@@ -488,1205 +1441,6 @@ namespace ANS_SEIS_TV
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USERTYPE")]
-	public partial class USERTYPE
-	{
-		
-		private int _USERTYPE_ID;
-		
-		private string _USERTYPE_DESCRIPTION;
-		
-		public USERTYPE()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int USERTYPE_ID
-		{
-			get
-			{
-				return this._USERTYPE_ID;
-			}
-			set
-			{
-				if ((this._USERTYPE_ID != value))
-				{
-					this._USERTYPE_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_DESCRIPTION", DbType="VarChar(50)")]
-		public string USERTYPE_DESCRIPTION
-		{
-			get
-			{
-				return this._USERTYPE_DESCRIPTION;
-			}
-			set
-			{
-				if ((this._USERTYPE_DESCRIPTION != value))
-				{
-					this._USERTYPE_DESCRIPTION = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLUSERDETAILS")]
-	public partial class TBLUSERDETAIL : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _GENID;
-		
-		private string _ID;
-		
-		private string _USERNAME;
-		
-		private string _PASSWORD;
-		
-		private string _FIRSTNAME;
-		
-		private string _MIDDLENAME;
-		
-		private string _LASTNAME;
-		
-		private string _ADDRESS;
-		
-		private System.Nullable<System.DateTime> _BIRTHDATE;
-		
-		private string _EMAILADDRESS;
-		
-		private string _SECURITY_QUESTION;
-		
-		private string _SECURITY_ANSWER;
-		
-		private System.Nullable<int> _USERTYPE_ID;
-		
-		private System.Nullable<int> _ISFIRSTLOGIN;
-		
-		private EntitySet<TBLUSERLOGINREPORT> _TBLUSERLOGINREPORTs;
-		
-		private EntitySet<TBLUSERACTIONREPORT> _TBLUSERACTIONREPORTs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnGENIDChanging(int value);
-    partial void OnGENIDChanged();
-    partial void OnIDChanging(string value);
-    partial void OnIDChanged();
-    partial void OnUSERNAMEChanging(string value);
-    partial void OnUSERNAMEChanged();
-    partial void OnPASSWORDChanging(string value);
-    partial void OnPASSWORDChanged();
-    partial void OnFIRSTNAMEChanging(string value);
-    partial void OnFIRSTNAMEChanged();
-    partial void OnMIDDLENAMEChanging(string value);
-    partial void OnMIDDLENAMEChanged();
-    partial void OnLASTNAMEChanging(string value);
-    partial void OnLASTNAMEChanged();
-    partial void OnADDRESSChanging(string value);
-    partial void OnADDRESSChanged();
-    partial void OnBIRTHDATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnBIRTHDATEChanged();
-    partial void OnEMAILADDRESSChanging(string value);
-    partial void OnEMAILADDRESSChanged();
-    partial void OnSECURITY_QUESTIONChanging(string value);
-    partial void OnSECURITY_QUESTIONChanged();
-    partial void OnSECURITY_ANSWERChanging(string value);
-    partial void OnSECURITY_ANSWERChanged();
-    partial void OnUSERTYPE_IDChanging(System.Nullable<int> value);
-    partial void OnUSERTYPE_IDChanged();
-    partial void OnISFIRSTLOGINChanging(System.Nullable<int> value);
-    partial void OnISFIRSTLOGINChanged();
-    #endregion
-		
-		public TBLUSERDETAIL()
-		{
-			this._TBLUSERLOGINREPORTs = new EntitySet<TBLUSERLOGINREPORT>(new Action<TBLUSERLOGINREPORT>(this.attach_TBLUSERLOGINREPORTs), new Action<TBLUSERLOGINREPORT>(this.detach_TBLUSERLOGINREPORTs));
-			this._TBLUSERACTIONREPORTs = new EntitySet<TBLUSERACTIONREPORT>(new Action<TBLUSERACTIONREPORT>(this.attach_TBLUSERACTIONREPORTs), new Action<TBLUSERACTIONREPORT>(this.detach_TBLUSERACTIONREPORTs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int GENID
-		{
-			get
-			{
-				return this._GENID;
-			}
-			set
-			{
-				if ((this._GENID != value))
-				{
-					this.OnGENIDChanging(value);
-					this.SendPropertyChanging();
-					this._GENID = value;
-					this.SendPropertyChanged("GENID");
-					this.OnGENIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(50)")]
-		public string USERNAME
-		{
-			get
-			{
-				return this._USERNAME;
-			}
-			set
-			{
-				if ((this._USERNAME != value))
-				{
-					this.OnUSERNAMEChanging(value);
-					this.SendPropertyChanging();
-					this._USERNAME = value;
-					this.SendPropertyChanged("USERNAME");
-					this.OnUSERNAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASSWORD", DbType="VarChar(MAX)")]
-		public string PASSWORD
-		{
-			get
-			{
-				return this._PASSWORD;
-			}
-			set
-			{
-				if ((this._PASSWORD != value))
-				{
-					this.OnPASSWORDChanging(value);
-					this.SendPropertyChanging();
-					this._PASSWORD = value;
-					this.SendPropertyChanged("PASSWORD");
-					this.OnPASSWORDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIRSTNAME", DbType="VarChar(150)")]
-		public string FIRSTNAME
-		{
-			get
-			{
-				return this._FIRSTNAME;
-			}
-			set
-			{
-				if ((this._FIRSTNAME != value))
-				{
-					this.OnFIRSTNAMEChanging(value);
-					this.SendPropertyChanging();
-					this._FIRSTNAME = value;
-					this.SendPropertyChanged("FIRSTNAME");
-					this.OnFIRSTNAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIDDLENAME", DbType="VarChar(50)")]
-		public string MIDDLENAME
-		{
-			get
-			{
-				return this._MIDDLENAME;
-			}
-			set
-			{
-				if ((this._MIDDLENAME != value))
-				{
-					this.OnMIDDLENAMEChanging(value);
-					this.SendPropertyChanging();
-					this._MIDDLENAME = value;
-					this.SendPropertyChanged("MIDDLENAME");
-					this.OnMIDDLENAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LASTNAME", DbType="VarChar(100)")]
-		public string LASTNAME
-		{
-			get
-			{
-				return this._LASTNAME;
-			}
-			set
-			{
-				if ((this._LASTNAME != value))
-				{
-					this.OnLASTNAMEChanging(value);
-					this.SendPropertyChanging();
-					this._LASTNAME = value;
-					this.SendPropertyChanged("LASTNAME");
-					this.OnLASTNAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDRESS", DbType="VarChar(MAX)")]
-		public string ADDRESS
-		{
-			get
-			{
-				return this._ADDRESS;
-			}
-			set
-			{
-				if ((this._ADDRESS != value))
-				{
-					this.OnADDRESSChanging(value);
-					this.SendPropertyChanging();
-					this._ADDRESS = value;
-					this.SendPropertyChanged("ADDRESS");
-					this.OnADDRESSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BIRTHDATE", DbType="Date")]
-		public System.Nullable<System.DateTime> BIRTHDATE
-		{
-			get
-			{
-				return this._BIRTHDATE;
-			}
-			set
-			{
-				if ((this._BIRTHDATE != value))
-				{
-					this.OnBIRTHDATEChanging(value);
-					this.SendPropertyChanging();
-					this._BIRTHDATE = value;
-					this.SendPropertyChanged("BIRTHDATE");
-					this.OnBIRTHDATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAILADDRESS", DbType="VarChar(150)")]
-		public string EMAILADDRESS
-		{
-			get
-			{
-				return this._EMAILADDRESS;
-			}
-			set
-			{
-				if ((this._EMAILADDRESS != value))
-				{
-					this.OnEMAILADDRESSChanging(value);
-					this.SendPropertyChanging();
-					this._EMAILADDRESS = value;
-					this.SendPropertyChanged("EMAILADDRESS");
-					this.OnEMAILADDRESSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SECURITY_QUESTION", DbType="VarChar(MAX)")]
-		public string SECURITY_QUESTION
-		{
-			get
-			{
-				return this._SECURITY_QUESTION;
-			}
-			set
-			{
-				if ((this._SECURITY_QUESTION != value))
-				{
-					this.OnSECURITY_QUESTIONChanging(value);
-					this.SendPropertyChanging();
-					this._SECURITY_QUESTION = value;
-					this.SendPropertyChanged("SECURITY_QUESTION");
-					this.OnSECURITY_QUESTIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SECURITY_ANSWER", DbType="VarChar(MAX)")]
-		public string SECURITY_ANSWER
-		{
-			get
-			{
-				return this._SECURITY_ANSWER;
-			}
-			set
-			{
-				if ((this._SECURITY_ANSWER != value))
-				{
-					this.OnSECURITY_ANSWERChanging(value);
-					this.SendPropertyChanging();
-					this._SECURITY_ANSWER = value;
-					this.SendPropertyChanged("SECURITY_ANSWER");
-					this.OnSECURITY_ANSWERChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", DbType="Int")]
-		public System.Nullable<int> USERTYPE_ID
-		{
-			get
-			{
-				return this._USERTYPE_ID;
-			}
-			set
-			{
-				if ((this._USERTYPE_ID != value))
-				{
-					this.OnUSERTYPE_IDChanging(value);
-					this.SendPropertyChanging();
-					this._USERTYPE_ID = value;
-					this.SendPropertyChanged("USERTYPE_ID");
-					this.OnUSERTYPE_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISFIRSTLOGIN", DbType="Int")]
-		public System.Nullable<int> ISFIRSTLOGIN
-		{
-			get
-			{
-				return this._ISFIRSTLOGIN;
-			}
-			set
-			{
-				if ((this._ISFIRSTLOGIN != value))
-				{
-					this.OnISFIRSTLOGINChanging(value);
-					this.SendPropertyChanging();
-					this._ISFIRSTLOGIN = value;
-					this.SendPropertyChanged("ISFIRSTLOGIN");
-					this.OnISFIRSTLOGINChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLUSERLOGINREPORT", Storage="_TBLUSERLOGINREPORTs", ThisKey="GENID", OtherKey="GENID")]
-		public EntitySet<TBLUSERLOGINREPORT> TBLUSERLOGINREPORTs
-		{
-			get
-			{
-				return this._TBLUSERLOGINREPORTs;
-			}
-			set
-			{
-				this._TBLUSERLOGINREPORTs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLUSERACTIONREPORT", Storage="_TBLUSERACTIONREPORTs", ThisKey="GENID", OtherKey="GENID")]
-		public EntitySet<TBLUSERACTIONREPORT> TBLUSERACTIONREPORTs
-		{
-			get
-			{
-				return this._TBLUSERACTIONREPORTs;
-			}
-			set
-			{
-				this._TBLUSERACTIONREPORTs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TBLUSERLOGINREPORTs(TBLUSERLOGINREPORT entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLUSERDETAIL = this;
-		}
-		
-		private void detach_TBLUSERLOGINREPORTs(TBLUSERLOGINREPORT entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLUSERDETAIL = null;
-		}
-		
-		private void attach_TBLUSERACTIONREPORTs(TBLUSERACTIONREPORT entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLUSERDETAIL = this;
-		}
-		
-		private void detach_TBLUSERACTIONREPORTs(TBLUSERACTIONREPORT entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLUSERDETAIL = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLUSERACTIONREPORT")]
-	public partial class TBLUSERACTIONREPORT : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ActionID;
-		
-		private System.Nullable<int> _GENID;
-		
-		private string _username;
-		
-		private string _Action;
-		
-		private System.Nullable<System.DateTime> _Timestamp;
-		
-		private EntityRef<TBLUSERDETAIL> _TBLUSERDETAIL;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnActionIDChanging(int value);
-    partial void OnActionIDChanged();
-    partial void OnGENIDChanging(System.Nullable<int> value);
-    partial void OnGENIDChanged();
-    partial void OnusernameChanging(string value);
-    partial void OnusernameChanged();
-    partial void OnActionChanging(string value);
-    partial void OnActionChanged();
-    partial void OnTimestampChanging(System.Nullable<System.DateTime> value);
-    partial void OnTimestampChanged();
-    #endregion
-		
-		public TBLUSERACTIONREPORT()
-		{
-			this._TBLUSERDETAIL = default(EntityRef<TBLUSERDETAIL>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActionID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ActionID
-		{
-			get
-			{
-				return this._ActionID;
-			}
-			set
-			{
-				if ((this._ActionID != value))
-				{
-					this.OnActionIDChanging(value);
-					this.SendPropertyChanging();
-					this._ActionID = value;
-					this.SendPropertyChanged("ActionID");
-					this.OnActionIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENID", DbType="Int")]
-		public System.Nullable<int> GENID
-		{
-			get
-			{
-				return this._GENID;
-			}
-			set
-			{
-				if ((this._GENID != value))
-				{
-					if (this._TBLUSERDETAIL.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnGENIDChanging(value);
-					this.SendPropertyChanging();
-					this._GENID = value;
-					this.SendPropertyChanged("GENID");
-					this.OnGENIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50)")]
-		public string username
-		{
-			get
-			{
-				return this._username;
-			}
-			set
-			{
-				if ((this._username != value))
-				{
-					this.OnusernameChanging(value);
-					this.SendPropertyChanging();
-					this._username = value;
-					this.SendPropertyChanged("username");
-					this.OnusernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Action", DbType="VarChar(50)")]
-		public string Action
-		{
-			get
-			{
-				return this._Action;
-			}
-			set
-			{
-				if ((this._Action != value))
-				{
-					this.OnActionChanging(value);
-					this.SendPropertyChanging();
-					this._Action = value;
-					this.SendPropertyChanged("Action");
-					this.OnActionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Timestamp", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Timestamp
-		{
-			get
-			{
-				return this._Timestamp;
-			}
-			set
-			{
-				if ((this._Timestamp != value))
-				{
-					this.OnTimestampChanging(value);
-					this.SendPropertyChanging();
-					this._Timestamp = value;
-					this.SendPropertyChanged("Timestamp");
-					this.OnTimestampChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLUSERACTIONREPORT", Storage="_TBLUSERDETAIL", ThisKey="GENID", OtherKey="GENID", IsForeignKey=true)]
-		public TBLUSERDETAIL TBLUSERDETAIL
-		{
-			get
-			{
-				return this._TBLUSERDETAIL.Entity;
-			}
-			set
-			{
-				TBLUSERDETAIL previousValue = this._TBLUSERDETAIL.Entity;
-				if (((previousValue != value) 
-							|| (this._TBLUSERDETAIL.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBLUSERDETAIL.Entity = null;
-						previousValue.TBLUSERACTIONREPORTs.Remove(this);
-					}
-					this._TBLUSERDETAIL.Entity = value;
-					if ((value != null))
-					{
-						value.TBLUSERACTIONREPORTs.Add(this);
-						this._GENID = value.GENID;
-					}
-					else
-					{
-						this._GENID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TBLUSERDETAIL");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLEQUIPMENTDETAILS")]
-	public partial class TBLEQUIPMENTDETAIL : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _EQUIPMENT_ID;
-		
-		private string _EQBARCODE;
-		
-		private string _EQUIPMENT_NAME;
-		
-		private string _EQUIPMENT_DESCRIPTION;
-		
-		private System.Nullable<int> _EQUIPMENT_TYPE_ID;
-		
-		private System.Nullable<int> _EQUIPMENT_QUANTITY;
-		
-		private EntityRef<TBLEQEUIPMENTTYPE> _TBLEQEUIPMENTTYPE;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEQUIPMENT_IDChanging(int value);
-    partial void OnEQUIPMENT_IDChanged();
-    partial void OnEQBARCODEChanging(string value);
-    partial void OnEQBARCODEChanged();
-    partial void OnEQUIPMENT_NAMEChanging(string value);
-    partial void OnEQUIPMENT_NAMEChanged();
-    partial void OnEQUIPMENT_DESCRIPTIONChanging(string value);
-    partial void OnEQUIPMENT_DESCRIPTIONChanged();
-    partial void OnEQUIPMENT_TYPE_IDChanging(System.Nullable<int> value);
-    partial void OnEQUIPMENT_TYPE_IDChanged();
-    partial void OnEQUIPMENT_QUANTITYChanging(System.Nullable<int> value);
-    partial void OnEQUIPMENT_QUANTITYChanged();
-    #endregion
-		
-		public TBLEQUIPMENTDETAIL()
-		{
-			this._TBLEQEUIPMENTTYPE = default(EntityRef<TBLEQEUIPMENTTYPE>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int EQUIPMENT_ID
-		{
-			get
-			{
-				return this._EQUIPMENT_ID;
-			}
-			set
-			{
-				if ((this._EQUIPMENT_ID != value))
-				{
-					this.OnEQUIPMENT_IDChanging(value);
-					this.SendPropertyChanging();
-					this._EQUIPMENT_ID = value;
-					this.SendPropertyChanged("EQUIPMENT_ID");
-					this.OnEQUIPMENT_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQBARCODE", DbType="VarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string EQBARCODE
-		{
-			get
-			{
-				return this._EQBARCODE;
-			}
-			set
-			{
-				if ((this._EQBARCODE != value))
-				{
-					this.OnEQBARCODEChanging(value);
-					this.SendPropertyChanging();
-					this._EQBARCODE = value;
-					this.SendPropertyChanged("EQBARCODE");
-					this.OnEQBARCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_NAME", DbType="VarChar(200)")]
-		public string EQUIPMENT_NAME
-		{
-			get
-			{
-				return this._EQUIPMENT_NAME;
-			}
-			set
-			{
-				if ((this._EQUIPMENT_NAME != value))
-				{
-					this.OnEQUIPMENT_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._EQUIPMENT_NAME = value;
-					this.SendPropertyChanged("EQUIPMENT_NAME");
-					this.OnEQUIPMENT_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_DESCRIPTION", DbType="VarChar(100)")]
-		public string EQUIPMENT_DESCRIPTION
-		{
-			get
-			{
-				return this._EQUIPMENT_DESCRIPTION;
-			}
-			set
-			{
-				if ((this._EQUIPMENT_DESCRIPTION != value))
-				{
-					this.OnEQUIPMENT_DESCRIPTIONChanging(value);
-					this.SendPropertyChanging();
-					this._EQUIPMENT_DESCRIPTION = value;
-					this.SendPropertyChanged("EQUIPMENT_DESCRIPTION");
-					this.OnEQUIPMENT_DESCRIPTIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_TYPE_ID", DbType="Int")]
-		public System.Nullable<int> EQUIPMENT_TYPE_ID
-		{
-			get
-			{
-				return this._EQUIPMENT_TYPE_ID;
-			}
-			set
-			{
-				if ((this._EQUIPMENT_TYPE_ID != value))
-				{
-					if (this._TBLEQEUIPMENTTYPE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEQUIPMENT_TYPE_IDChanging(value);
-					this.SendPropertyChanging();
-					this._EQUIPMENT_TYPE_ID = value;
-					this.SendPropertyChanged("EQUIPMENT_TYPE_ID");
-					this.OnEQUIPMENT_TYPE_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_QUANTITY", DbType="Int")]
-		public System.Nullable<int> EQUIPMENT_QUANTITY
-		{
-			get
-			{
-				return this._EQUIPMENT_QUANTITY;
-			}
-			set
-			{
-				if ((this._EQUIPMENT_QUANTITY != value))
-				{
-					this.OnEQUIPMENT_QUANTITYChanging(value);
-					this.SendPropertyChanging();
-					this._EQUIPMENT_QUANTITY = value;
-					this.SendPropertyChanged("EQUIPMENT_QUANTITY");
-					this.OnEQUIPMENT_QUANTITYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLEQEUIPMENTTYPE_TBLEQUIPMENTDETAIL", Storage="_TBLEQEUIPMENTTYPE", ThisKey="EQUIPMENT_TYPE_ID", OtherKey="EQUIPMENT_TYPE_ID", IsForeignKey=true)]
-		public TBLEQEUIPMENTTYPE TBLEQEUIPMENTTYPE
-		{
-			get
-			{
-				return this._TBLEQEUIPMENTTYPE.Entity;
-			}
-			set
-			{
-				TBLEQEUIPMENTTYPE previousValue = this._TBLEQEUIPMENTTYPE.Entity;
-				if (((previousValue != value) 
-							|| (this._TBLEQEUIPMENTTYPE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBLEQEUIPMENTTYPE.Entity = null;
-						previousValue.TBLEQUIPMENTDETAILs.Remove(this);
-					}
-					this._TBLEQEUIPMENTTYPE.Entity = value;
-					if ((value != null))
-					{
-						value.TBLEQUIPMENTDETAILs.Add(this);
-						this._EQUIPMENT_TYPE_ID = value.EQUIPMENT_TYPE_ID;
-					}
-					else
-					{
-						this._EQUIPMENT_TYPE_ID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TBLEQEUIPMENTTYPE");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLEQEUIPMENTTYPE")]
-	public partial class TBLEQEUIPMENTTYPE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _EQUIPMENT_TYPE_ID;
-		
-		private string _EQUIPMENT_TYPE_DESCRIPTION;
-		
-		private EntitySet<TBLEQUIPMENTDETAIL> _TBLEQUIPMENTDETAILs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEQUIPMENT_TYPE_IDChanging(int value);
-    partial void OnEQUIPMENT_TYPE_IDChanged();
-    partial void OnEQUIPMENT_TYPE_DESCRIPTIONChanging(string value);
-    partial void OnEQUIPMENT_TYPE_DESCRIPTIONChanged();
-    #endregion
-		
-		public TBLEQEUIPMENTTYPE()
-		{
-			this._TBLEQUIPMENTDETAILs = new EntitySet<TBLEQUIPMENTDETAIL>(new Action<TBLEQUIPMENTDETAIL>(this.attach_TBLEQUIPMENTDETAILs), new Action<TBLEQUIPMENTDETAIL>(this.detach_TBLEQUIPMENTDETAILs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_TYPE_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int EQUIPMENT_TYPE_ID
-		{
-			get
-			{
-				return this._EQUIPMENT_TYPE_ID;
-			}
-			set
-			{
-				if ((this._EQUIPMENT_TYPE_ID != value))
-				{
-					this.OnEQUIPMENT_TYPE_IDChanging(value);
-					this.SendPropertyChanging();
-					this._EQUIPMENT_TYPE_ID = value;
-					this.SendPropertyChanged("EQUIPMENT_TYPE_ID");
-					this.OnEQUIPMENT_TYPE_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_TYPE_DESCRIPTION", DbType="VarChar(100)")]
-		public string EQUIPMENT_TYPE_DESCRIPTION
-		{
-			get
-			{
-				return this._EQUIPMENT_TYPE_DESCRIPTION;
-			}
-			set
-			{
-				if ((this._EQUIPMENT_TYPE_DESCRIPTION != value))
-				{
-					this.OnEQUIPMENT_TYPE_DESCRIPTIONChanging(value);
-					this.SendPropertyChanging();
-					this._EQUIPMENT_TYPE_DESCRIPTION = value;
-					this.SendPropertyChanged("EQUIPMENT_TYPE_DESCRIPTION");
-					this.OnEQUIPMENT_TYPE_DESCRIPTIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLEQEUIPMENTTYPE_TBLEQUIPMENTDETAIL", Storage="_TBLEQUIPMENTDETAILs", ThisKey="EQUIPMENT_TYPE_ID", OtherKey="EQUIPMENT_TYPE_ID")]
-		public EntitySet<TBLEQUIPMENTDETAIL> TBLEQUIPMENTDETAILs
-		{
-			get
-			{
-				return this._TBLEQUIPMENTDETAILs;
-			}
-			set
-			{
-				this._TBLEQUIPMENTDETAILs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TBLEQUIPMENTDETAILs(TBLEQUIPMENTDETAIL entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLEQEUIPMENTTYPE = this;
-		}
-		
-		private void detach_TBLEQUIPMENTDETAILs(TBLEQUIPMENTDETAIL entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLEQEUIPMENTTYPE = null;
-		}
-	}
-	
-	public partial class sp_UserViewResult
-	{
-		
-		private int _General_ID;
-		
-		private string _ID;
-		
-		private string _Username;
-		
-		private string _First_Name;
-		
-		private string _Middle_Name;
-		
-		private string _Last_Name;
-		
-		private string _Address;
-		
-		private System.Nullable<System.DateTime> _Birthdate;
-		
-		private string _Email_Address;
-		
-		private System.Nullable<int> _Usertype_ID;
-		
-		public sp_UserViewResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[General ID]", Storage="_General_ID", DbType="Int NOT NULL")]
-		public int General_ID
-		{
-			get
-			{
-				return this._General_ID;
-			}
-			set
-			{
-				if ((this._General_ID != value))
-				{
-					this._General_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
-		public string Username
-		{
-			get
-			{
-				return this._Username;
-			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this._Username = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[First Name]", Storage="_First_Name", DbType="VarChar(150)")]
-		public string First_Name
-		{
-			get
-			{
-				return this._First_Name;
-			}
-			set
-			{
-				if ((this._First_Name != value))
-				{
-					this._First_Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Middle Name]", Storage="_Middle_Name", DbType="VarChar(50)")]
-		public string Middle_Name
-		{
-			get
-			{
-				return this._Middle_Name;
-			}
-			set
-			{
-				if ((this._Middle_Name != value))
-				{
-					this._Middle_Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Last Name]", Storage="_Last_Name", DbType="VarChar(100)")]
-		public string Last_Name
-		{
-			get
-			{
-				return this._Last_Name;
-			}
-			set
-			{
-				if ((this._Last_Name != value))
-				{
-					this._Last_Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(MAX)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this._Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birthdate", DbType="Date")]
-		public System.Nullable<System.DateTime> Birthdate
-		{
-			get
-			{
-				return this._Birthdate;
-			}
-			set
-			{
-				if ((this._Birthdate != value))
-				{
-					this._Birthdate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Email Address]", Storage="_Email_Address", DbType="VarChar(150)")]
-		public string Email_Address
-		{
-			get
-			{
-				return this._Email_Address;
-			}
-			set
-			{
-				if ((this._Email_Address != value))
-				{
-					this._Email_Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Usertype ID]", Storage="_Usertype_ID", DbType="Int")]
-		public System.Nullable<int> Usertype_ID
-		{
-			get
-			{
-				return this._Usertype_ID;
-			}
-			set
-			{
-				if ((this._Usertype_ID != value))
-				{
-					this._Usertype_ID = value;
-				}
 			}
 		}
 	}
@@ -2065,32 +1819,6 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
-	public partial class sp_UserReturnIDResult
-	{
-		
-		private System.Nullable<int> _USERTYPE_ID;
-		
-		public sp_UserReturnIDResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", DbType="Int")]
-		public System.Nullable<int> USERTYPE_ID
-		{
-			get
-			{
-				return this._USERTYPE_ID;
-			}
-			set
-			{
-				if ((this._USERTYPE_ID != value))
-				{
-					this._USERTYPE_ID = value;
-				}
-			}
-		}
-	}
-	
 	public partial class sp_UserSearchResult
 	{
 		
@@ -2106,13 +1834,7 @@ namespace ANS_SEIS_TV
 		
 		private string _Last_Name;
 		
-		private string _Address;
-		
-		private System.Nullable<System.DateTime> _Birthdate;
-		
-		private string _Email_Address;
-		
-		private System.Nullable<int> _Usertype_ID;
+		private System.Nullable<int> _User_Type;
 		
 		public sp_UserSearchResult()
 		{
@@ -2214,66 +1936,152 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(MAX)")]
-		public string Address
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[User Type]", Storage="_User_Type", DbType="Int")]
+		public System.Nullable<int> User_Type
 		{
 			get
 			{
-				return this._Address;
+				return this._User_Type;
 			}
 			set
 			{
-				if ((this._Address != value))
+				if ((this._User_Type != value))
 				{
-					this._Address = value;
+					this._User_Type = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_UserViewResult
+	{
+		
+		private int _General_ID;
+		
+		private string _ID;
+		
+		private string _Username;
+		
+		private string _First_Name;
+		
+		private string _Middle_Name;
+		
+		private string _Last_Name;
+		
+		private System.Nullable<int> _User_Type;
+		
+		public sp_UserViewResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[General ID]", Storage="_General_ID", DbType="Int NOT NULL")]
+		public int General_ID
+		{
+			get
+			{
+				return this._General_ID;
+			}
+			set
+			{
+				if ((this._General_ID != value))
+				{
+					this._General_ID = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birthdate", DbType="Date")]
-		public System.Nullable<System.DateTime> Birthdate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ID
 		{
 			get
 			{
-				return this._Birthdate;
+				return this._ID;
 			}
 			set
 			{
-				if ((this._Birthdate != value))
+				if ((this._ID != value))
 				{
-					this._Birthdate = value;
+					this._ID = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Email Address]", Storage="_Email_Address", DbType="VarChar(150)")]
-		public string Email_Address
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
+		public string Username
 		{
 			get
 			{
-				return this._Email_Address;
+				return this._Username;
 			}
 			set
 			{
-				if ((this._Email_Address != value))
+				if ((this._Username != value))
 				{
-					this._Email_Address = value;
+					this._Username = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Usertype ID]", Storage="_Usertype_ID", DbType="Int")]
-		public System.Nullable<int> Usertype_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[First Name]", Storage="_First_Name", DbType="VarChar(150)")]
+		public string First_Name
 		{
 			get
 			{
-				return this._Usertype_ID;
+				return this._First_Name;
 			}
 			set
 			{
-				if ((this._Usertype_ID != value))
+				if ((this._First_Name != value))
 				{
-					this._Usertype_ID = value;
+					this._First_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Middle Name]", Storage="_Middle_Name", DbType="VarChar(50)")]
+		public string Middle_Name
+		{
+			get
+			{
+				return this._Middle_Name;
+			}
+			set
+			{
+				if ((this._Middle_Name != value))
+				{
+					this._Middle_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Last Name]", Storage="_Last_Name", DbType="VarChar(100)")]
+		public string Last_Name
+		{
+			get
+			{
+				return this._Last_Name;
+			}
+			set
+			{
+				if ((this._Last_Name != value))
+				{
+					this._Last_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[User Type]", Storage="_User_Type", DbType="Int")]
+		public System.Nullable<int> User_Type
+		{
+			get
+			{
+				return this._User_Type;
+			}
+			set
+			{
+				if ((this._User_Type != value))
+				{
+					this._User_Type = value;
 				}
 			}
 		}

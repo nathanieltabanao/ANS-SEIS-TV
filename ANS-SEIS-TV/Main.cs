@@ -31,5 +31,50 @@ namespace ANS_SEIS_TV
         {
 
         }
+
+        private void txtMiddleName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoStudent_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoTeacher_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoAdmin_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabPage6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

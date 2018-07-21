@@ -16,7 +16,7 @@ namespace ANS_SEIS_TV
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new EquipmentRegistration());
         }
     }
 }

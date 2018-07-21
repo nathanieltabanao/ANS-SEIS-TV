@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -62,12 +63,54 @@
             this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialProgressBar1 = new MaterialSkin.Controls.MaterialProgressBar();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.btnClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnInsert = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.drpSecurityQuestion = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtSecurityAnswer = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtConfirmPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtEmail = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtFirstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtAddress = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtLastName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtMiddleName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdoStudent = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rdoTeacher = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
+            this.materialListView2 = new MaterialSkin.Controls.MaterialListView();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.drpSecurityQuestion)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabSelector1
@@ -99,7 +142,7 @@
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(776, 339);
+            this.materialTabControl1.Size = new System.Drawing.Size(776, 605);
             this.materialTabControl1.TabIndex = 22;
             // 
             // tabPage1
@@ -233,7 +276,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(589, 230);
+            this.tabPage2.Size = new System.Drawing.Size(768, 313);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
@@ -355,7 +398,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(589, 230);
+            this.tabPage3.Size = new System.Drawing.Size(768, 313);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "MaterialTabPage3";
             // 
@@ -436,7 +479,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(589, 230);
+            this.tabPage4.Size = new System.Drawing.Size(768, 579);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "ListView";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -454,15 +497,18 @@
             this.materialListView1.Font = new System.Drawing.Font("Roboto", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
             this.materialListView1.FullRowSelect = true;
             this.materialListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.materialListView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
             this.materialListView1.Location = new System.Drawing.Point(3, 3);
             this.materialListView1.MouseLocation = new System.Drawing.Point(0, 0);
             this.materialListView1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialListView1.Name = "materialListView1";
             this.materialListView1.OwnerDraw = true;
-            this.materialListView1.Size = new System.Drawing.Size(583, 224);
+            this.materialListView1.Size = new System.Drawing.Size(762, 573);
             this.materialListView1.TabIndex = 0;
             this.materialListView1.UseCompatibleStateImageBehavior = false;
             this.materialListView1.View = System.Windows.Forms.View.Details;
+            this.materialListView1.SelectedIndexChanged += new System.EventHandler(this.materialListView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -493,7 +539,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(589, 230);
+            this.tabPage5.Size = new System.Drawing.Size(768, 579);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -559,19 +605,482 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.materialListView2);
+            this.tabPage6.Controls.Add(this.btnClear);
+            this.tabPage6.Controls.Add(this.btnDelete);
+            this.tabPage6.Controls.Add(this.btnInsert);
+            this.tabPage6.Controls.Add(this.btnEdit);
+            this.tabPage6.Controls.Add(this.bunifuCustomLabel1);
+            this.tabPage6.Controls.Add(this.groupBox4);
+            this.tabPage6.Controls.Add(this.groupBox3);
+            this.tabPage6.Controls.Add(this.groupBox2);
+            this.tabPage6.Controls.Add(this.txtID);
+            this.tabPage6.Controls.Add(this.groupBox1);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(589, 230);
+            this.tabPage6.Size = new System.Drawing.Size(768, 579);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "tabPage6";
+            this.tabPage6.Text = "Register a User";
             this.tabPage6.UseVisualStyleBackColor = true;
+            this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(8, 522);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(90, 34);
+            this.btnClear.TabIndex = 41;
+            this.btnClear.Values.Text = "Clear";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(104, 522);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(90, 34);
+            this.btnDelete.TabIndex = 40;
+            this.btnDelete.Values.Text = "Delete User";
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.Location = new System.Drawing.Point(296, 522);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(90, 34);
+            this.btnInsert.TabIndex = 39;
+            this.btnInsert.Values.Text = "Add User";
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(200, 522);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(90, 34);
+            this.btnEdit.TabIndex = 38;
+            this.btnEdit.Values.Text = "Edit User";
+            // 
+            // bunifuCustomLabel1
+            // 
+            this.bunifuCustomLabel1.AutoSize = true;
+            this.bunifuCustomLabel1.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(7, 71);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(69, 20);
+            this.bunifuCustomLabel1.TabIndex = 37;
+            this.bunifuCustomLabel1.Text = "User ID :";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox4.Controls.Add(this.drpSecurityQuestion);
+            this.groupBox4.Controls.Add(this.materialLabel12);
+            this.groupBox4.Controls.Add(this.materialLabel13);
+            this.groupBox4.Controls.Add(this.txtSecurityAnswer);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.groupBox4.Location = new System.Drawing.Point(2, 428);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(384, 90);
+            this.groupBox4.TabIndex = 36;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Account Recovery";
+            // 
+            // drpSecurityQuestion
+            // 
+            this.drpSecurityQuestion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.drpSecurityQuestion.DropDownWidth = 224;
+            this.drpSecurityQuestion.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.drpSecurityQuestion.Items.AddRange(new object[] {
+            "In what city were you born?",
+            "What high school did you attend?",
+            "What is the first and last name of your first boyfriend or girlfriend?",
+            "What is the name of your favorite pet?",
+            "What is the name of your first grade teacher?",
+            "What is the name of your first school?",
+            "What is your father\'s middle name?",
+            "What is your favorite color?",
+            "what is your favorite forum",
+            "What is your favorite movie?",
+            "what is your favorite online platform",
+            "what is your favorite social media website",
+            "what is your favorite website",
+            "What is your mother\'s maiden name?",
+            "What street did you grow up on?",
+            "What was the make of your first car?",
+            "What was your favorite place to visit as a child?",
+            "What was your high school mascot?",
+            "When is your anniversary?",
+            "Which is your favorite web browser?",
+            "Which phone number do you remember most from your childhood?",
+            "Who is your favorite actor, musician, or artist?"});
+            this.drpSecurityQuestion.Location = new System.Drawing.Point(148, 21);
+            this.drpSecurityQuestion.Name = "drpSecurityQuestion";
+            this.drpSecurityQuestion.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
+            this.drpSecurityQuestion.Size = new System.Drawing.Size(230, 21);
+            this.drpSecurityQuestion.TabIndex = 11;
+            // 
+            // materialLabel12
+            // 
+            this.materialLabel12.AutoSize = true;
+            this.materialLabel12.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel12.Depth = 0;
+            this.materialLabel12.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel12.Location = new System.Drawing.Point(7, 21);
+            this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel12.Name = "materialLabel12";
+            this.materialLabel12.Size = new System.Drawing.Size(135, 19);
+            this.materialLabel12.TabIndex = 7;
+            this.materialLabel12.Text = "Security Question :";
+            // 
+            // materialLabel13
+            // 
+            this.materialLabel13.AutoSize = true;
+            this.materialLabel13.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel13.Depth = 0;
+            this.materialLabel13.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel13.Location = new System.Drawing.Point(17, 51);
+            this.materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel13.Name = "materialLabel13";
+            this.materialLabel13.Size = new System.Drawing.Size(125, 19);
+            this.materialLabel13.TabIndex = 8;
+            this.materialLabel13.Text = "Security Answer :";
+            // 
+            // txtSecurityAnswer
+            // 
+            this.txtSecurityAnswer.Location = new System.Drawing.Point(148, 51);
+            this.txtSecurityAnswer.Name = "txtSecurityAnswer";
+            this.txtSecurityAnswer.Size = new System.Drawing.Size(230, 23);
+            this.txtSecurityAnswer.TabIndex = 12;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox3.Controls.Add(this.materialLabel3);
+            this.groupBox3.Controls.Add(this.txtUsername);
+            this.groupBox3.Controls.Add(this.materialLabel10);
+            this.groupBox3.Controls.Add(this.materialLabel11);
+            this.groupBox3.Controls.Add(this.txtConfirmPassword);
+            this.groupBox3.Controls.Add(this.txtPassword);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.groupBox3.Location = new System.Drawing.Point(2, 305);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(384, 117);
+            this.groupBox3.TabIndex = 35;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Account Details";
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(57, 21);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(85, 19);
+            this.materialLabel3.TabIndex = 7;
+            this.materialLabel3.Text = "Username :";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(148, 22);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(230, 23);
+            this.txtUsername.TabIndex = 8;
+            // 
+            // materialLabel10
+            // 
+            this.materialLabel10.AutoSize = true;
+            this.materialLabel10.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel10.Depth = 0;
+            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel10.Location = new System.Drawing.Point(59, 51);
+            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel10.Name = "materialLabel10";
+            this.materialLabel10.Size = new System.Drawing.Size(83, 19);
+            this.materialLabel10.TabIndex = 8;
+            this.materialLabel10.Text = "Password :";
+            // 
+            // materialLabel11
+            // 
+            this.materialLabel11.AutoSize = true;
+            this.materialLabel11.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel11.Depth = 0;
+            this.materialLabel11.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel11.Location = new System.Drawing.Point(1, 80);
+            this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel11.Name = "materialLabel11";
+            this.materialLabel11.Size = new System.Drawing.Size(141, 19);
+            this.materialLabel11.TabIndex = 9;
+            this.materialLabel11.Text = "Confirm Password :";
+            // 
+            // txtConfirmPassword
+            // 
+            this.txtConfirmPassword.Location = new System.Drawing.Point(148, 80);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '●';
+            this.txtConfirmPassword.Size = new System.Drawing.Size(230, 23);
+            this.txtConfirmPassword.TabIndex = 10;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(148, 51);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '●';
+            this.txtPassword.Size = new System.Drawing.Size(230, 23);
+            this.txtPassword.TabIndex = 8;
+            this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox2.Controls.Add(this.dtpBirthdate);
+            this.groupBox2.Controls.Add(this.bunifuCustomLabel3);
+            this.groupBox2.Controls.Add(this.txtEmail);
+            this.groupBox2.Controls.Add(this.txtFirstName);
+            this.groupBox2.Controls.Add(this.materialLabel5);
+            this.groupBox2.Controls.Add(this.txtAddress);
+            this.groupBox2.Controls.Add(this.materialLabel6);
+            this.groupBox2.Controls.Add(this.txtLastName);
+            this.groupBox2.Controls.Add(this.materialLabel7);
+            this.groupBox2.Controls.Add(this.txtMiddleName);
+            this.groupBox2.Controls.Add(this.materialLabel8);
+            this.groupBox2.Controls.Add(this.materialLabel9);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.groupBox2.Location = new System.Drawing.Point(2, 100);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(384, 199);
+            this.groupBox2.TabIndex = 34;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "User Details";
+            // 
+            // dtpBirthdate
+            // 
+            this.dtpBirthdate.CalendarTitleBackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dtpBirthdate.CalendarTrailingForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dtpBirthdate.Location = new System.Drawing.Point(145, 136);
+            this.dtpBirthdate.Name = "dtpBirthdate";
+            this.dtpBirthdate.Size = new System.Drawing.Size(233, 24);
+            this.dtpBirthdate.TabIndex = 6;
+            this.dtpBirthdate.Value = new System.DateTime(2018, 7, 6, 7, 41, 9, 0);
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(48, 24);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(89, 18);
+            this.bunifuCustomLabel3.TabIndex = 24;
+            this.bunifuCustomLabel3.Text = "First Name :";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(145, 167);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(233, 23);
+            this.txtEmail.TabIndex = 7;
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Location = new System.Drawing.Point(145, 24);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(233, 23);
+            this.txtFirstName.TabIndex = 2;
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel5.Location = new System.Drawing.Point(34, 53);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(106, 19);
+            this.materialLabel5.TabIndex = 8;
+            this.materialLabel5.Text = "Middle Name :";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(145, 111);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(233, 23);
+            this.txtAddress.TabIndex = 5;
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel6.Location = new System.Drawing.Point(51, 82);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(90, 19);
+            this.materialLabel6.TabIndex = 9;
+            this.materialLabel6.Text = "Last Name :";
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Location = new System.Drawing.Point(145, 82);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(233, 23);
+            this.txtLastName.TabIndex = 4;
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel7.Location = new System.Drawing.Point(67, 111);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(72, 19);
+            this.materialLabel7.TabIndex = 10;
+            this.materialLabel7.Text = "Address :";
+            // 
+            // txtMiddleName
+            // 
+            this.txtMiddleName.Location = new System.Drawing.Point(145, 53);
+            this.txtMiddleName.Name = "txtMiddleName";
+            this.txtMiddleName.Size = new System.Drawing.Size(233, 23);
+            this.txtMiddleName.TabIndex = 3;
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.AutoSize = true;
+            this.materialLabel8.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(64, 140);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(77, 19);
+            this.materialLabel8.TabIndex = 11;
+            this.materialLabel8.Text = "Birthdate :";
+            // 
+            // materialLabel9
+            // 
+            this.materialLabel9.AutoSize = true;
+            this.materialLabel9.BackColor = System.Drawing.SystemColors.Window;
+            this.materialLabel9.Depth = 0;
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel9.Location = new System.Drawing.Point(27, 167);
+            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel9.Name = "materialLabel9";
+            this.materialLabel9.Size = new System.Drawing.Size(114, 19);
+            this.materialLabel9.TabIndex = 12;
+            this.materialLabel9.Text = "Email Address :";
+            // 
+            // txtID
+            // 
+            this.txtID.Enabled = false;
+            this.txtID.Location = new System.Drawing.Point(76, 71);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(210, 23);
+            this.txtID.TabIndex = 33;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox1.Controls.Add(this.rdoStudent);
+            this.groupBox1.Controls.Add(this.rdoTeacher);
+            this.groupBox1.Controls.Add(this.rdoAdmin);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(380, 51);
+            this.groupBox1.TabIndex = 32;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "User Type";
+            // 
+            // rdoStudent
+            // 
+            this.rdoStudent.AutoSize = true;
+            this.rdoStudent.BackColor = System.Drawing.Color.Transparent;
+            this.rdoStudent.Depth = 0;
+            this.rdoStudent.Enabled = false;
+            this.rdoStudent.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rdoStudent.Location = new System.Drawing.Point(256, 18);
+            this.rdoStudent.Margin = new System.Windows.Forms.Padding(0);
+            this.rdoStudent.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rdoStudent.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rdoStudent.Name = "rdoStudent";
+            this.rdoStudent.Ripple = true;
+            this.rdoStudent.Size = new System.Drawing.Size(77, 30);
+            this.rdoStudent.TabIndex = 4;
+            this.rdoStudent.Text = "Student";
+            this.rdoStudent.UseVisualStyleBackColor = false;
+            // 
+            // rdoTeacher
+            // 
+            this.rdoTeacher.AutoSize = true;
+            this.rdoTeacher.BackColor = System.Drawing.Color.Transparent;
+            this.rdoTeacher.Depth = 0;
+            this.rdoTeacher.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rdoTeacher.Location = new System.Drawing.Point(143, 18);
+            this.rdoTeacher.Margin = new System.Windows.Forms.Padding(0);
+            this.rdoTeacher.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rdoTeacher.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rdoTeacher.Name = "rdoTeacher";
+            this.rdoTeacher.Ripple = true;
+            this.rdoTeacher.Size = new System.Drawing.Size(79, 30);
+            this.rdoTeacher.TabIndex = 3;
+            this.rdoTeacher.Text = "Teacher";
+            this.rdoTeacher.UseVisualStyleBackColor = false;
+            // 
+            // rdoAdmin
+            // 
+            this.rdoAdmin.AutoSize = true;
+            this.rdoAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.rdoAdmin.Depth = 0;
+            this.rdoAdmin.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rdoAdmin.Location = new System.Drawing.Point(5, 18);
+            this.rdoAdmin.Margin = new System.Windows.Forms.Padding(0);
+            this.rdoAdmin.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rdoAdmin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rdoAdmin.Name = "rdoAdmin";
+            this.rdoAdmin.Ripple = true;
+            this.rdoAdmin.Size = new System.Drawing.Size(114, 30);
+            this.rdoAdmin.TabIndex = 2;
+            this.rdoAdmin.Text = "Administrator";
+            this.rdoAdmin.UseVisualStyleBackColor = false;
+            // 
+            // materialListView2
+            // 
+            this.materialListView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialListView2.Depth = 0;
+            this.materialListView2.Font = new System.Drawing.Font("Roboto", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
+            this.materialListView2.FullRowSelect = true;
+            this.materialListView2.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.materialListView2.Location = new System.Drawing.Point(513, 162);
+            this.materialListView2.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialListView2.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialListView2.Name = "materialListView2";
+            this.materialListView2.OwnerDraw = true;
+            this.materialListView2.Size = new System.Drawing.Size(121, 97);
+            this.materialListView2.TabIndex = 42;
+            this.materialListView2.UseCompatibleStateImageBehavior = false;
+            this.materialListView2.View = System.Windows.Forms.View.Details;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 716);
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.materialTabControl1);
             this.Name = "Main";
@@ -587,6 +1096,17 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.drpSecurityQuestion)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -626,5 +1146,41 @@
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
         private MaterialSkin.Controls.MaterialProgressBar materialProgressBar1;
         private System.Windows.Forms.TabPage tabPage6;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnClear;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDelete;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnInsert;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox drpSecurityQuestion;
+        private MaterialSkin.Controls.MaterialLabel materialLabel12;
+        private MaterialSkin.Controls.MaterialLabel materialLabel13;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSecurityAnswer;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtUsername;
+        private MaterialSkin.Controls.MaterialLabel materialLabel10;
+        private MaterialSkin.Controls.MaterialLabel materialLabel11;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtConfirmPassword;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPassword;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DateTimePicker dtpBirthdate;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtEmail;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtFirstName;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtAddress;
+        private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtLastName;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtMiddleName;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
+        private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtID;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private MaterialSkin.Controls.MaterialRadioButton rdoStudent;
+        private MaterialSkin.Controls.MaterialRadioButton rdoTeacher;
+        private MaterialSkin.Controls.MaterialRadioButton rdoAdmin;
+        private MaterialSkin.Controls.MaterialListView materialListView2;
     }
 }

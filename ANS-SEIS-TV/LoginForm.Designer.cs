@@ -95,6 +95,7 @@
             this.txtUsername.Depth = 0;
             this.txtUsername.Hint = "";
             this.txtUsername.Location = new System.Drawing.Point(543, 168);
+            this.txtUsername.MaxLength = 32767;
             this.txtUsername.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
@@ -103,6 +104,7 @@
             this.txtUsername.SelectionStart = 0;
             this.txtUsername.Size = new System.Drawing.Size(198, 23);
             this.txtUsername.TabIndex = 1;
+            this.txtUsername.TabStop = false;
             this.txtUsername.UseSystemPasswordChar = false;
             // 
             // txtPassword
@@ -110,6 +112,7 @@
             this.txtPassword.Depth = 0;
             this.txtPassword.Hint = "";
             this.txtPassword.Location = new System.Drawing.Point(541, 203);
+            this.txtPassword.MaxLength = 32767;
             this.txtPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -118,6 +121,7 @@
             this.txtPassword.SelectionStart = 0;
             this.txtPassword.Size = new System.Drawing.Size(198, 23);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.TabStop = false;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // LoginForm
@@ -132,6 +136,8 @@
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
