@@ -32,10 +32,10 @@ namespace ANS_SEIS_TV
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown numQuantity;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
 
-        public EquipmentRegistration()
-        {
-            InitializeComponent();
-        }
+        //public EquipmentRegistration()
+        //{
+        //    InitializeComponent();
+        //}
 
         private void InitializeComponent()
         {
