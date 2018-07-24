@@ -75,9 +75,11 @@
     </Compile>
     <Compile Include="EquipmentRegistration.Designer.cs" />
     <Compile Include="EquipmentRegistration1.Designer.cs">
+
       <DependentUpon>EquipmentRegistration.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+
     </Compile>
     <Compile Include="FirstLoginForm.cs">
       <SubType>Form</SubType>
@@ -111,6 +113,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestClass.cs" />
     <Compile Include="UserLibrary.cs" />
     <Compile Include="UserRegistration.cs">
       <SubType>Form</SubType>
@@ -139,6 +142,8 @@
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
+
+
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,10 +180,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+
     <None Include="ANS-SEIS-TV-Login copy.png" />
     <None Include="Resources\009_user_6_vaE_icon.ico" />
     <None Include="Resources\user.png" />
     <None Include="Resources\user 2.png" />
+
     <Content Include="UIDESIGN_LOGIN.jpg" />
   </ItemGroup>
   <ItemGroup>

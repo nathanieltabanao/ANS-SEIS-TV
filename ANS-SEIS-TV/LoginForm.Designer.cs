@@ -83,7 +83,9 @@
             // 
             this.txtUsername.Depth = 0;
             this.txtUsername.Hint = "";
+
             this.txtUsername.Location = new System.Drawing.Point(550, 197);
+
             this.txtUsername.MaxLength = 32767;
             this.txtUsername.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtUsername.Name = "txtUsername";
@@ -100,7 +102,9 @@
             // 
             this.txtPassword.Depth = 0;
             this.txtPassword.Hint = "";
+
             this.txtPassword.Location = new System.Drawing.Point(548, 232);
+
             this.txtPassword.MaxLength = 32767;
             this.txtPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPassword.Name = "txtPassword";
@@ -137,6 +141,8 @@
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "V";

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
+using MaterialSkin;
 
 namespace ANS_SEIS_TV
 {
@@ -32,10 +33,10 @@ namespace ANS_SEIS_TV
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown numQuantity;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
 
-        public EquipmentRegistration()
-        {
-            InitializeComponent();
-        }
+        //public EquipmentRegistration()
+        //{
+        //    InitializeComponent();
+        //}
 
         private void InitializeComponent()
         {
@@ -312,8 +313,22 @@ namespace ANS_SEIS_TV
 
         }
 
+        DataClasses1DataContext db = new DataClasses1DataContext();
+
+        EquipmentLibrary e = new EquipmentLibrary();
+
+        UserLibrary u = new UserLibrary();
+
+        TestClass t = new TestClass();
+
         private void EquipmentRegistration_Load(object sender, EventArgs e)
         {
+            u.Searchkey = " ";
+            
+
+            dgvView.DataSource = db.sp_EquipmentView(u.Searchkey);
+
+            txtID.Text = t.EquipmentID().ToString();
 
         }
     }

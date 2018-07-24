@@ -39,16 +39,17 @@ namespace ANS_SEIS_TV
             if (u.LoginResult == 1)
             {
                 this.Hide();
-                UserRegistration r = new UserRegistration();
+                
                 u.CurrentUsername = u.Username;
                 //u.CurrentUserID = u.ReturnUserID();
                 //u.UserLoginLog();
-                r.Show();
+                Main m = new Main();
+                m.Show();
                 
             }
             else
             { 
-                MessageBox.Show("lol");
+                MessageBox.Show("Invalid Username or Password!");
             }
         }
 
