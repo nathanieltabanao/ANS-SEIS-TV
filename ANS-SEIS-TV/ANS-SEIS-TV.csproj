@@ -74,6 +74,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EquipmentRegistration.Designer.cs" />
+    <Compile Include="EquipmentRegistration1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EquipmentRegistration.resx</DependentUpon>
+    </Compile>
     <Compile Include="FirstLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,7 +136,10 @@
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
-    <EmbeddedResource Include="EquipmentRegistration.resx" />
+    <EmbeddedResource Include="EquipmentRegistration.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EquipmentRegistration1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +176,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\subtab.png" />
     <Content Include="UIDESIGN_LOGIN.jpg" />
   </ItemGroup>
   <ItemGroup>
