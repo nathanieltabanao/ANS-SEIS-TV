@@ -22,8 +22,6 @@ namespace ANS_SEIS_TV
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtFirstName;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtMiddleName;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtLastName;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtAddress;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtEmail;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
         private MaterialLabel materialLabel3;
@@ -48,9 +46,11 @@ namespace ANS_SEIS_TV
         private MaterialLabel materialLabel9;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnInsert;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnDelete;
-        private DateTimePicker dtpBirthdate;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnClear;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox drpSecurityQuestion;
+        private DateTimePicker dtpBirthdate;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtEmail;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtAddress;
         private MaterialSingleLineTextField txtSearch;
 
         public UserRegistration()
@@ -343,7 +343,7 @@ namespace ANS_SEIS_TV
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdoStudent = new MaterialSkin.Controls.MaterialRadioButton();
@@ -353,10 +353,7 @@ namespace ANS_SEIS_TV
             this.txtFirstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtMiddleName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtLastName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtAddress = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtEmail = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
@@ -383,6 +380,9 @@ namespace ANS_SEIS_TV
             this.btnInsert = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.txtEmail = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
+            this.txtAddress = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -506,20 +506,6 @@ namespace ANS_SEIS_TV
             this.txtLastName.Size = new System.Drawing.Size(233, 23);
             this.txtLastName.TabIndex = 4;
             // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(145, 111);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(233, 23);
-            this.txtAddress.TabIndex = 5;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(145, 167);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(233, 23);
-            this.txtEmail.TabIndex = 7;
-            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.Window;
@@ -543,16 +529,6 @@ namespace ANS_SEIS_TV
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "User Details";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
-            // 
-            // dtpBirthdate
-            // 
-            this.dtpBirthdate.CalendarTitleBackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dtpBirthdate.CalendarTrailingForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dtpBirthdate.Location = new System.Drawing.Point(145, 136);
-            this.dtpBirthdate.Name = "dtpBirthdate";
-            this.dtpBirthdate.Size = new System.Drawing.Size(233, 24);
-            this.dtpBirthdate.TabIndex = 6;
-            this.dtpBirthdate.Value = new System.DateTime(2018, 7, 6, 7, 41, 9, 0);
             // 
             // bunifuCustomLabel3
             // 
@@ -838,14 +814,14 @@ namespace ANS_SEIS_TV
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvView.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvView.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvView.Location = new System.Drawing.Point(402, 103);
@@ -909,6 +885,33 @@ namespace ANS_SEIS_TV
             this.btnClear.TabIndex = 31;
             this.btnClear.Values.Text = "Clear";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Enabled = false;
+            this.txtEmail.Location = new System.Drawing.Point(145, 167);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(233, 23);
+            this.txtEmail.TabIndex = 7;
+            // 
+            // dtpBirthdate
+            // 
+            this.dtpBirthdate.CalendarTitleBackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dtpBirthdate.CalendarTrailingForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dtpBirthdate.Enabled = false;
+            this.dtpBirthdate.Location = new System.Drawing.Point(145, 136);
+            this.dtpBirthdate.Name = "dtpBirthdate";
+            this.dtpBirthdate.Size = new System.Drawing.Size(233, 24);
+            this.dtpBirthdate.TabIndex = 6;
+            this.dtpBirthdate.Value = new System.DateTime(2018, 7, 6, 7, 41, 9, 0);
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Enabled = false;
+            this.txtAddress.Location = new System.Drawing.Point(145, 111);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(233, 23);
+            this.txtAddress.TabIndex = 5;
             // 
             // UserRegistration
             // 

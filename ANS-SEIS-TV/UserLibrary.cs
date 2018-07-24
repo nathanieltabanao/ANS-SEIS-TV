@@ -176,13 +176,13 @@ namespace ANS_SEIS_TV
         public void UserInsert()
         {
             int IsFirstLogin = 1;
-            db.sp_UserInsert(null, ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer, Usertype,IsFirstLogin);
+            //db.sp_UserInsert(null, ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer, Usertype,IsFirstLogin);
             db.sp_UserActionReport(CurrentUserID, CurrentUsername, "Registered a user", DateTime.Now);
         }
 
         public void UserEdit()
         {
-            db.sp_UserEdit(ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer);
+            //db.sp_UserEdit(ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer);
         }
 
         public void UserDelete()
