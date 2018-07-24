@@ -214,9 +214,6 @@ namespace ANS_SEIS_TV
 
         }
 
-        private void dgvView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
     }
 }

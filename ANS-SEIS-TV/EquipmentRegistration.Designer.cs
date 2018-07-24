@@ -1,4 +1,4 @@
-﻿namespace ANS_EquipmentInventory_1
+﻿namespace ANS_SEIS_TV
 {
     partial class EquipmentRegistration
     {
