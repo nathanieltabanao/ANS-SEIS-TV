@@ -48,7 +48,7 @@ namespace ANS_SEIS_TV
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::ANS_SEIS_TV.Properties.Settings.Default.ANS_SEIS_TVConnectionString, mappingSource)
+				base(global::ANS_SEIS_TV.Properties.Settings.Default.ANS_SEIS_TVConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -85,14 +85,6 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		public System.Data.Linq.Table<USERTYPE> USERTYPEs
-		{
-			get
-			{
-				return this.GetTable<USERTYPE>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TBLEQUIPMENTDETAIL> TBLEQUIPMENTDETAILs
 		{
 			get
@@ -125,11 +117,26 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
+		public System.Data.Linq.Table<USERTYPE> USERTYPEs
+		{
+			get
+			{
+				return this.GetTable<USERTYPE>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentDelete")]
 		public int sp_EquipmentDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserView")]
+		public ISingleResult<sp_UserViewResult> sp_UserView()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_UserViewResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentEdit")]
@@ -250,13 +257,6 @@ namespace ANS_SEIS_TV
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchKey);
 			return ((ISingleResult<sp_UserSearchResult>)(result.ReturnValue));
 		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserView")]
-		public ISingleResult<sp_UserViewResult> sp_UserView()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_UserViewResult>)(result.ReturnValue));
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLEQEUIPMENTTYPE")]
@@ -370,51 +370,6 @@ namespace ANS_SEIS_TV
 		{
 			this.SendPropertyChanging();
 			entity.TBLEQEUIPMENTTYPE = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USERTYPE")]
-	public partial class USERTYPE
-	{
-		
-		private int _USERTYPE_ID;
-		
-		private string _USERTYPE_DESCRIPTION;
-		
-		public USERTYPE()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int USERTYPE_ID
-		{
-			get
-			{
-				return this._USERTYPE_ID;
-			}
-			set
-			{
-				if ((this._USERTYPE_ID != value))
-				{
-					this._USERTYPE_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_DESCRIPTION", DbType="VarChar(50)")]
-		public string USERTYPE_DESCRIPTION
-		{
-			get
-			{
-				return this._USERTYPE_DESCRIPTION;
-			}
-			set
-			{
-				if ((this._USERTYPE_DESCRIPTION != value))
-				{
-					this._USERTYPE_DESCRIPTION = value;
-				}
-			}
 		}
 	}
 	
@@ -1445,6 +1400,185 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USERTYPE")]
+	public partial class USERTYPE
+	{
+		
+		private int _USERTYPE_ID;
+		
+		private string _USERTYPE_DESCRIPTION;
+		
+		public USERTYPE()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int USERTYPE_ID
+		{
+			get
+			{
+				return this._USERTYPE_ID;
+			}
+			set
+			{
+				if ((this._USERTYPE_ID != value))
+				{
+					this._USERTYPE_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_DESCRIPTION", DbType="VarChar(50)")]
+		public string USERTYPE_DESCRIPTION
+		{
+			get
+			{
+				return this._USERTYPE_DESCRIPTION;
+			}
+			set
+			{
+				if ((this._USERTYPE_DESCRIPTION != value))
+				{
+					this._USERTYPE_DESCRIPTION = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_UserViewResult
+	{
+		
+		private int _General_ID;
+		
+		private string _ID;
+		
+		private string _Username;
+		
+		private string _First_Name;
+		
+		private string _Middle_Name;
+		
+		private string _Last_Name;
+		
+		private System.Nullable<int> _User_Type;
+		
+		public sp_UserViewResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[General ID]", Storage="_General_ID", DbType="Int NOT NULL")]
+		public int General_ID
+		{
+			get
+			{
+				return this._General_ID;
+			}
+			set
+			{
+				if ((this._General_ID != value))
+				{
+					this._General_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this._Username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[First Name]", Storage="_First_Name", DbType="VarChar(150)")]
+		public string First_Name
+		{
+			get
+			{
+				return this._First_Name;
+			}
+			set
+			{
+				if ((this._First_Name != value))
+				{
+					this._First_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Middle Name]", Storage="_Middle_Name", DbType="VarChar(50)")]
+		public string Middle_Name
+		{
+			get
+			{
+				return this._Middle_Name;
+			}
+			set
+			{
+				if ((this._Middle_Name != value))
+				{
+					this._Middle_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Last Name]", Storage="_Last_Name", DbType="VarChar(100)")]
+		public string Last_Name
+		{
+			get
+			{
+				return this._Last_Name;
+			}
+			set
+			{
+				if ((this._Last_Name != value))
+				{
+					this._Last_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[User Type]", Storage="_User_Type", DbType="Int")]
+		public System.Nullable<int> User_Type
+		{
+			get
+			{
+				return this._User_Type;
+			}
+			set
+			{
+				if ((this._User_Type != value))
+				{
+					this._User_Type = value;
+				}
+			}
+		}
+	}
+	
 	public partial class sp_EquipmentViewResult
 	{
 		
@@ -1837,140 +1971,6 @@ namespace ANS_SEIS_TV
 		private System.Nullable<int> _User_Type;
 		
 		public sp_UserSearchResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[General ID]", Storage="_General_ID", DbType="Int NOT NULL")]
-		public int General_ID
-		{
-			get
-			{
-				return this._General_ID;
-			}
-			set
-			{
-				if ((this._General_ID != value))
-				{
-					this._General_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
-		public string Username
-		{
-			get
-			{
-				return this._Username;
-			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this._Username = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[First Name]", Storage="_First_Name", DbType="VarChar(150)")]
-		public string First_Name
-		{
-			get
-			{
-				return this._First_Name;
-			}
-			set
-			{
-				if ((this._First_Name != value))
-				{
-					this._First_Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Middle Name]", Storage="_Middle_Name", DbType="VarChar(50)")]
-		public string Middle_Name
-		{
-			get
-			{
-				return this._Middle_Name;
-			}
-			set
-			{
-				if ((this._Middle_Name != value))
-				{
-					this._Middle_Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Last Name]", Storage="_Last_Name", DbType="VarChar(100)")]
-		public string Last_Name
-		{
-			get
-			{
-				return this._Last_Name;
-			}
-			set
-			{
-				if ((this._Last_Name != value))
-				{
-					this._Last_Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[User Type]", Storage="_User_Type", DbType="Int")]
-		public System.Nullable<int> User_Type
-		{
-			get
-			{
-				return this._User_Type;
-			}
-			set
-			{
-				if ((this._User_Type != value))
-				{
-					this._User_Type = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_UserViewResult
-	{
-		
-		private int _General_ID;
-		
-		private string _ID;
-		
-		private string _Username;
-		
-		private string _First_Name;
-		
-		private string _Middle_Name;
-		
-		private string _Last_Name;
-		
-		private System.Nullable<int> _User_Type;
-		
-		public sp_UserViewResult()
 		{
 		}
 		
