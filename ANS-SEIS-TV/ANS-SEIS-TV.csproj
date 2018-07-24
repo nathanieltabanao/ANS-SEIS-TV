@@ -75,9 +75,11 @@
     </Compile>
     <Compile Include="EquipmentRegistration.Designer.cs" />
     <Compile Include="EquipmentRegistration1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
+
       <DependentUpon>EquipmentRegistration.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+
     </Compile>
     <Compile Include="FirstLoginForm.cs">
       <SubType>Form</SubType>
@@ -120,6 +122,10 @@
     <EmbeddedResource Include="EquipmentInventory.resx">
       <DependentUpon>EquipmentInventory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EquipmentRegistration.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EquipmentRegistration1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FirstLoginForm.resx">
       <DependentUpon>FirstLoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,10 +142,8 @@
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
-    <EmbeddedResource Include="EquipmentRegistration.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>EquipmentRegistration1.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+
+
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,7 +180,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\subtab.png" />
+
+    <None Include="ANS-SEIS-TV-Login copy.png" />
+    <None Include="Resources\009_user_6_vaE_icon.ico" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\user 2.png" />
+
     <Content Include="UIDESIGN_LOGIN.jpg" />
   </ItemGroup>
   <ItemGroup>

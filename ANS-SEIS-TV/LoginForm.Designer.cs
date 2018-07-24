@@ -28,26 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtUsername = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::ANS_SEIS_TV.Properties.Resources.UIDESIGN_LOGIN;
-            this.pictureBox1.Location = new System.Drawing.Point(-6, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(394, 456);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // materialLabel1
             // 
@@ -55,8 +43,8 @@
             this.materialLabel1.BackColor = System.Drawing.SystemColors.Window;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(452, 172);
+            this.materialLabel1.ForeColor = System.Drawing.Color.Gray;
+            this.materialLabel1.Location = new System.Drawing.Point(459, 197);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(85, 19);
@@ -69,8 +57,8 @@
             this.materialLabel2.BackColor = System.Drawing.SystemColors.Window;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(452, 204);
+            this.materialLabel2.ForeColor = System.Drawing.Color.Gray;
+            this.materialLabel2.Location = new System.Drawing.Point(459, 229);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(83, 19);
@@ -79,22 +67,25 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.BackColor = System.Drawing.Color.Firebrick;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnLogin.ForeColor = System.Drawing.Color.DimGray;
-            this.btnLogin.Location = new System.Drawing.Point(643, 232);
+            this.btnLogin.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLogin.Location = new System.Drawing.Point(650, 273);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(98, 39);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "LOGIN";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtUsername
             // 
             this.txtUsername.Depth = 0;
             this.txtUsername.Hint = "";
-            this.txtUsername.Location = new System.Drawing.Point(543, 168);
+
+            this.txtUsername.Location = new System.Drawing.Point(550, 197);
+
             this.txtUsername.MaxLength = 32767;
             this.txtUsername.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtUsername.Name = "txtUsername";
@@ -102,7 +93,7 @@
             this.txtUsername.SelectedText = "";
             this.txtUsername.SelectionLength = 0;
             this.txtUsername.SelectionStart = 0;
-            this.txtUsername.Size = new System.Drawing.Size(198, 23);
+            this.txtUsername.Size = new System.Drawing.Size(200, 23);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.TabStop = false;
             this.txtUsername.UseSystemPasswordChar = false;
@@ -111,7 +102,9 @@
             // 
             this.txtPassword.Depth = 0;
             this.txtPassword.Hint = "";
-            this.txtPassword.Location = new System.Drawing.Point(541, 203);
+
+            this.txtPassword.Location = new System.Drawing.Point(548, 232);
+
             this.txtPassword.MaxLength = 32767;
             this.txtPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPassword.Name = "txtPassword";
@@ -119,10 +112,22 @@
             this.txtPassword.SelectedText = "";
             this.txtPassword.SelectionLength = 0;
             this.txtPassword.SelectionStart = 0;
-            this.txtPassword.Size = new System.Drawing.Size(198, 23);
+            this.txtPassword.Size = new System.Drawing.Size(200, 23);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.TabStop = false;
             this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::ANS_SEIS_TV.Properties.Resources.ANS_SEIS_TV_Login_copy1;
+            this.pictureBox1.Location = new System.Drawing.Point(-2, -3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(409, 455);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // LoginForm
             // 
@@ -140,7 +145,7 @@
             this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "V";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
