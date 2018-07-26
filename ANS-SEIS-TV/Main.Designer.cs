@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabSelector2 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl2 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.materialTabSelector3 = new MaterialSkin.Controls.MaterialTabSelector();
-
             this.materialTabControl3 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -59,7 +57,6 @@
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.tabPage17 = new System.Windows.Forms.TabPage();
             this.tabPage18 = new System.Windows.Forms.TabPage();
-
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
@@ -68,13 +65,13 @@
             this.materialTabSelector4 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl4 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage25 = new System.Windows.Forms.TabPage();
+            this.txtSearchUser = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dgvUserRegister = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.btnUserClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnDeleteUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnAddUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnEditUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             this.txtUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -82,7 +79,6 @@
             this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
             this.txtConfirmPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtFirstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -99,8 +95,6 @@
             this.rdoTeacher = new MaterialSkin.Controls.MaterialRadioButton();
             this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
             this.tabPage26 = new System.Windows.Forms.TabPage();
-            this.txtSearchUser = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
@@ -111,26 +105,23 @@
             this.tabPage13.SuspendLayout();
             this.materialTabControl4.SuspendLayout();
             this.tabPage25.SuspendLayout();
-
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserRegister)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-
             this.SuspendLayout();
             // 
             // materialTabSelector2
             // 
             this.materialTabSelector2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-
             this.materialTabSelector2.BaseTabControl = this.materialTabControl2;
             this.materialTabSelector2.Depth = 0;
-            this.materialTabSelector2.Location = new System.Drawing.Point(0, 62);
+            this.materialTabSelector2.Location = new System.Drawing.Point(-1, 55);
             this.materialTabSelector2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector2.Name = "materialTabSelector2";
             this.materialTabSelector2.Size = new System.Drawing.Size(1162, 48);
-            this.materialTabSelector2.TabIndex = 23;
+            this.materialTabSelector2.TabIndex = 21;
             this.materialTabSelector2.Text = "materialTabSelector1";
             this.materialTabSelector2.Click += new System.EventHandler(this.materialTabSelector2_Click);
             // 
@@ -139,19 +130,16 @@
             this.materialTabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-
             this.materialTabControl2.Controls.Add(this.tabPage8);
             this.materialTabControl2.Controls.Add(this.tabPage12);
             this.materialTabControl2.Controls.Add(this.tabPage13);
             this.materialTabControl2.Depth = 0;
-
             this.materialTabControl2.Location = new System.Drawing.Point(0, 106);
             this.materialTabControl2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl2.Name = "materialTabControl2";
             this.materialTabControl2.SelectedIndex = 0;
             this.materialTabControl2.Size = new System.Drawing.Size(1162, 581);
             this.materialTabControl2.TabIndex = 24;
-
             // 
             // tabPage8
             // 
@@ -161,7 +149,6 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-
             this.tabPage8.Size = new System.Drawing.Size(1154, 555);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Inventory";
@@ -180,7 +167,6 @@
             this.materialTabSelector3.TabIndex = 23;
             this.materialTabSelector3.Text = "materialTabSelector1";
             // 
-
             // materialTabControl3
             // 
             this.materialTabControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -198,9 +184,7 @@
             this.materialTabControl3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl3.Name = "materialTabControl3";
             this.materialTabControl3.SelectedIndex = 0;
-
             this.materialTabControl3.Size = new System.Drawing.Size(1162, 581);
-
             this.materialTabControl3.TabIndex = 24;
             // 
             // tabPage14
@@ -221,9 +205,7 @@
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-
             this.tabPage14.Size = new System.Drawing.Size(1154, 555);
-
             this.tabPage14.TabIndex = 0;
             this.tabPage14.Text = "Registration";
             // 
@@ -232,9 +214,7 @@
             this.materialSingleLineTextField2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialSingleLineTextField2.Depth = 0;
             this.materialSingleLineTextField2.Hint = "";
-
             this.materialSingleLineTextField2.Location = new System.Drawing.Point(840, 9);
-
             this.materialSingleLineTextField2.MaxLength = 32767;
             this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
@@ -433,25 +413,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewX2.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dataGridViewX2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle8;
-
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewX2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX2.Location = new System.Drawing.Point(413, 38);
             this.dataGridViewX2.Name = "dataGridViewX2";
             this.dataGridViewX2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridViewX2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-
             this.dataGridViewX2.Size = new System.Drawing.Size(719, 436);
-
             this.dataGridViewX2.TabIndex = 45;
             // 
             // tabPage16
@@ -460,20 +436,17 @@
             this.tabPage16.Location = new System.Drawing.Point(4, 22);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-
             this.tabPage16.Size = new System.Drawing.Size(1154, 555);
-
             this.tabPage16.TabIndex = 2;
             this.tabPage16.Text = "Monitoring";
+            this.tabPage16.Click += new System.EventHandler(this.tabPage16_Click);
             // 
             // tabPage17
             // 
             this.tabPage17.Location = new System.Drawing.Point(4, 22);
             this.tabPage17.Name = "tabPage17";
             this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
-
             this.tabPage17.Size = new System.Drawing.Size(1154, 555);
-
             this.tabPage17.TabIndex = 3;
             this.tabPage17.Text = "Borrowing";
             this.tabPage17.UseVisualStyleBackColor = true;
@@ -483,58 +456,17 @@
             this.tabPage18.Location = new System.Drawing.Point(4, 22);
             this.tabPage18.Name = "tabPage18";
             this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
-
             this.tabPage18.Size = new System.Drawing.Size(1154, 555);
-
             this.tabPage18.TabIndex = 4;
             this.tabPage18.Text = "Return";
             this.tabPage18.UseVisualStyleBackColor = true;
             // 
-
-            // tabPage12
-            // 
-            this.tabPage12.Location = new System.Drawing.Point(4, 22);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(1125, 500);
-            this.tabPage12.TabIndex = 5;
-            this.tabPage12.Text = "Reports";
-            this.tabPage12.UseVisualStyleBackColor = true;
-            // 
-            // tabPage13
-            // 
-            this.tabPage13.Controls.Add(this.materialTabSelector4);
-            this.tabPage13.Controls.Add(this.materialTabControl4);
-            this.tabPage13.Location = new System.Drawing.Point(4, 22);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(1125, 555);
-            this.tabPage13.TabIndex = 6;
-            this.tabPage13.Text = "Accounts";
-            this.tabPage13.UseVisualStyleBackColor = true;
-            // 
-            // materialTabSelector2
-            // 
-            this.materialTabSelector2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialTabSelector2.BaseTabControl = this.materialTabControl2;
-            this.materialTabSelector2.Depth = 0;
-            this.materialTabSelector2.Location = new System.Drawing.Point(-1, 55);
-            this.materialTabSelector2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialTabSelector2.Name = "materialTabSelector2";
-            this.materialTabSelector2.Size = new System.Drawing.Size(1162, 48);
-            this.materialTabSelector2.TabIndex = 21;
-            this.materialTabSelector2.Text = "materialTabSelector1";
-            // 
-
             // tabPage7
             // 
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-
             this.tabPage7.Size = new System.Drawing.Size(1154, 555);
-
             this.tabPage7.TabIndex = 5;
             this.tabPage7.Text = "Deploy";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -544,9 +476,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-
             this.tabPage10.Size = new System.Drawing.Size(1154, 555);
-
             this.tabPage10.TabIndex = 6;
             this.tabPage10.Text = "Pull Out";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -556,14 +486,11 @@
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-
             this.tabPage11.Size = new System.Drawing.Size(1154, 555);
-
             this.tabPage11.TabIndex = 7;
             this.tabPage11.Text = "Requests";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
-
             // tabPage12
             // 
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
@@ -586,7 +513,6 @@
             this.tabPage13.Text = "Accounts";
             this.tabPage13.UseVisualStyleBackColor = true;
             // 
-
             // materialTabSelector4
             // 
             this.materialTabSelector4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -596,9 +522,7 @@
             this.materialTabSelector4.Location = new System.Drawing.Point(-1, -6);
             this.materialTabSelector4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector4.Name = "materialTabSelector4";
-
             this.materialTabSelector4.Size = new System.Drawing.Size(1191, 48);
-
             this.materialTabSelector4.TabIndex = 23;
             this.materialTabSelector4.Text = "materialTabSelector1";
             // 
@@ -614,14 +538,11 @@
             this.materialTabControl4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl4.Name = "materialTabControl4";
             this.materialTabControl4.SelectedIndex = 0;
-
             this.materialTabControl4.Size = new System.Drawing.Size(1162, 581);
-
             this.materialTabControl4.TabIndex = 24;
             // 
             // tabPage25
             // 
-
             this.tabPage25.Controls.Add(this.txtSearchUser);
             this.tabPage25.Controls.Add(this.bunifuCustomLabel7);
             this.tabPage25.Controls.Add(this.dgvUserRegister);
@@ -633,17 +554,24 @@
             this.tabPage25.Controls.Add(this.groupBox4);
             this.tabPage25.Controls.Add(this.bunifuCustomLabel5);
             this.tabPage25.Controls.Add(this.txtUserID);
-
             this.tabPage25.Controls.Add(this.groupBox1);
             this.tabPage25.Location = new System.Drawing.Point(4, 22);
             this.tabPage25.Name = "tabPage25";
             this.tabPage25.Padding = new System.Windows.Forms.Padding(3);
-
             this.tabPage25.Size = new System.Drawing.Size(1154, 555);
             this.tabPage25.TabIndex = 5;
             this.tabPage25.Text = "Register User";
             this.tabPage25.UseVisualStyleBackColor = true;
             this.tabPage25.Click += new System.EventHandler(this.tabPage25_Click);
+            // 
+            // txtSearchUser
+            // 
+            this.txtSearchUser.Location = new System.Drawing.Point(845, 24);
+            this.txtSearchUser.Name = "txtSearchUser";
+            this.txtSearchUser.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.txtSearchUser.Size = new System.Drawing.Size(279, 23);
+            this.txtSearchUser.TabIndex = 38;
+            this.txtSearchUser.TextChanged += new System.EventHandler(this.txtSearchUser_TextChanged);
             // 
             // bunifuCustomLabel7
             // 
@@ -668,14 +596,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUserRegister.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvUserRegister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUserRegister.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserRegister.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUserRegister.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvUserRegister.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvUserRegister.Location = new System.Drawing.Point(405, 53);
@@ -802,13 +730,11 @@
             this.txtPassword.Size = new System.Drawing.Size(230, 23);
             this.txtPassword.TabIndex = 8;
             this.txtPassword.UseSystemPasswordChar = true;
-
             // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.Window;
             this.groupBox4.Controls.Add(this.bunifuCustomLabel6);
-
             this.groupBox4.Controls.Add(this.txtFirstName);
             this.groupBox4.Controls.Add(this.materialLabel2);
             this.groupBox4.Controls.Add(this.txtContactNumber);
@@ -816,7 +742,6 @@
             this.groupBox4.Controls.Add(this.txtLastName);
             this.groupBox4.Controls.Add(this.materialLabel7);
             this.groupBox4.Controls.Add(this.txtMiddleName);
-
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox4.Location = new System.Drawing.Point(9, 125);
             this.groupBox4.Name = "groupBox4";
@@ -836,14 +761,12 @@
             this.bunifuCustomLabel6.TabIndex = 24;
             this.bunifuCustomLabel6.Text = "First Name :";
             // 
-
             // txtFirstName
             // 
             this.txtFirstName.Location = new System.Drawing.Point(145, 24);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(233, 23);
             this.txtFirstName.TabIndex = 2;
-
             // 
             // materialLabel2
             // 
@@ -859,14 +782,12 @@
             this.materialLabel2.TabIndex = 8;
             this.materialLabel2.Text = "Middle Name :";
             // 
-
             // txtContactNumber
             // 
             this.txtContactNumber.Location = new System.Drawing.Point(145, 111);
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(233, 23);
             this.txtContactNumber.TabIndex = 5;
-
             // 
             // materialLabel3
             // 
@@ -903,7 +824,6 @@
             this.materialLabel7.TabIndex = 10;
             this.materialLabel7.Text = "Contact #:";
             // 
-
             // txtMiddleName
             // 
             this.txtMiddleName.Location = new System.Drawing.Point(145, 53);
@@ -1008,31 +928,18 @@
             this.tabPage26.Text = "Upload Sheet";
             this.tabPage26.UseVisualStyleBackColor = true;
             // 
-            // txtSearchUser
-            // 
-            this.txtSearchUser.Location = new System.Drawing.Point(845, 24);
-            this.txtSearchUser.Name = "txtSearchUser";
-            this.txtSearchUser.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.txtSearchUser.Size = new System.Drawing.Size(279, 23);
-            this.txtSearchUser.TabIndex = 38;
-            this.txtSearchUser.TextChanged += new System.EventHandler(this.txtSearchUser_TextChanged);
-
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1157, 692);
             this.Controls.Add(this.materialTabSelector2);
-
             this.Controls.Add(this.materialTabControl2);
-
             this.Name = "Main";
             this.Sizable = false;
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
-
             this.materialTabControl2.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.materialTabControl3.ResumeLayout(false);
@@ -1046,7 +953,6 @@
             this.materialTabControl4.ResumeLayout(false);
             this.tabPage25.ResumeLayout(false);
             this.tabPage25.PerformLayout();
-
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserRegister)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -1054,7 +960,6 @@
             this.groupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-
             this.ResumeLayout(false);
 
         }
