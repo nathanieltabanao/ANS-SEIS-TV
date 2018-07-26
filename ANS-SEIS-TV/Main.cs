@@ -30,6 +30,18 @@ namespace ANS_SEIS_TV
         private void Main_Load(object sender, EventArgs e)
         {
             ViewUser();
+            ViewEquipment();
+            txtUsername.Enabled = false;
+            txtPassword.Enabled = false;
+        }
+
+
+
+        public void ViewEquipment()
+        {
+            u.Searchkey = "";
+            txtEquipmentID.Text = e.EquipmentID().ToString();
+            dgvEquipment.DataSource = db.sp_EquipmentView(u.Searchkey);
         }
 
         //initialize Connection
@@ -37,6 +49,9 @@ namespace ANS_SEIS_TV
         DataClasses1DataContext db = new DataClasses1DataContext();
 
         UserLibrary u = new UserLibrary();
+
+        EquipmentLibrary e = new EquipmentLibrary();
+
 
         // This Area is for the Users
         //The Following Code Directly affects users
@@ -50,13 +65,31 @@ namespace ANS_SEIS_TV
         private void ClearUser()
         {
             txtLastName.Text = null;
-            txtConfirmPassword.Text = null;
+            //txtConfirmPassword.Text = null;
             txtContactNumber.Text = null;
             txtFirstName.Text = null;
             txtMiddleName.Text = null;
             txtPassword.Text = null;
             txtUsername.Text = null;
+            rdoAdmin.Checked = true;
+            txtPassword.Text = "1234";
 
+        }
+
+        private void EditUsers()
+        {
+            btnAddUser.Enabled = false;
+            btnDeleteUser.Enabled = true;
+            btnUserClear.Enabled = true;
+            btnEditUser.Enabled = true;
+        }
+
+        private void AddUser()
+        {
+            btnAddUser.Enabled = true;
+            btnEditUser.Enabled = false;
+            btnDeleteUser.Enabled = false;
+            btnUserClear.Enabled = true;
         }
 
         private void ViewUser()
@@ -95,50 +128,66 @@ namespace ANS_SEIS_TV
             u.Usertype = 110;
             txtUsername.Enabled = true;
             txtPassword.Enabled = true;
-            txtConfirmPassword.Enabled = true;
+            //txtConfirmPassword.Enabled = true;
             //drpSecurityQuestion.Enabled = true;
             //txtSecurityAnswer.Enabled = true;
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
+            AddUser();
+
+            u.GENID = u.UserID();
+            u.ID = txtUserID.Text;
             u.Username = txtUsername.Text;
             u.Password = txtPassword.Text;
             u.FirstName = txtFirstName.Text;
             u.MiddleName = txtMiddleName.Text;
             u.LastName = txtLastName.Text;
-            //u.Address = txtAddress.Text;
-            //u.Email = txtEmail.Text;
-            //u.Birthdate = dtpBirthdate.Value;
-            //u.SecurityQuestion = drpSecurityQuestion.Text;
-            //u.SecurityAnswer = txtSecurityAnswer.Text;
-            u.ID = txtUserID.Text;
+            ////u.Address = txtAddress.Text;
+            ////u.Email = txtEmail.Text;
+            ////u.Birthdate = dtpBirthdate.Value;
+            ////u.SecurityQuestion = drpSecurityQuestion.Text;
+            ////u.SecurityAnswer = txtSecurityAnswer.Text;
+            //u.ID = txtUserID.Text;
 
-            if (u.IncompleteUserData() == 1)
-            {
-                MessageBox.Show("Please fill all boxes!");
-            }
-            else if (u.EmailError() == 1)
-            {
-                MessageBox.Show(u.InvalidEmail());
-            }
-            else
-            {
-                u.UserInsert();
-                rdoAdmin.Checked = true;
-                ViewUser();
-                ClearUser();
-            }
+            //if (u.IncompleteUserData() == 1)
+            //{
+            //    MessageBox.Show("Please fill all boxes!");
+            //}
+            //else if (u.EmailError() == 1)
+            //{
+            //    MessageBox.Show(u.InvalidEmail());
+            //}
+            //else
+            //{
+            //    u.UserInsert();
+            //    rdoAdmin.Checked = true;
+            //    ViewUser();
+            //    ClearUser();
+            //}
+
+            u.UserInsert();
+            ClearUser();
+            ViewUser();
         }
+
+
 
         private void materialTabSelector2_Click(object sender, EventArgs e)
         {
             rdoAdmin.Checked = true;
+            txtUsername.Enabled = false;
+            txtPassword.Enabled = false;
+            txtPassword.Text = "1234";
+
+            GetSomethingFromServer g = new GetSomethingFromServer();
+            g.GetSomething();
         }
 
         private void btnUserClear_Click(object sender, EventArgs e)
         {
-
+            AddUser();
         }
 
         private void txtSearchUser_TextChanged(object sender, EventArgs e)
@@ -157,11 +206,31 @@ namespace ANS_SEIS_TV
             Teacher();
         }
 
+        private void dgvUserRegister_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditUsers();
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            AddUser();
+        }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
         /// <summary>
         /// Code for user Ends Here
         /// </summary>
 
-
+        
+        ///////////////////////////////////////////////////////////////////
+        ///
+        ///Code for Equipment Starts Below
+        /// 
+        ///////////////////////////////////////////////////////////////////
 
 
         private void txtMiddleName_TextChanged(object sender, EventArgs e)
@@ -214,6 +283,24 @@ namespace ANS_SEIS_TV
 
         }
 
-        
+        private void tabPage14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonButton7_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dataGridViewX2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+            txtUsername.Text = txtFirstName.Text.Substring(0, 1) + txtLastName.Text;
+        }
     }
 }

@@ -167,6 +167,69 @@ SELECT USERNAME,PASSWORD FROM TBLUSERDETAILS
 WHERE USERNAME=@USERNAME AND PASSWORD=@PASSWORD
 RETURN 0
 
+
+
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+
+-- THINGS REGARDING ABOUT STUDENTS ENDS HERE
+
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+
+--STUDENTS MAIN TABLE
+SELECT * FROM STUDENTS
+
+DROP TABLE STUDENTS
+
+
+CREATE TABLE STUDENTS
+(
+	GENID INT UNIQUE IDENTITY (3000000,1),
+	USERNAME VARCHAR(50) PRIMARY KEY,
+	PASSWORD VARCHAR(MAX),
+	NAME VARCHAR(200)
+)
+
+CREATE PROC sp_StudentInsert
+(
+@USERNAME VARCHAR(50),
+@PASSWORD VARCHAR(MAX),
+@NAME VARCHAR(200)
+)
+as
+INSERT INTO STUDENTS
+VALUES(@USERNAME,@PASSWORD,@NAME)
+
+INSERT INTO STUDENTS
+VALUES ('NTABANAO','1234','NATHANIEL ANGELICO TABANAO'),
+		('JHDIONSON','1234','JAMIE HANNA DIONSON'),
+		('JBGEONSON','1234','JOHN BROWN GEONSON'),
+		('NTABANAO','1234','ALLY')
+
+
+CREATE PROC sp_StudentSearch
+(
+@SearchKey VARCHAR(50)
+)
+as
+SELECT GENID,USERNAME,NAME FROM STUDENTS
+WHERE GENID like '%'+@SearchKey+'%' OR USERNAME like '%'+@SearchKey+'%' OR NAME like '%'+@SearchKey+'%'
+
+CREATE PROC sp_StudentView
+as
+SELECT GENID,USERNAME,NAME FROM STUDENTS
+
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+
+-- THINGS REGARDING ABOUT STUDENTS ENDS HERE
+
+---------------------------------------------------------------------------------
+
 ---------------------------------------------------------------------------------
 
 
@@ -306,6 +369,9 @@ CREATE TABLE TBLEQEUIPMENTTYPE
  EQUIPMENT_TYPE_DESCRIPTION VARCHAR(100)
 )
 
+INSERT INTO TBLEQEUIPMENTTYPE
+VALUES(200,'GENERAL EQUIPMENT')
+
 ---------------------------------------------------------------------------------
 
 
@@ -340,6 +406,11 @@ CREATE TABLE TBLEQUIPMENTDETAILS
 	EQUIPMENT_QUANTITY INT
 )
 
+
+INSERT INTO TBLEQUIPMENTDETAILS
+VALUES ('2000000','Test Equipment 1','Test Description 1',200,'3'),
+('2000001','Test Equipment 2','Test Description 2',200,3),
+('2000002','Test Equipment 3','Test Description 3',200,3)
 
 
 --User ID Generation

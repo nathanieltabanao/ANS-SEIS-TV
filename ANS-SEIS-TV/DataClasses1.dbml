@@ -1,5 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ANS_SEIS_TV" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=NATHANIEL-VX15\NATHANIEL;Initial Catalog=ANS_SEIS_TV;Integrated Security=True" SettingsObjectName="ANS_SEIS_TV.Properties.Settings" SettingsPropertyName="ANS_SEIS_TVConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.STUDENTS" Member="STUDENTs">
+    <Type Name="STUDENT">
+      <Column Name="GENID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.USERTYPE" Member="USERTYPEs">
+    <Type Name="USERTYPE">
+      <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USERTYPE_DESCRIPTION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="USERTYPE_TBLUSERDETAIL" Member="TBLUSERDETAILs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLUSERDETAIL" />
+      <Association Name="USERTYPE_TBLUSERLOGINREPORT" Member="TBLUSERLOGINREPORTs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLUSERLOGINREPORT" />
+    </Type>
+  </Table>
   <Table Name="dbo.TBLEQEUIPMENTTYPE" Member="TBLEQEUIPMENTTYPEs">
     <Type Name="TBLEQEUIPMENTTYPE">
       <Column Name="EQUIPMENT_TYPE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -59,14 +75,6 @@
       <Association Name="USERTYPE_TBLUSERLOGINREPORT" Member="USERTYPE" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="USERTYPE" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.USERTYPE" Member="USERTYPEs">
-    <Type Name="USERTYPE">
-      <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="USERTYPE_DESCRIPTION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="USERTYPE_TBLUSERDETAIL" Member="TBLUSERDETAILs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLUSERDETAIL" />
-      <Association Name="USERTYPE_TBLUSERLOGINREPORT" Member="TBLUSERLOGINREPORTs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLUSERLOGINREPORT" />
-    </Type>
-  </Table>
   <Function Name="dbo.sp_EquipmentDelete" Method="sp_EquipmentDelete">
     <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -115,6 +123,27 @@
       <Column Name="equipment_description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="equipment_type_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="equipment_quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_StudentInsert" Method="sp_StudentInsert">
+    <Parameter Name="USERNAME" Parameter="uSERNAME" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PASSWORD" Parameter="pASSWORD" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="NAME" Parameter="nAME" Type="System.String" DbType="VarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_StudentSearch" Method="sp_StudentSearch">
+    <Parameter Name="SearchKey" Parameter="searchKey" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_StudentSearchResult">
+      <Column Name="GENID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_StudentView" Method="sp_StudentView">
+    <ElementType Name="sp_StudentViewResult">
+      <Column Name="GENID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_UserActionReport" Method="sp_UserActionReport">

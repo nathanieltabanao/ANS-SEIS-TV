@@ -62,6 +62,7 @@
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Account Details";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // materialLabel3
             // 
@@ -79,6 +80,7 @@
             // 
             // txtUsername
             // 
+            this.txtUsername.Enabled = false;
             this.txtUsername.Location = new System.Drawing.Point(148, 22);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(226, 23);
@@ -235,6 +237,8 @@
             this.AcceptButton = this.btnConfirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ANS_SEIS_TV.Properties.Resources.ANS_SEIS_TV_Login_copy;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(410, 343);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.groupBox4);
