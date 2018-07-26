@@ -76,9 +76,9 @@
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
 
-            this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtConfirmPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            //this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
+            //this.txtConfirmPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            //this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -459,7 +459,7 @@
             this.tabPage16.Size = new System.Drawing.Size(1154, 555);
             this.tabPage16.TabIndex = 2;
             this.tabPage16.Text = "Monitoring";
-            this.tabPage16.Click += new System.EventHandler(this.tabPage16_Click);
+            //this.tabPage16.Click += new System.EventHandler(this.tabPage16_Click);
             // 
             // tabPage17
             // 
