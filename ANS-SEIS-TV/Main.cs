@@ -24,7 +24,7 @@ namespace ANS_SEIS_TV
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Red900, Primary.Red900, Primary.Red900, Accent.Red200, TextShade.WHITE);
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -283,6 +283,7 @@ namespace ANS_SEIS_TV
 
         }
 
+
         private void tabPage14_Click(object sender, EventArgs e)
         {
 
@@ -302,5 +303,6 @@ namespace ANS_SEIS_TV
         {
             txtUsername.Text = txtFirstName.Text.Substring(0, 1) + txtLastName.Text;
         }
+
     }
 }

@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BorrowingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowingForm.Designer.cs">
+      <DependentUpon>BorrowingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -70,9 +76,7 @@
       <DependentUpon>EquipmentInventory.cs</DependentUpon>
     </Compile>
     <Compile Include="EquipmentLibrary.cs" />
-    <Compile Include="EquipmentRegistration.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="EquipmentRegistration.cs" />
     <Compile Include="EquipmentRegistration.Designer.cs" />
     <Compile Include="EquipmentRegistration1.Designer.cs">
       <DependentUpon>EquipmentRegistration.resx</DependentUpon>
@@ -118,6 +122,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserRegistration.Designer.cs" />
+    <EmbeddedResource Include="BorrowingForm.resx">
+      <DependentUpon>BorrowingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EquipmentInventory.resx">
       <DependentUpon>EquipmentInventory.cs</DependentUpon>
     </EmbeddedResource>

@@ -75,6 +75,11 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
+
+            this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtConfirmPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtFirstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -91,8 +96,10 @@
             this.rdoTeacher = new MaterialSkin.Controls.MaterialRadioButton();
             this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
             this.tabPage26 = new System.Windows.Forms.TabPage();
+
             this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
@@ -206,6 +213,7 @@
             this.tabPage14.Size = new System.Drawing.Size(1154, 555);
             this.tabPage14.TabIndex = 0;
             this.tabPage14.Text = "Registration";
+
             this.tabPage14.Click += new System.EventHandler(this.tabPage14_Click);
             // 
             // txtSearchEquipment
@@ -233,6 +241,7 @@
             this.btnClearEquipment.Size = new System.Drawing.Size(90, 34);
             this.btnClearEquipment.TabIndex = 55;
             this.btnClearEquipment.Values.Text = "Clear";
+
             // 
             // groupBox3
             // 
@@ -417,8 +426,10 @@
             this.dgvEquipment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+
             this.dgvEquipment.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -426,6 +437,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+
             this.dgvEquipment.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvEquipment.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvEquipment.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
@@ -436,6 +448,7 @@
             this.dgvEquipment.Size = new System.Drawing.Size(719, 436);
             this.dgvEquipment.TabIndex = 45;
             this.dgvEquipment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX2_CellContentClick);
+
             // 
             // tabPage16
             // 
@@ -446,6 +459,7 @@
             this.tabPage16.Size = new System.Drawing.Size(1154, 555);
             this.tabPage16.TabIndex = 2;
             this.tabPage16.Text = "Monitoring";
+            this.tabPage16.Click += new System.EventHandler(this.tabPage16_Click);
             // 
             // tabPage17
             // 
@@ -572,7 +586,9 @@
             // 
             // txtSearchUser
             // 
+
             this.txtSearchUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+
             this.txtSearchUser.Location = new System.Drawing.Point(845, 24);
             this.txtSearchUser.Name = "txtSearchUser";
             this.txtSearchUser.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
@@ -701,6 +717,7 @@
             this.materialLabel11.TabIndex = 8;
             this.materialLabel11.Text = "Password :";
             // 
+
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.Window;
@@ -899,6 +916,7 @@
             this.tabPage26.Text = "Upload Sheet";
             this.tabPage26.UseVisualStyleBackColor = true;
             // 
+
             // txtPassword
             // 
             this.txtPassword.Enabled = false;
@@ -915,6 +933,7 @@
             this.txtUsername.Size = new System.Drawing.Size(230, 23);
             this.txtUsername.TabIndex = 8;
             // 
+
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
