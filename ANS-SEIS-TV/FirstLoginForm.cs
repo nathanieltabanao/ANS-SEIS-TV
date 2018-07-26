@@ -32,5 +32,10 @@ namespace ANS_SEIS_TV
         {
 
         }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -177,12 +177,17 @@ namespace ANS_SEIS_TV
         {
             int IsFirstLogin = 1;
             //db.sp_UserInsert(null, ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer, Usertype,IsFirstLogin);
-            db.sp_UserActionReport(CurrentUserID, CurrentUsername, "Registered a user", DateTime.Now);
+
+            db.sp_UserInsert(ID, Username, Password, FirstName, MiddleName, LastName, null, null, Usertype, IsFirstLogin);
+
+            //db.sp_UserActionReport(CurrentUserID, CurrentUsername, "Registered a user", DateTime.Now);
         }
 
         public void UserEdit()
         {
             //db.sp_UserEdit(ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer);
+
+            db.sp_UserEdit(GENID, ID, Username, Password, FirstName, MiddleName, LastName, SecurityQuestion, SecurityAnswer, Usertype);
         }
 
         public void UserDelete()

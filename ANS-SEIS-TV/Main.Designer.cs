@@ -36,24 +36,24 @@
             this.materialTabSelector3 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl3 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage14 = new System.Windows.Forms.TabPage();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.kryptonButton5 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.txtSearchEquipment = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.btnClearEquipment = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.kryptonNumericUpDown2 = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
+            this.numQuantity = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.kryptonTextBox4 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtEquipmentName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.kryptonTextBox5 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonButton6 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonComboBox2 = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonButton7 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton8 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.txtEquipmentDescription = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.btnDeleteEquipment = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.drpEquipmentType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.btnAddEquipment = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnEditEquipment = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.bunifuCustomLabel10 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.kryptonTextBox6 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtEquipmentID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel12 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.dataGridViewX2 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.dgvEquipment = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.tabPage17 = new System.Windows.Forms.TabPage();
             this.tabPage18 = new System.Windows.Forms.TabPage();
@@ -74,11 +74,12 @@
             this.btnEditUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
+
             this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
             this.txtConfirmPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtFirstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -95,13 +96,17 @@
             this.rdoTeacher = new MaterialSkin.Controls.MaterialRadioButton();
             this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
             this.tabPage26 = new System.Windows.Forms.TabPage();
+
+            this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
             this.tabPage14.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drpEquipmentType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).BeginInit();
             this.tabPage13.SuspendLayout();
             this.materialTabControl4.SuspendLayout();
             this.tabPage25.SuspendLayout();
@@ -160,7 +165,7 @@
             this.materialTabSelector3.BaseTabControl = this.materialTabControl3;
             this.materialTabSelector3.Depth = 0;
             this.materialTabSelector3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.materialTabSelector3.Location = new System.Drawing.Point(-19, -4);
+            this.materialTabSelector3.Location = new System.Drawing.Point(-19, -7);
             this.materialTabSelector3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector3.Name = "materialTabSelector3";
             this.materialTabSelector3.Size = new System.Drawing.Size(1191, 48);
@@ -190,60 +195,63 @@
             // tabPage14
             // 
             this.tabPage14.BackColor = System.Drawing.Color.White;
-            this.tabPage14.Controls.Add(this.materialSingleLineTextField2);
-            this.tabPage14.Controls.Add(this.kryptonButton5);
+            this.tabPage14.Controls.Add(this.txtSearchEquipment);
+            this.tabPage14.Controls.Add(this.btnClearEquipment);
             this.tabPage14.Controls.Add(this.groupBox3);
-            this.tabPage14.Controls.Add(this.kryptonButton6);
-            this.tabPage14.Controls.Add(this.kryptonComboBox2);
-            this.tabPage14.Controls.Add(this.kryptonButton7);
-            this.tabPage14.Controls.Add(this.kryptonButton8);
+            this.tabPage14.Controls.Add(this.btnDeleteEquipment);
+            this.tabPage14.Controls.Add(this.drpEquipmentType);
+            this.tabPage14.Controls.Add(this.btnAddEquipment);
+            this.tabPage14.Controls.Add(this.btnEditEquipment);
             this.tabPage14.Controls.Add(this.bunifuCustomLabel10);
-            this.tabPage14.Controls.Add(this.kryptonTextBox6);
+            this.tabPage14.Controls.Add(this.txtEquipmentID);
             this.tabPage14.Controls.Add(this.bunifuCustomLabel11);
             this.tabPage14.Controls.Add(this.bunifuCustomLabel12);
-            this.tabPage14.Controls.Add(this.dataGridViewX2);
+            this.tabPage14.Controls.Add(this.dgvEquipment);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage14.Size = new System.Drawing.Size(1154, 555);
             this.tabPage14.TabIndex = 0;
             this.tabPage14.Text = "Registration";
+
+            this.tabPage14.Click += new System.EventHandler(this.tabPage14_Click);
             // 
-            // materialSingleLineTextField2
+            // txtSearchEquipment
             // 
-            this.materialSingleLineTextField2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(840, 9);
-            this.materialSingleLineTextField2.MaxLength = 32767;
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(292, 23);
-            this.materialSingleLineTextField2.TabIndex = 56;
-            this.materialSingleLineTextField2.TabStop = false;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.txtSearchEquipment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearchEquipment.Depth = 0;
+            this.txtSearchEquipment.Hint = "";
+            this.txtSearchEquipment.Location = new System.Drawing.Point(840, 9);
+            this.txtSearchEquipment.MaxLength = 32767;
+            this.txtSearchEquipment.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtSearchEquipment.Name = "txtSearchEquipment";
+            this.txtSearchEquipment.PasswordChar = '\0';
+            this.txtSearchEquipment.SelectedText = "";
+            this.txtSearchEquipment.SelectionLength = 0;
+            this.txtSearchEquipment.SelectionStart = 0;
+            this.txtSearchEquipment.Size = new System.Drawing.Size(292, 23);
+            this.txtSearchEquipment.TabIndex = 56;
+            this.txtSearchEquipment.TabStop = false;
+            this.txtSearchEquipment.UseSystemPasswordChar = false;
             // 
-            // kryptonButton5
+            // btnClearEquipment
             // 
-            this.kryptonButton5.Location = new System.Drawing.Point(8, 385);
-            this.kryptonButton5.Name = "kryptonButton5";
-            this.kryptonButton5.Size = new System.Drawing.Size(90, 34);
-            this.kryptonButton5.TabIndex = 55;
-            this.kryptonButton5.Values.Text = "Clear";
+            this.btnClearEquipment.Location = new System.Drawing.Point(8, 321);
+            this.btnClearEquipment.Name = "btnClearEquipment";
+            this.btnClearEquipment.Size = new System.Drawing.Size(90, 34);
+            this.btnClearEquipment.TabIndex = 55;
+            this.btnClearEquipment.Values.Text = "Clear";
+
             // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.kryptonNumericUpDown2);
+            this.groupBox3.Controls.Add(this.numQuantity);
             this.groupBox3.Controls.Add(this.materialLabel4);
             this.groupBox3.Controls.Add(this.bunifuCustomLabel9);
-            this.groupBox3.Controls.Add(this.kryptonTextBox4);
+            this.groupBox3.Controls.Add(this.txtEquipmentName);
             this.groupBox3.Controls.Add(this.materialLabel6);
-            this.groupBox3.Controls.Add(this.kryptonTextBox5);
+            this.groupBox3.Controls.Add(this.txtEquipmentDescription);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox3.Location = new System.Drawing.Point(4, 162);
             this.groupBox3.Name = "groupBox3";
@@ -252,24 +260,24 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Equipment Details";
             // 
-            // kryptonNumericUpDown2
+            // numQuantity
             // 
-            this.kryptonNumericUpDown2.Location = new System.Drawing.Point(151, 93);
-            this.kryptonNumericUpDown2.Maximum = new decimal(new int[] {
+            this.numQuantity.Location = new System.Drawing.Point(151, 93);
+            this.numQuantity.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.kryptonNumericUpDown2.Minimum = new decimal(new int[] {
+            this.numQuantity.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.kryptonNumericUpDown2.Name = "kryptonNumericUpDown2";
-            this.kryptonNumericUpDown2.Size = new System.Drawing.Size(223, 22);
-            this.kryptonNumericUpDown2.TabIndex = 26;
-            this.kryptonNumericUpDown2.ThousandsSeparator = true;
-            this.kryptonNumericUpDown2.Value = new decimal(new int[] {
+            this.numQuantity.Name = "numQuantity";
+            this.numQuantity.Size = new System.Drawing.Size(223, 22);
+            this.numQuantity.TabIndex = 26;
+            this.numQuantity.ThousandsSeparator = true;
+            this.numQuantity.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -282,7 +290,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(73, 96);
+            this.materialLabel4.Location = new System.Drawing.Point(73, 91);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(72, 19);
@@ -294,18 +302,18 @@
             this.bunifuCustomLabel9.AutoSize = true;
             this.bunifuCustomLabel9.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel9.Location = new System.Drawing.Point(64, 38);
+            this.bunifuCustomLabel9.Location = new System.Drawing.Point(89, 40);
             this.bunifuCustomLabel9.Name = "bunifuCustomLabel9";
-            this.bunifuCustomLabel9.Size = new System.Drawing.Size(81, 18);
+            this.bunifuCustomLabel9.Size = new System.Drawing.Size(56, 18);
             this.bunifuCustomLabel9.TabIndex = 24;
-            this.bunifuCustomLabel9.Text = "Item name:";
+            this.bunifuCustomLabel9.Text = "Name :";
             // 
-            // kryptonTextBox4
+            // txtEquipmentName
             // 
-            this.kryptonTextBox4.Location = new System.Drawing.Point(151, 38);
-            this.kryptonTextBox4.Name = "kryptonTextBox4";
-            this.kryptonTextBox4.Size = new System.Drawing.Size(223, 23);
-            this.kryptonTextBox4.TabIndex = 2;
+            this.txtEquipmentName.Location = new System.Drawing.Point(151, 38);
+            this.txtEquipmentName.Name = "txtEquipmentName";
+            this.txtEquipmentName.Size = new System.Drawing.Size(223, 23);
+            this.txtEquipmentName.TabIndex = 2;
             // 
             // materialLabel6
             // 
@@ -314,73 +322,81 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(40, 67);
+            this.materialLabel6.Location = new System.Drawing.Point(51, 67);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(94, 19);
             this.materialLabel6.TabIndex = 8;
             this.materialLabel6.Text = "Description :";
             // 
-            // kryptonTextBox5
+            // txtEquipmentDescription
             // 
-            this.kryptonTextBox5.Location = new System.Drawing.Point(151, 67);
-            this.kryptonTextBox5.Name = "kryptonTextBox5";
-            this.kryptonTextBox5.Size = new System.Drawing.Size(223, 23);
-            this.kryptonTextBox5.TabIndex = 3;
+            this.txtEquipmentDescription.Location = new System.Drawing.Point(151, 67);
+            this.txtEquipmentDescription.Name = "txtEquipmentDescription";
+            this.txtEquipmentDescription.Size = new System.Drawing.Size(223, 23);
+            this.txtEquipmentDescription.TabIndex = 3;
             // 
-            // kryptonButton6
+            // btnDeleteEquipment
             // 
-            this.kryptonButton6.Location = new System.Drawing.Point(111, 385);
-            this.kryptonButton6.Name = "kryptonButton6";
-            this.kryptonButton6.Size = new System.Drawing.Size(90, 34);
-            this.kryptonButton6.TabIndex = 54;
-            this.kryptonButton6.Values.Text = "Delete";
+            this.btnDeleteEquipment.Location = new System.Drawing.Point(111, 321);
+            this.btnDeleteEquipment.Name = "btnDeleteEquipment";
+            this.btnDeleteEquipment.Size = new System.Drawing.Size(90, 34);
+            this.btnDeleteEquipment.TabIndex = 54;
+            this.btnDeleteEquipment.Values.Text = "Delete";
             // 
-            // kryptonComboBox2
+            // drpEquipmentType
             // 
-            this.kryptonComboBox2.DropDownWidth = 252;
-            this.kryptonComboBox2.Location = new System.Drawing.Point(126, 99);
-            this.kryptonComboBox2.Name = "kryptonComboBox2";
-            this.kryptonComboBox2.Size = new System.Drawing.Size(252, 21);
-            this.kryptonComboBox2.TabIndex = 50;
+            this.drpEquipmentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.drpEquipmentType.DropDownWidth = 252;
+            this.drpEquipmentType.Items.AddRange(new object[] {
+            "200 - General Equipment",
+            "201 - Computer Equipment",
+            "202 - Culinary Equipment",
+            "203 - Automotive Equipment"});
+            this.drpEquipmentType.Location = new System.Drawing.Point(126, 99);
+            this.drpEquipmentType.Name = "drpEquipmentType";
+            this.drpEquipmentType.Size = new System.Drawing.Size(252, 21);
+            this.drpEquipmentType.TabIndex = 50;
             // 
-            // kryptonButton7
+            // btnAddEquipment
             // 
-            this.kryptonButton7.Location = new System.Drawing.Point(317, 385);
-            this.kryptonButton7.Name = "kryptonButton7";
-            this.kryptonButton7.Size = new System.Drawing.Size(90, 34);
-            this.kryptonButton7.TabIndex = 53;
-            this.kryptonButton7.Values.Text = "Add";
+            this.btnAddEquipment.Location = new System.Drawing.Point(317, 321);
+            this.btnAddEquipment.Name = "btnAddEquipment";
+            this.btnAddEquipment.Size = new System.Drawing.Size(90, 34);
+            this.btnAddEquipment.TabIndex = 53;
+            this.btnAddEquipment.Values.Text = "Add";
+            this.btnAddEquipment.Click += new System.EventHandler(this.kryptonButton7_Click);
             // 
-            // kryptonButton8
+            // btnEditEquipment
             // 
-            this.kryptonButton8.Location = new System.Drawing.Point(216, 385);
-            this.kryptonButton8.Name = "kryptonButton8";
-            this.kryptonButton8.Size = new System.Drawing.Size(90, 34);
-            this.kryptonButton8.TabIndex = 52;
-            this.kryptonButton8.Values.Text = "Edit";
+            this.btnEditEquipment.Location = new System.Drawing.Point(216, 321);
+            this.btnEditEquipment.Name = "btnEditEquipment";
+            this.btnEditEquipment.Size = new System.Drawing.Size(90, 34);
+            this.btnEditEquipment.TabIndex = 52;
+            this.btnEditEquipment.Values.Text = "Edit";
             // 
             // bunifuCustomLabel10
             // 
             this.bunifuCustomLabel10.AutoSize = true;
             this.bunifuCustomLabel10.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.bunifuCustomLabel10.Location = new System.Drawing.Point(7, 99);
+            this.bunifuCustomLabel10.Location = new System.Drawing.Point(0, 100);
             this.bunifuCustomLabel10.Name = "bunifuCustomLabel10";
             this.bunifuCustomLabel10.Size = new System.Drawing.Size(120, 20);
             this.bunifuCustomLabel10.TabIndex = 49;
             this.bunifuCustomLabel10.Text = "Equipment type";
             // 
-            // kryptonTextBox6
+            // txtEquipmentID
             // 
-            this.kryptonTextBox6.Enabled = false;
-            this.kryptonTextBox6.Location = new System.Drawing.Point(126, 52);
-            this.kryptonTextBox6.Name = "kryptonTextBox6";
-            this.kryptonTextBox6.Size = new System.Drawing.Size(252, 23);
-            this.kryptonTextBox6.TabIndex = 48;
+            this.txtEquipmentID.Enabled = false;
+            this.txtEquipmentID.Location = new System.Drawing.Point(126, 52);
+            this.txtEquipmentID.Name = "txtEquipmentID";
+            this.txtEquipmentID.Size = new System.Drawing.Size(252, 23);
+            this.txtEquipmentID.TabIndex = 48;
             // 
             // bunifuCustomLabel11
             // 
+            this.bunifuCustomLabel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuCustomLabel11.AutoSize = true;
             this.bunifuCustomLabel11.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
@@ -401,18 +417,19 @@
             this.bunifuCustomLabel12.TabIndex = 46;
             this.bunifuCustomLabel12.Text = "Equipment ID :";
             // 
-            // dataGridViewX2
+            // dgvEquipment
             // 
-            this.dataGridViewX2.AllowUserToAddRows = false;
-            this.dataGridViewX2.AllowUserToDeleteRows = false;
-            this.dataGridViewX2.AllowUserToOrderColumns = true;
-            this.dataGridViewX2.AllowUserToResizeColumns = false;
-            this.dataGridViewX2.AllowUserToResizeRows = false;
-            this.dataGridViewX2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvEquipment.AllowUserToAddRows = false;
+            this.dgvEquipment.AllowUserToDeleteRows = false;
+            this.dgvEquipment.AllowUserToOrderColumns = true;
+            this.dgvEquipment.AllowUserToResizeRows = false;
+            this.dgvEquipment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewX2.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dataGridViewX2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+            this.dgvEquipment.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            this.dgvEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -420,15 +437,18 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewX2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewX2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX2.Location = new System.Drawing.Point(413, 38);
-            this.dataGridViewX2.Name = "dataGridViewX2";
-            this.dataGridViewX2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridViewX2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX2.Size = new System.Drawing.Size(719, 436);
-            this.dataGridViewX2.TabIndex = 45;
+
+            this.dgvEquipment.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvEquipment.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvEquipment.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dgvEquipment.Location = new System.Drawing.Point(413, 38);
+            this.dgvEquipment.Name = "dgvEquipment";
+            this.dgvEquipment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvEquipment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEquipment.Size = new System.Drawing.Size(719, 436);
+            this.dgvEquipment.TabIndex = 45;
+            this.dgvEquipment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX2_CellContentClick);
+
             // 
             // tabPage16
             // 
@@ -566,6 +586,9 @@
             // 
             // txtSearchUser
             // 
+
+            this.txtSearchUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+
             this.txtSearchUser.Location = new System.Drawing.Point(845, 24);
             this.txtSearchUser.Name = "txtSearchUser";
             this.txtSearchUser.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
@@ -575,6 +598,7 @@
             // 
             // bunifuCustomLabel7
             // 
+            this.bunifuCustomLabel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuCustomLabel7.AutoSize = true;
             this.bunifuCustomLabel7.BackColor = System.Drawing.SystemColors.Window;
             this.bunifuCustomLabel7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
@@ -612,10 +636,11 @@
             this.dgvUserRegister.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUserRegister.Size = new System.Drawing.Size(719, 436);
             this.dgvUserRegister.TabIndex = 36;
+            this.dgvUserRegister.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserRegister_CellContentDoubleClick);
             // 
             // btnUserClear
             // 
-            this.btnUserClear.Location = new System.Drawing.Point(21, 430);
+            this.btnUserClear.Location = new System.Drawing.Point(21, 385);
             this.btnUserClear.Name = "btnUserClear";
             this.btnUserClear.Size = new System.Drawing.Size(90, 34);
             this.btnUserClear.TabIndex = 35;
@@ -624,15 +649,16 @@
             // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(117, 430);
+            this.btnDeleteUser.Location = new System.Drawing.Point(117, 385);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(90, 34);
             this.btnDeleteUser.TabIndex = 34;
             this.btnDeleteUser.Values.Text = "Delete User";
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(309, 430);
+            this.btnAddUser.Location = new System.Drawing.Point(309, 385);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(90, 34);
             this.btnAddUser.TabIndex = 33;
@@ -641,11 +667,12 @@
             // 
             // btnEditUser
             // 
-            this.btnEditUser.Location = new System.Drawing.Point(213, 430);
+            this.btnEditUser.Location = new System.Drawing.Point(213, 385);
             this.btnEditUser.Name = "btnEditUser";
             this.btnEditUser.Size = new System.Drawing.Size(90, 34);
             this.btnEditUser.TabIndex = 32;
             this.btnEditUser.Values.Text = "Edit User";
+            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // groupBox5
             // 
@@ -653,13 +680,11 @@
             this.groupBox5.Controls.Add(this.materialLabel10);
             this.groupBox5.Controls.Add(this.txtUsername);
             this.groupBox5.Controls.Add(this.materialLabel11);
-            this.groupBox5.Controls.Add(this.materialLabel12);
-            this.groupBox5.Controls.Add(this.txtConfirmPassword);
             this.groupBox5.Controls.Add(this.txtPassword);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox5.Location = new System.Drawing.Point(10, 288);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(384, 117);
+            this.groupBox5.Size = new System.Drawing.Size(384, 91);
             this.groupBox5.TabIndex = 27;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Account Details";
@@ -678,13 +703,6 @@
             this.materialLabel10.TabIndex = 7;
             this.materialLabel10.Text = "Username :";
             // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(148, 22);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(230, 23);
-            this.txtUsername.TabIndex = 8;
-            // 
             // materialLabel11
             // 
             this.materialLabel11.AutoSize = true;
@@ -699,38 +717,7 @@
             this.materialLabel11.TabIndex = 8;
             this.materialLabel11.Text = "Password :";
             // 
-            // materialLabel12
-            // 
-            this.materialLabel12.AutoSize = true;
-            this.materialLabel12.BackColor = System.Drawing.SystemColors.Window;
-            this.materialLabel12.Depth = 0;
-            this.materialLabel12.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel12.Location = new System.Drawing.Point(1, 80);
-            this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel12.Name = "materialLabel12";
-            this.materialLabel12.Size = new System.Drawing.Size(141, 19);
-            this.materialLabel12.TabIndex = 9;
-            this.materialLabel12.Text = "Confirm Password :";
-            // 
-            // txtConfirmPassword
-            // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(148, 80);
-            this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.PasswordChar = '●';
-            this.txtConfirmPassword.Size = new System.Drawing.Size(230, 23);
-            this.txtConfirmPassword.TabIndex = 10;
-            this.txtConfirmPassword.UseSystemPasswordChar = true;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(148, 51);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '●';
-            this.txtPassword.Size = new System.Drawing.Size(230, 23);
-            this.txtPassword.TabIndex = 8;
-            this.txtPassword.UseSystemPasswordChar = true;
-            // 
+
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.Window;
@@ -809,6 +796,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(233, 23);
             this.txtLastName.TabIndex = 4;
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // materialLabel7
             // 
@@ -928,6 +916,24 @@
             this.tabPage26.Text = "Upload Sheet";
             this.tabPage26.UseVisualStyleBackColor = true;
             // 
+
+            // txtPassword
+            // 
+            this.txtPassword.Enabled = false;
+            this.txtPassword.Location = new System.Drawing.Point(148, 51);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(230, 23);
+            this.txtPassword.TabIndex = 8;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Enabled = false;
+            this.txtUsername.Location = new System.Drawing.Point(148, 22);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(230, 23);
+            this.txtUsername.TabIndex = 8;
+            // 
+
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -947,8 +953,8 @@
             this.tabPage14.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drpEquipmentType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).EndInit();
             this.tabPage13.ResumeLayout(false);
             this.materialTabControl4.ResumeLayout(false);
             this.tabPage25.ResumeLayout(false);
@@ -973,24 +979,24 @@
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector3;
         private MaterialSkin.Controls.MaterialTabControl materialTabControl3;
         private System.Windows.Forms.TabPage tabPage14;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton5;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtSearchEquipment;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnClearEquipment;
         private System.Windows.Forms.GroupBox groupBox3;
-        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown kryptonNumericUpDown2;
+        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown numQuantity;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel9;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox4;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtEquipmentName;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox5;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton6;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox kryptonComboBox2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton7;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton8;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtEquipmentDescription;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDeleteEquipment;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox drpEquipmentType;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddEquipment;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEditEquipment;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel10;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox6;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtEquipmentID;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel11;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel12;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX2;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dgvEquipment;
         private System.Windows.Forms.TabPage tabPage16;
         private System.Windows.Forms.TabPage tabPage17;
         private System.Windows.Forms.TabPage tabPage18;
@@ -1012,11 +1018,7 @@
 
         private System.Windows.Forms.GroupBox groupBox5;
         private MaterialSkin.Controls.MaterialLabel materialLabel10;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtUsername;
         private MaterialSkin.Controls.MaterialLabel materialLabel11;
-        private MaterialSkin.Controls.MaterialLabel materialLabel12;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtConfirmPassword;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPassword;
 
         private System.Windows.Forms.GroupBox groupBox4;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
@@ -1035,6 +1037,7 @@
         private MaterialSkin.Controls.MaterialRadioButton rdoAdmin;
         private System.Windows.Forms.TabPage tabPage26;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSearchUser;
-
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtUsername;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPassword;
     }
 }
