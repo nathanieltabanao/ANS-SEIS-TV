@@ -20,22 +20,23 @@ namespace ANS_SEIS_TV
         public int EquipmentQuantity { get; set; }
         public string EquipmentStatus { get; set; }
         public string IsDesignated { get; set; }
+        public string EquipmentDescription { get; set; }
 
         public string SearchKey { get; set; }
 
         public void EquipmentInsert()
         {
-            //db.sp_EquipmentInsert(EquipmentBarcode, EquipmentName, EquipmentTypeID, EquipmentStatus, IsDesignated);
+            db.sp_EquipmentRegister(EquipmentBarcode, EquipmentName, EquipmentDescription, EquipmentTypeID, EquipmentQuantity);
         }
 
         public void EquipmentUpdate()
         {
-            //db.sp_EquipmentUpdate(EquipmentID, EquipmentName, EquipmentTypeID, EquipmentStatus, IsDesignated);
+            db.sp_EquipmentEdit(ID, EquipmentBarcode, EquipmentName, EquipmentDescription, EquipmentTypeID, EquipmentQuantity);
         }
 
         public void EquipmentDelete()
         {
-            //db.sp_EquipmentDelete(EquipmentBarcode);
+            db.sp_EquipmentDelete(ID);
         }
 
         public string IncompleteForms()
@@ -54,5 +55,6 @@ namespace ANS_SEIS_TV
         {
             return Convert.ToInt32(db.sp_EquipmentID());
         }
+        
     }
 }
