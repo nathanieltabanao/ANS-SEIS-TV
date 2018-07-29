@@ -39,6 +39,7 @@ namespace ANS_SEIS_TV
         public string CurrentUsername { get; set; }
         public int CurrentUsertype { get; set; }
         public string Action { get; set; }
+        public string ContactNumber { get; set; }
 
         public void Clear()
         {
@@ -178,7 +179,7 @@ namespace ANS_SEIS_TV
             int IsFirstLogin = 1;
             //db.sp_UserInsert(null, ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer, Usertype,IsFirstLogin);
 
-            db.sp_UserInsert(ID, Username, Password, FirstName, MiddleName, LastName, null, null, Usertype, IsFirstLogin);
+            db.sp_UserInsert(ID, Username, Password, FirstName, MiddleName, LastName, ContactNumber, null, null, Usertype, IsFirstLogin);
 
             //db.sp_UserActionReport(CurrentUserID, CurrentUsername, "Registered a user", DateTime.Now);
         }
@@ -187,7 +188,7 @@ namespace ANS_SEIS_TV
         {
             //db.sp_UserEdit(ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer);
 
-            db.sp_UserEdit(GENID, ID, Username, Password, FirstName, MiddleName, LastName, SecurityQuestion, SecurityAnswer, Usertype);
+            db.sp_UserEdit(GENID, ID, Username, Password, FirstName, MiddleName, LastName, ContactNumber, SecurityQuestion, SecurityAnswer, Usertype);
         }
 
         public void UserDelete()
