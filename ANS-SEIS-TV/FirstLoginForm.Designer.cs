@@ -84,7 +84,7 @@
             this.txtUsername.Location = new System.Drawing.Point(148, 22);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(226, 23);
-            this.txtUsername.TabIndex = 8;
+            this.txtUsername.TabIndex = 1;
             // 
             // materialLabel10
             // 
@@ -120,7 +120,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '●';
             this.txtConfirmPassword.Size = new System.Drawing.Size(226, 23);
-            this.txtConfirmPassword.TabIndex = 10;
+            this.txtConfirmPassword.TabIndex = 3;
             this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
             // txtPassword
@@ -129,7 +129,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.Size = new System.Drawing.Size(226, 23);
-            this.txtPassword.TabIndex = 8;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // groupBox4
@@ -179,7 +179,7 @@
             this.drpSecurityQuestion.Name = "drpSecurityQuestion";
             this.drpSecurityQuestion.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
             this.drpSecurityQuestion.Size = new System.Drawing.Size(226, 21);
-            this.drpSecurityQuestion.TabIndex = 11;
+            this.drpSecurityQuestion.TabIndex = 4;
             // 
             // materialLabel12
             // 
@@ -214,13 +214,14 @@
             this.txtSecurityAnswer.Location = new System.Drawing.Point(148, 51);
             this.txtSecurityAnswer.Name = "txtSecurityAnswer";
             this.txtSecurityAnswer.Size = new System.Drawing.Size(226, 23);
-            this.txtSecurityAnswer.TabIndex = 12;
+            this.txtSecurityAnswer.TabIndex = 5;
             // 
             // btnConfirm
             // 
             this.btnConfirm.AutoSize = true;
             this.btnConfirm.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnConfirm.Depth = 0;
+            this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnConfirm.Icon = null;
             this.btnConfirm.Location = new System.Drawing.Point(311, 292);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -228,9 +229,10 @@
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Primary = false;
             this.btnConfirm.Size = new System.Drawing.Size(81, 36);
-            this.btnConfirm.TabIndex = 22;
+            this.btnConfirm.TabIndex = 6;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // FirstLoginForm
             // 
@@ -239,6 +241,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ANS_SEIS_TV.Properties.Resources.ANS_SEIS_TV_Login_copy;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CancelButton = this.btnConfirm;
             this.ClientSize = new System.Drawing.Size(410, 343);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.groupBox4);
@@ -247,6 +250,7 @@
             this.MinimizeBox = false;
             this.Name = "FirstLoginForm";
             this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FirstLoginForm_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

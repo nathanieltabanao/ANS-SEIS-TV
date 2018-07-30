@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabSelector2 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl2 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.materialTabSelector3 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl3 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.drpEquipmentType = new System.Windows.Forms.ComboBox();
             this.txtSearchEquipment = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.btnClearEquipment = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -92,7 +93,8 @@
             this.rdoTeacher = new MaterialSkin.Controls.MaterialRadioButton();
             this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
             this.tabPage26 = new System.Windows.Forms.TabPage();
-            this.drpEquipmentType = new System.Windows.Forms.ComboBox();
+            this.btnLogout = new MaterialSkin.Controls.MaterialFlatButton();
+            this.lblCurrentUser = new System.Windows.Forms.Label();
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
@@ -206,6 +208,20 @@
             this.tabPage14.TabIndex = 0;
             this.tabPage14.Text = "Registration";
             this.tabPage14.Click += new System.EventHandler(this.tabPage14_Click);
+            // 
+            // drpEquipmentType
+            // 
+            this.drpEquipmentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.drpEquipmentType.FormattingEnabled = true;
+            this.drpEquipmentType.Items.AddRange(new object[] {
+            "200 - General Equipment",
+            "201 - Computer Equipment",
+            "202 - Culinary Equipment",
+            "203 - Automotive Equipment"});
+            this.drpEquipmentType.Location = new System.Drawing.Point(126, 99);
+            this.drpEquipmentType.Name = "drpEquipmentType";
+            this.drpEquipmentType.Size = new System.Drawing.Size(252, 21);
+            this.drpEquipmentType.TabIndex = 57;
             // 
             // txtSearchEquipment
             // 
@@ -409,14 +425,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEquipment.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEquipment.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEquipment.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvEquipment.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvEquipment.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvEquipment.Location = new System.Drawing.Point(413, 38);
@@ -595,14 +611,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUserRegister.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvUserRegister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUserRegister.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserRegister.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvUserRegister.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvUserRegister.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvUserRegister.Location = new System.Drawing.Point(405, 53);
@@ -906,25 +922,45 @@
             this.tabPage26.Text = "Upload Sheet";
             this.tabPage26.UseVisualStyleBackColor = true;
             // 
-            // drpEquipmentType
+            // btnLogout
             // 
-            this.drpEquipmentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.drpEquipmentType.FormattingEnabled = true;
-            this.drpEquipmentType.Items.AddRange(new object[] {
-            "200 - General Equipment",
-            "201 - Computer Equipment",
-            "202 - Culinary Equipment",
-            "203 - Automotive Equipment"});
-            this.drpEquipmentType.Location = new System.Drawing.Point(126, 99);
-            this.drpEquipmentType.Name = "drpEquipmentType";
-            this.drpEquipmentType.Size = new System.Drawing.Size(252, 21);
-            this.drpEquipmentType.TabIndex = 57;
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogout.AutoSize = true;
+            this.btnLogout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLogout.Depth = 0;
+            this.btnLogout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnLogout.Icon = null;
+            this.btnLogout.Location = new System.Drawing.Point(1070, 30);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnLogout.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Primary = false;
+            this.btnLogout.Size = new System.Drawing.Size(74, 36);
+            this.btnLogout.TabIndex = 25;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // lblCurrentUser
+            // 
+            this.lblCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCurrentUser.BackColor = System.Drawing.Color.Transparent;
+            this.lblCurrentUser.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentUser.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCurrentUser.Location = new System.Drawing.Point(424, 37);
+            this.lblCurrentUser.Name = "lblCurrentUser";
+            this.lblCurrentUser.Size = new System.Drawing.Size(639, 29);
+            this.lblCurrentUser.TabIndex = 26;
+            this.lblCurrentUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnLogout;
             this.ClientSize = new System.Drawing.Size(1157, 692);
+            this.Controls.Add(this.lblCurrentUser);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.materialTabSelector2);
             this.Controls.Add(this.materialTabControl2);
             this.Name = "Main";
@@ -932,6 +968,7 @@
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
+            this.Leave += new System.EventHandler(this.Main_Leave);
             this.materialTabControl2.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.materialTabControl3.ResumeLayout(false);
@@ -952,6 +989,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1024,5 +1062,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtUsername;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPassword;
         private System.Windows.Forms.ComboBox drpEquipmentType;
+        private MaterialSkin.Controls.MaterialFlatButton btnLogout;
+        private System.Windows.Forms.Label lblCurrentUser;
     }
 }

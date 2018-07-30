@@ -235,9 +235,9 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserFirstLogin")]
-		public int sp_UserFirstLogin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(MAX)")] string pASSWORD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_QUESTION", DbType="VarChar(MAX)")] string sECURITY_QUESTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_ANSWER", DbType="VarChar(MAX)")] string sECURITY_ANSWER)
+		public int sp_UserFirstLogin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(MAX)")] string pASSWORD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_QUESTION", DbType="VarChar(MAX)")] string sECURITY_QUESTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_ANSWER", DbType="VarChar(MAX)")] string sECURITY_ANSWER)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID, uSERNAME, pASSWORD, sECURITY_QUESTION, sECURITY_ANSWER);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERNAME, pASSWORD, sECURITY_QUESTION, sECURITY_ANSWER);
 			return ((int)(result.ReturnValue));
 		}
 		

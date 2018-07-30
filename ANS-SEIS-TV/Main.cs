@@ -37,6 +37,9 @@ namespace ANS_SEIS_TV
             ViewEquipment();
             txtUsername.Enabled = false;
             txtPassword.Enabled = false;
+            g.Username = CurrentUser;
+            g.GetFullname();
+            lblCurrentUser.Text = "Current User : " + g.Fullname;
         }
 
         
@@ -48,6 +51,11 @@ namespace ANS_SEIS_TV
         UserLibrary u = new UserLibrary();
 
         EquipmentLibrary eq = new EquipmentLibrary();
+
+        GetSomethingFromServer g = new GetSomethingFromServer();
+
+
+        public string CurrentUser { get; set; }
 
         
 
@@ -347,6 +355,21 @@ namespace ANS_SEIS_TV
         private void btnClearEquipment_Click(object sender, EventArgs e)
         {
             EquipmentClear();
+        }
+
+        private void Main_Leave(object sender, EventArgs e)
+        {
+            LoginForm l = new LoginForm();
+            l.Show();
+        }
+
+
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm l = new LoginForm();
+            l.Show();
         }
 
         ///////////////////////////////////////////////////////////////////

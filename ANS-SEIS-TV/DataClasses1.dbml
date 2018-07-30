@@ -183,7 +183,6 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_UserFirstLogin" Method="sp_UserFirstLogin">
-    <Parameter Name="GENID" Parameter="gENID" Type="System.Int32" DbType="Int" />
     <Parameter Name="USERNAME" Parameter="uSERNAME" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="PASSWORD" Parameter="pASSWORD" Type="System.String" DbType="VarChar(MAX)" />
     <Parameter Name="SECURITY_QUESTION" Parameter="sECURITY_QUESTION" Type="System.String" DbType="VarChar(MAX)" />
