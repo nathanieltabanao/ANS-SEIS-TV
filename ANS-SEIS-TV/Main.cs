@@ -16,6 +16,8 @@ namespace ANS_SEIS_TV
     {
         private readonly MaterialSkinManager materialSkinManager;
 
+
+        //Main form Constructor
         public Main()
         {
             InitializeComponent();
@@ -27,22 +29,20 @@ namespace ANS_SEIS_TV
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
 
+
+        //Main form load 
         private void Main_Load(object sender, EventArgs e)
         {
             ViewUser();
             ViewEquipment();
             txtUsername.Enabled = false;
             txtPassword.Enabled = false;
+            g.Username = CurrentUser;
+            g.GetFullname();
+            lblCurrentUser.Text = "Current User : " + g.Fullname;
         }
 
-
-
-        public void ViewEquipment()
-        {
-            u.Searchkey = "";
-            txtEquipmentID.Text = e.EquipmentID().ToString();
-            dgvEquipment.DataSource = db.sp_EquipmentView(u.Searchkey);
-        }
+        
 
         //initialize Connection
 
@@ -50,17 +50,20 @@ namespace ANS_SEIS_TV
 
         UserLibrary u = new UserLibrary();
 
-        EquipmentLibrary e = new EquipmentLibrary();
+        EquipmentLibrary eq = new EquipmentLibrary();
+
+        GetSomethingFromServer g = new GetSomethingFromServer();
 
 
-        // This Area is for the Users
-        //The Following Code Directly affects users
+        public string CurrentUser { get; set; }
 
-        /// <summary>
-        /// This area here is for the users form only
-        /// Please be specific with the variables
-        /// </summary>
+        
+
+        ///////////////////////////////////////////////////////////////////
+        ///
+        ///Code for Users Starts Below
         /// 
+        ///////////////////////////////////////////////////////////////////
 
         private void ClearUser()
         {
@@ -110,9 +113,6 @@ namespace ANS_SEIS_TV
             u.Usertype = 111;
             txtUsername.Enabled = false;
             txtPassword.Enabled = false;
-            //drpSecurityQuestion.Enabled = false;
-            //txtSecurityAnswer.Enabled = false;
-            //txtConfirmPassword.Enabled = false;
         }
 
         public void Admin()
@@ -128,9 +128,6 @@ namespace ANS_SEIS_TV
             u.Usertype = 110;
             txtUsername.Enabled = true;
             txtPassword.Enabled = true;
-            //txtConfirmPassword.Enabled = true;
-            //drpSecurityQuestion.Enabled = true;
-            //txtSecurityAnswer.Enabled = true;
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -144,28 +141,7 @@ namespace ANS_SEIS_TV
             u.FirstName = txtFirstName.Text;
             u.MiddleName = txtMiddleName.Text;
             u.LastName = txtLastName.Text;
-            ////u.Address = txtAddress.Text;
-            ////u.Email = txtEmail.Text;
-            ////u.Birthdate = dtpBirthdate.Value;
-            ////u.SecurityQuestion = drpSecurityQuestion.Text;
-            ////u.SecurityAnswer = txtSecurityAnswer.Text;
-            //u.ID = txtUserID.Text;
-
-            //if (u.IncompleteUserData() == 1)
-            //{
-            //    MessageBox.Show("Please fill all boxes!");
-            //}
-            //else if (u.EmailError() == 1)
-            //{
-            //    MessageBox.Show(u.InvalidEmail());
-            //}
-            //else
-            //{
-            //    u.UserInsert();
-            //    rdoAdmin.Checked = true;
-            //    ViewUser();
-            //    ClearUser();
-            //}
+            u.ContactNumber = txtContactNumber.Text;
 
             u.UserInsert();
             ClearUser();
@@ -209,11 +185,25 @@ namespace ANS_SEIS_TV
         private void dgvUserRegister_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             EditUsers();
+
+            
+
+            u.GENID = int.Parse(dgvUserRegister.CurrentRow.Cells[0].Value.ToString());
+            txtUserID.Text = dgvUserRegister.CurrentRow.Cells[1].Value.ToString();
+            txtUsername.Text = dgvUserRegister.CurrentRow.Cells[2].Value.ToString();
+            txtFirstName.Text = dgvUserRegister.CurrentRow.Cells[3].Value.ToString();
+            txtMiddleName.Text = dgvUserRegister.CurrentRow.Cells[4].Value.ToString();
+            txtLastName.Text = dgvUserRegister.CurrentRow.Cells[5].Value.ToString();
+            txtContactNumber.Text = dgvUserRegister.CurrentRow.Cells[6].Value.ToString();
         }
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
             AddUser();
+            u.ID = txtUserID.Text;
+            u.UserDelete();
+            ClearUser();
+            ViewUser();
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
@@ -221,17 +211,216 @@ namespace ANS_SEIS_TV
 
         }
 
-        /// <summary>
-        /// Code for user Ends Here
-        /// </summary>
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+            txtUsername.Text = txtFirstName.Text.Substring(0, 1) + txtLastName.Text;
+        }
 
-        
+        ///////////////////////////////////////////////////////////////////
+        ///
+        ///Code for Users Ends Here
+        /// 
+        ///////////////////////////////////////////////////////////////////
+
+
         ///////////////////////////////////////////////////////////////////
         ///
         ///Code for Equipment Starts Below
         /// 
         ///////////////////////////////////////////////////////////////////
 
+        int EquipmentTypeID = 0;
+
+        //Search Equipment
+        private void txtSearchEquipment_TextChanged(object sender, EventArgs e)
+        {
+            eq.SearchKey = txtSearchEquipment.Text;
+            dgvEquipment.DataSource = db.sp_EquipmentView(eq.SearchKey);
+        }
+
+        //Load Equipment
+        public void ViewEquipment()
+        {
+            eq.SearchKey = "";
+            txtEquipmentID.Text = eq.EquipmentID().ToString();
+            dgvEquipment.DataSource = db.sp_EquipmentView(eq.SearchKey);
+        }
+
+        private void AddingEquipment()
+        {
+            btnEditEquipment.Enabled = false;
+            btnDeleteEquipment.Enabled = false;
+            btnClearEquipment.Enabled = true;
+            btnAddEquipment.Enabled = true;
+        }
+
+        private void EditEquipment()
+        {
+            btnEditEquipment.Enabled = true;
+            btnDeleteEquipment.Enabled = true;
+            btnClearEquipment.Enabled = true;
+            btnAddEquipment.Enabled = false;
+        }
+
+        //Clear Equipment
+        private void EquipmentClear()
+        {
+            AddingEquipment();
+            ViewEquipment();
+            drpEquipmentType.Text = "";
+            txtEquipmentName.Text = "";
+            txtEquipmentDescription.Text = "";
+            numQuantity.Value = 1;
+        }
+
+
+        //btnAddEquipment
+        private void kryptonButton7_Click(object sender, EventArgs e)
+        {
+            ViewEquipment();
+
+            //int EquipmentTypeID = 0;
+
+            switch (int.Parse(drpEquipmentType.Text.Substring(0, 3)))
+            {
+                case 200:
+                    EquipmentTypeID = 200;
+                    break;
+
+                case 201:
+                    EquipmentTypeID = 201;
+                    break;
+
+                case 202:
+                    EquipmentTypeID = 202;
+                    break;
+
+                case 203:
+                    EquipmentTypeID = 203;
+                    break;
+
+                default:
+                    break;
+            }
+
+            txtEquipmentID.Text = eq.EquipmentID().ToString();
+            eq.EquipmentBarcode = txtEquipmentID.Text;
+            eq.EquipmentName = txtEquipmentName.Text;
+            eq.EquipmentDescription = txtEquipmentDescription.Text;
+            eq.EquipmentTypeID = EquipmentTypeID; // int.Parse(drpEquipmentType.Text.Substring(0,3));
+            eq.EquipmentQuantity = int.Parse(numQuantity.Value.ToString());
+            eq.EquipmentInsert();
+            ViewEquipment();
+            EquipmentClear();
+        }
+
+
+        //load selected 
+        private void dgvEquipment_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtEquipmentID.Text = dgvEquipment.CurrentRow.Cells[0].Value.ToString();
+            txtEquipmentName.Text = dgvEquipment.CurrentRow.Cells[1].Value.ToString();
+            txtEquipmentDescription.Text = dgvEquipment.CurrentRow.Cells[2].Value.ToString();
+            drpEquipmentType.Text = dgvEquipment.CurrentRow.Cells[3].Value.ToString();
+            EquipmentTypeID = int.Parse(dgvEquipment.CurrentRow.Cells[3].Value.ToString());
+            numQuantity.Value = decimal.Parse(dgvEquipment.CurrentRow.Cells[4].Value.ToString());
+            EditEquipment();
+        }
+
+
+        //Edit
+        private void btnEditEquipment_Click(object sender, EventArgs e)
+        {
+            eq.ID = int.Parse(txtEquipmentID.Text);
+            eq.EquipmentBarcode = txtEquipmentID.Text;
+            eq.EquipmentName = txtEquipmentName.Text;
+            eq.EquipmentDescription = txtEquipmentDescription.Text;
+            eq.EquipmentTypeID = EquipmentTypeID;
+            eq.EquipmentQuantity = int.Parse(numQuantity.Value.ToString());
+            eq.EquipmentUpdate();
+            EquipmentClear();
+
+        }
+
+        private void btnDeleteEquipment_Click(object sender, EventArgs e)
+        {
+            eq.ID = int.Parse(txtEquipmentID.Text);
+            eq.EquipmentDelete();
+            ViewEquipment();
+            EquipmentClear();
+        }
+
+
+
+        private void btnClearEquipment_Click(object sender, EventArgs e)
+        {
+            EquipmentClear();
+        }
+
+        private void Main_Leave(object sender, EventArgs e)
+        {
+            LoginForm l = new LoginForm();
+            l.Show();
+        }
+
+
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm l = new LoginForm();
+            l.Show();
+        }
+
+        ///////////////////////////////////////////////////////////////////
+        ///
+        ///Code for Equipment Ends Here
+        /// 
+        ///////////////////////////////////////////////////////////////////
+
+
+
+        ///////////////////////////////////////////////////////////////////
+        ///
+        /// Useless dump of code goes down
+        /// 
+        ///////////////////////////////////////////////////////////////////
+
+
+        //txtConfirmPassword.Enabled = true;
+        //drpSecurityQuestion.Enabled = true;
+        //txtSecurityAnswer.Enabled = true;
+
+        //drpSecurityQuestion.Enabled = false;
+        //txtSecurityAnswer.Enabled = false;
+        //txtConfirmPassword.Enabled = false;
+        ////u.Address = txtAddress.Text;
+        ////u.Email = txtEmail.Text;
+        ////u.Birthdate = dtpBirthdate.Value;
+        ////u.SecurityQuestion = drpSecurityQuestion.Text;
+        ////u.SecurityAnswer = txtSecurityAnswer.Text;
+        //u.ID = txtUserID.Text;
+
+        //if (u.IncompleteUserData() == 1)
+        //{
+        //    MessageBox.Show("Please fill all boxes!");
+        //}
+        //else if (u.EmailError() == 1)
+        //{
+        //    MessageBox.Show(u.InvalidEmail());
+        //}
+        //else
+        //{
+        //    u.UserInsert();
+        //    rdoAdmin.Checked = true;
+        //    ViewUser();
+        //    ClearUser();
+        //}
+
+        private void txtSearchEquipment_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void txtMiddleName_TextChanged(object sender, EventArgs e)
         {
@@ -289,20 +478,9 @@ namespace ANS_SEIS_TV
 
         }
 
-        private void kryptonButton7_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void dataGridViewX2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
-        private void txtLastName_TextChanged(object sender, EventArgs e)
-        {
-            txtUsername.Text = txtFirstName.Text.Substring(0, 1) + txtLastName.Text;
-        }
-
     }
 }

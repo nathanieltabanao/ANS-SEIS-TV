@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabSelector2 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl2 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.materialTabSelector3 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl3 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.drpEquipmentType = new System.Windows.Forms.ComboBox();
             this.txtSearchEquipment = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.btnClearEquipment = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -46,7 +47,6 @@
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.txtEquipmentDescription = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnDeleteEquipment = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.drpEquipmentType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.btnAddEquipment = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnEditEquipment = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.bunifuCustomLabel10 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -74,12 +74,9 @@
             this.btnEditUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
-
-            //this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
-            //this.txtConfirmPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            //this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-
+            this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtFirstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -96,16 +93,13 @@
             this.rdoTeacher = new MaterialSkin.Controls.MaterialRadioButton();
             this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
             this.tabPage26 = new System.Windows.Forms.TabPage();
-
-            this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-
+            this.btnLogout = new MaterialSkin.Controls.MaterialFlatButton();
+            this.lblCurrentUser = new System.Windows.Forms.Label();
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
             this.tabPage14.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.drpEquipmentType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).BeginInit();
             this.tabPage13.SuspendLayout();
             this.materialTabControl4.SuspendLayout();
@@ -195,11 +189,11 @@
             // tabPage14
             // 
             this.tabPage14.BackColor = System.Drawing.Color.White;
+            this.tabPage14.Controls.Add(this.drpEquipmentType);
             this.tabPage14.Controls.Add(this.txtSearchEquipment);
             this.tabPage14.Controls.Add(this.btnClearEquipment);
             this.tabPage14.Controls.Add(this.groupBox3);
             this.tabPage14.Controls.Add(this.btnDeleteEquipment);
-            this.tabPage14.Controls.Add(this.drpEquipmentType);
             this.tabPage14.Controls.Add(this.btnAddEquipment);
             this.tabPage14.Controls.Add(this.btnEditEquipment);
             this.tabPage14.Controls.Add(this.bunifuCustomLabel10);
@@ -213,8 +207,21 @@
             this.tabPage14.Size = new System.Drawing.Size(1154, 555);
             this.tabPage14.TabIndex = 0;
             this.tabPage14.Text = "Registration";
-
             this.tabPage14.Click += new System.EventHandler(this.tabPage14_Click);
+            // 
+            // drpEquipmentType
+            // 
+            this.drpEquipmentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.drpEquipmentType.FormattingEnabled = true;
+            this.drpEquipmentType.Items.AddRange(new object[] {
+            "200 - General Equipment",
+            "201 - Computer Equipment",
+            "202 - Culinary Equipment",
+            "203 - Automotive Equipment"});
+            this.drpEquipmentType.Location = new System.Drawing.Point(126, 99);
+            this.drpEquipmentType.Name = "drpEquipmentType";
+            this.drpEquipmentType.Size = new System.Drawing.Size(252, 21);
+            this.drpEquipmentType.TabIndex = 57;
             // 
             // txtSearchEquipment
             // 
@@ -233,6 +240,8 @@
             this.txtSearchEquipment.TabIndex = 56;
             this.txtSearchEquipment.TabStop = false;
             this.txtSearchEquipment.UseSystemPasswordChar = false;
+            this.txtSearchEquipment.Click += new System.EventHandler(this.txtSearchEquipment_Click);
+            this.txtSearchEquipment.TextChanged += new System.EventHandler(this.txtSearchEquipment_TextChanged);
             // 
             // btnClearEquipment
             // 
@@ -241,7 +250,7 @@
             this.btnClearEquipment.Size = new System.Drawing.Size(90, 34);
             this.btnClearEquipment.TabIndex = 55;
             this.btnClearEquipment.Values.Text = "Clear";
-
+            this.btnClearEquipment.Click += new System.EventHandler(this.btnClearEquipment_Click);
             // 
             // groupBox3
             // 
@@ -343,20 +352,7 @@
             this.btnDeleteEquipment.Size = new System.Drawing.Size(90, 34);
             this.btnDeleteEquipment.TabIndex = 54;
             this.btnDeleteEquipment.Values.Text = "Delete";
-            // 
-            // drpEquipmentType
-            // 
-            this.drpEquipmentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.drpEquipmentType.DropDownWidth = 252;
-            this.drpEquipmentType.Items.AddRange(new object[] {
-            "200 - General Equipment",
-            "201 - Computer Equipment",
-            "202 - Culinary Equipment",
-            "203 - Automotive Equipment"});
-            this.drpEquipmentType.Location = new System.Drawing.Point(126, 99);
-            this.drpEquipmentType.Name = "drpEquipmentType";
-            this.drpEquipmentType.Size = new System.Drawing.Size(252, 21);
-            this.drpEquipmentType.TabIndex = 50;
+            this.btnDeleteEquipment.Click += new System.EventHandler(this.btnDeleteEquipment_Click);
             // 
             // btnAddEquipment
             // 
@@ -374,6 +370,7 @@
             this.btnEditEquipment.Size = new System.Drawing.Size(90, 34);
             this.btnEditEquipment.TabIndex = 52;
             this.btnEditEquipment.Values.Text = "Edit";
+            this.btnEditEquipment.Click += new System.EventHandler(this.btnEditEquipment_Click);
             // 
             // bunifuCustomLabel10
             // 
@@ -426,19 +423,16 @@
             this.dgvEquipment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-
             this.dgvEquipment.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-
-            this.dgvEquipment.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEquipment.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvEquipment.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvEquipment.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvEquipment.Location = new System.Drawing.Point(413, 38);
@@ -448,7 +442,7 @@
             this.dgvEquipment.Size = new System.Drawing.Size(719, 436);
             this.dgvEquipment.TabIndex = 45;
             this.dgvEquipment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX2_CellContentClick);
-
+            this.dgvEquipment.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquipment_CellContentDoubleClick);
             // 
             // tabPage16
             // 
@@ -459,7 +453,6 @@
             this.tabPage16.Size = new System.Drawing.Size(1154, 555);
             this.tabPage16.TabIndex = 2;
             this.tabPage16.Text = "Monitoring";
-            //this.tabPage16.Click += new System.EventHandler(this.tabPage16_Click);
             // 
             // tabPage17
             // 
@@ -586,9 +579,7 @@
             // 
             // txtSearchUser
             // 
-
             this.txtSearchUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-
             this.txtSearchUser.Location = new System.Drawing.Point(845, 24);
             this.txtSearchUser.Name = "txtSearchUser";
             this.txtSearchUser.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
@@ -620,14 +611,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUserRegister.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvUserRegister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUserRegister.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserRegister.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvUserRegister.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvUserRegister.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvUserRegister.Location = new System.Drawing.Point(405, 53);
@@ -703,6 +694,14 @@
             this.materialLabel10.TabIndex = 7;
             this.materialLabel10.Text = "Username :";
             // 
+            // txtUsername
+            // 
+            this.txtUsername.Enabled = false;
+            this.txtUsername.Location = new System.Drawing.Point(148, 22);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(230, 23);
+            this.txtUsername.TabIndex = 8;
+            // 
             // materialLabel11
             // 
             this.materialLabel11.AutoSize = true;
@@ -717,7 +716,14 @@
             this.materialLabel11.TabIndex = 8;
             this.materialLabel11.Text = "Password :";
             // 
-
+            // txtPassword
+            // 
+            this.txtPassword.Enabled = false;
+            this.txtPassword.Location = new System.Drawing.Point(148, 51);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(230, 23);
+            this.txtPassword.TabIndex = 8;
+            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.Window;
@@ -916,29 +922,45 @@
             this.tabPage26.Text = "Upload Sheet";
             this.tabPage26.UseVisualStyleBackColor = true;
             // 
-
-            // txtPassword
+            // btnLogout
             // 
-            this.txtPassword.Enabled = false;
-            this.txtPassword.Location = new System.Drawing.Point(148, 51);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(230, 23);
-            this.txtPassword.TabIndex = 8;
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogout.AutoSize = true;
+            this.btnLogout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLogout.Depth = 0;
+            this.btnLogout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnLogout.Icon = null;
+            this.btnLogout.Location = new System.Drawing.Point(1070, 30);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnLogout.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Primary = false;
+            this.btnLogout.Size = new System.Drawing.Size(74, 36);
+            this.btnLogout.TabIndex = 25;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // txtUsername
+            // lblCurrentUser
             // 
-            this.txtUsername.Enabled = false;
-            this.txtUsername.Location = new System.Drawing.Point(148, 22);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(230, 23);
-            this.txtUsername.TabIndex = 8;
+            this.lblCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCurrentUser.BackColor = System.Drawing.Color.Transparent;
+            this.lblCurrentUser.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentUser.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCurrentUser.Location = new System.Drawing.Point(424, 37);
+            this.lblCurrentUser.Name = "lblCurrentUser";
+            this.lblCurrentUser.Size = new System.Drawing.Size(639, 29);
+            this.lblCurrentUser.TabIndex = 26;
+            this.lblCurrentUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnLogout;
             this.ClientSize = new System.Drawing.Size(1157, 692);
+            this.Controls.Add(this.lblCurrentUser);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.materialTabSelector2);
             this.Controls.Add(this.materialTabControl2);
             this.Name = "Main";
@@ -946,6 +968,7 @@
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
+            this.Leave += new System.EventHandler(this.Main_Leave);
             this.materialTabControl2.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.materialTabControl3.ResumeLayout(false);
@@ -953,7 +976,6 @@
             this.tabPage14.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.drpEquipmentType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).EndInit();
             this.tabPage13.ResumeLayout(false);
             this.materialTabControl4.ResumeLayout(false);
@@ -967,6 +989,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -989,7 +1012,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtEquipmentDescription;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnDeleteEquipment;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox drpEquipmentType;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddEquipment;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnEditEquipment;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel10;
@@ -1039,5 +1061,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSearchUser;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtUsername;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPassword;
+        private System.Windows.Forms.ComboBox drpEquipmentType;
+        private MaterialSkin.Controls.MaterialFlatButton btnLogout;
+        private System.Windows.Forms.Label lblCurrentUser;
     }
 }

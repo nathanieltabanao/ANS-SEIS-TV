@@ -53,6 +53,7 @@
       <Column Name="FIRSTNAME" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="MIDDLENAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="LASTNAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CONTACT_NUMBER" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="SECURITY_QUESTION" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="SECURITY_ANSWER" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -87,6 +88,7 @@
       <Column Name="[First Name]" Member="First_Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="[Middle Name]" Member="Middle_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="[Last Name]" Member="Last_Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="[Contact Number]" Member="Contact_Number" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="[User Type]" Member="User_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
@@ -174,13 +176,13 @@
     <Parameter Name="FIRSTNAME" Parameter="fIRSTNAME" Type="System.String" DbType="VarChar(150)" />
     <Parameter Name="MIDDLENAME" Parameter="mIDDLENAME" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="LASTNAME" Parameter="lASTNAME" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CONTACT_NUMBER" Parameter="cONTACT_NUMBER" Type="System.String" DbType="VarChar(20)" />
     <Parameter Name="SECURITY_QUESTION" Parameter="sECURITY_QUESTION" Type="System.String" DbType="VarChar(MAX)" />
     <Parameter Name="SECURITY_ANSWER" Parameter="sECURITY_ANSWER" Type="System.String" DbType="VarChar(MAX)" />
     <Parameter Name="USERTYPE_ID" Parameter="uSERTYPE_ID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_UserFirstLogin" Method="sp_UserFirstLogin">
-    <Parameter Name="GENID" Parameter="gENID" Type="System.Int32" DbType="Int" />
     <Parameter Name="USERNAME" Parameter="uSERNAME" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="PASSWORD" Parameter="pASSWORD" Type="System.String" DbType="VarChar(MAX)" />
     <Parameter Name="SECURITY_QUESTION" Parameter="sECURITY_QUESTION" Type="System.String" DbType="VarChar(MAX)" />
@@ -202,6 +204,7 @@
     <Parameter Name="FIRSTNAME" Parameter="fIRSTNAME" Type="System.String" DbType="VarChar(150)" />
     <Parameter Name="MIDDLENAME" Parameter="mIDDLENAME" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="LASTNAME" Parameter="lASTNAME" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CONTACT_NUMBER" Parameter="cONTACT_NUMBER" Type="System.String" DbType="VarChar(20)" />
     <Parameter Name="SECURITY_QUESTION" Parameter="sECURITY_QUESTION" Type="System.String" DbType="VarChar(MAX)" />
     <Parameter Name="SECURITY_ANSWER" Parameter="sECURITY_ANSWER" Type="System.String" DbType="VarChar(MAX)" />
     <Parameter Name="USERTYPE_ID" Parameter="uSERTYPE_ID" Type="System.Int32" DbType="Int" />
@@ -237,6 +240,13 @@
       <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_UserReturnID" Method="sp_UserReturnID">
+    <Parameter Name="USERNAME" Parameter="uSERNAME" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="GENID" Parameter="gENID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_UserReturnIDResult">
+      <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.sp_UserSearch" Method="sp_UserSearch">
     <Parameter Name="SearchKey" Parameter="searchKey" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="sp_UserSearchResult">
@@ -246,6 +256,7 @@
       <Column Name="[First Name]" Member="First_Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="[Middle Name]" Member="Middle_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="[Last Name]" Member="Last_Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="[Contact Number]" Member="Contact_Number" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="[User Type]" Member="User_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>

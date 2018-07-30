@@ -228,16 +228,16 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserEdit")]
-		public int sp_UserEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="VarChar(50)")] string iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(MAX)")] string pASSWORD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIRSTNAME", DbType="VarChar(150)")] string fIRSTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MIDDLENAME", DbType="VarChar(50)")] string mIDDLENAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LASTNAME", DbType="VarChar(100)")] string lASTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_QUESTION", DbType="VarChar(MAX)")] string sECURITY_QUESTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_ANSWER", DbType="VarChar(MAX)")] string sECURITY_ANSWER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPE_ID", DbType="Int")] System.Nullable<int> uSERTYPE_ID)
+		public int sp_UserEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="VarChar(50)")] string iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(MAX)")] string pASSWORD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIRSTNAME", DbType="VarChar(150)")] string fIRSTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MIDDLENAME", DbType="VarChar(50)")] string mIDDLENAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LASTNAME", DbType="VarChar(100)")] string lASTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CONTACT_NUMBER", DbType="VarChar(20)")] string cONTACT_NUMBER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_QUESTION", DbType="VarChar(MAX)")] string sECURITY_QUESTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_ANSWER", DbType="VarChar(MAX)")] string sECURITY_ANSWER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPE_ID", DbType="Int")] System.Nullable<int> uSERTYPE_ID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID, iD, uSERNAME, pASSWORD, fIRSTNAME, mIDDLENAME, lASTNAME, sECURITY_QUESTION, sECURITY_ANSWER, uSERTYPE_ID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID, iD, uSERNAME, pASSWORD, fIRSTNAME, mIDDLENAME, lASTNAME, cONTACT_NUMBER, sECURITY_QUESTION, sECURITY_ANSWER, uSERTYPE_ID);
 			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserFirstLogin")]
-		public int sp_UserFirstLogin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(MAX)")] string pASSWORD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_QUESTION", DbType="VarChar(MAX)")] string sECURITY_QUESTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_ANSWER", DbType="VarChar(MAX)")] string sECURITY_ANSWER)
+		public int sp_UserFirstLogin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(MAX)")] string pASSWORD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_QUESTION", DbType="VarChar(MAX)")] string sECURITY_QUESTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_ANSWER", DbType="VarChar(MAX)")] string sECURITY_ANSWER)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID, uSERNAME, pASSWORD, sECURITY_QUESTION, sECURITY_ANSWER);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERNAME, pASSWORD, sECURITY_QUESTION, sECURITY_ANSWER);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -256,9 +256,9 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserInsert")]
-		public int sp_UserInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="VarChar(50)")] string iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(MAX)")] string pASSWORD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIRSTNAME", DbType="VarChar(150)")] string fIRSTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MIDDLENAME", DbType="VarChar(50)")] string mIDDLENAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LASTNAME", DbType="VarChar(100)")] string lASTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_QUESTION", DbType="VarChar(MAX)")] string sECURITY_QUESTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_ANSWER", DbType="VarChar(MAX)")] string sECURITY_ANSWER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPE_ID", DbType="Int")] System.Nullable<int> uSERTYPE_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISFIRSTLOGIN", DbType="Int")] System.Nullable<int> iSFIRSTLOGIN)
+		public int sp_UserInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="VarChar(50)")] string iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(MAX)")] string pASSWORD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIRSTNAME", DbType="VarChar(150)")] string fIRSTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MIDDLENAME", DbType="VarChar(50)")] string mIDDLENAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LASTNAME", DbType="VarChar(100)")] string lASTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CONTACT_NUMBER", DbType="VarChar(20)")] string cONTACT_NUMBER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_QUESTION", DbType="VarChar(MAX)")] string sECURITY_QUESTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECURITY_ANSWER", DbType="VarChar(MAX)")] string sECURITY_ANSWER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPE_ID", DbType="Int")] System.Nullable<int> uSERTYPE_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISFIRSTLOGIN", DbType="Int")] System.Nullable<int> iSFIRSTLOGIN)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, uSERNAME, pASSWORD, fIRSTNAME, mIDDLENAME, lASTNAME, sECURITY_QUESTION, sECURITY_ANSWER, uSERTYPE_ID, iSFIRSTLOGIN);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, uSERNAME, pASSWORD, fIRSTNAME, mIDDLENAME, lASTNAME, cONTACT_NUMBER, sECURITY_QUESTION, sECURITY_ANSWER, uSERTYPE_ID, iSFIRSTLOGIN);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -281,6 +281,13 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchKey);
 			return ((ISingleResult<sp_UserLoginReportViewResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserReturnID")]
+		public ISingleResult<sp_UserReturnIDResult> sp_UserReturnID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERNAME", DbType="VarChar(50)")] string uSERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERNAME, gENID);
+			return ((ISingleResult<sp_UserReturnIDResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserSearch")]
@@ -1026,6 +1033,8 @@ namespace ANS_SEIS_TV
 		
 		private string _LASTNAME;
 		
+		private string _CONTACT_NUMBER;
+		
 		private string _SECURITY_QUESTION;
 		
 		private string _SECURITY_ANSWER;
@@ -1056,6 +1065,8 @@ namespace ANS_SEIS_TV
     partial void OnMIDDLENAMEChanged();
     partial void OnLASTNAMEChanging(string value);
     partial void OnLASTNAMEChanged();
+    partial void OnCONTACT_NUMBERChanging(string value);
+    partial void OnCONTACT_NUMBERChanged();
     partial void OnSECURITY_QUESTIONChanging(string value);
     partial void OnSECURITY_QUESTIONChanged();
     partial void OnSECURITY_ANSWERChanging(string value);
@@ -1209,6 +1220,26 @@ namespace ANS_SEIS_TV
 					this._LASTNAME = value;
 					this.SendPropertyChanged("LASTNAME");
 					this.OnLASTNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONTACT_NUMBER", DbType="VarChar(20)")]
+		public string CONTACT_NUMBER
+		{
+			get
+			{
+				return this._CONTACT_NUMBER;
+			}
+			set
+			{
+				if ((this._CONTACT_NUMBER != value))
+				{
+					this.OnCONTACT_NUMBERChanging(value);
+					this.SendPropertyChanging();
+					this._CONTACT_NUMBER = value;
+					this.SendPropertyChanged("CONTACT_NUMBER");
+					this.OnCONTACT_NUMBERChanged();
 				}
 			}
 		}
@@ -1626,6 +1657,8 @@ namespace ANS_SEIS_TV
 		
 		private string _Last_Name;
 		
+		private string _Contact_Number;
+		
 		private System.Nullable<int> _User_Type;
 		
 		public sp_UserViewResult()
@@ -1724,6 +1757,22 @@ namespace ANS_SEIS_TV
 				if ((this._Last_Name != value))
 				{
 					this._Last_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Contact Number]", Storage="_Contact_Number", DbType="VarChar(20)")]
+		public string Contact_Number
+		{
+			get
+			{
+				return this._Contact_Number;
+			}
+			set
+			{
+				if ((this._Contact_Number != value))
+				{
+					this._Contact_Number = value;
 				}
 			}
 		}
@@ -2243,6 +2292,32 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
+	public partial class sp_UserReturnIDResult
+	{
+		
+		private System.Nullable<int> _USERTYPE_ID;
+		
+		public sp_UserReturnIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", DbType="Int")]
+		public System.Nullable<int> USERTYPE_ID
+		{
+			get
+			{
+				return this._USERTYPE_ID;
+			}
+			set
+			{
+				if ((this._USERTYPE_ID != value))
+				{
+					this._USERTYPE_ID = value;
+				}
+			}
+		}
+	}
+	
 	public partial class sp_UserSearchResult
 	{
 		
@@ -2257,6 +2332,8 @@ namespace ANS_SEIS_TV
 		private string _Middle_Name;
 		
 		private string _Last_Name;
+		
+		private string _Contact_Number;
 		
 		private System.Nullable<int> _User_Type;
 		
@@ -2356,6 +2433,22 @@ namespace ANS_SEIS_TV
 				if ((this._Last_Name != value))
 				{
 					this._Last_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Contact Number]", Storage="_Contact_Number", DbType="VarChar(20)")]
+		public string Contact_Number
+		{
+			get
+			{
+				return this._Contact_Number;
+			}
+			set
+			{
+				if ((this._Contact_Number != value))
+				{
+					this._Contact_Number = value;
 				}
 			}
 		}
