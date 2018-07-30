@@ -43,8 +43,27 @@ namespace ANS_SEIS_TV
                 u.CurrentUsername = u.Username;
                 //u.CurrentUserID = u.ReturnUserID();
                 //u.UserLoginLog();
-                Main m = new Main();
-                m.Show();
+
+                GetSomethingFromServer g = new GetSomethingFromServer();
+
+                g.Username = u.CurrentUsername;
+                g.GetFirstLogin();
+
+                if (g.FirstLogin==0)
+                {
+                    Main m = new Main();
+                    this.Hide();
+                    m.CurrentUser = txtUsername.Text;
+                    m.Show();
+                }
+                else
+                {
+                    FirstLoginForm f = new FirstLoginForm();
+                    f.Username = txtUsername.Text;
+                    MessageBox.Show("Please setup your account");
+                    this.Hide();
+                    f.Show();
+                }
                 
             }
             else
