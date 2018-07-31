@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabSelector2 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl2 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
@@ -62,7 +60,50 @@
             this.dgvEquipment = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.tabPage17 = new System.Windows.Forms.TabPage();
+            this.bunifuCustomLabel14 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnrBrwSlip = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.dgvEquipView = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.kryptonDateTimePicker3 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.kryptonDateTimePicker1 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.bunifuCustomLabel13 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.dgvBorrowed = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.grpBoxBorrower = new System.Windows.Forms.GroupBox();
+            this.kryptonTextBox2 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tabPage18 = new System.Windows.Forms.TabPage();
+            this.btnAddList = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnRmvList = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnClrList = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnRtrnSlip = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.bunifuCustomLabel21 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.kryptonDateTimePicker5 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.bunifuCustomLabel22 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.dataGridViewX2 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.bunifuCustomLabel18 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.kryptonDateTimePicker2 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.bunifuCustomLabel19 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.kryptonDateTimePicker4 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.bunifuCustomLabel20 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.kryptonTextBox5 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonButton4 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.bunifuCustomLabel17 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.kryptonTextBox3 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.bunifuCustomLabel15 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.kryptonTextBox4 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.bunifuCustomLabel16 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
@@ -99,54 +140,8 @@
             this.rdoTeacher = new MaterialSkin.Controls.MaterialRadioButton();
             this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
             this.tabPage26 = new System.Windows.Forms.TabPage();
-
-            this.grpBoxBorrower = new System.Windows.Forms.GroupBox();
-            this.kryptonTextBox2 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.kryptonDateTimePicker3 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.kryptonDateTimePicker1 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.bunifuCustomLabel13 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.dgvBorrowed = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.dgvEquipView = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnrBrwSlip = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.bunifuCustomLabel14 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.kryptonTextBox3 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.bunifuCustomLabel15 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.kryptonTextBox4 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.bunifuCustomLabel16 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.kryptonButton4 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.bunifuCustomLabel17 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.kryptonTextBox5 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.bunifuCustomLabel18 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.kryptonDateTimePicker2 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.bunifuCustomLabel19 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.kryptonDateTimePicker4 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.bunifuCustomLabel20 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.bunifuCustomLabel21 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.kryptonDateTimePicker5 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.bunifuCustomLabel22 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.dataGridViewX2 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.btnRmvList = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnClrList = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnRtrnSlip = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnAddList = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-
             this.btnLogout = new MaterialSkin.Controls.MaterialFlatButton();
             this.lblCurrentUser = new System.Windows.Forms.Label();
-
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
@@ -154,7 +149,14 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).BeginInit();
             this.tabPage17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowed)).BeginInit();
+            this.grpBoxBorrower.SuspendLayout();
             this.tabPage18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
+            this.groupBox6.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabPage13.SuspendLayout();
             this.materialTabControl4.SuspendLayout();
             this.tabPage25.SuspendLayout();
@@ -162,13 +164,6 @@
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.grpBoxBorrower.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipView)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTabSelector2
@@ -198,7 +193,7 @@
             this.materialTabControl2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl2.Name = "materialTabControl2";
             this.materialTabControl2.SelectedIndex = 0;
-            this.materialTabControl2.Size = new System.Drawing.Size(1162, 613);
+            this.materialTabControl2.Size = new System.Drawing.Size(1162, 656);
             this.materialTabControl2.TabIndex = 24;
             // 
             // tabPage8
@@ -209,7 +204,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(1154, 587);
+            this.tabPage8.Size = new System.Drawing.Size(1154, 630);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Inventory";
             // 
@@ -244,7 +239,7 @@
             this.materialTabControl3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl3.Name = "materialTabControl3";
             this.materialTabControl3.SelectedIndex = 0;
-            this.materialTabControl3.Size = new System.Drawing.Size(1162, 613);
+            this.materialTabControl3.Size = new System.Drawing.Size(1162, 656);
             this.materialTabControl3.TabIndex = 24;
             // 
             // tabPage14
@@ -265,7 +260,7 @@
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(1154, 587);
+            this.tabPage14.Size = new System.Drawing.Size(1154, 630);
             this.tabPage14.TabIndex = 0;
             this.tabPage14.Text = "Registration";
             this.tabPage14.Click += new System.EventHandler(this.tabPage14_Click);
@@ -311,16 +306,11 @@
             this.btnClearEquipment.Size = new System.Drawing.Size(90, 34);
             this.btnClearEquipment.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnClearEquipment.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnClearEquipment.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnClearEquipment.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.btnClearEquipment.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearEquipment.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnClearEquipment.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.btnClearEquipment.TabIndex = 55;
             this.btnClearEquipment.Values.Text = "Clear";
-
             this.btnClearEquipment.Click += new System.EventHandler(this.btnClearEquipment_Click);
-
             // 
             // groupBox3
             // 
@@ -422,11 +412,8 @@
             this.btnDeleteEquipment.Size = new System.Drawing.Size(90, 34);
             this.btnDeleteEquipment.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnDeleteEquipment.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnDeleteEquipment.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnDeleteEquipment.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.btnDeleteEquipment.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteEquipment.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnDeleteEquipment.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.btnDeleteEquipment.TabIndex = 54;
             this.btnDeleteEquipment.Values.Text = "Delete";
             this.btnDeleteEquipment.Click += new System.EventHandler(this.btnDeleteEquipment_Click);
@@ -438,11 +425,8 @@
             this.btnAddEquipment.Size = new System.Drawing.Size(90, 34);
             this.btnAddEquipment.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnAddEquipment.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnAddEquipment.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnAddEquipment.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.btnAddEquipment.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddEquipment.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnAddEquipment.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.btnAddEquipment.TabIndex = 53;
             this.btnAddEquipment.Values.Text = "Add";
             this.btnAddEquipment.Click += new System.EventHandler(this.kryptonButton7_Click);
@@ -454,11 +438,8 @@
             this.btnEditEquipment.Size = new System.Drawing.Size(90, 34);
             this.btnEditEquipment.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnEditEquipment.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnEditEquipment.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnEditEquipment.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.btnEditEquipment.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditEquipment.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnEditEquipment.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.btnEditEquipment.TabIndex = 52;
             this.btnEditEquipment.Values.Text = "Edit";
             this.btnEditEquipment.Click += new System.EventHandler(this.btnEditEquipment_Click);
@@ -516,28 +497,24 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEquipment.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEquipment.DefaultCellStyle = dataGridViewCellStyle17;
-
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEquipment.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvEquipment.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvEquipment.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvEquipment.Location = new System.Drawing.Point(413, 38);
             this.dgvEquipment.Name = "dgvEquipment";
             this.dgvEquipment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvEquipment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEquipment.Size = new System.Drawing.Size(719, 468);
+            this.dgvEquipment.Size = new System.Drawing.Size(719, 485);
             this.dgvEquipment.TabIndex = 45;
             this.dgvEquipment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX2_CellContentClick);
-
             this.dgvEquipment.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquipment_CellContentDoubleClick);
-
             // 
             // tabPage16
             // 
@@ -545,7 +522,7 @@
             this.tabPage16.Location = new System.Drawing.Point(4, 22);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(1154, 587);
+            this.tabPage16.Size = new System.Drawing.Size(1154, 630);
             this.tabPage16.TabIndex = 2;
             this.tabPage16.Text = "Monitoring";
             // 
@@ -569,10 +546,280 @@
             this.tabPage17.Location = new System.Drawing.Point(4, 22);
             this.tabPage17.Name = "tabPage17";
             this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage17.Size = new System.Drawing.Size(1154, 587);
+            this.tabPage17.Size = new System.Drawing.Size(1154, 630);
             this.tabPage17.TabIndex = 3;
             this.tabPage17.Text = "Borrowing";
             this.tabPage17.UseVisualStyleBackColor = true;
+            // 
+            // bunifuCustomLabel14
+            // 
+            this.bunifuCustomLabel14.AutoSize = true;
+            this.bunifuCustomLabel14.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel14.Font = new System.Drawing.Font("Roboto Condensed", 12F);
+            this.bunifuCustomLabel14.Location = new System.Drawing.Point(16, 124);
+            this.bunifuCustomLabel14.Name = "bunifuCustomLabel14";
+            this.bunifuCustomLabel14.Size = new System.Drawing.Size(124, 21);
+            this.bunifuCustomLabel14.TabIndex = 70;
+            this.bunifuCustomLabel14.Text = "Search Equipment";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(146, 124);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(347, 23);
+            this.txtSearch.TabIndex = 69;
+            // 
+            // kryptonButton1
+            // 
+            this.kryptonButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.kryptonButton1.Location = new System.Drawing.Point(17, 478);
+            this.kryptonButton1.Name = "kryptonButton1";
+            this.kryptonButton1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonButton1.Size = new System.Drawing.Size(107, 45);
+            this.kryptonButton1.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.kryptonButton1.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
+            this.kryptonButton1.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonButton1.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonButton1.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
+            this.kryptonButton1.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
+            this.kryptonButton1.TabIndex = 68;
+            this.kryptonButton1.Values.Text = "Add";
+            // 
+            // kryptonButton2
+            // 
+            this.kryptonButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonButton2.Location = new System.Drawing.Point(757, 478);
+            this.kryptonButton2.Name = "kryptonButton2";
+            this.kryptonButton2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonButton2.Size = new System.Drawing.Size(107, 45);
+            this.kryptonButton2.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.kryptonButton2.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
+            this.kryptonButton2.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonButton2.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonButton2.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
+            this.kryptonButton2.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
+            this.kryptonButton2.TabIndex = 66;
+            this.kryptonButton2.Values.Text = "Remove";
+            // 
+            // kryptonButton3
+            // 
+            this.kryptonButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonButton3.Location = new System.Drawing.Point(871, 478);
+            this.kryptonButton3.Name = "kryptonButton3";
+            this.kryptonButton3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonButton3.Size = new System.Drawing.Size(107, 45);
+            this.kryptonButton3.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.kryptonButton3.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
+            this.kryptonButton3.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonButton3.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonButton3.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
+            this.kryptonButton3.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
+            this.kryptonButton3.TabIndex = 67;
+            this.kryptonButton3.Values.Text = "Clear List";
+            // 
+            // btnrBrwSlip
+            // 
+            this.btnrBrwSlip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnrBrwSlip.Location = new System.Drawing.Point(984, 478);
+            this.btnrBrwSlip.Name = "btnrBrwSlip";
+            this.btnrBrwSlip.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btnrBrwSlip.Size = new System.Drawing.Size(149, 45);
+            this.btnrBrwSlip.StateNormal.Back.Color1 = System.Drawing.Color.ForestGreen;
+            this.btnrBrwSlip.StateNormal.Back.Color2 = System.Drawing.Color.ForestGreen;
+            this.btnrBrwSlip.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnrBrwSlip.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnrBrwSlip.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
+            this.btnrBrwSlip.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
+            this.btnrBrwSlip.TabIndex = 65;
+            this.btnrBrwSlip.Values.Text = "PRINT BORROW SLIP";
+            // 
+            // dgvEquipView
+            // 
+            this.dgvEquipView.AllowUserToAddRows = false;
+            this.dgvEquipView.AllowUserToDeleteRows = false;
+            this.dgvEquipView.AllowUserToOrderColumns = true;
+            this.dgvEquipView.AllowUserToResizeColumns = false;
+            this.dgvEquipView.AllowUserToResizeRows = false;
+            this.dgvEquipView.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            this.dgvEquipView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEquipView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvEquipView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvEquipView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dgvEquipView.Location = new System.Drawing.Point(21, 182);
+            this.dgvEquipView.Name = "dgvEquipView";
+            this.dgvEquipView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvEquipView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEquipView.Size = new System.Drawing.Size(551, 290);
+            this.dgvEquipView.TabIndex = 56;
+            // 
+            // bunifuCustomLabel4
+            // 
+            this.bunifuCustomLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.bunifuCustomLabel4.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(928, 18);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(65, 21);
+            this.bunifuCustomLabel4.TabIndex = 54;
+            this.bunifuCustomLabel4.Text = "Date Due";
+            // 
+            // kryptonDateTimePicker3
+            // 
+            this.kryptonDateTimePicker3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonDateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.kryptonDateTimePicker3.Location = new System.Drawing.Point(999, 18);
+            this.kryptonDateTimePicker3.Name = "kryptonDateTimePicker3";
+            this.kryptonDateTimePicker3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
+            this.kryptonDateTimePicker3.Size = new System.Drawing.Size(135, 21);
+            this.kryptonDateTimePicker3.TabIndex = 55;
+            // 
+            // bunifuCustomLabel8
+            // 
+            this.bunifuCustomLabel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuCustomLabel8.AutoSize = true;
+            this.bunifuCustomLabel8.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel8.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel8.Location = new System.Drawing.Point(678, 19);
+            this.bunifuCustomLabel8.Name = "bunifuCustomLabel8";
+            this.bunifuCustomLabel8.Size = new System.Drawing.Size(101, 21);
+            this.bunifuCustomLabel8.TabIndex = 52;
+            this.bunifuCustomLabel8.Text = "Date Borrowed";
+            // 
+            // kryptonDateTimePicker1
+            // 
+            this.kryptonDateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.kryptonDateTimePicker1.Location = new System.Drawing.Point(785, 19);
+            this.kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
+            this.kryptonDateTimePicker1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
+            this.kryptonDateTimePicker1.Size = new System.Drawing.Size(135, 21);
+            this.kryptonDateTimePicker1.TabIndex = 53;
+            // 
+            // bunifuCustomLabel13
+            // 
+            this.bunifuCustomLabel13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuCustomLabel13.AutoSize = true;
+            this.bunifuCustomLabel13.BackColor = System.Drawing.Color.SlateGray;
+            this.bunifuCustomLabel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bunifuCustomLabel13.Font = new System.Drawing.Font("Roboto Condensed", 13F);
+            this.bunifuCustomLabel13.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel13.Location = new System.Drawing.Point(578, 14);
+            this.bunifuCustomLabel13.Name = "bunifuCustomLabel13";
+            this.bunifuCustomLabel13.Size = new System.Drawing.Size(94, 26);
+            this.bunifuCustomLabel13.TabIndex = 51;
+            this.bunifuCustomLabel13.Text = "Borrow List";
+            // 
+            // dgvBorrowed
+            // 
+            this.dgvBorrowed.AllowUserToAddRows = false;
+            this.dgvBorrowed.AllowUserToDeleteRows = false;
+            this.dgvBorrowed.AllowUserToOrderColumns = true;
+            this.dgvBorrowed.AllowUserToResizeColumns = false;
+            this.dgvBorrowed.AllowUserToResizeRows = false;
+            this.dgvBorrowed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvBorrowed.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            this.dgvBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBorrowed.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvBorrowed.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvBorrowed.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dgvBorrowed.Location = new System.Drawing.Point(578, 43);
+            this.dgvBorrowed.Name = "dgvBorrowed";
+            this.dgvBorrowed.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvBorrowed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBorrowed.Size = new System.Drawing.Size(556, 429);
+            this.dgvBorrowed.TabIndex = 50;
+            // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.BackColor = System.Drawing.Color.SlateGray;
+            this.bunifuCustomLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Roboto Condensed", 13F);
+            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(17, 153);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(118, 26);
+            this.bunifuCustomLabel2.TabIndex = 42;
+            this.bunifuCustomLabel2.Text = "Equipment List";
+            // 
+            // grpBoxBorrower
+            // 
+            this.grpBoxBorrower.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpBoxBorrower.BackColor = System.Drawing.Color.Transparent;
+            this.grpBoxBorrower.Controls.Add(this.kryptonTextBox2);
+            this.grpBoxBorrower.Controls.Add(this.bunifuCustomLabel3);
+            this.grpBoxBorrower.Controls.Add(this.kryptonTextBox1);
+            this.grpBoxBorrower.Controls.Add(this.btnSearch);
+            this.grpBoxBorrower.Controls.Add(this.bunifuCustomLabel1);
+            this.grpBoxBorrower.Font = new System.Drawing.Font("Roboto", 10F);
+            this.grpBoxBorrower.Location = new System.Drawing.Point(17, 14);
+            this.grpBoxBorrower.Name = "grpBoxBorrower";
+            this.grpBoxBorrower.Size = new System.Drawing.Size(555, 107);
+            this.grpBoxBorrower.TabIndex = 37;
+            this.grpBoxBorrower.TabStop = false;
+            this.grpBoxBorrower.Text = "Borrower Details";
+            // 
+            // kryptonTextBox2
+            // 
+            this.kryptonTextBox2.Location = new System.Drawing.Point(130, 63);
+            this.kryptonTextBox2.Name = "kryptonTextBox2";
+            this.kryptonTextBox2.Size = new System.Drawing.Size(279, 23);
+            this.kryptonTextBox2.TabIndex = 39;
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(77, 63);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(46, 21);
+            this.bunifuCustomLabel3.TabIndex = 38;
+            this.bunifuCustomLabel3.Text = "Name";
+            // 
+            // kryptonTextBox1
+            // 
+            this.kryptonTextBox1.Location = new System.Drawing.Point(130, 29);
+            this.kryptonTextBox1.Name = "kryptonTextBox1";
+            this.kryptonTextBox1.Size = new System.Drawing.Size(279, 23);
+            this.kryptonTextBox1.TabIndex = 37;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(421, 29);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btnSearch.Size = new System.Drawing.Size(74, 57);
+            this.btnSearch.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto", 9.75F);
+            this.btnSearch.TabIndex = 34;
+            this.btnSearch.Values.Text = "Search";
+            // 
+            // bunifuCustomLabel1
+            // 
+            this.bunifuCustomLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuCustomLabel1.AutoSize = true;
+            this.bunifuCustomLabel1.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(51, 31);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(72, 21);
+            this.bunifuCustomLabel1.TabIndex = 32;
+            this.bunifuCustomLabel1.Text = "Username";
             // 
             // tabPage18
             // 
@@ -595,17 +842,323 @@
             this.tabPage18.Location = new System.Drawing.Point(4, 22);
             this.tabPage18.Name = "tabPage18";
             this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage18.Size = new System.Drawing.Size(1154, 587);
+            this.tabPage18.Size = new System.Drawing.Size(1154, 630);
             this.tabPage18.TabIndex = 4;
             this.tabPage18.Text = "Return";
             this.tabPage18.UseVisualStyleBackColor = true;
+            // 
+            // btnAddList
+            // 
+            this.btnAddList.Location = new System.Drawing.Point(8, 474);
+            this.btnAddList.Name = "btnAddList";
+            this.btnAddList.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btnAddList.Size = new System.Drawing.Size(107, 45);
+            this.btnAddList.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.btnAddList.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
+            this.btnAddList.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnAddList.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddList.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
+            this.btnAddList.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
+            this.btnAddList.TabIndex = 67;
+            this.btnAddList.Values.Text = "Add";
+            // 
+            // btnRmvList
+            // 
+            this.btnRmvList.Location = new System.Drawing.Point(576, 474);
+            this.btnRmvList.Name = "btnRmvList";
+            this.btnRmvList.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btnRmvList.Size = new System.Drawing.Size(107, 45);
+            this.btnRmvList.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.btnRmvList.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
+            this.btnRmvList.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnRmvList.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRmvList.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
+            this.btnRmvList.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
+            this.btnRmvList.TabIndex = 66;
+            this.btnRmvList.Values.Text = "Remove";
+            // 
+            // btnClrList
+            // 
+            this.btnClrList.Location = new System.Drawing.Point(695, 474);
+            this.btnClrList.Name = "btnClrList";
+            this.btnClrList.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btnClrList.Size = new System.Drawing.Size(107, 45);
+            this.btnClrList.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.btnClrList.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
+            this.btnClrList.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnClrList.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClrList.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
+            this.btnClrList.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
+            this.btnClrList.TabIndex = 65;
+            this.btnClrList.Values.Text = "Clear List";
+            // 
+            // btnRtrnSlip
+            // 
+            this.btnRtrnSlip.Location = new System.Drawing.Point(983, 474);
+            this.btnRtrnSlip.Name = "btnRtrnSlip";
+            this.btnRtrnSlip.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btnRtrnSlip.Size = new System.Drawing.Size(149, 45);
+            this.btnRtrnSlip.StateNormal.Back.Color1 = System.Drawing.Color.ForestGreen;
+            this.btnRtrnSlip.StateNormal.Back.Color2 = System.Drawing.Color.ForestGreen;
+            this.btnRtrnSlip.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnRtrnSlip.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRtrnSlip.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
+            this.btnRtrnSlip.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
+            this.btnRtrnSlip.TabIndex = 64;
+            this.btnRtrnSlip.Values.Text = "PRINT RETURN SLIP";
+            // 
+            // bunifuCustomLabel21
+            // 
+            this.bunifuCustomLabel21.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuCustomLabel21.AutoSize = true;
+            this.bunifuCustomLabel21.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel21.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel21.Location = new System.Drawing.Point(679, 137);
+            this.bunifuCustomLabel21.Name = "bunifuCustomLabel21";
+            this.bunifuCustomLabel21.Size = new System.Drawing.Size(98, 21);
+            this.bunifuCustomLabel21.TabIndex = 62;
+            this.bunifuCustomLabel21.Text = "Date Returned";
+            // 
+            // kryptonDateTimePicker5
+            // 
+            this.kryptonDateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.kryptonDateTimePicker5.Location = new System.Drawing.Point(783, 137);
+            this.kryptonDateTimePicker5.Name = "kryptonDateTimePicker5";
+            this.kryptonDateTimePicker5.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
+            this.kryptonDateTimePicker5.Size = new System.Drawing.Size(135, 21);
+            this.kryptonDateTimePicker5.TabIndex = 63;
+            // 
+            // bunifuCustomLabel22
+            // 
+            this.bunifuCustomLabel22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuCustomLabel22.AutoSize = true;
+            this.bunifuCustomLabel22.BackColor = System.Drawing.Color.SlateGray;
+            this.bunifuCustomLabel22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bunifuCustomLabel22.Font = new System.Drawing.Font("Roboto Condensed", 13F);
+            this.bunifuCustomLabel22.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel22.Location = new System.Drawing.Point(576, 136);
+            this.bunifuCustomLabel22.Name = "bunifuCustomLabel22";
+            this.bunifuCustomLabel22.Size = new System.Drawing.Size(90, 26);
+            this.bunifuCustomLabel22.TabIndex = 61;
+            this.bunifuCustomLabel22.Text = "Return List";
+            // 
+            // dataGridViewX2
+            // 
+            this.dataGridViewX2.AllowUserToAddRows = false;
+            this.dataGridViewX2.AllowUserToDeleteRows = false;
+            this.dataGridViewX2.AllowUserToOrderColumns = true;
+            this.dataGridViewX2.AllowUserToResizeColumns = false;
+            this.dataGridViewX2.AllowUserToResizeRows = false;
+            this.dataGridViewX2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewX2.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            this.dataGridViewX2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewX2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridViewX2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridViewX2.Location = new System.Drawing.Point(576, 167);
+            this.dataGridViewX2.Name = "dataGridViewX2";
+            this.dataGridViewX2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridViewX2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewX2.Size = new System.Drawing.Size(556, 301);
+            this.dataGridViewX2.TabIndex = 60;
+            // 
+            // bunifuCustomLabel18
+            // 
+            this.bunifuCustomLabel18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuCustomLabel18.AutoSize = true;
+            this.bunifuCustomLabel18.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel18.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel18.Location = new System.Drawing.Point(356, 136);
+            this.bunifuCustomLabel18.Name = "bunifuCustomLabel18";
+            this.bunifuCustomLabel18.Size = new System.Drawing.Size(65, 21);
+            this.bunifuCustomLabel18.TabIndex = 58;
+            this.bunifuCustomLabel18.Text = "Date Due";
+            // 
+            // kryptonDateTimePicker2
+            // 
+            this.kryptonDateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.kryptonDateTimePicker2.Location = new System.Drawing.Point(427, 137);
+            this.kryptonDateTimePicker2.Name = "kryptonDateTimePicker2";
+            this.kryptonDateTimePicker2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
+            this.kryptonDateTimePicker2.Size = new System.Drawing.Size(135, 21);
+            this.kryptonDateTimePicker2.TabIndex = 59;
+            // 
+            // bunifuCustomLabel19
+            // 
+            this.bunifuCustomLabel19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuCustomLabel19.AutoSize = true;
+            this.bunifuCustomLabel19.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel19.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel19.Location = new System.Drawing.Point(106, 136);
+            this.bunifuCustomLabel19.Name = "bunifuCustomLabel19";
+            this.bunifuCustomLabel19.Size = new System.Drawing.Size(101, 21);
+            this.bunifuCustomLabel19.TabIndex = 56;
+            this.bunifuCustomLabel19.Text = "Date Borrowed";
+            this.bunifuCustomLabel19.Click += new System.EventHandler(this.bunifuCustomLabel19_Click);
+            // 
+            // kryptonDateTimePicker4
+            // 
+            this.kryptonDateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.kryptonDateTimePicker4.Location = new System.Drawing.Point(213, 137);
+            this.kryptonDateTimePicker4.Name = "kryptonDateTimePicker4";
+            this.kryptonDateTimePicker4.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
+            this.kryptonDateTimePicker4.Size = new System.Drawing.Size(135, 21);
+            this.kryptonDateTimePicker4.TabIndex = 57;
+            // 
+            // bunifuCustomLabel20
+            // 
+            this.bunifuCustomLabel20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuCustomLabel20.AutoSize = true;
+            this.bunifuCustomLabel20.BackColor = System.Drawing.Color.SlateGray;
+            this.bunifuCustomLabel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bunifuCustomLabel20.Font = new System.Drawing.Font("Roboto Condensed", 13F);
+            this.bunifuCustomLabel20.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel20.Location = new System.Drawing.Point(6, 136);
+            this.bunifuCustomLabel20.Name = "bunifuCustomLabel20";
+            this.bunifuCustomLabel20.Size = new System.Drawing.Size(94, 26);
+            this.bunifuCustomLabel20.TabIndex = 55;
+            this.bunifuCustomLabel20.Text = "Borrow List";
+            // 
+            // dataGridViewX1
+            // 
+            this.dataGridViewX1.AllowUserToAddRows = false;
+            this.dataGridViewX1.AllowUserToDeleteRows = false;
+            this.dataGridViewX1.AllowUserToOrderColumns = true;
+            this.dataGridViewX1.AllowUserToResizeColumns = false;
+            this.dataGridViewX1.AllowUserToResizeRows = false;
+            this.dataGridViewX1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewX1.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewX1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridViewX1.Location = new System.Drawing.Point(6, 167);
+            this.dataGridViewX1.Name = "dataGridViewX1";
+            this.dataGridViewX1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewX1.Size = new System.Drawing.Size(556, 301);
+            this.dataGridViewX1.TabIndex = 54;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox6.Controls.Add(this.kryptonTextBox5);
+            this.groupBox6.Controls.Add(this.kryptonButton4);
+            this.groupBox6.Controls.Add(this.bunifuCustomLabel17);
+            this.groupBox6.Font = new System.Drawing.Font("Roboto", 10F);
+            this.groupBox6.Location = new System.Drawing.Point(8, 9);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(554, 106);
+            this.groupBox6.TabIndex = 42;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Borrow List";
+            // 
+            // kryptonTextBox5
+            // 
+            this.kryptonTextBox5.Location = new System.Drawing.Point(102, 48);
+            this.kryptonTextBox5.Name = "kryptonTextBox5";
+            this.kryptonTextBox5.Size = new System.Drawing.Size(259, 23);
+            this.kryptonTextBox5.TabIndex = 70;
+            // 
+            // kryptonButton4
+            // 
+            this.kryptonButton4.Location = new System.Drawing.Point(372, 40);
+            this.kryptonButton4.Name = "kryptonButton4";
+            this.kryptonButton4.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonButton4.Size = new System.Drawing.Size(74, 40);
+            this.kryptonButton4.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto", 9.75F);
+            this.kryptonButton4.TabIndex = 47;
+            this.kryptonButton4.Values.Text = "Search";
+            // 
+            // bunifuCustomLabel17
+            // 
+            this.bunifuCustomLabel17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuCustomLabel17.AutoSize = true;
+            this.bunifuCustomLabel17.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel17.Font = new System.Drawing.Font("Roboto Condensed", 12F);
+            this.bunifuCustomLabel17.Location = new System.Drawing.Point(21, 48);
+            this.bunifuCustomLabel17.Name = "bunifuCustomLabel17";
+            this.bunifuCustomLabel17.Size = new System.Drawing.Size(75, 21);
+            this.bunifuCustomLabel17.TabIndex = 46;
+            this.bunifuCustomLabel17.Text = "Borrow ID:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.kryptonTextBox3);
+            this.groupBox2.Controls.Add(this.bunifuCustomLabel15);
+            this.groupBox2.Controls.Add(this.kryptonTextBox4);
+            this.groupBox2.Controls.Add(this.bunifuCustomLabel16);
+            this.groupBox2.Font = new System.Drawing.Font("Roboto", 10F);
+            this.groupBox2.Location = new System.Drawing.Point(576, 8);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(556, 107);
+            this.groupBox2.TabIndex = 41;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Borrower Details";
+            // 
+            // kryptonTextBox3
+            // 
+            this.kryptonTextBox3.Location = new System.Drawing.Point(175, 68);
+            this.kryptonTextBox3.Name = "kryptonTextBox3";
+            this.kryptonTextBox3.Size = new System.Drawing.Size(279, 23);
+            this.kryptonTextBox3.TabIndex = 39;
+            // 
+            // bunifuCustomLabel15
+            // 
+            this.bunifuCustomLabel15.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuCustomLabel15.AutoSize = true;
+            this.bunifuCustomLabel15.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel15.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel15.Location = new System.Drawing.Point(119, 59);
+            this.bunifuCustomLabel15.Name = "bunifuCustomLabel15";
+            this.bunifuCustomLabel15.Size = new System.Drawing.Size(46, 21);
+            this.bunifuCustomLabel15.TabIndex = 38;
+            this.bunifuCustomLabel15.Text = "Name";
+            // 
+            // kryptonTextBox4
+            // 
+            this.kryptonTextBox4.Location = new System.Drawing.Point(175, 34);
+            this.kryptonTextBox4.Name = "kryptonTextBox4";
+            this.kryptonTextBox4.Size = new System.Drawing.Size(279, 23);
+            this.kryptonTextBox4.TabIndex = 37;
+            // 
+            // bunifuCustomLabel16
+            // 
+            this.bunifuCustomLabel16.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuCustomLabel16.AutoSize = true;
+            this.bunifuCustomLabel16.BackColor = System.Drawing.SystemColors.Window;
+            this.bunifuCustomLabel16.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel16.Location = new System.Drawing.Point(93, 27);
+            this.bunifuCustomLabel16.Name = "bunifuCustomLabel16";
+            this.bunifuCustomLabel16.Size = new System.Drawing.Size(72, 21);
+            this.bunifuCustomLabel16.TabIndex = 32;
+            this.bunifuCustomLabel16.Text = "Username";
             // 
             // tabPage7
             // 
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1154, 555);
+            this.tabPage7.Size = new System.Drawing.Size(1154, 630);
             this.tabPage7.TabIndex = 5;
             this.tabPage7.Text = "Deploy";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -615,7 +1168,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(1154, 555);
+            this.tabPage10.Size = new System.Drawing.Size(1154, 630);
             this.tabPage10.TabIndex = 6;
             this.tabPage10.Text = "Pull Out";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -625,7 +1178,7 @@
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(1154, 555);
+            this.tabPage11.Size = new System.Drawing.Size(1154, 630);
             this.tabPage11.TabIndex = 7;
             this.tabPage11.Text = "Requests";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -635,7 +1188,7 @@
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(1154, 554);
+            this.tabPage12.Size = new System.Drawing.Size(1154, 630);
             this.tabPage12.TabIndex = 5;
             this.tabPage12.Text = "Reports";
             this.tabPage12.UseVisualStyleBackColor = true;
@@ -647,7 +1200,7 @@
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(1154, 554);
+            this.tabPage13.Size = new System.Drawing.Size(1154, 630);
             this.tabPage13.TabIndex = 6;
             this.tabPage13.Text = "Accounts";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -737,23 +1290,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUserRegister.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvUserRegister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUserRegister.DefaultCellStyle = dataGridViewCellStyle18;
-
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserRegister.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvUserRegister.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvUserRegister.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvUserRegister.Location = new System.Drawing.Point(405, 53);
             this.dgvUserRegister.Name = "dgvUserRegister";
             this.dgvUserRegister.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvUserRegister.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUserRegister.Size = new System.Drawing.Size(719, 436);
+            this.dgvUserRegister.Size = new System.Drawing.Size(719, 482);
             this.dgvUserRegister.TabIndex = 36;
             this.dgvUserRegister.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserRegister_CellContentDoubleClick);
             // 
@@ -764,11 +1315,8 @@
             this.btnUserClear.Size = new System.Drawing.Size(90, 34);
             this.btnUserClear.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnUserClear.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnUserClear.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnUserClear.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.btnUserClear.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserClear.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnUserClear.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.btnUserClear.TabIndex = 35;
             this.btnUserClear.Values.Text = "Clear";
             this.btnUserClear.Click += new System.EventHandler(this.btnUserClear_Click);
@@ -780,11 +1328,8 @@
             this.btnDeleteUser.Size = new System.Drawing.Size(90, 34);
             this.btnDeleteUser.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnDeleteUser.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnDeleteUser.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnDeleteUser.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.btnDeleteUser.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteUser.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnDeleteUser.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.btnDeleteUser.TabIndex = 34;
             this.btnDeleteUser.Values.Text = "Delete User";
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
@@ -796,11 +1341,8 @@
             this.btnAddUser.Size = new System.Drawing.Size(90, 34);
             this.btnAddUser.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnAddUser.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnAddUser.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnAddUser.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.btnAddUser.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddUser.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnAddUser.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.btnAddUser.TabIndex = 33;
             this.btnAddUser.Values.Text = "Add User";
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
@@ -812,11 +1354,8 @@
             this.btnEditUser.Size = new System.Drawing.Size(90, 34);
             this.btnEditUser.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnEditUser.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnEditUser.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnEditUser.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.btnEditUser.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditUser.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnEditUser.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
             this.btnEditUser.TabIndex = 32;
             this.btnEditUser.Values.Text = "Edit User";
             this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
@@ -1078,619 +1617,6 @@
             this.tabPage26.Text = "Upload Sheet";
             this.tabPage26.UseVisualStyleBackColor = true;
             // 
-
-            // grpBoxBorrower
-            // 
-            this.grpBoxBorrower.BackColor = System.Drawing.Color.Transparent;
-            this.grpBoxBorrower.Controls.Add(this.kryptonTextBox2);
-            this.grpBoxBorrower.Controls.Add(this.bunifuCustomLabel3);
-            this.grpBoxBorrower.Controls.Add(this.kryptonTextBox1);
-            this.grpBoxBorrower.Controls.Add(this.btnSearch);
-            this.grpBoxBorrower.Controls.Add(this.bunifuCustomLabel1);
-            this.grpBoxBorrower.Font = new System.Drawing.Font("Roboto", 10F);
-            this.grpBoxBorrower.Location = new System.Drawing.Point(578, 6);
-            this.grpBoxBorrower.Name = "grpBoxBorrower";
-            this.grpBoxBorrower.Size = new System.Drawing.Size(556, 107);
-            this.grpBoxBorrower.TabIndex = 37;
-            this.grpBoxBorrower.TabStop = false;
-            this.grpBoxBorrower.Text = "Borrower Details";
-            // 
-            // kryptonTextBox2
-            // 
-            this.kryptonTextBox2.Location = new System.Drawing.Point(130, 63);
-            this.kryptonTextBox2.Name = "kryptonTextBox2";
-            this.kryptonTextBox2.Size = new System.Drawing.Size(279, 23);
-            this.kryptonTextBox2.TabIndex = 39;
-            // 
-            // bunifuCustomLabel3
-            // 
-            this.bunifuCustomLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(78, 63);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(46, 21);
-            this.bunifuCustomLabel3.TabIndex = 38;
-            this.bunifuCustomLabel3.Text = "Name";
-            // 
-            // kryptonTextBox1
-            // 
-            this.kryptonTextBox1.Location = new System.Drawing.Point(130, 29);
-            this.kryptonTextBox1.Name = "kryptonTextBox1";
-            this.kryptonTextBox1.Size = new System.Drawing.Size(279, 23);
-            this.kryptonTextBox1.TabIndex = 37;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(421, 29);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnSearch.Size = new System.Drawing.Size(74, 57);
-            this.btnSearch.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto", 9.75F);
-            this.btnSearch.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnSearch.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.btnSearch.TabIndex = 34;
-            this.btnSearch.Values.Text = "Search";
-            // 
-            // bunifuCustomLabel1
-            // 
-            this.bunifuCustomLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(52, 31);
-            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(72, 21);
-            this.bunifuCustomLabel1.TabIndex = 32;
-            this.bunifuCustomLabel1.Text = "Username";
-            // 
-            // bunifuCustomLabel2
-            // 
-            this.bunifuCustomLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.BackColor = System.Drawing.Color.SlateGray;
-            this.bunifuCustomLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Roboto Condensed", 13F);
-            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(17, 131);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(118, 26);
-            this.bunifuCustomLabel2.TabIndex = 42;
-            this.bunifuCustomLabel2.Text = "Equipment List";
-            // 
-            // bunifuCustomLabel4
-            // 
-            this.bunifuCustomLabel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuCustomLabel4.AutoSize = true;
-            this.bunifuCustomLabel4.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(928, 140);
-            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(65, 21);
-            this.bunifuCustomLabel4.TabIndex = 54;
-            this.bunifuCustomLabel4.Text = "Date Due";
-            // 
-            // kryptonDateTimePicker3
-            // 
-            this.kryptonDateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.kryptonDateTimePicker3.Location = new System.Drawing.Point(999, 139);
-            this.kryptonDateTimePicker3.Name = "kryptonDateTimePicker3";
-            this.kryptonDateTimePicker3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
-            this.kryptonDateTimePicker3.Size = new System.Drawing.Size(135, 21);
-            this.kryptonDateTimePicker3.TabIndex = 55;
-            // 
-            // bunifuCustomLabel8
-            // 
-            this.bunifuCustomLabel8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuCustomLabel8.AutoSize = true;
-            this.bunifuCustomLabel8.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel8.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel8.Location = new System.Drawing.Point(678, 140);
-            this.bunifuCustomLabel8.Name = "bunifuCustomLabel8";
-            this.bunifuCustomLabel8.Size = new System.Drawing.Size(101, 21);
-            this.bunifuCustomLabel8.TabIndex = 52;
-            this.bunifuCustomLabel8.Text = "Date Borrowed";
-            // 
-            // kryptonDateTimePicker1
-            // 
-            this.kryptonDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.kryptonDateTimePicker1.Location = new System.Drawing.Point(785, 140);
-            this.kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
-            this.kryptonDateTimePicker1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
-            this.kryptonDateTimePicker1.Size = new System.Drawing.Size(135, 21);
-            this.kryptonDateTimePicker1.TabIndex = 53;
-            // 
-            // bunifuCustomLabel13
-            // 
-            this.bunifuCustomLabel13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuCustomLabel13.AutoSize = true;
-            this.bunifuCustomLabel13.BackColor = System.Drawing.Color.SlateGray;
-            this.bunifuCustomLabel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bunifuCustomLabel13.Font = new System.Drawing.Font("Roboto Condensed", 13F);
-            this.bunifuCustomLabel13.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel13.Location = new System.Drawing.Point(578, 135);
-            this.bunifuCustomLabel13.Name = "bunifuCustomLabel13";
-            this.bunifuCustomLabel13.Size = new System.Drawing.Size(94, 26);
-            this.bunifuCustomLabel13.TabIndex = 51;
-            this.bunifuCustomLabel13.Text = "Borrow List";
-            // 
-            // dgvBorrowed
-            // 
-            this.dgvBorrowed.AllowUserToAddRows = false;
-            this.dgvBorrowed.AllowUserToDeleteRows = false;
-            this.dgvBorrowed.AllowUserToOrderColumns = true;
-            this.dgvBorrowed.AllowUserToResizeColumns = false;
-            this.dgvBorrowed.AllowUserToResizeRows = false;
-            this.dgvBorrowed.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvBorrowed.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dgvBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBorrowed.DefaultCellStyle = dataGridViewCellStyle14;
-            this.dgvBorrowed.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvBorrowed.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dgvBorrowed.Location = new System.Drawing.Point(578, 166);
-            this.dgvBorrowed.Name = "dgvBorrowed";
-            this.dgvBorrowed.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvBorrowed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBorrowed.Size = new System.Drawing.Size(556, 293);
-            this.dgvBorrowed.TabIndex = 50;
-            // 
-            // dgvEquipView
-            // 
-            this.dgvEquipView.AllowUserToAddRows = false;
-            this.dgvEquipView.AllowUserToDeleteRows = false;
-            this.dgvEquipView.AllowUserToOrderColumns = true;
-            this.dgvEquipView.AllowUserToResizeColumns = false;
-            this.dgvEquipView.AllowUserToResizeRows = false;
-            this.dgvEquipView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvEquipView.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dgvEquipView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEquipView.DefaultCellStyle = dataGridViewCellStyle13;
-            this.dgvEquipView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvEquipView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dgvEquipView.Location = new System.Drawing.Point(17, 166);
-            this.dgvEquipView.Name = "dgvEquipView";
-            this.dgvEquipView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvEquipView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEquipView.Size = new System.Drawing.Size(538, 293);
-            this.dgvEquipView.TabIndex = 56;
-            // 
-            // kryptonButton2
-            // 
-            this.kryptonButton2.Location = new System.Drawing.Point(579, 470);
-            this.kryptonButton2.Name = "kryptonButton2";
-            this.kryptonButton2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonButton2.Size = new System.Drawing.Size(107, 45);
-            this.kryptonButton2.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.kryptonButton2.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.kryptonButton2.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonButton2.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonButton2.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonButton2.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonButton2.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.kryptonButton2.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
-            this.kryptonButton2.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
-            this.kryptonButton2.StatePressed.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonButton2.TabIndex = 66;
-            this.kryptonButton2.Values.Text = "Remove";
-            // 
-            // kryptonButton3
-            // 
-            this.kryptonButton3.Location = new System.Drawing.Point(698, 470);
-            this.kryptonButton3.Name = "kryptonButton3";
-            this.kryptonButton3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonButton3.Size = new System.Drawing.Size(107, 45);
-            this.kryptonButton3.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.kryptonButton3.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.kryptonButton3.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonButton3.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonButton3.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonButton3.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonButton3.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.kryptonButton3.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
-            this.kryptonButton3.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
-            this.kryptonButton3.StatePressed.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonButton3.TabIndex = 67;
-            this.kryptonButton3.Values.Text = "Clear List";
-            // 
-            // btnrBrwSlip
-            // 
-            this.btnrBrwSlip.Location = new System.Drawing.Point(985, 470);
-            this.btnrBrwSlip.Name = "btnrBrwSlip";
-            this.btnrBrwSlip.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnrBrwSlip.Size = new System.Drawing.Size(149, 45);
-            this.btnrBrwSlip.StateNormal.Back.Color1 = System.Drawing.Color.ForestGreen;
-            this.btnrBrwSlip.StateNormal.Back.Color2 = System.Drawing.Color.ForestGreen;
-            this.btnrBrwSlip.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnrBrwSlip.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnrBrwSlip.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnrBrwSlip.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnrBrwSlip.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.btnrBrwSlip.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
-            this.btnrBrwSlip.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
-            this.btnrBrwSlip.StatePressed.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnrBrwSlip.TabIndex = 65;
-            this.btnrBrwSlip.Values.Text = "PRINT BORROW SLIP";
-            // 
-            // kryptonButton1
-            // 
-            this.kryptonButton1.Location = new System.Drawing.Point(17, 470);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonButton1.Size = new System.Drawing.Size(107, 45);
-            this.kryptonButton1.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.kryptonButton1.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.kryptonButton1.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonButton1.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonButton1.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonButton1.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonButton1.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.kryptonButton1.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
-            this.kryptonButton1.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
-            this.kryptonButton1.StatePressed.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonButton1.TabIndex = 68;
-            this.kryptonButton1.Values.Text = "Add";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(147, 53);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(347, 23);
-            this.txtSearch.TabIndex = 69;
-            // 
-            // bunifuCustomLabel14
-            // 
-            this.bunifuCustomLabel14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuCustomLabel14.AutoSize = true;
-            this.bunifuCustomLabel14.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel14.Font = new System.Drawing.Font("Roboto Condensed", 12F);
-            this.bunifuCustomLabel14.Location = new System.Drawing.Point(17, 53);
-            this.bunifuCustomLabel14.Name = "bunifuCustomLabel14";
-            this.bunifuCustomLabel14.Size = new System.Drawing.Size(124, 21);
-            this.bunifuCustomLabel14.TabIndex = 70;
-            this.bunifuCustomLabel14.Text = "Search Equipment";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.kryptonTextBox3);
-            this.groupBox2.Controls.Add(this.bunifuCustomLabel15);
-            this.groupBox2.Controls.Add(this.kryptonTextBox4);
-            this.groupBox2.Controls.Add(this.bunifuCustomLabel16);
-            this.groupBox2.Font = new System.Drawing.Font("Roboto", 10F);
-            this.groupBox2.Location = new System.Drawing.Point(576, 8);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(556, 107);
-            this.groupBox2.TabIndex = 41;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Borrower Details";
-            // 
-            // kryptonTextBox3
-            // 
-            this.kryptonTextBox3.Location = new System.Drawing.Point(175, 68);
-            this.kryptonTextBox3.Name = "kryptonTextBox3";
-            this.kryptonTextBox3.Size = new System.Drawing.Size(279, 23);
-            this.kryptonTextBox3.TabIndex = 39;
-            // 
-            // bunifuCustomLabel15
-            // 
-            this.bunifuCustomLabel15.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuCustomLabel15.AutoSize = true;
-            this.bunifuCustomLabel15.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel15.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel15.Location = new System.Drawing.Point(119, 59);
-            this.bunifuCustomLabel15.Name = "bunifuCustomLabel15";
-            this.bunifuCustomLabel15.Size = new System.Drawing.Size(46, 21);
-            this.bunifuCustomLabel15.TabIndex = 38;
-            this.bunifuCustomLabel15.Text = "Name";
-            // 
-            // kryptonTextBox4
-            // 
-            this.kryptonTextBox4.Location = new System.Drawing.Point(175, 34);
-            this.kryptonTextBox4.Name = "kryptonTextBox4";
-            this.kryptonTextBox4.Size = new System.Drawing.Size(279, 23);
-            this.kryptonTextBox4.TabIndex = 37;
-            // 
-            // bunifuCustomLabel16
-            // 
-            this.bunifuCustomLabel16.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuCustomLabel16.AutoSize = true;
-            this.bunifuCustomLabel16.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel16.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel16.Location = new System.Drawing.Point(93, 27);
-            this.bunifuCustomLabel16.Name = "bunifuCustomLabel16";
-            this.bunifuCustomLabel16.Size = new System.Drawing.Size(72, 21);
-            this.bunifuCustomLabel16.TabIndex = 32;
-            this.bunifuCustomLabel16.Text = "Username";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox6.Controls.Add(this.kryptonTextBox5);
-            this.groupBox6.Controls.Add(this.kryptonButton4);
-            this.groupBox6.Controls.Add(this.bunifuCustomLabel17);
-            this.groupBox6.Font = new System.Drawing.Font("Roboto", 10F);
-            this.groupBox6.Location = new System.Drawing.Point(8, 9);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(554, 106);
-            this.groupBox6.TabIndex = 42;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Borrow List";
-            // 
-            // kryptonButton4
-            // 
-            this.kryptonButton4.Location = new System.Drawing.Point(372, 40);
-            this.kryptonButton4.Name = "kryptonButton4";
-            this.kryptonButton4.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonButton4.Size = new System.Drawing.Size(74, 40);
-            this.kryptonButton4.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto", 9.75F);
-            this.kryptonButton4.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.kryptonButton4.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.kryptonButton4.TabIndex = 47;
-            this.kryptonButton4.Values.Text = "Search";
-            // 
-            // bunifuCustomLabel17
-            // 
-            this.bunifuCustomLabel17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuCustomLabel17.AutoSize = true;
-            this.bunifuCustomLabel17.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel17.Font = new System.Drawing.Font("Roboto Condensed", 12F);
-            this.bunifuCustomLabel17.Location = new System.Drawing.Point(21, 48);
-            this.bunifuCustomLabel17.Name = "bunifuCustomLabel17";
-            this.bunifuCustomLabel17.Size = new System.Drawing.Size(75, 21);
-            this.bunifuCustomLabel17.TabIndex = 46;
-            this.bunifuCustomLabel17.Text = "Borrow ID:";
-            // 
-            // kryptonTextBox5
-            // 
-            this.kryptonTextBox5.Location = new System.Drawing.Point(102, 48);
-            this.kryptonTextBox5.Name = "kryptonTextBox5";
-            this.kryptonTextBox5.Size = new System.Drawing.Size(259, 23);
-            this.kryptonTextBox5.TabIndex = 70;
-            // 
-            // bunifuCustomLabel18
-            // 
-            this.bunifuCustomLabel18.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuCustomLabel18.AutoSize = true;
-            this.bunifuCustomLabel18.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel18.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel18.Location = new System.Drawing.Point(356, 137);
-            this.bunifuCustomLabel18.Name = "bunifuCustomLabel18";
-            this.bunifuCustomLabel18.Size = new System.Drawing.Size(65, 21);
-            this.bunifuCustomLabel18.TabIndex = 58;
-            this.bunifuCustomLabel18.Text = "Date Due";
-            // 
-            // kryptonDateTimePicker2
-            // 
-            this.kryptonDateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.kryptonDateTimePicker2.Location = new System.Drawing.Point(427, 136);
-            this.kryptonDateTimePicker2.Name = "kryptonDateTimePicker2";
-            this.kryptonDateTimePicker2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
-            this.kryptonDateTimePicker2.Size = new System.Drawing.Size(135, 21);
-            this.kryptonDateTimePicker2.TabIndex = 59;
-            // 
-            // bunifuCustomLabel19
-            // 
-            this.bunifuCustomLabel19.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuCustomLabel19.AutoSize = true;
-            this.bunifuCustomLabel19.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel19.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel19.Location = new System.Drawing.Point(106, 137);
-            this.bunifuCustomLabel19.Name = "bunifuCustomLabel19";
-            this.bunifuCustomLabel19.Size = new System.Drawing.Size(101, 21);
-            this.bunifuCustomLabel19.TabIndex = 56;
-            this.bunifuCustomLabel19.Text = "Date Borrowed";
-            // 
-            // kryptonDateTimePicker4
-            // 
-            this.kryptonDateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.kryptonDateTimePicker4.Location = new System.Drawing.Point(213, 137);
-            this.kryptonDateTimePicker4.Name = "kryptonDateTimePicker4";
-            this.kryptonDateTimePicker4.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
-            this.kryptonDateTimePicker4.Size = new System.Drawing.Size(135, 21);
-            this.kryptonDateTimePicker4.TabIndex = 57;
-            // 
-            // bunifuCustomLabel20
-            // 
-            this.bunifuCustomLabel20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuCustomLabel20.AutoSize = true;
-            this.bunifuCustomLabel20.BackColor = System.Drawing.Color.SlateGray;
-            this.bunifuCustomLabel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bunifuCustomLabel20.Font = new System.Drawing.Font("Roboto Condensed", 13F);
-            this.bunifuCustomLabel20.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel20.Location = new System.Drawing.Point(6, 136);
-            this.bunifuCustomLabel20.Name = "bunifuCustomLabel20";
-            this.bunifuCustomLabel20.Size = new System.Drawing.Size(94, 26);
-            this.bunifuCustomLabel20.TabIndex = 55;
-            this.bunifuCustomLabel20.Text = "Borrow List";
-            // 
-            // dataGridViewX1
-            // 
-            this.dataGridViewX1.AllowUserToAddRows = false;
-            this.dataGridViewX1.AllowUserToDeleteRows = false;
-            this.dataGridViewX1.AllowUserToOrderColumns = true;
-            this.dataGridViewX1.AllowUserToResizeColumns = false;
-            this.dataGridViewX1.AllowUserToResizeRows = false;
-            this.dataGridViewX1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewX1.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle16;
-            this.dataGridViewX1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX1.Location = new System.Drawing.Point(6, 167);
-            this.dataGridViewX1.Name = "dataGridViewX1";
-            this.dataGridViewX1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX1.Size = new System.Drawing.Size(556, 301);
-            this.dataGridViewX1.TabIndex = 54;
-            // 
-            // bunifuCustomLabel21
-            // 
-            this.bunifuCustomLabel21.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuCustomLabel21.AutoSize = true;
-            this.bunifuCustomLabel21.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel21.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel21.Location = new System.Drawing.Point(676, 137);
-            this.bunifuCustomLabel21.Name = "bunifuCustomLabel21";
-            this.bunifuCustomLabel21.Size = new System.Drawing.Size(98, 21);
-            this.bunifuCustomLabel21.TabIndex = 62;
-            this.bunifuCustomLabel21.Text = "Date Returned";
-            // 
-            // kryptonDateTimePicker5
-            // 
-            this.kryptonDateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.kryptonDateTimePicker5.Location = new System.Drawing.Point(783, 137);
-            this.kryptonDateTimePicker5.Name = "kryptonDateTimePicker5";
-            this.kryptonDateTimePicker5.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
-            this.kryptonDateTimePicker5.Size = new System.Drawing.Size(135, 21);
-            this.kryptonDateTimePicker5.TabIndex = 63;
-            // 
-            // bunifuCustomLabel22
-            // 
-            this.bunifuCustomLabel22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuCustomLabel22.AutoSize = true;
-            this.bunifuCustomLabel22.BackColor = System.Drawing.Color.SlateGray;
-            this.bunifuCustomLabel22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bunifuCustomLabel22.Font = new System.Drawing.Font("Roboto Condensed", 13F);
-            this.bunifuCustomLabel22.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel22.Location = new System.Drawing.Point(576, 136);
-            this.bunifuCustomLabel22.Name = "bunifuCustomLabel22";
-            this.bunifuCustomLabel22.Size = new System.Drawing.Size(90, 26);
-            this.bunifuCustomLabel22.TabIndex = 61;
-            this.bunifuCustomLabel22.Text = "Return List";
-            // 
-            // dataGridViewX2
-            // 
-            this.dataGridViewX2.AllowUserToAddRows = false;
-            this.dataGridViewX2.AllowUserToDeleteRows = false;
-            this.dataGridViewX2.AllowUserToOrderColumns = true;
-            this.dataGridViewX2.AllowUserToResizeColumns = false;
-            this.dataGridViewX2.AllowUserToResizeRows = false;
-            this.dataGridViewX2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewX2.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dataGridViewX2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dataGridViewX2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewX2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX2.Location = new System.Drawing.Point(576, 167);
-            this.dataGridViewX2.Name = "dataGridViewX2";
-            this.dataGridViewX2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridViewX2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX2.Size = new System.Drawing.Size(556, 301);
-            this.dataGridViewX2.TabIndex = 60;
-            // 
-            // btnRmvList
-            // 
-            this.btnRmvList.Location = new System.Drawing.Point(576, 474);
-            this.btnRmvList.Name = "btnRmvList";
-            this.btnRmvList.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnRmvList.Size = new System.Drawing.Size(107, 45);
-            this.btnRmvList.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnRmvList.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnRmvList.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnRmvList.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnRmvList.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRmvList.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnRmvList.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.btnRmvList.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
-            this.btnRmvList.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
-            this.btnRmvList.StatePressed.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnRmvList.TabIndex = 66;
-            this.btnRmvList.Values.Text = "Remove";
-            // 
-            // btnClrList
-            // 
-            this.btnClrList.Location = new System.Drawing.Point(695, 474);
-            this.btnClrList.Name = "btnClrList";
-            this.btnClrList.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnClrList.Size = new System.Drawing.Size(107, 45);
-            this.btnClrList.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnClrList.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnClrList.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnClrList.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnClrList.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClrList.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnClrList.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.btnClrList.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
-            this.btnClrList.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
-            this.btnClrList.StatePressed.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnClrList.TabIndex = 65;
-            this.btnClrList.Values.Text = "Clear List";
-            // 
-            // btnRtrnSlip
-            // 
-            this.btnRtrnSlip.Location = new System.Drawing.Point(983, 474);
-            this.btnRtrnSlip.Name = "btnRtrnSlip";
-            this.btnRtrnSlip.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnRtrnSlip.Size = new System.Drawing.Size(149, 45);
-            this.btnRtrnSlip.StateNormal.Back.Color1 = System.Drawing.Color.ForestGreen;
-            this.btnRtrnSlip.StateNormal.Back.Color2 = System.Drawing.Color.ForestGreen;
-            this.btnRtrnSlip.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnRtrnSlip.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnRtrnSlip.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRtrnSlip.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnRtrnSlip.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.btnRtrnSlip.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
-            this.btnRtrnSlip.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
-            this.btnRtrnSlip.StatePressed.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnRtrnSlip.TabIndex = 64;
-            this.btnRtrnSlip.Values.Text = "PRINT RETURN SLIP";
-            // 
-            // btnAddList
-            // 
-            this.btnAddList.Location = new System.Drawing.Point(8, 474);
-            this.btnAddList.Name = "btnAddList";
-            this.btnAddList.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnAddList.Size = new System.Drawing.Size(107, 45);
-            this.btnAddList.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnAddList.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnAddList.StateNormal.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnAddList.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnAddList.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddList.StateNormal.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnAddList.StateNormal.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
-            this.btnAddList.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
-            this.btnAddList.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
-            this.btnAddList.StatePressed.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
-            this.btnAddList.TabIndex = 67;
-            this.btnAddList.Values.Text = "Add";
-
             // btnLogout
             // 
             this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1716,31 +1642,26 @@
             this.lblCurrentUser.BackColor = System.Drawing.Color.Transparent;
             this.lblCurrentUser.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentUser.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCurrentUser.Location = new System.Drawing.Point(424, 37);
+            this.lblCurrentUser.Location = new System.Drawing.Point(12, 37);
             this.lblCurrentUser.Name = "lblCurrentUser";
-            this.lblCurrentUser.Size = new System.Drawing.Size(639, 29);
+            this.lblCurrentUser.Size = new System.Drawing.Size(1051, 29);
             this.lblCurrentUser.TabIndex = 26;
             this.lblCurrentUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(1157, 724);
-
             this.CancelButton = this.btnLogout;
-            this.ClientSize = new System.Drawing.Size(1157, 692);
+            this.ClientSize = new System.Drawing.Size(1157, 735);
             this.Controls.Add(this.lblCurrentUser);
             this.Controls.Add(this.btnLogout);
-
             this.Controls.Add(this.materialTabSelector2);
             this.Controls.Add(this.materialTabControl2);
             this.Name = "Main";
             this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.Leave += new System.EventHandler(this.Main_Leave);
             this.materialTabControl2.ResumeLayout(false);
@@ -1753,8 +1674,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).EndInit();
             this.tabPage17.ResumeLayout(false);
             this.tabPage17.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowed)).EndInit();
+            this.grpBoxBorrower.ResumeLayout(false);
+            this.grpBoxBorrower.PerformLayout();
             this.tabPage18.ResumeLayout(false);
             this.tabPage18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabPage13.ResumeLayout(false);
             this.materialTabControl4.ResumeLayout(false);
             this.tabPage25.ResumeLayout(false);
@@ -1766,16 +1697,6 @@
             this.groupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.grpBoxBorrower.ResumeLayout(false);
-            this.grpBoxBorrower.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipView)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

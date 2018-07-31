@@ -26,7 +26,7 @@ namespace ANS_SEIS_TV
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Red200, Primary.Red200, Primary.Red200, Accent.Red100, TextShade.WHITE);
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey600, Primary.Grey400, Primary.Green300, Accent.Red100, TextShade.WHITE);
         }
 
 
@@ -479,6 +479,11 @@ namespace ANS_SEIS_TV
         }
 
         private void dataGridViewX2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel19_Click(object sender, EventArgs e)
         {
 
         }

@@ -28,6 +28,8 @@ namespace ANS_SEIS_TV
 
         DataClasses1DataContext db = new DataClasses1DataContext();
 
+        GetSomethingFromServer g = new GetSomethingFromServer();
+
         //loginbutton
         private void button1_Click(object sender, EventArgs e)
         {
@@ -36,17 +38,27 @@ namespace ANS_SEIS_TV
 
             u.UserLogin(/*txtUsername.Text, txtPassword.Text*/);
 
+            g.Username = u.Username;
+
+            g.GetGENID();
+
+            u.GENID = g.GENID;
+
+            g.GetUserType();
+
+            u.Usertype = g.UsertypeID;
+
+
             if (u.LoginResult == 1)
             {
+
                 this.Hide();
                 
                 u.CurrentUsername = u.Username;
                 //u.CurrentUserID = u.ReturnUserID();
                 //u.UserLoginLog();
 
-                GetSomethingFromServer g = new GetSomethingFromServer();
-
-                g.Username = u.CurrentUsername;
+                
                 g.GetFirstLogin();
 
                 if (g.FirstLogin==0)

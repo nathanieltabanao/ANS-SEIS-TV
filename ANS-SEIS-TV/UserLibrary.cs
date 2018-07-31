@@ -208,13 +208,15 @@ namespace ANS_SEIS_TV
             {
                 LoginResult = 0;
             }
+
+            UserLoginLog();
         }
 
         public void UserLoginLog()
         {
             string status;
 
-            if (LoginResult == 0)
+            if (LoginResult == 1)
             {
                 status = "Login Success";
             }
@@ -223,8 +225,11 @@ namespace ANS_SEIS_TV
                 status = "Login Failed";
             }
 
-            //log for user login that doesn't work
-            //db.sp_UserLoginReport(GENID, Username, Password, status, DateTime.Now, CurrentUsertype);
+            ID = GENID.ToString();
+
+            //db.sp_UserLoginReport(int.Parse(ID), Username, Password, status, DateTime.Now, Usertype);
+
+            //db.sp_UserActionReport(GENID, Username, status, DateTime.Now);
         }
 
         public int UserID()
@@ -232,16 +237,11 @@ namespace ANS_SEIS_TV
             return Convert.ToInt32(db.sp_UserID());
         }
 
-
-        //dunno why this doens't work
-        //public int ReturnUserID()
-        //{
-        //    return Convert.ToInt32(db.sp_UserReturnID(Username, Usertype));
-        //}
+        
 
         public void ActionReport()
         {
-            CurrentUsertype = 110;
+            //CurrentUsertype = 110;
             db.sp_UserLoginReport(CurrentUserID, CurrentUsername, Password, Action, DateTime.Now, CurrentUsertype);
         }
     }
