@@ -272,7 +272,7 @@ VALUES	('ADMINISTRATOR'),
 ---------------------------------------------------------------------------------
 
 
-SELECT * from TBLUSERLOGINREPORT
+
 
 CREATE TABLE TBLUSERLOGINREPORT
 (

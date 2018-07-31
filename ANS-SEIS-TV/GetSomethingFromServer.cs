@@ -49,7 +49,7 @@ namespace ANS_SEIS_TV
                           where TBLUSERDETAIL.USERNAME == Username
                           select TBLUSERDETAIL.USERTYPE_ID;
 
-            UsertypeID = int.Parse(results.FirstOrDefault().Value.ToString());
+            UsertypeID = int.Parse(results.FirstOrDefault().ToString());
         }
 
         public void GetUserID()
@@ -100,6 +100,15 @@ namespace ANS_SEIS_TV
                           select TBLUSERDETAIL.LASTNAME;
 
             LastName = results.FirstOrDefault().ToString();
+        }
+
+        public void GetGENID()
+        {
+            var results = from TBLUSERDETAIL in db.TBLUSERDETAILs
+                          where TBLUSERDETAIL.USERNAME == Username
+                          select TBLUSERDETAIL.GENID;
+
+            GENID = int.Parse(results.FirstOrDefault().ToString());
         }
     }
 }
