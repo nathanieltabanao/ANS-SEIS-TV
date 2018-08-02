@@ -12,19 +12,14 @@ using MaterialSkin.Controls;
 
 namespace ANS_SEIS_TV
 {
-    public partial class RequestForm : MaterialForm
+    public partial class SearchUser : MaterialForm
     {
-        public RequestForm()
+        public SearchUser()
         {
             InitializeComponent();
         }
 
-        private void RequestForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void SearchUser_Load(object sender, EventArgs e)
         {
 
         }
