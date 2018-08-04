@@ -410,7 +410,9 @@ INSERT INTO TBLEQEUIPMENTTYPE
 VALUES(200,'GENERAL EQUIPMENT'),
 		(201,'Computer Equipment'),
 (202,'Culinary Equipment'),
-(203,'Automotive Equipment')
+(203,'Automotive Equipment'),
+(204,'Electronic Equipent'),
+(205,'Machineries')
 
 ---------------------------------------------------------------------------------
 
@@ -449,9 +451,9 @@ CREATE TABLE TBLEQUIPMENTDETAILS
 
 
 INSERT INTO TBLEQUIPMENTDETAILS
-VALUES ('2000000','Test Equipment 1','Test Description 1',200,'3'),
-('2000001','Test Equipment 2','Test Description 2',200,3),
-('2000002','Test Equipment 3','Test Description 3',200,3)
+VALUES ('2000000','Test Equipment 1','Test Description 1',200,3,1),
+('2000001','Test Equipment 2','Test Description 2',200,3,1),
+('2000002','Test Equipment 3','Test Description 3',200,3,1)
 
 
 --User ID Generation
