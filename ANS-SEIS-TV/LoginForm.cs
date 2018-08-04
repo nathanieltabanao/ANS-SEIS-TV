@@ -44,7 +44,7 @@ namespace ANS_SEIS_TV
 
             u.GENID = g.GENID;
 
-            g.GetUserType();
+            //g.GetUserType();
 
             u.Usertype = g.UsertypeID;
 
@@ -81,6 +81,7 @@ namespace ANS_SEIS_TV
             else
             { 
                 MessageBox.Show("Invalid Username or Password!");
+                txtPassword.Text = "";
             }
         }
 

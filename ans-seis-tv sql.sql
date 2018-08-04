@@ -52,7 +52,7 @@ ISFIRSTLOGIN INT
 
 -- Sample Data for TBLUSERDETAILS
 insert into TBLUSERDETAILS
-values ('1000000','nathan','1234','nathaniel','angelico','tabanao','09395686461','Where Do you live?','Cave','110','1'),
+values ('1000000','nate','1234','nathaniel','angelico','tabanao','09395686461','Where Do you live?','Cave','110','1'),
 ('1000001','jamie','1234','jamie','hanna','dionson','09222729916','test','test','110','1')
 
 -- User ID Generation
@@ -123,18 +123,18 @@ UPDATE TBLUSERDETAILS
 SET USERNAME=@USERNAME,PASSWORD=@PASSWORD,FIRSTNAME=@FIRSTNAME,MIDDLENAME=@MIDDLENAME,LASTNAME=@LASTNAME,CONTACT_NUMBER=@CONTACT_NUMBER,SECURITY_QUESTION=@SECURITY_QUESTION,SECURITY_ANSWER=@SECURITY_ANSWER,USERTYPE_ID=@USERTYPE_ID
 WHERE ID=@ID
 
-CREATE PROCEDURE sp_UserFirstLogin
-(
-@GENID INT,
-@USERNAME VARCHAR(50),
-@PASSWORD VARCHAR(MAX),
-@SECURITY_QUESTION VARCHAR(MAX),
-@SECURITY_ANSWER VARCHAR(MAX)
-)
-AS
-UPDATE TBLUSERDETAILS
-SET USERNAME=@USERNAME, PASSWORD=@PASSWORD,SECURITY_QUESTION=@SECURITY_QUESTION,SECURITY_ANSWER=@SECURITY_ANSWER
-WHERE GENID=@GENID
+--CREATE PROCEDURE sp_UserFirstLogin
+--(
+--@GENID INT,
+--@USERNAME VARCHAR(50),
+--@PASSWORD VARCHAR(MAX),
+--@SECURITY_QUESTION VARCHAR(MAX),
+--@SECURITY_ANSWER VARCHAR(MAX)
+--)
+--AS
+--UPDATE TBLUSERDETAILS
+--SET USERNAME=@USERNAME, PASSWORD=@PASSWORD,SECURITY_QUESTION=@SECURITY_QUESTION,SECURITY_ANSWER=@SECURITY_ANSWER
+--WHERE GENID=@GENID
 
 -- Delete User
 CREATE PROC sp_UserDelete
@@ -271,42 +271,68 @@ VALUES	('ADMINISTRATOR'),
 
 ---------------------------------------------------------------------------------
 
-
-
+SELECT * FROM TBLUSERLOGINREPORT
 
 CREATE TABLE TBLUSERLOGINREPORT
 (
 	LoginID int identity(00000000,1) PRIMARY KEY,
 	GENID INT foreign key references tbluserdetails(GENID),
-	username varchar(50),
 	password varchar(max),
 	Action varchar(100),
-	Timestamp datetime,
-	USERTYPE_ID INT FOREIGN KEY references USERTYPE(USERTYPE_ID)
+	Timestamp datetime
 )
 
---Login Attempt
 CREATE PROC sp_UserLoginReport
 (
-	@ID int,
-	@username varchar(50),
+	@GENID INT,
 	@password varchar(max),
 	@Action varchar(100),
-	@Timestamp datetime,
-	@USERTYPE_ID INT
+	@Timestamp datetime
 )
 as
 INSERT INTO TBLUSERLOGINREPORT
-VALUES(@ID,@username,@password,@action,@timestamp,@USERTYPE_ID)
+VALUES (@GENID,@password,@Action,@Timestamp)
 
 
-create proc sp_UserLoginReportView
-(
-	@SearchKey varchar(50)
-)
-as
-select * from TBLUSERLOGINREPORT
-where LoginID like '%'+@SearchKey+'%' or  username like '%'+@SearchKey+'%' or password like '%'+@SearchKey+'%' or action like '%'+@SearchKey+'%' or USERTYPE_ID like '%'+@SearchKey+'%'
+
+
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+
+--CREATE TABLE TBLUSERLOGINREPORT
+--(
+--	LoginID int identity(00000000,1) PRIMARY KEY,
+--	GENID INT foreign key references tbluserdetails(GENID),
+--	username varchar(50),
+--	password varchar(max),
+--	Action varchar(100),
+--	Timestamp datetime,
+--	USERTYPE_ID INT FOREIGN KEY references USERTYPE(USERTYPE_ID)
+--)
+
+----Login Attempt
+--CREATE PROC sp_UserLoginReport
+--(
+--	@ID int,
+--	@username varchar(50),
+--	@password varchar(max),
+--	@Action varchar(100),
+--	@Timestamp datetime,
+--	@USERTYPE_ID INT
+--)
+--as
+--INSERT INTO TBLUSERLOGINREPORT
+--VALUES(@ID,@username,@password,@action,@timestamp,@USERTYPE_ID)
+
+
+--create proc sp_UserLoginReportView
+--(
+--	@SearchKey varchar(50)
+--)
+--as
+--select * from TBLUSERLOGINREPORT
+--where LoginID like '%'+@SearchKey+'%' or  username like '%'+@SearchKey+'%' or password like '%'+@SearchKey+'%' or action like '%'+@SearchKey+'%' or USERTYPE_ID like '%'+@SearchKey+'%'
+
 
 
 ---------------------------------------------------------------------------------
@@ -317,7 +343,6 @@ CREATE TABLE TBLUSERACTIONREPORT
 (
 	ActionID int primary key identity(90000000,1),
 	GENID INT foreign key references tbluserdetails(GENID),
-	username varchar(50),
 	Action varchar (50),
 	Timestamp datetime
 )
@@ -326,13 +351,12 @@ CREATE TABLE TBLUSERACTIONREPORT
 create proc sp_UserActionReport
 (
 	@ID int,
-	@Username varchar(50),
 	@Action varchar (50),
 	@Timestamp datetime
 )
 as
 insert into TBLUSERACTIONREPORT
-VALUES (@id,@username,@Action,@Timestamp)
+VALUES (@id,@Action,@Timestamp)
 
 create proc sp_UserActionReportView
 as
@@ -419,7 +443,8 @@ CREATE TABLE TBLEQUIPMENTDETAILS
 	EQUIPMENT_NAME VARCHAR(200),
 	EQUIPMENT_DESCRIPTION VARCHAR(100),
 	EQUIPMENT_TYPE_ID INT FOREIGN KEY REFERENCES TBLEQEUIPMENTTYPE(EQUIPMENT_TYPE_ID),
-	EQUIPMENT_QUANTITY INT
+	EQUIPMENT_QUANTITY INT,
+	ISBORROWABLE INT
 )
 
 
@@ -444,11 +469,12 @@ CREATE PROCEDURE sp_EquipmentRegister
 	@EQUIPMENT_NAME VARCHAR(200),
 	@EQUIPMENT_DESCRIPTION VARCHAR(100),
 	@EQUIPMENT_TYPE_ID INT,
-	@EQUIPMENT_QUANTITY INT
+	@EQUIPMENT_QUANTITY INT,
+	@ISBORROWABLE INT
 )
 as
 INSERT INTO TBLEQUIPMENTDETAILS
-VALUES(@EQBARCODE,@EQUIPMENT_NAME,@EQUIPMENT_DESCRIPTION,@EQUIPMENT_TYPE_ID,@EQUIPMENT_QUANTITY)
+VALUES(@EQBARCODE,@EQUIPMENT_NAME,@EQUIPMENT_DESCRIPTION,@EQUIPMENT_TYPE_ID,@EQUIPMENT_QUANTITY,@ISBORROWABLE)
 
 CREATE PROCEDURE sp_EquipmentQuantityEdit
 (
@@ -495,81 +521,81 @@ WHERE EQUIPMENT_ID=@EQUIPMENT_ID
 
 -------------------------------------------------------------------------------------------------
 	
-	--scraped pa ni
+--	--scraped pa ni
 
-SELECT * FROM TBLEQUIPMENTDETAILS
+--SELECT * FROM TBLEQUIPMENTDETAILS
 
-DROP TABLE TBLEQUIPMENTDETAILS
+--DROP TABLE TBLEQUIPMENTDETAILS
 
-CREATE TABLE TBLEQUIPMENTDETAILS
-(
-	EQUIPMENT_ID INT UNIQUE identity (2000000,1),
-	EQBARCODE VARCHAR(100) Primary Key,
-	EQUIPMENT_NAME VARCHAR(200),
-	EQUIPMENT_TYPE_ID INT FOREIGN KEY REFERENCES TBLEQEUIPMENTTYPE(EQUIPMENT_TYPE_ID),
-	EQUIPMENT_STATUS VARCHAR(50),
-	IS_DESIGNATED VARCHAR(5)
-)
+--CREATE TABLE TBLEQUIPMENTDETAILS
+--(
+--	EQUIPMENT_ID INT UNIQUE identity (2000000,1),
+--	EQBARCODE VARCHAR(100) Primary Key,
+--	EQUIPMENT_NAME VARCHAR(200),
+--	EQUIPMENT_TYPE_ID INT FOREIGN KEY REFERENCES TBLEQEUIPMENTTYPE(EQUIPMENT_TYPE_ID),
+--	EQUIPMENT_STATUS VARCHAR(50),
+--	IS_DESIGNATED VARCHAR(5)
+--)
 
--- Equipment Insert
-
-
-create procedure sp_EquipmentID
-as
-declare @GENID int
-select  @GENID = IDENT_CURRENT('TBLEQUIPMENTDETAILS')
-return @GENID
+---- Equipment Insert
 
 
-CREATE PROC sp_EquipmentInsert
-(
-	@EQBARCODE VARCHAR(100),
-	@EQUIPMENT_NAME VARCHAR(200),
-	@EQUIPMENT_TYPE_ID INT,
-	@EQUIPMENT_STATUS VARCHAR(50),
-	@IS_DESIGNATED VARCHAR(5)
-)
-as
-INSERT INTO TBLEQUIPMENTDETAILS
-VALUES (@EQBARCODE, @EQUIPMENT_NAME, @EQUIPMENT_TYPE_ID, @EQUIPMENT_STATUS, @IS_DESIGNATED)
+--create procedure sp_EquipmentID
+--as
+--declare @GENID int
+--select  @GENID = IDENT_CURRENT('TBLEQUIPMENTDETAILS')
+--return @GENID
 
 
---Equipment Update
-CREATE PROC sp_EquipmentUpdate
-(
-	@EQUIPMENT_ID INT,
-	@EQUIPMENT_NAME VARCHAR(200),
-	@EQUIPMENT_TYPE_ID INT,
-	@EQUIPMENT_STATUS VARCHAR(50),
-	@IS_DESIGNATED VARCHAR(5)
-)
-AS
-UPDATE TBLEQUIPMENTDETAILS
-SET EQUIPMENT_NAME=@EQUIPMENT_NAME,EQUIPMENT_TYPE_ID=@EQUIPMENT_TYPE_ID,EQUIPMENT_STATUS=@EQUIPMENT_STATUS,IS_DESIGNATED=@IS_DESIGNATED
-WHERE EQUIPMENT_ID=@EQUIPMENT_ID
+--CREATE PROC sp_EquipmentInsert
+--(
+--	@EQBARCODE VARCHAR(100),
+--	@EQUIPMENT_NAME VARCHAR(200),
+--	@EQUIPMENT_TYPE_ID INT,
+--	@EQUIPMENT_STATUS VARCHAR(50),
+--	@IS_DESIGNATED VARCHAR(5)
+--)
+--as
+--INSERT INTO TBLEQUIPMENTDETAILS
+--VALUES (@EQBARCODE, @EQUIPMENT_NAME, @EQUIPMENT_TYPE_ID, @EQUIPMENT_STATUS, @IS_DESIGNATED)
 
---Equipment Delete
-CREATE PROC sp_EquipmentDelete
-(
-@EQBARCODE varchar(100)
-)
-AS
-delete TBLEQUIPMENTDETAILS
-WHERE EQBARCODE=@EQBARCODE
 
--- EQUIPMENT SEARCH
-CREATE PROC sp_EquipmentSearch
-(
-@SearchKey varchar(100)
-)
-as
-select EQBARCODE, EQUIPMENT_NAME, EQUIPMENT_TYPE_ID, EQUIPMENT_STATUS from TBLEQUIPMENTDETAILS
-WHERE EQBARCODE like '%'+@SearchKey+'%' OR EQUIPMENT_NAME like '%'+@SearchKey+'%' OR EQUIPMENT_TYPE_ID like '%'+@SearchKey+'%'
+----Equipment Update
+--CREATE PROC sp_EquipmentUpdate
+--(
+--	@EQUIPMENT_ID INT,
+--	@EQUIPMENT_NAME VARCHAR(200),
+--	@EQUIPMENT_TYPE_ID INT,
+--	@EQUIPMENT_STATUS VARCHAR(50),
+--	@IS_DESIGNATED VARCHAR(5)
+--)
+--AS
+--UPDATE TBLEQUIPMENTDETAILS
+--SET EQUIPMENT_NAME=@EQUIPMENT_NAME,EQUIPMENT_TYPE_ID=@EQUIPMENT_TYPE_ID,EQUIPMENT_STATUS=@EQUIPMENT_STATUS,IS_DESIGNATED=@IS_DESIGNATED
+--WHERE EQUIPMENT_ID=@EQUIPMENT_ID
 
--- EQUIPMENT VIEW
-CREATE PROC sp_EquipmentView
-as
-select EQBARCODE, EQUIPMENT_NAME, EQUIPMENT_TYPE_ID, EQUIPMENT_STATUS from TBLEQUIPMENTDETAILS
+----Equipment Delete
+--CREATE PROC sp_EquipmentDelete
+--(
+--@EQBARCODE varchar(100)
+--)
+--AS
+--delete TBLEQUIPMENTDETAILS
+--WHERE EQBARCODE=@EQBARCODE
+
+---- EQUIPMENT SEARCH
+--CREATE PROC sp_EquipmentSearch
+--(
+--@SearchKey varchar(100)
+--)
+--as
+--select EQBARCODE, EQUIPMENT_NAME, EQUIPMENT_TYPE_ID, EQUIPMENT_STATUS from TBLEQUIPMENTDETAILS
+--WHERE EQBARCODE like '%'+@SearchKey+'%' OR EQUIPMENT_NAME like '%'+@SearchKey+'%' OR EQUIPMENT_TYPE_ID like '%'+@SearchKey+'%'
+
+---- EQUIPMENT VIEW
+--CREATE PROC sp_EquipmentView
+--as
+--select EQBARCODE, EQUIPMENT_NAME, EQUIPMENT_TYPE_ID, EQUIPMENT_STATUS from TBLEQUIPMENTDETAILS
 -------------------------------------------------------------------------------------------------
 
 
@@ -589,6 +615,111 @@ select EQBARCODE, EQUIPMENT_NAME, EQUIPMENT_TYPE_ID, EQUIPMENT_STATUS from TBLEQ
 -------------------------------------------------------------------------------------------------
 
 
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+
+-- THINGS ABOUT TRANSACTIONS START HERE
+
+
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+
+
+-- REQUEST TABLE
+
+CREATE TABLE TBLREQUESTTABLE
+(
+REQUESTID  INT UNIQUE identity (4000000,1),
+GENID INT foreign key references tbluserdetails(GENID),
+REQUESTHEADER VARCHAR(100),
+REQUESTCONTENT NVARCHAR(MAX),
+DATEREQUESTED DATETIME,
+REQUESTSTATUSID INT FOREIGN KEY REFERENCES REQUESTSTATUS(REQUESTSTATUSID),
+ISOPENED INT
+)
+
+--NEW REQUEST
+CREATE PROC sp_NewRequest
+(
+@GENID INT,
+@REQUESTHEADER VARCHAR(100),
+@REQUESTCONTENT NVARCHAR(MAX),
+@DATEREQUESTED DATETIME,
+@REQUESTSTATUSID INT,
+@ISOPENED INT
+)
+as
+INSERT INTO TBLREQUESTTABLE
+VALUES (@GENID,@REQUESTHEADER,@REQUESTCONTENT,@DATEREQUESTED,@REQUESTSTATUSID,@ISOPENED)
+
+
+-- VIEW ALL REQUEST
+CREATE PROC sp_ViewAllRequest
+as
+SELECT TBLREQUESTTABLE.REQUESTID AS 'Request ID', TBLUSERDETAILS.USERNAME as 'Username', TBLREQUESTTABLE.REQUESTHEADER as 'Request Header', TBLREQUESTTABLE.DATEREQUESTED as 'Date Requested', REQUESTSTATUS.STATUSDESCRIPTION as 'Status' from TBLREQUESTTABLE
+INNER JOIN TBLUSERDETAILS ON TBLREQUESTTABLE.GENID=TBLUSERDETAILS.GENID
+INNER JOIN REQUESTSTATUS ON TBLREQUESTTABLE.REQUESTSTATUSID=REQUESTSTATUS.REQUESTSTATUSID
+
+CREATE PROC sp_ViewOpenRequest
+as
+SELECT TBLREQUESTTABLE.REQUESTID AS 'Request ID', TBLUSERDETAILS.USERNAME as 'Username', TBLREQUESTTABLE.REQUESTHEADER as 'Request Header', TBLREQUESTTABLE.DATEREQUESTED as 'Date Requested', REQUESTSTATUS.STATUSDESCRIPTION as 'Status' from TBLREQUESTTABLE
+INNER JOIN TBLUSERDETAILS ON TBLREQUESTTABLE.GENID=TBLUSERDETAILS.GENID
+INNER JOIN REQUESTSTATUS ON TBLREQUESTTABLE.REQUESTSTATUSID=REQUESTSTATUS.REQUESTSTATUSID
+WHERE REQUESTSTATUS.REQUESTSTATUSID=300
+
+CREATE PROC sp_ViewPendingRequest
+as
+SELECT TBLREQUESTTABLE.REQUESTID AS 'Request ID', TBLUSERDETAILS.USERNAME as 'Username', TBLREQUESTTABLE.REQUESTHEADER as 'Request Header', TBLREQUESTTABLE.DATEREQUESTED as 'Date Requested', REQUESTSTATUS.STATUSDESCRIPTION as 'Status' from TBLREQUESTTABLE
+INNER JOIN TBLUSERDETAILS ON TBLREQUESTTABLE.GENID=TBLUSERDETAILS.GENID
+INNER JOIN REQUESTSTATUS ON TBLREQUESTTABLE.REQUESTSTATUSID=REQUESTSTATUS.REQUESTSTATUSID
+WHERE REQUESTSTATUS.REQUESTSTATUSID=301
+
+CREATE PROC sp_ViewClosedRequest
+as
+SELECT TBLREQUESTTABLE.REQUESTID AS 'Request ID', TBLUSERDETAILS.USERNAME as 'Username', TBLREQUESTTABLE.REQUESTHEADER as 'Request Header', TBLREQUESTTABLE.DATEREQUESTED as 'Date Requested', REQUESTSTATUS.STATUSDESCRIPTION as 'Status' from TBLREQUESTTABLE
+INNER JOIN TBLUSERDETAILS ON TBLREQUESTTABLE.GENID=TBLUSERDETAILS.GENID
+INNER JOIN REQUESTSTATUS ON TBLREQUESTTABLE.REQUESTSTATUSID=REQUESTSTATUS.REQUESTSTATUSID
+WHERE REQUESTSTATUS.REQUESTSTATUSID=302
+
+
+
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+
+
+--REQUEST STATUS
+
+CREATE TABLE REQUESTSTATUS
+(
+REQUESTSTATUSID INT  UNIQUE IDENTITY(300,1),
+STATUSDESCRIPTION VARCHAR(15)
+)
+
+INSERT INTO REQUESTSTATUS
+VALUES	('OPEN'),
+		('PENDING'),
+		('CLOSED')
+
+
+
+
+
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+
+-- THINGS ABOUT TRANSACTIONS END HERE
+
+
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+
+
+
 
 
 -------------------------------------------------------------------------------------------------
@@ -606,147 +737,147 @@ select EQBARCODE, EQUIPMENT_NAME, EQUIPMENT_TYPE_ID, EQUIPMENT_STATUS from TBLEQ
 
 
 
-DROP TABLE TBLUSERDETAILS
+--DROP TABLE TBLUSERDETAILS
 
-SELECT * FROM TBLUSERDETAILS
+--SELECT * FROM TBLUSERDETAILS
 
-truncate table tbluserdetails
+--truncate table tbluserdetails
 
-delete tbluserdetails
+--delete tbluserdetails
 
---for tables of user
-CREATE TABLE TBLUSERDETAILS
-(
-	GENID INT UNIQUE IDENTITY(1000000,1),
-	ID VARCHAR(50) PRIMARY KEY,
-	USERNAME VARCHAR(50),
-	PASSWORD VARCHAR(MAX),
-	FIRSTNAME VARCHAR(150),
-	MIDDLENAME VARCHAR(50),
-	LASTNAME VARCHAR(100),
-	ADDRESS VARCHAR(MAX),
-	BIRTHDATE DATE,
-	EMAILADDRESS VARCHAR(150),
-	SECURITY_QUESTION VARCHAR(MAX),
-	SECURITY_ANSWER VARCHAR(MAX),
-	USERTYPE_ID INT FOREIGN KEY references USERTYPE(USERTYPE_ID),
-	ISFIRSTLOGIN INT
-)
+----for tables of user
+--CREATE TABLE TBLUSERDETAILS
+--(
+--	GENID INT UNIQUE IDENTITY(1000000,1),
+--	ID VARCHAR(50) PRIMARY KEY,
+--	USERNAME VARCHAR(50),
+--	PASSWORD VARCHAR(MAX),
+--	FIRSTNAME VARCHAR(150),
+--	MIDDLENAME VARCHAR(50),
+--	LASTNAME VARCHAR(100),
+--	ADDRESS VARCHAR(MAX),
+--	BIRTHDATE DATE,
+--	EMAILADDRESS VARCHAR(150),
+--	SECURITY_QUESTION VARCHAR(MAX),
+--	SECURITY_ANSWER VARCHAR(MAX),
+--	USERTYPE_ID INT FOREIGN KEY references USERTYPE(USERTYPE_ID),
+--	ISFIRSTLOGIN INT
+--)
 
---SAMPLE INTRO
-insert into TBLUSERDETAILS
-values ('1000000','nathan','1234','nathaniel','angelico','tabanao','test','7-23-98','test','test','test','110','1'),
-('1000001','test','1234','nathaniel','angelico','tabanao','test','7-23-98','test','test','test','110','1'),
-('1000002','nathan','1234','nathaniel','angelico','tabanao','test','7-23-98','test','test','test','110','1')
+----SAMPLE INTRO
+--insert into TBLUSERDETAILS
+--values ('1000000','nathan','1234','nathaniel','angelico','tabanao','test','7-23-98','test','test','test','110','1'),
+--('1000001','test','1234','nathaniel','angelico','tabanao','test','7-23-98','test','test','test','110','1'),
+--('1000002','nathan','1234','nathaniel','angelico','tabanao','test','7-23-98','test','test','test','110','1')
 
---User ID Generation
-create procedure sp_UserID
-as
-declare @GENID int
-select  @GENID = IDENT_CURRENT('TBLUSERDETAILS')
-return @GENID
+----User ID Generation
+--create procedure sp_UserID
+--as
+--declare @GENID int
+--select  @GENID = IDENT_CURRENT('TBLUSERDETAILS')
+--return @GENID
 
---Return UserID
-create proc sp_UserReturnID
-(
-	@username varchar(50),
-	@userID int
-)
-as
-select USERTYPE_ID from TBLUSERDETAILS
-where USERNAME=@username and @userID=USERTYPE_ID
-return @userid
+----Return UserID
+--create proc sp_UserReturnID
+--(
+--	@username varchar(50),
+--	@userID int
+--)
+--as
+--select USERTYPE_ID from TBLUSERDETAILS
+--where USERNAME=@username and @userID=USERTYPE_ID
+--return @userid
 
---return
+----return
 
--- Insert User
-CREATE PROCEDURE sp_UserInsert
-(
-	@GENID INT,
-	@ID VARCHAR(50),
-	@USERNAME VARCHAR(50),
-	@PASSWORD VARCHAR(MAX),
-	@FIRSTNAME VARCHAR(150),
-	@MIDDLENAME VARCHAR(50),
-	@LASTNAME VARCHAR(100),
-	@ADDRESS VARCHAR(MAX),
-	@BIRTHDATE DATE,
-	@EMAILADDRESS VARCHAR(150),
-	@SECURITY_QUESTION VARCHAR(MAX),
-	@SECURITY_ANSWER VARCHAR(MAX),
-	@USERTYPE_ID INT,
-	@ISFIRSTLOGIN INT
-)
-AS
-INSERT INTO TBLUSERDETAILS
-VALUES(@ID,@USERNAME,@PASSWORD,@FIRSTNAME,@MIDDLENAME,@LASTNAME,@ADDRESS,@BIRTHDATE,@EMAILADDRESS,@SECURITY_QUESTION,@SECURITY_ANSWER,@USERTYPE_ID,@ISFIRSTLOGIN)
+---- Insert User
+--CREATE PROCEDURE sp_UserInsert
+--(
+--	@GENID INT,
+--	@ID VARCHAR(50),
+--	@USERNAME VARCHAR(50),
+--	@PASSWORD VARCHAR(MAX),
+--	@FIRSTNAME VARCHAR(150),
+--	@MIDDLENAME VARCHAR(50),
+--	@LASTNAME VARCHAR(100),
+--	@ADDRESS VARCHAR(MAX),
+--	@BIRTHDATE DATE,
+--	@EMAILADDRESS VARCHAR(150),
+--	@SECURITY_QUESTION VARCHAR(MAX),
+--	@SECURITY_ANSWER VARCHAR(MAX),
+--	@USERTYPE_ID INT,
+--	@ISFIRSTLOGIN INT
+--)
+--AS
+--INSERT INTO TBLUSERDETAILS
+--VALUES(@ID,@USERNAME,@PASSWORD,@FIRSTNAME,@MIDDLENAME,@LASTNAME,@ADDRESS,@BIRTHDATE,@EMAILADDRESS,@SECURITY_QUESTION,@SECURITY_ANSWER,@USERTYPE_ID,@ISFIRSTLOGIN)
 
 
---first login edit
-CREATE PROC sp_UserFirstLoginEdit
-(
-@GENID int,
-@ISFIRSTLOGIN INT
-)
-as
-update TBLUSERDETAILS
-set ISFIRSTLOGIN=@ISFIRSTLOGIN
-where GENID=@GENID
+----first login edit
+--CREATE PROC sp_UserFirstLoginEdit
+--(
+--@GENID int,
+--@ISFIRSTLOGIN INT
+--)
+--as
+--update TBLUSERDETAILS
+--set ISFIRSTLOGIN=@ISFIRSTLOGIN
+--where GENID=@GENID
 
--- Edit User
+---- Edit User
 
-CREATE PROCEDURE sp_UserEdit
-(
-	@ID VARCHAR(50),
-	@USERNAME VARCHAR(50),
-	@PASSWORD VARCHAR(MAX),
-	@FIRSTNAME VARCHAR(150),
-	@MIDDLENAME VARCHAR(50),
-	@LASTNAME VARCHAR(100),
-	@ADDRESS VARCHAR(MAX),
-	@BIRTHDATE DATE,
-	@EMAILADDRESS VARCHAR(150),
-	@SECURITY_QUESTION VARCHAR(MAX),
-	@SECURITY_ANSWER VARCHAR(MAX)
-)
-AS
-UPDATE TBLUSERDETAILS
-SET USERNAME = @USERNAME,PASSWORD =@PASSWORD,FIRSTNAME = @FIRSTNAME,MIDDLENAME =@MIDDLENAME,LASTNAME =@LASTNAME,ADDRESS = @ADDRESS,BIRTHDATE =@BIRTHDATE,EMAILADDRESS = @EMAILADDRESS,SECURITY_QUESTION =@SECURITY_QUESTION,SECURITY_ANSWER =@SECURITY_ANSWER
-WHERE ID=@ID
+--CREATE PROCEDURE sp_UserEdit
+--(
+--	@ID VARCHAR(50),
+--	@USERNAME VARCHAR(50),
+--	@PASSWORD VARCHAR(MAX),
+--	@FIRSTNAME VARCHAR(150),
+--	@MIDDLENAME VARCHAR(50),
+--	@LASTNAME VARCHAR(100),
+--	@ADDRESS VARCHAR(MAX),
+--	@BIRTHDATE DATE,
+--	@EMAILADDRESS VARCHAR(150),
+--	@SECURITY_QUESTION VARCHAR(MAX),
+--	@SECURITY_ANSWER VARCHAR(MAX)
+--)
+--AS
+--UPDATE TBLUSERDETAILS
+--SET USERNAME = @USERNAME,PASSWORD =@PASSWORD,FIRSTNAME = @FIRSTNAME,MIDDLENAME =@MIDDLENAME,LASTNAME =@LASTNAME,ADDRESS = @ADDRESS,BIRTHDATE =@BIRTHDATE,EMAILADDRESS = @EMAILADDRESS,SECURITY_QUESTION =@SECURITY_QUESTION,SECURITY_ANSWER =@SECURITY_ANSWER
+--WHERE ID=@ID
 	
--- Delete User
-CREATE PROCEDURE sp_UserDelete
-(
- @ID varchar(50)
-)
-as 
-DELETE FROM TBLUSERDETAILS
-WHERE TBLUSERDETAILS.ID=@ID
+---- Delete User
+--CREATE PROCEDURE sp_UserDelete
+--(
+-- @ID varchar(50)
+--)
+--as 
+--DELETE FROM TBLUSERDETAILS
+--WHERE TBLUSERDETAILS.ID=@ID
 
 
--- Search User
-CREATE PROC sp_UserSearch
-(
-	@SearchKey VARCHAR(50)
-)
-AS
-SELECT genid as "General ID", id as "ID",username as "Username",firstname as "First Name",middlename as "Middle Name",lastname as "Last Name",address as "Address",birthdate as "Birthdate",emailaddress as "Email Address",usertype_ID as "Usertype ID" FROM TBLUSERDETAILS
-where genid like '%'+@SearchKey+'%' or id like '%'+@SearchKey+'%' or firstname like '%'+@SearchKey+'%' or middlename like '%'+@SearchKey+'%' or lastname like '%'+@SearchKey+'%'
+---- Search User
+--CREATE PROC sp_UserSearch
+--(
+--	@SearchKey VARCHAR(50)
+--)
+--AS
+--SELECT genid as "General ID", id as "ID",username as "Username",firstname as "First Name",middlename as "Middle Name",lastname as "Last Name",address as "Address",birthdate as "Birthdate",emailaddress as "Email Address",usertype_ID as "Usertype ID" FROM TBLUSERDETAILS
+--where genid like '%'+@SearchKey+'%' or id like '%'+@SearchKey+'%' or firstname like '%'+@SearchKey+'%' or middlename like '%'+@SearchKey+'%' or lastname like '%'+@SearchKey+'%'
 
 
--- User Login
-CREATE PROCEDURE sp_UserLogin
-(
-	@USERNAME VARCHAR(50),
-	@PASSWORD VARCHAR(MAX)
-)
-as
-SELECT TBLUSERDETAILS.USERNAME, TBLUSERDETAILS.PASSWORD FROM TBLUSERDETAILS
-WHERE TBLUSERDETAILS.USERNAME=@USERNAME AND TBLUSERDETAILS.PASSWORD=@PASSWORD
-RETURN 0
+---- User Login
+--CREATE PROCEDURE sp_UserLogin
+--(
+--	@USERNAME VARCHAR(50),
+--	@PASSWORD VARCHAR(MAX)
+--)
+--as
+--SELECT TBLUSERDETAILS.USERNAME, TBLUSERDETAILS.PASSWORD FROM TBLUSERDETAILS
+--WHERE TBLUSERDETAILS.USERNAME=@USERNAME AND TBLUSERDETAILS.PASSWORD=@PASSWORD
+--RETURN 0
 
 
--- User Table View
-CREATE PROC sp_UserView
-as
-SELECT genid as "General ID", id as "ID",username as "Username",firstname as "First Name",middlename as "Middle Name",lastname as "Last Name",address as "Address",birthdate as "Birthdate",emailaddress as "Email Address",usertype_ID as "Usertype ID" FROM TBLUSERDETAILS
+---- User Table View
+--CREATE PROC sp_UserView
+--as
+--SELECT genid as "General ID", id as "ID",username as "Username",firstname as "First Name",middlename as "Middle Name",lastname as "Last Name",address as "Address",birthdate as "Birthdate",emailaddress as "Email Address",usertype_ID as "Usertype ID" FROM TBLUSERDETAILS
