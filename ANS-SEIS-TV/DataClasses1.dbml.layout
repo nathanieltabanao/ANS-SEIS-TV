@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13.875, 8.5" name="DataClasses1">
   <DataContextMoniker Name="/DataClasses1DataContext" />
   <nestedChildShapes>
@@ -96,6 +97,7 @@
       <nodes>
         <classShapeMoniker Id="9deef2c1-5657-4bf7-ba42-438504ed3872" />
         <classShapeMoniker Id="e815b2c9-a5af-4637-a10b-cd1b8d78e6df" />
+
       </nodes>
     </associationConnector>
   </nestedChildShapes>

@@ -43,7 +43,7 @@
             this.materialLabel1.BackColor = System.Drawing.SystemColors.Window;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.Gray;
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel1.Location = new System.Drawing.Point(459, 197);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
@@ -57,7 +57,7 @@
             this.materialLabel2.BackColor = System.Drawing.SystemColors.Window;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.Gray;
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel2.Location = new System.Drawing.Point(459, 229);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
@@ -82,10 +82,9 @@
             // txtUsername
             // 
             this.txtUsername.Depth = 0;
+            this.txtUsername.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Hint = "";
-
             this.txtUsername.Location = new System.Drawing.Point(550, 197);
-
             this.txtUsername.MaxLength = 32767;
             this.txtUsername.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtUsername.Name = "txtUsername";
@@ -101,10 +100,9 @@
             // txtPassword
             // 
             this.txtPassword.Depth = 0;
+            this.txtPassword.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Hint = "";
-
             this.txtPassword.Location = new System.Drawing.Point(548, 232);
-
             this.txtPassword.MaxLength = 32767;
             this.txtPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPassword.Name = "txtPassword";

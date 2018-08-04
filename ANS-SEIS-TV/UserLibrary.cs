@@ -227,7 +227,7 @@ namespace ANS_SEIS_TV
 
             ID = GENID.ToString();
 
-            //db.sp_UserLoginReport(int.Parse(ID), Username, Password, status, DateTime.Now, Usertype);
+            //db.sp_UserLoginReport(int.Parse(ID), Username, Password, status, DateTime.Now);
 
             //db.sp_UserActionReport(GENID, Username, status, DateTime.Now);
         }
@@ -242,7 +242,9 @@ namespace ANS_SEIS_TV
         public void ActionReport()
         {
             //CurrentUsertype = 110;
+
             //db.sp_UserLoginReport(CurrentUserID, Password, Action, DateTime.Now, CurrentUsertype);
+
         }
     }
 }

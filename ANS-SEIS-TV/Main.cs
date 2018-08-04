@@ -26,7 +26,7 @@ namespace ANS_SEIS_TV
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey600, Primary.Grey400, Primary.Green300, Accent.Red100, TextShade.WHITE);
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey600, Primary.Grey400, Primary.BlueGrey600, Accent.LightBlue400, TextShade.WHITE);
         }
 
 
@@ -158,7 +158,7 @@ namespace ANS_SEIS_TV
             txtPassword.Text = "1234";
 
             GetSomethingFromServer g = new GetSomethingFromServer();
-            g.GetSomething();
+            //g.GetSomething();
         }
 
         private void btnUserClear_Click(object sender, EventArgs e)
@@ -281,37 +281,44 @@ namespace ANS_SEIS_TV
 
             //int EquipmentTypeID = 0;
 
-            switch (int.Parse(drpEquipmentType.Text.Substring(0, 3)))
+            if (string.IsNullOrWhiteSpace(drpEquipmentType.Text))
             {
-                case 200:
-                    EquipmentTypeID = 200;
-                    break;
-
-                case 201:
-                    EquipmentTypeID = 201;
-                    break;
-
-                case 202:
-                    EquipmentTypeID = 202;
-                    break;
-
-                case 203:
-                    EquipmentTypeID = 203;
-                    break;
-
-                default:
-                    break;
+                MessageBox.Show("Please choose Equipment Type!");
             }
+            else
+            {
+                switch (int.Parse(drpEquipmentType.Text.Substring(0, 3)))
+                {
+                    case 200:
+                        EquipmentTypeID = 200;
+                        break;
 
-            txtEquipmentID.Text = eq.EquipmentID().ToString();
-            eq.EquipmentBarcode = txtEquipmentID.Text;
-            eq.EquipmentName = txtEquipmentName.Text;
-            eq.EquipmentDescription = txtEquipmentDescription.Text;
-            eq.EquipmentTypeID = EquipmentTypeID; // int.Parse(drpEquipmentType.Text.Substring(0,3));
-            eq.EquipmentQuantity = int.Parse(numQuantity.Value.ToString());
-            eq.EquipmentInsert();
-            ViewEquipment();
-            EquipmentClear();
+                    case 201:
+                        EquipmentTypeID = 201;
+                        break;
+
+                    case 202:
+                        EquipmentTypeID = 202;
+                        break;
+
+                    case 203:
+                        EquipmentTypeID = 203;
+                        break;
+
+                    default:
+                        break;
+                }
+
+                txtEquipmentID.Text = eq.EquipmentID().ToString();
+                eq.EquipmentBarcode = txtEquipmentID.Text;
+                eq.EquipmentName = txtEquipmentName.Text;
+                eq.EquipmentDescription = txtEquipmentDescription.Text;
+                eq.EquipmentTypeID = EquipmentTypeID; // int.Parse(drpEquipmentType.Text.Substring(0,3));
+                eq.EquipmentQuantity = int.Parse(numQuantity.Value.ToString());
+                eq.EquipmentInsert();
+                ViewEquipment();
+                EquipmentClear();
+            }
         }
 
 
@@ -484,6 +491,21 @@ namespace ANS_SEIS_TV
         }
 
         private void bunifuCustomLabel19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonButton3_Click(object sender, EventArgs e)
         {
 
         }
