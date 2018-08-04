@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ANS_SEIS_TV" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=NATHANIEL-VX15\NATHANIEL;Initial Catalog=ANS_SEIS_TV;Integrated Security=True" SettingsObjectName="ANS_SEIS_TV.Properties.Settings" SettingsPropertyName="ANS_SEIS_TVConnectionString1" Provider="System.Data.SqlClient" />
-
   <Table Name="dbo.REQUESTSTATUS" Member="REQUESTSTATUS">
     <Type Name="REQUESTSTATUS">
       <Column Name="REQUESTSTATUSID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
@@ -8,13 +7,11 @@
       <Association Name="REQUESTSTATUS_TBLREQUESTTABLE" Member="TBLREQUESTTABLEs" ThisKey="REQUESTSTATUSID" OtherKey="REQUESTSTATUSID" Type="TBLREQUESTTABLE" />
     </Type>
   </Table>
-
   <Table Name="dbo.USERTYPE" Member="USERTYPEs">
     <Type Name="USERTYPE">
       <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="USERTYPE_DESCRIPTION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="USERTYPE_TBLUSERDETAIL" Member="TBLUSERDETAILs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLUSERDETAIL" />
-
     </Type>
   </Table>
   <Table Name="dbo.STUDENTS" Member="STUDENTs">
@@ -62,9 +59,8 @@
       <Column Name="ActionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Action" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-
       <Column Name="Timestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
+      <Association Name="TBLUSERDETAIL_TBLUSERACTIONREPORT" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLUSERDETAILS" Member="TBLUSERDETAILs">
@@ -81,26 +77,20 @@
       <Column Name="SECURITY_ANSWER" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ISFIRSTLOGIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
-
       <Association Name="TBLUSERDETAIL_TBLREQUESTTABLE" Member="TBLREQUESTTABLEs" ThisKey="GENID" OtherKey="GENID" Type="TBLREQUESTTABLE" />
       <Association Name="TBLUSERDETAIL_TBLUSERACTIONREPORT" Member="TBLUSERACTIONREPORTs" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERACTIONREPORT" />
-
       <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT" Member="TBLUSERLOGINREPORTs" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERLOGINREPORT" />
-      <Association Name="TBLUSERDETAIL_TBLUSERACTIONREPORT" Member="TBLUSERACTIONREPORTs" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERACTIONREPORT" />
-      <Association Name="TBLUSERDETAIL_EQUIPMENT_DESIGNATION" Member="EQUIPMENT_DESIGNATIONs" ThisKey="GENID" OtherKey="GENID" Type="EQUIPMENT_DESIGNATION" />
       <Association Name="USERTYPE_TBLUSERDETAIL" Member="USERTYPE" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="USERTYPE" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TBLUSERACTIONREPORT" Member="TBLUSERACTIONREPORTs">
-    <Type Name="TBLUSERACTIONREPORT">
-      <Column Name="ActionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+  <Table Name="dbo.TBLUSERLOGINREPORT" Member="TBLUSERLOGINREPORTs">
+    <Type Name="TBLUSERLOGINREPORT">
+      <Column Name="LoginID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-
       <Column Name="password" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="Action" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="Timestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-
     </Type>
   </Table>
   <Function Name="dbo.sp_EquipmentDelete" Method="sp_EquipmentDelete">
@@ -253,7 +243,6 @@
   </Function>
   <Function Name="dbo.sp_UserLoginReport" Method="sp_UserLoginReport">
     <Parameter Name="GENID" Parameter="gENID" Type="System.Int32" DbType="Int" />
-
     <Parameter Name="password" Type="System.String" DbType="VarChar(MAX)" />
     <Parameter Name="Action" Parameter="action" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="Timestamp" Parameter="timestamp" Type="System.DateTime" DbType="DateTime" />
