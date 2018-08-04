@@ -21,12 +21,13 @@ namespace ANS_SEIS_TV
         public string EquipmentStatus { get; set; }
         public string IsDesignated { get; set; }
         public string EquipmentDescription { get; set; }
+        public int IsBorrowable { get; set; }
 
         public string SearchKey { get; set; }
 
         public void EquipmentInsert()
         {
-            db.sp_EquipmentRegister(EquipmentBarcode, EquipmentName, EquipmentDescription, EquipmentTypeID, EquipmentQuantity);
+            db.sp_EquipmentRegister(EquipmentBarcode, EquipmentName, EquipmentDescription, EquipmentTypeID, EquipmentQuantity,IsBorrowable);
         }
 
         public void EquipmentUpdate()

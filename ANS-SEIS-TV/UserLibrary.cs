@@ -242,7 +242,7 @@ namespace ANS_SEIS_TV
         public void ActionReport()
         {
             //CurrentUsertype = 110;
-            db.sp_UserLoginReport(CurrentUserID, CurrentUsername, Password, Action, DateTime.Now, CurrentUsertype);
+            //db.sp_UserLoginReport(CurrentUserID, Password, Action, DateTime.Now, CurrentUsertype);
         }
     }
 }
