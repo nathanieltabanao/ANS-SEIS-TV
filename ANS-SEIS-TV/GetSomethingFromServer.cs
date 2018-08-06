@@ -58,7 +58,15 @@ namespace ANS_SEIS_TV
                           where TBLUSERDETAIL.USERNAME == Username
                           select TBLUSERDETAIL.ID;
 
-            GENID = int.Parse(results.FirstOrDefault().ToString());
+            var temp = results?.FirstOrDefault()?.ToString();
+            if (temp==null)
+            {
+                ID = null;
+            }
+            else
+            {
+                ID = results.FirstOrDefault().ToString();
+            }
         }
 
         public void GetFullname()
