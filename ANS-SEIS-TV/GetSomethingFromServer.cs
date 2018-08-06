@@ -31,7 +31,7 @@ namespace ANS_SEIS_TV
                           where TBLUSERDETAIL.USERNAME == Username
                           select TBLUSERDETAIL.USERTYPE_ID;
 
-            string usertypeid = results.FirstOrDefault().Value.ToString();
+            //string usertypeid = results.FirstOrDefault().Value.ToString();
         }
 
         public void GetFirstLogin()
@@ -58,7 +58,15 @@ namespace ANS_SEIS_TV
                           where TBLUSERDETAIL.USERNAME == Username
                           select TBLUSERDETAIL.ID;
 
-            GENID = int.Parse(results.FirstOrDefault().ToString());
+            var temp = results?.FirstOrDefault()?.ToString();
+            if (temp==null)
+            {
+                ID = null;
+            }
+            else
+            {
+                ID = results.FirstOrDefault().ToString();
+            }
         }
 
         public void GetFullname()

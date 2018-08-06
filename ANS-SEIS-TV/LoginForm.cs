@@ -35,18 +35,20 @@ namespace ANS_SEIS_TV
         {
             u.Username = txtUsername.Text;
             u.Password = txtPassword.Text;
-
-            u.UserLogin(/*txtUsername.Text, txtPassword.Text*/);
-
+            
             g.Username = u.Username;
 
-            g.GetGENID();
+            u.CurrentUsername = u.Username;
 
-            u.GENID = g.GENID;
+            g.GetUserID();
 
-            g.GetUserType();
+            u.ID = g.ID;
+
+            //g.GetUserType();
 
             u.Usertype = g.UsertypeID;
+
+            u.UserLogin(/*txtUsername.Text, txtPassword.Text*/);
 
 
             if (u.LoginResult == 1)
@@ -81,6 +83,7 @@ namespace ANS_SEIS_TV
             else
             { 
                 MessageBox.Show("Invalid Username or Password!");
+                txtPassword.Text = "";
             }
         }
 

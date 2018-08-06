@@ -143,6 +143,9 @@
     <EmbeddedResource Include="BorrowingForm.resx">
       <DependentUpon>BorrowingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="EquipmentInventory.resx">
       <DependentUpon>EquipmentInventory.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,9 +175,6 @@
       <DependentUpon>UserRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
-    <None Include="DataClasses1.dbml.layout">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

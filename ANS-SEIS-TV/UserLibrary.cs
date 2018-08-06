@@ -40,6 +40,7 @@ namespace ANS_SEIS_TV
         public int CurrentUsertype { get; set; }
         public string Action { get; set; }
         public string ContactNumber { get; set; }
+        public string CurrentID { get; set; }
 
         public void Clear()
         {
@@ -214,22 +215,19 @@ namespace ANS_SEIS_TV
 
         public void UserLoginLog()
         {
-            string status;
 
             if (LoginResult == 1)
             {
-                status = "Login Success";
+                Action = "Login Success";
             }
             else
             {
-                status = "Login Failed";
+                Action = "Login Failed";
             }
 
-            ID = GENID.ToString();
+            db.sp_UserLoginReport(ID, Password, Action, DateTime.Now);
 
-            //db.sp_UserLoginReport(int.Parse(ID), Username, Password, status, DateTime.Now, Usertype);
-
-            //db.sp_UserActionReport(GENID, Username, status, DateTime.Now);
+            ActionReport();
         }
 
         public int UserID()
@@ -237,12 +235,21 @@ namespace ANS_SEIS_TV
             return Convert.ToInt32(db.sp_UserID());
         }
 
-        
+        public int BlankID()
+        {
+            if (string.IsNullOrEmpty(ID))
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
 
         public void ActionReport()
         {
-            //CurrentUsertype = 110;
-            db.sp_UserLoginReport(CurrentUserID, CurrentUsername, Password, Action, DateTime.Now, CurrentUsertype);
+            db.sp_UserActionReport(ID, Action, DateTime.Now);
         }
     }
 }
