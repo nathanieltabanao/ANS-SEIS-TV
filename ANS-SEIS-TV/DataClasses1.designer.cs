@@ -123,6 +123,14 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
+		public System.Data.Linq.Table<TBLREQUESTREPLY> TBLREQUESTREPLies
+		{
+			get
+			{
+				return this.GetTable<TBLREQUESTREPLY>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TBLREQUESTTABLE> TBLREQUESTTABLEs
 		{
 			get
@@ -163,11 +171,11 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentDelete")]
-		public int sp_EquipmentDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentBorrowableView")]
+		public ISingleResult<sp_EquipmentBorrowableViewResult> sp_EquipmentBorrowableView([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchKey", DbType="VarChar(50)")] string searchKey)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID);
-			return ((int)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchKey);
+			return ((ISingleResult<sp_EquipmentBorrowableViewResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewPendingRequest")]
@@ -175,6 +183,13 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_ViewPendingRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentDelete")]
+		public int sp_EquipmentDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentEdit")]
@@ -216,6 +231,27 @@ namespace ANS_SEIS_TV
 		public int sp_NewRequest([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REQUESTHEADER", DbType="VarChar(100)")] string rEQUESTHEADER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REQUESTCONTENT", DbType="NVarChar(MAX)")] string rEQUESTCONTENT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DATEREQUESTED", DbType="DateTime")] System.Nullable<System.DateTime> dATEREQUESTED, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REQUESTSTATUSID", DbType="Int")] System.Nullable<int> rEQUESTSTATUSID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISOPENED", DbType="Int")] System.Nullable<int> iSOPENED)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID, rEQUESTHEADER, rEQUESTCONTENT, dATEREQUESTED, rEQUESTSTATUSID, iSOPENED);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_RequestReplied")]
+		public int sp_RequestReplied([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RequestID", DbType="Int")] System.Nullable<int> requestID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), requestID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_RequestReply")]
+		public int sp_RequestReply([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REPLYCONTENT", DbType="NVarChar(MAX)")] string rEPLYCONTENT)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID, rEPLYCONTENT);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_RequestViewed")]
+		public int sp_RequestViewed([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RequestID", DbType="Int")] System.Nullable<int> requestID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), requestID);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -315,6 +351,13 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchKey);
 			return ((ISingleResult<sp_UserSearchResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserSearchAdmin")]
+		public ISingleResult<sp_UserSearchAdminResult> sp_UserSearchAdmin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchKey", DbType="VarChar(50)")] string searchKey)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchKey);
+			return ((ISingleResult<sp_UserSearchAdminResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserView")]
@@ -1086,6 +1129,69 @@ namespace ANS_SEIS_TV
 		{
 			this.SendPropertyChanging();
 			entity.TBLEQUIPMENTDETAIL = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLREQUESTREPLY")]
+	public partial class TBLREQUESTREPLY
+	{
+		
+		private int _ReplyID;
+		
+		private System.Nullable<int> _GENID;
+		
+		private string _ReplyContent;
+		
+		public TBLREQUESTREPLY()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReplyID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int ReplyID
+		{
+			get
+			{
+				return this._ReplyID;
+			}
+			set
+			{
+				if ((this._ReplyID != value))
+				{
+					this._ReplyID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENID", DbType="Int")]
+		public System.Nullable<int> GENID
+		{
+			get
+			{
+				return this._GENID;
+			}
+			set
+			{
+				if ((this._GENID != value))
+				{
+					this._GENID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReplyContent", DbType="NVarChar(MAX)")]
+		public string ReplyContent
+		{
+			get
+			{
+				return this._ReplyContent;
+			}
+			set
+			{
+				if ((this._ReplyContent != value))
+				{
+					this._ReplyContent = value;
+				}
+			}
 		}
 	}
 	
@@ -2142,6 +2248,86 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
+	public partial class sp_EquipmentBorrowableViewResult
+	{
+		
+		private string _Equipment_Barcode;
+		
+		private string _Name;
+		
+		private string _Description;
+		
+		private string _EQUIPMENT_TYPE_DESCRIPTION;
+		
+		public sp_EquipmentBorrowableViewResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Equipment Barcode]", Storage="_Equipment_Barcode", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Equipment_Barcode
+		{
+			get
+			{
+				return this._Equipment_Barcode;
+			}
+			set
+			{
+				if ((this._Equipment_Barcode != value))
+				{
+					this._Equipment_Barcode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(100)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_TYPE_DESCRIPTION", DbType="VarChar(100)")]
+		public string EQUIPMENT_TYPE_DESCRIPTION
+		{
+			get
+			{
+				return this._EQUIPMENT_TYPE_DESCRIPTION;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_TYPE_DESCRIPTION != value))
+				{
+					this._EQUIPMENT_TYPE_DESCRIPTION = value;
+				}
+			}
+		}
+	}
+	
 	public partial class sp_ViewPendingRequestResult
 	{
 		
@@ -2679,6 +2865,104 @@ namespace ANS_SEIS_TV
 				if ((this._User_Type != value))
 				{
 					this._User_Type = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_UserSearchAdminResult
+	{
+		
+		private string _ID;
+		
+		private string _Username;
+		
+		private string _First_Name;
+		
+		private string _Middle_Name;
+		
+		private string _Last_Name;
+		
+		public sp_UserSearchAdminResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this._Username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[First Name]", Storage="_First_Name", DbType="VarChar(150)")]
+		public string First_Name
+		{
+			get
+			{
+				return this._First_Name;
+			}
+			set
+			{
+				if ((this._First_Name != value))
+				{
+					this._First_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Middle Name]", Storage="_Middle_Name", DbType="VarChar(50)")]
+		public string Middle_Name
+		{
+			get
+			{
+				return this._Middle_Name;
+			}
+			set
+			{
+				if ((this._Middle_Name != value))
+				{
+					this._Middle_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Last Name]", Storage="_Last_Name", DbType="VarChar(100)")]
+		public string Last_Name
+		{
+			get
+			{
+				return this._Last_Name;
+			}
+			set
+			{
+				if ((this._Last_Name != value))
+				{
+					this._Last_Name = value;
 				}
 			}
 		}

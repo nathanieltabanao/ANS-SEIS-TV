@@ -10,23 +10,24 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
+
 namespace ANS_SEIS_TV
 {
-    public partial class Main : MaterialForm
+    public partial class AdminForm : MaterialForm
     {
         private readonly MaterialSkinManager materialSkinManager;
 
 
         //Main form Constructor
-        public Main()
+        public AdminForm()
         {
             InitializeComponent();
 
             // Initialize MaterialSkinManager
-            materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey600, Primary.Grey400, Primary.BlueGrey600, Accent.LightBlue400, TextShade.WHITE);
+            //materialSkinManager = MaterialSkinManager.Instance;
+            //materialSkinManager.AddFormToManage(this);
+            //materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            //materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey600, Primary.Grey400, Primary.BlueGrey600, Accent.LightBlue400, TextShade.WHITE);
         }
 
         //initialize Connection
@@ -39,14 +40,19 @@ namespace ANS_SEIS_TV
 
         GetSomethingFromServer g = new GetSomethingFromServer();
 
+        SearchUser s = new SearchUser();
+
 
         public string CurrentUser { get; set; }
         public string CurrentUserID { get; set; }
+        public string SearchKey { get; set; }
+        public int CurrentGENID { get; set; }
 
 
         //Main form load 
         private void Main_Load(object sender, EventArgs e)
         {
+            SearchKey = "";
             ViewUser();
             ViewEquipment();
             txtUsername.Enabled = false;
@@ -58,7 +64,13 @@ namespace ANS_SEIS_TV
             g.GetUserID();
             CurrentUserID = g.ID;
             u.CurrentID = CurrentUserID;
+            rdoAllRequest.Checked = true;
+            UpdateBorrow(SearchKey);
+            CurrentGENID = g.GetGENID(CurrentUser);
+            RequestGridUpdate();
         }
+
+
 
         
 
@@ -129,8 +141,8 @@ namespace ANS_SEIS_TV
                 txtUserID.Text = "AD-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
             }
             u.Usertype = 110;
-            txtUsername.Enabled = true;
-            txtPassword.Enabled = true;
+            txtUsername.Enabled = false;
+            txtPassword.Enabled = false;
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -153,6 +165,7 @@ namespace ANS_SEIS_TV
             u.ID = u.CurrentID;
             u.Action = "Registered a new User";
             u.ActionReport();
+            rdoAdmin.Checked = true;
         }
 
 
@@ -215,6 +228,7 @@ namespace ANS_SEIS_TV
             u.ID = u.CurrentID;
             u.Action = "Deleted a user";
             u.ActionReport();
+            Admin();
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
@@ -224,6 +238,8 @@ namespace ANS_SEIS_TV
             u.ID = u.CurrentID;
             u.Action = "Edited a user detail";
             u.ActionReport();
+
+            Admin();
         }
 
         private void txtLastName_TextChanged(object sender, EventArgs e)
@@ -402,7 +418,105 @@ namespace ANS_SEIS_TV
         {
             this.Hide();
             LoginForm l = new LoginForm();
+            u.Action = "User Logout";
+            u.UserLoginLog();
             l.Show();
+            
+        }
+
+        private void kryptonButton5_Click(object sender, EventArgs e)
+        {
+            s.ShowDialog();
+            txtBorrowerUsername.Text = s.Username;
+            txtBorrowerFullname.Text = s.Fullname;
+            
+        }
+
+        private void txtSearchBorrow_TextChanged(object sender, EventArgs e)
+        {
+            SearchKey = txtSearchBorrow.Text;
+            UpdateBorrow(SearchKey);
+        }
+
+        private void UpdateBorrow(string SearchKey)
+        {
+            dgvToBeBorrowed.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
+        }
+
+        private void kryptonRadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvRequest.DataSource = db.sp_ViewAllRequest();
+        }
+
+        private void rdoOpenRequest_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvRequest.DataSource = db.sp_ViewOpenRequest();
+        }
+
+        private void rdoPendingRequest_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvRequest.DataSource = db.sp_ViewPendingRequest();
+        }
+
+        private void btnClosedRequest_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvRequest.DataSource = db.sp_ViewClosedRequest();
+        }
+
+        private void dgvRequest_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            RequestInformation r = new RequestInformation();
+
+            r.RequestID = int.Parse(dgvRequest.CurrentRow.Cells[0].Value.ToString());
+            g.Username = dgvRequest.CurrentRow.Cells[1].Value.ToString();
+            g.GetFullname();
+            r.RequestFullname = g.Fullname;
+            r.RequestTitle = dgvRequest.CurrentRow.Cells[2].Value.ToString();
+            r.DateRequested = DateTime.Parse(dgvRequest.CurrentRow.Cells[3].Value.ToString());
+            r.RequestStatus = dgvRequest.CurrentRow.Cells[4].Value.ToString();
+            g.GENID = r.RequestID;
+            g.GetRequestContent();
+            r.RequestMessage = g.RequestContent;
+            r.CurrentGENID = CurrentGENID;
+
+            if (r.RequestStatus=="OPEN")
+            {
+                db.sp_RequestViewed(r.RequestID);
+                r.RequestStatus = "PENDING";
+                r.ShowDialog();
+            }
+            else
+            {
+                r.ShowDialog();
+            }
+
+            //inig close niya naay reply kay i set niya as closed na
+            if (r.Reply == 1)
+            {
+                db.sp_RequestReplied(r.RequestID);
+            }
+
+            dgvRequest.DataSource = db.sp_ViewAllRequest();
+            RequestGridUpdate();
+        }
+
+        private void RequestGridUpdate()
+        {
+            foreach (DataGridViewRow row in dgvRequest.Rows)
+            {
+                if (row.Cells[4].Value.ToString() == "OPEN")
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+                else if (row.Cells[4].Value.ToString() == "PENDING")
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+                else if (row.Cells[4].Value.ToString() == "CLOSED")
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
         }
 
         ///////////////////////////////////////////////////////////////////

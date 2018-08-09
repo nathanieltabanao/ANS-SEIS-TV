@@ -44,6 +44,15 @@
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -58,6 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Form.Designer.cs">
+      <DependentUpon>Admin_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="BorrowingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +97,12 @@
       <DependentUpon>EquipmentRegistration.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="EquipmentRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EquipmentRequest.Designer.cs">
+      <DependentUpon>EquipmentRequest.cs</DependentUpon>
     </Compile>
     <Compile Include="FirstLoginForm.cs">
       <SubType>Form</SubType>
@@ -122,6 +143,18 @@
     <Compile Include="RequestForm.Designer.cs">
       <DependentUpon>RequestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RequestInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestInformation.Designer.cs">
+      <DependentUpon>RequestInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RequestReply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestReply.Designer.cs">
+      <DependentUpon>RequestReply.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReturningForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,12 +167,22 @@
     <Compile Include="SearchUser.Designer.cs">
       <DependentUpon>SearchUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="TeacherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherForm.Designer.cs">
+      <DependentUpon>TeacherForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestClass.cs" />
+    <Compile Include="TransactionLibrary.cs" />
     <Compile Include="UserLibrary.cs" />
     <Compile Include="UserRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserRegistration.Designer.cs" />
+    <EmbeddedResource Include="Admin_Form.resx">
+      <DependentUpon>Admin_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BorrowingForm.resx">
       <DependentUpon>BorrowingForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +196,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EquipmentRegistration1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="EquipmentRequest.resx">
+      <DependentUpon>EquipmentRequest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FirstLoginForm.resx">
       <DependentUpon>FirstLoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,11 +211,20 @@
     <EmbeddedResource Include="RequestForm.resx">
       <DependentUpon>RequestForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RequestInformation.resx">
+      <DependentUpon>RequestInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestReply.resx">
+      <DependentUpon>RequestReply.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReturningForm.resx">
       <DependentUpon>ReturningForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchUser.resx">
       <DependentUpon>SearchUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherForm.resx">
+      <DependentUpon>TeacherForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserRegistration.resx">
       <DependentUpon>UserRegistration.cs</DependentUpon>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
+using MetroFramework.Forms;
 
 namespace ANS_SEIS_TV
 {
@@ -65,7 +66,7 @@ namespace ANS_SEIS_TV
 
                 if (g.FirstLogin==0)
                 {
-                    Main m = new Main();
+                    AdminForm m = new AdminForm();
                     this.Hide();
                     m.CurrentUser = txtUsername.Text;
                     m.Show();
