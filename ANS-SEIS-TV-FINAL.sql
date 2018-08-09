@@ -183,6 +183,15 @@ SELECT USERNAME,PASSWORD FROM TBLUSERDETAILS
 WHERE USERNAME=@USERNAME AND PASSWORD=@PASSWORD
 RETURN 0
 
+-- Search User 
+CREATE PROC sp_UserSearchAdmin
+(
+	@SearchKey varchar(50)
+)
+as
+SELECT ID as 'ID', USERNAME as 'Username', FIRSTNAME as 'First Name', MIDDLENAME as 'Middle Name', LASTNAME as 'Last Name' FROM TBLUSERDETAILS
+WHERE ID  like '%'+@SearchKey+'%' OR USERNAME  like '%'+@SearchKey+'%' OR FIRSTNAME  like '%'+@SearchKey+'%' OR MIDDLENAME like '%'+@SearchKey+'%' OR LASTNAME like '%'+@SearchKey+'%' AND USERTYPE_ID = 111
+
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 
@@ -359,6 +368,8 @@ CREATE TABLE TBLEQUIPMENTDETAILS
 )
 
 
+
+
 ---------------------------------------------------------------------------------
 
 -- EQUIPMENT TABLE STORED PROCEDURES
@@ -430,6 +441,16 @@ SET EQBARCODE=@EQBARCODE, EQUIPMENT_NAME=@EQUIPMENT_NAME,EQUIPMENT_DESCRIPTION=@
 WHERE EQUIPMENT_ID=@EQUIPMENT_ID
 
 
+-- Borrow Table
+CREATE PROC sp_EquipmentBorrowableView
+(
+	@SearchKey VARCHAR(50)
+)
+AS
+SELECT EQBARCODE AS 'Equipment Barcode', EQUIPMENT_NAME as 'Name', EQUIPMENT_DESCRIPTION as 'Description', TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_DESCRIPTION FROM TBLEQUIPMENTDETAILS
+INNER JOIN TBLEQEUIPMENTTYPE ON TBLEQUIPMENTDETAILS.EQUIPMENT_TYPE_ID=TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_ID
+WHERE EQBARCODE like '%'+@SearchKey+'%' OR EQUIPMENT_NAME like '%'+@SearchKey+'%' OR EQUIPMENT_DESCRIPTION like '%'+@SearchKey+'%' OR TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_DESCRIPTION like '%'+@SearchKey+'%'
+
 ---------------------------------------------------------------------------------
 
 -- EQUIPMENT DESIGNATION
@@ -484,7 +505,7 @@ STATUSDESCRIPTION VARCHAR(15)
 -- REQUEST TABLE
 CREATE TABLE TBLREQUESTTABLE
 (
-REQUESTID  INT UNIQUE identity (4000000,1),
+REQUESTID INT UNIQUE identity (4000000,1),
 GENID INT foreign key references tbluserdetails(GENID),
 REQUESTHEADER VARCHAR(100),
 REQUESTCONTENT NVARCHAR(MAX),
@@ -494,6 +515,8 @@ ISOPENED INT
 )
 
 -------------------------------------------------------------------------------------------------
+
+SELECT * FROM TBLREQUESTTABLE
 
 -- STORED PROCEDURES FOR REQUEST TABLE
 
@@ -539,12 +562,53 @@ INNER JOIN TBLUSERDETAILS ON TBLREQUESTTABLE.GENID=TBLUSERDETAILS.GENID
 INNER JOIN REQUESTSTATUS ON TBLREQUESTTABLE.REQUESTSTATUSID=REQUESTSTATUS.REQUESTSTATUSID
 WHERE REQUESTSTATUS.REQUESTSTATUSID=302
 
+CREATE PROC sp_RequestViewed
+(
+	@RequestID int
+)
+as
+UPDATE TBLREQUESTTABLE
+SET REQUESTSTATUSID=301
+WHERE REQUESTID=@RequestID
+
+CREATE PROC sp_RequestReplied
+(
+	@RequestID int
+)
+as
+UPDATE TBLREQUESTTABLE
+SET REQUESTSTATUSID=302
+WHERE REQUESTID=@RequestID
+
+-------------------------------------------------------------------------------------------------
+
+-- Replies about request
+
+CREATE TABLE TBLREQUESTREPLY
+(
+	ReplyID INT UNIQUE identity (5000000,1),
+	GENID INT foreign key references tbluserdetails(GENID),
+	ReplyContent NVARCHAR(MAX)
+)
+
+-------------------------------------------------------------------------------------------------
+
+-- Replies about request
+
+CREATE PROC sp_RequestReply
+(
+	@GENID INT,
+	@REPLYCONTENT NVARCHAR(MAX)
+)
+AS
+INSERT INTO TBLREQUESTREPLY
+VALUES (@GENID,@REPLYCONTENT)
 
 -------------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------
 
--- THINGS ABOUT TRANSACTIONS STARTS HERE
+-- THINGS ABOUT TRANSACTIONS ENDS HERE
 
 
 -------------------------------------------------------------------------------------------------

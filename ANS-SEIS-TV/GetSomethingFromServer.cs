@@ -22,6 +22,8 @@ namespace ANS_SEIS_TV
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
+        public string RequestContent { get; set; }
+        public string Content { get; set; }
 
 
         public void GetSomething()
@@ -110,13 +112,31 @@ namespace ANS_SEIS_TV
             LastName = results.FirstOrDefault().ToString();
         }
 
-        public void GetGENID()
+        public int GetGENID(string Username)
         {
             var results = from TBLUSERDETAIL in db.TBLUSERDETAILs
                           where TBLUSERDETAIL.USERNAME == Username
                           select TBLUSERDETAIL.GENID;
 
             GENID = int.Parse(results.FirstOrDefault().ToString());
+
+            return GENID;
+        }
+
+        public void GetRequestContent()
+        {
+            var results = from TBLREQUESTTABLE in db.TBLREQUESTTABLEs
+                          where TBLREQUESTTABLE.REQUESTID == GENID // the ID here refers to the request ID
+                          select TBLREQUESTTABLE.REQUESTCONTENT;
+
+            RequestContent = results.FirstOrDefault().ToString();
+        }
+
+        public void GetRequestStatus()
+        {
+            var results = from TBLREQUESTTABLE in db.TBLREQUESTTABLEs
+                          where TBLREQUESTTABLE.REQUESTID == GENID // the ID here refers to the request ID
+                          select TBLREQUESTTABLE.REQUESTCONTENT;
         }
     }
 }

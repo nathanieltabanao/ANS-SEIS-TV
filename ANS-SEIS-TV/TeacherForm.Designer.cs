@@ -1,6 +1,6 @@
 ﻿namespace ANS_SEIS_TV
 {
-    partial class AdminForm
+    partial class TeacherForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabSelector2 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl2 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
@@ -108,40 +107,6 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.materialTabSelector4 = new MaterialSkin.Controls.MaterialTabSelector();
-            this.materialTabControl4 = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabPage25 = new System.Windows.Forms.TabPage();
-            this.txtSearchUser = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.dgvUserRegister = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.btnUserClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnDeleteUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnAddUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnEditUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtFirstName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtContactNumber = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtLastName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtMiddleName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtUserID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdoStudent = new MaterialSkin.Controls.MaterialRadioButton();
-            this.rdoTeacher = new MaterialSkin.Controls.MaterialRadioButton();
-            this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
-            this.tabPage26 = new System.Windows.Forms.TabPage();
-            this.btnLogout = new MaterialSkin.Controls.MaterialFlatButton();
-            this.lblCurrentUser = new System.Windows.Forms.Label();
-            this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
@@ -160,13 +125,6 @@
             this.tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequest)).BeginInit();
             this.groupBox6.SuspendLayout();
-            this.tabPage13.SuspendLayout();
-            this.materialTabControl4.SuspendLayout();
-            this.tabPage25.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUserRegister)).BeginInit();
-            this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabSelector2
@@ -175,13 +133,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabSelector2.BaseTabControl = this.materialTabControl2;
             this.materialTabSelector2.Depth = 0;
-            this.materialTabSelector2.Location = new System.Drawing.Point(-1, 52);
+            this.materialTabSelector2.Location = new System.Drawing.Point(-3, 59);
             this.materialTabSelector2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector2.Name = "materialTabSelector2";
             this.materialTabSelector2.Size = new System.Drawing.Size(1162, 48);
-            this.materialTabSelector2.TabIndex = 21;
+            this.materialTabSelector2.TabIndex = 25;
             this.materialTabSelector2.Text = "materialTabSelector1";
-            this.materialTabSelector2.Click += new System.EventHandler(this.materialTabSelector2_Click);
             // 
             // materialTabControl2
             // 
@@ -192,12 +149,12 @@
             this.materialTabControl2.Controls.Add(this.tabPage12);
             this.materialTabControl2.Controls.Add(this.tabPage13);
             this.materialTabControl2.Depth = 0;
-            this.materialTabControl2.Location = new System.Drawing.Point(-1, 102);
+            this.materialTabControl2.Location = new System.Drawing.Point(-3, 109);
             this.materialTabControl2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl2.Name = "materialTabControl2";
             this.materialTabControl2.SelectedIndex = 0;
             this.materialTabControl2.Size = new System.Drawing.Size(1162, 632);
-            this.materialTabControl2.TabIndex = 24;
+            this.materialTabControl2.TabIndex = 26;
             // 
             // tabPage8
             // 
@@ -266,7 +223,6 @@
             this.tabPage14.Size = new System.Drawing.Size(1154, 547);
             this.tabPage14.TabIndex = 0;
             this.tabPage14.Text = "Registration";
-            this.tabPage14.Click += new System.EventHandler(this.tabPage14_Click);
             // 
             // dgvEquipment
             // 
@@ -352,8 +308,6 @@
             this.txtSearchEquipment.TabIndex = 56;
             this.txtSearchEquipment.TabStop = false;
             this.txtSearchEquipment.UseSystemPasswordChar = false;
-            this.txtSearchEquipment.Click += new System.EventHandler(this.txtSearchEquipment_Click);
-            this.txtSearchEquipment.TextChanged += new System.EventHandler(this.txtSearchEquipment_TextChanged);
             // 
             // btnClearEquipment
             // 
@@ -366,7 +320,6 @@
             this.btnClearEquipment.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearEquipment.TabIndex = 55;
             this.btnClearEquipment.Values.Text = "Clear";
-            this.btnClearEquipment.Click += new System.EventHandler(this.btnClearEquipment_Click);
             // 
             // groupBox3
             // 
@@ -472,7 +425,6 @@
             this.btnDeleteEquipment.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteEquipment.TabIndex = 54;
             this.btnDeleteEquipment.Values.Text = "Delete";
-            this.btnDeleteEquipment.Click += new System.EventHandler(this.btnDeleteEquipment_Click);
             // 
             // btnAddEquipment
             // 
@@ -485,7 +437,6 @@
             this.btnAddEquipment.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddEquipment.TabIndex = 53;
             this.btnAddEquipment.Values.Text = "Add";
-            this.btnAddEquipment.Click += new System.EventHandler(this.kryptonButton7_Click);
             // 
             // btnEditEquipment
             // 
@@ -498,7 +449,6 @@
             this.btnEditEquipment.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditEquipment.TabIndex = 52;
             this.btnEditEquipment.Values.Text = "Edit";
-            this.btnEditEquipment.Click += new System.EventHandler(this.btnEditEquipment_Click);
             // 
             // bunifuCustomLabel10
             // 
@@ -570,7 +520,6 @@
             this.tabPage17.TabIndex = 3;
             this.tabPage17.Text = "Borrowing";
             this.tabPage17.UseVisualStyleBackColor = true;
-            this.tabPage17.Click += new System.EventHandler(this.tabPage17_Click);
             // 
             // kryptonButton6
             // 
@@ -591,7 +540,6 @@
             this.kryptonButton3.Size = new System.Drawing.Size(90, 25);
             this.kryptonButton3.TabIndex = 76;
             this.kryptonButton3.Values.Text = "Clear";
-            this.kryptonButton3.Click += new System.EventHandler(this.kryptonButton3_Click);
             // 
             // kryptonButton2
             // 
@@ -602,7 +550,6 @@
             this.kryptonButton2.Size = new System.Drawing.Size(90, 25);
             this.kryptonButton2.TabIndex = 75;
             this.kryptonButton2.Values.Text = "Remove";
-            this.kryptonButton2.Click += new System.EventHandler(this.kryptonButton2_Click);
             // 
             // label3
             // 
@@ -690,7 +637,6 @@
             this.txtSearchBorrow.WaterMark = "Equipment Name / Barcode / Type";
             this.txtSearchBorrow.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearchBorrow.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtSearchBorrow.TextChanged += new System.EventHandler(this.txtSearchBorrow_TextChanged);
             // 
             // label4
             // 
@@ -750,7 +696,6 @@
             this.btnSearchBorrower.Size = new System.Drawing.Size(65, 52);
             this.btnSearchBorrower.TabIndex = 70;
             this.btnSearchBorrower.Values.Text = "Search";
-            this.btnSearchBorrower.Click += new System.EventHandler(this.kryptonButton5_Click);
             // 
             // label2
             // 
@@ -1105,7 +1050,6 @@
             this.dgvRequest.Size = new System.Drawing.Size(1138, 480);
             this.dgvRequest.TabIndex = 46;
             this.dgvRequest.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.dgvRequest.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRequest_CellContentDoubleClick);
             // 
             // groupBox6
             // 
@@ -1129,7 +1073,6 @@
             this.rdoOpenRequest.StateCommon.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoOpenRequest.TabIndex = 36;
             this.rdoOpenRequest.Values.Text = "Open";
-            this.rdoOpenRequest.CheckedChanged += new System.EventHandler(this.rdoOpenRequest_CheckedChanged);
             // 
             // btnClosedRequest
             // 
@@ -1139,7 +1082,6 @@
             this.btnClosedRequest.StateCommon.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClosedRequest.TabIndex = 35;
             this.btnClosedRequest.Values.Text = "Closed";
-            this.btnClosedRequest.CheckedChanged += new System.EventHandler(this.btnClosedRequest_CheckedChanged);
             // 
             // rdoPendingRequest
             // 
@@ -1149,7 +1091,6 @@
             this.rdoPendingRequest.StateCommon.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoPendingRequest.TabIndex = 34;
             this.rdoPendingRequest.Values.Text = "Pending";
-            this.rdoPendingRequest.CheckedChanged += new System.EventHandler(this.rdoPendingRequest_CheckedChanged);
             // 
             // rdoAllRequest
             // 
@@ -1159,7 +1100,6 @@
             this.rdoAllRequest.StateCommon.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoAllRequest.TabIndex = 33;
             this.rdoAllRequest.Values.Text = "All";
-            this.rdoAllRequest.CheckedChanged += new System.EventHandler(this.kryptonRadioButton1_CheckedChanged);
             // 
             // bunifuCustomLabel1
             // 
@@ -1187,485 +1127,27 @@
             // 
             // tabPage13
             // 
-            this.tabPage13.Controls.Add(this.materialTabSelector4);
-            this.tabPage13.Controls.Add(this.materialTabControl4);
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage13.Size = new System.Drawing.Size(1154, 606);
             this.tabPage13.TabIndex = 6;
-            this.tabPage13.Text = "Accounts";
+            this.tabPage13.Text = "User Profile";
             this.tabPage13.UseVisualStyleBackColor = true;
             // 
-            // materialTabSelector4
-            // 
-            this.materialTabSelector4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialTabSelector4.BaseTabControl = this.materialTabControl4;
-            this.materialTabSelector4.Depth = 0;
-            this.materialTabSelector4.Location = new System.Drawing.Point(-1, -6);
-            this.materialTabSelector4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialTabSelector4.Name = "materialTabSelector4";
-            this.materialTabSelector4.Size = new System.Drawing.Size(1191, 48);
-            this.materialTabSelector4.TabIndex = 23;
-            this.materialTabSelector4.Text = "materialTabSelector1";
-            // 
-            // materialTabControl4
-            // 
-            this.materialTabControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialTabControl4.Controls.Add(this.tabPage25);
-            this.materialTabControl4.Controls.Add(this.tabPage26);
-            this.materialTabControl4.Depth = 0;
-            this.materialTabControl4.Location = new System.Drawing.Point(12, 38);
-            this.materialTabControl4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialTabControl4.Name = "materialTabControl4";
-            this.materialTabControl4.SelectedIndex = 0;
-            this.materialTabControl4.Size = new System.Drawing.Size(1162, 581);
-            this.materialTabControl4.TabIndex = 24;
-            // 
-            // tabPage25
-            // 
-            this.tabPage25.Controls.Add(this.txtSearchUser);
-            this.tabPage25.Controls.Add(this.bunifuCustomLabel7);
-            this.tabPage25.Controls.Add(this.dgvUserRegister);
-            this.tabPage25.Controls.Add(this.btnUserClear);
-            this.tabPage25.Controls.Add(this.btnDeleteUser);
-            this.tabPage25.Controls.Add(this.btnAddUser);
-            this.tabPage25.Controls.Add(this.btnEditUser);
-            this.tabPage25.Controls.Add(this.groupBox5);
-            this.tabPage25.Controls.Add(this.groupBox4);
-            this.tabPage25.Controls.Add(this.bunifuCustomLabel5);
-            this.tabPage25.Controls.Add(this.txtUserID);
-            this.tabPage25.Controls.Add(this.groupBox1);
-            this.tabPage25.Location = new System.Drawing.Point(4, 22);
-            this.tabPage25.Name = "tabPage25";
-            this.tabPage25.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage25.Size = new System.Drawing.Size(1154, 555);
-            this.tabPage25.TabIndex = 5;
-            this.tabPage25.Text = "Register User";
-            this.tabPage25.UseVisualStyleBackColor = true;
-            this.tabPage25.Click += new System.EventHandler(this.tabPage25_Click);
-            // 
-            // txtSearchUser
-            // 
-            this.txtSearchUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearchUser.Location = new System.Drawing.Point(845, 24);
-            this.txtSearchUser.Name = "txtSearchUser";
-            this.txtSearchUser.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.txtSearchUser.Size = new System.Drawing.Size(279, 23);
-            this.txtSearchUser.TabIndex = 38;
-            this.txtSearchUser.TextChanged += new System.EventHandler(this.txtSearchUser_TextChanged);
-            // 
-            // bunifuCustomLabel7
-            // 
-            this.bunifuCustomLabel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuCustomLabel7.AutoSize = true;
-            this.bunifuCustomLabel7.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.bunifuCustomLabel7.Location = new System.Drawing.Point(783, 25);
-            this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
-            this.bunifuCustomLabel7.Size = new System.Drawing.Size(59, 20);
-            this.bunifuCustomLabel7.TabIndex = 37;
-            this.bunifuCustomLabel7.Text = "Search:";
-            // 
-            // dgvUserRegister
-            // 
-            this.dgvUserRegister.AllowUserToAddRows = false;
-            this.dgvUserRegister.AllowUserToDeleteRows = false;
-            this.dgvUserRegister.AllowUserToOrderColumns = true;
-            this.dgvUserRegister.AllowUserToResizeColumns = false;
-            this.dgvUserRegister.AllowUserToResizeRows = false;
-            this.dgvUserRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvUserRegister.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dgvUserRegister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUserRegister.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvUserRegister.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvUserRegister.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dgvUserRegister.Location = new System.Drawing.Point(405, 53);
-            this.dgvUserRegister.Name = "dgvUserRegister";
-            this.dgvUserRegister.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvUserRegister.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUserRegister.Size = new System.Drawing.Size(719, 482);
-            this.dgvUserRegister.TabIndex = 36;
-            this.dgvUserRegister.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserRegister_CellContentDoubleClick);
-            // 
-            // btnUserClear
-            // 
-            this.btnUserClear.Location = new System.Drawing.Point(21, 385);
-            this.btnUserClear.Name = "btnUserClear";
-            this.btnUserClear.Size = new System.Drawing.Size(90, 34);
-            this.btnUserClear.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnUserClear.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnUserClear.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnUserClear.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserClear.TabIndex = 35;
-            this.btnUserClear.Values.Text = "Clear";
-            this.btnUserClear.Click += new System.EventHandler(this.btnUserClear_Click);
-            // 
-            // btnDeleteUser
-            // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(117, 385);
-            this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(90, 34);
-            this.btnDeleteUser.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnDeleteUser.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnDeleteUser.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnDeleteUser.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteUser.TabIndex = 34;
-            this.btnDeleteUser.Values.Text = "Delete User";
-            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
-            // 
-            // btnAddUser
-            // 
-            this.btnAddUser.Location = new System.Drawing.Point(309, 385);
-            this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(90, 34);
-            this.btnAddUser.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnAddUser.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnAddUser.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnAddUser.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddUser.TabIndex = 33;
-            this.btnAddUser.Values.Text = "Add User";
-            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
-            // 
-            // btnEditUser
-            // 
-            this.btnEditUser.Location = new System.Drawing.Point(213, 385);
-            this.btnEditUser.Name = "btnEditUser";
-            this.btnEditUser.Size = new System.Drawing.Size(90, 34);
-            this.btnEditUser.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnEditUser.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnEditUser.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnEditUser.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditUser.TabIndex = 32;
-            this.btnEditUser.Values.Text = "Edit User";
-            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBox5.Controls.Add(this.materialLabel10);
-            this.groupBox5.Controls.Add(this.txtUsername);
-            this.groupBox5.Controls.Add(this.materialLabel11);
-            this.groupBox5.Controls.Add(this.txtPassword);
-            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox5.Location = new System.Drawing.Point(10, 288);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(384, 91);
-            this.groupBox5.TabIndex = 27;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Account Details";
-            // 
-            // materialLabel10
-            // 
-            this.materialLabel10.AutoSize = true;
-            this.materialLabel10.BackColor = System.Drawing.SystemColors.Window;
-            this.materialLabel10.Depth = 0;
-            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel10.Location = new System.Drawing.Point(57, 21);
-            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel10.Name = "materialLabel10";
-            this.materialLabel10.Size = new System.Drawing.Size(85, 19);
-            this.materialLabel10.TabIndex = 7;
-            this.materialLabel10.Text = "Username :";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Enabled = false;
-            this.txtUsername.Location = new System.Drawing.Point(148, 22);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(230, 23);
-            this.txtUsername.TabIndex = 8;
-            // 
-            // materialLabel11
-            // 
-            this.materialLabel11.AutoSize = true;
-            this.materialLabel11.BackColor = System.Drawing.SystemColors.Window;
-            this.materialLabel11.Depth = 0;
-            this.materialLabel11.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel11.Location = new System.Drawing.Point(59, 51);
-            this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel11.Name = "materialLabel11";
-            this.materialLabel11.Size = new System.Drawing.Size(83, 19);
-            this.materialLabel11.TabIndex = 8;
-            this.materialLabel11.Text = "Password :";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Enabled = false;
-            this.txtPassword.Location = new System.Drawing.Point(148, 51);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(230, 23);
-            this.txtPassword.TabIndex = 8;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBox4.Controls.Add(this.bunifuCustomLabel6);
-            this.groupBox4.Controls.Add(this.txtFirstName);
-            this.groupBox4.Controls.Add(this.materialLabel2);
-            this.groupBox4.Controls.Add(this.txtContactNumber);
-            this.groupBox4.Controls.Add(this.materialLabel3);
-            this.groupBox4.Controls.Add(this.txtLastName);
-            this.groupBox4.Controls.Add(this.materialLabel7);
-            this.groupBox4.Controls.Add(this.txtMiddleName);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox4.Location = new System.Drawing.Point(9, 125);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(384, 157);
-            this.groupBox4.TabIndex = 26;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "User Details";
-            // 
-            // bunifuCustomLabel6
-            // 
-            this.bunifuCustomLabel6.AutoSize = true;
-            this.bunifuCustomLabel6.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel6.Location = new System.Drawing.Point(48, 24);
-            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
-            this.bunifuCustomLabel6.Size = new System.Drawing.Size(89, 18);
-            this.bunifuCustomLabel6.TabIndex = 24;
-            this.bunifuCustomLabel6.Text = "First Name :";
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Location = new System.Drawing.Point(145, 24);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(233, 23);
-            this.txtFirstName.TabIndex = 2;
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.BackColor = System.Drawing.SystemColors.Window;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(34, 53);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(106, 19);
-            this.materialLabel2.TabIndex = 8;
-            this.materialLabel2.Text = "Middle Name :";
-            // 
-            // txtContactNumber
-            // 
-            this.txtContactNumber.Location = new System.Drawing.Point(145, 111);
-            this.txtContactNumber.Name = "txtContactNumber";
-            this.txtContactNumber.Size = new System.Drawing.Size(233, 23);
-            this.txtContactNumber.TabIndex = 5;
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.BackColor = System.Drawing.SystemColors.Window;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(51, 82);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(90, 19);
-            this.materialLabel3.TabIndex = 9;
-            this.materialLabel3.Text = "Last Name :";
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Location = new System.Drawing.Point(145, 82);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(233, 23);
-            this.txtLastName.TabIndex = 4;
-            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
-            // 
-            // materialLabel7
-            // 
-            this.materialLabel7.AutoSize = true;
-            this.materialLabel7.BackColor = System.Drawing.SystemColors.Window;
-            this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(67, 111);
-            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(79, 19);
-            this.materialLabel7.TabIndex = 10;
-            this.materialLabel7.Text = "Contact #:";
-            // 
-            // txtMiddleName
-            // 
-            this.txtMiddleName.Location = new System.Drawing.Point(145, 53);
-            this.txtMiddleName.Name = "txtMiddleName";
-            this.txtMiddleName.Size = new System.Drawing.Size(233, 23);
-            this.txtMiddleName.TabIndex = 3;
-            // 
-            // bunifuCustomLabel5
-            // 
-            this.bunifuCustomLabel5.AutoSize = true;
-            this.bunifuCustomLabel5.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(13, 79);
-            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
-            this.bunifuCustomLabel5.Size = new System.Drawing.Size(69, 20);
-            this.bunifuCustomLabel5.TabIndex = 25;
-            this.bunifuCustomLabel5.Text = "User ID :";
-            // 
-            // txtUserID
-            // 
-            this.txtUserID.Enabled = false;
-            this.txtUserID.Location = new System.Drawing.Point(82, 79);
-            this.txtUserID.Name = "txtUserID";
-            this.txtUserID.Size = new System.Drawing.Size(210, 23);
-            this.txtUserID.TabIndex = 24;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBox1.Controls.Add(this.rdoStudent);
-            this.groupBox1.Controls.Add(this.rdoTeacher);
-            this.groupBox1.Controls.Add(this.rdoAdmin);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 9);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(380, 51);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "User Type";
-            // 
-            // rdoStudent
-            // 
-            this.rdoStudent.AutoSize = true;
-            this.rdoStudent.BackColor = System.Drawing.Color.Transparent;
-            this.rdoStudent.Depth = 0;
-            this.rdoStudent.Enabled = false;
-            this.rdoStudent.Font = new System.Drawing.Font("Roboto", 10F);
-            this.rdoStudent.Location = new System.Drawing.Point(256, 18);
-            this.rdoStudent.Margin = new System.Windows.Forms.Padding(0);
-            this.rdoStudent.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.rdoStudent.MouseState = MaterialSkin.MouseState.HOVER;
-            this.rdoStudent.Name = "rdoStudent";
-            this.rdoStudent.Ripple = true;
-            this.rdoStudent.Size = new System.Drawing.Size(77, 30);
-            this.rdoStudent.TabIndex = 4;
-            this.rdoStudent.Text = "Student";
-            this.rdoStudent.UseVisualStyleBackColor = false;
-            // 
-            // rdoTeacher
-            // 
-            this.rdoTeacher.AutoSize = true;
-            this.rdoTeacher.BackColor = System.Drawing.Color.Transparent;
-            this.rdoTeacher.Depth = 0;
-            this.rdoTeacher.Font = new System.Drawing.Font("Roboto", 10F);
-            this.rdoTeacher.Location = new System.Drawing.Point(143, 18);
-            this.rdoTeacher.Margin = new System.Windows.Forms.Padding(0);
-            this.rdoTeacher.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.rdoTeacher.MouseState = MaterialSkin.MouseState.HOVER;
-            this.rdoTeacher.Name = "rdoTeacher";
-            this.rdoTeacher.Ripple = true;
-            this.rdoTeacher.Size = new System.Drawing.Size(79, 30);
-            this.rdoTeacher.TabIndex = 3;
-            this.rdoTeacher.Text = "Teacher";
-            this.rdoTeacher.UseVisualStyleBackColor = false;
-            this.rdoTeacher.CheckedChanged += new System.EventHandler(this.rdoTeacher_CheckedChanged_1);
-            // 
-            // rdoAdmin
-            // 
-            this.rdoAdmin.AutoSize = true;
-            this.rdoAdmin.BackColor = System.Drawing.Color.Transparent;
-            this.rdoAdmin.Depth = 0;
-            this.rdoAdmin.Font = new System.Drawing.Font("Roboto", 10F);
-            this.rdoAdmin.Location = new System.Drawing.Point(5, 18);
-            this.rdoAdmin.Margin = new System.Windows.Forms.Padding(0);
-            this.rdoAdmin.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.rdoAdmin.MouseState = MaterialSkin.MouseState.HOVER;
-            this.rdoAdmin.Name = "rdoAdmin";
-            this.rdoAdmin.Ripple = true;
-            this.rdoAdmin.Size = new System.Drawing.Size(114, 30);
-            this.rdoAdmin.TabIndex = 2;
-            this.rdoAdmin.Text = "Administrator";
-            this.rdoAdmin.UseVisualStyleBackColor = false;
-            this.rdoAdmin.CheckedChanged += new System.EventHandler(this.rdoAdmin_CheckedChanged_1);
-            // 
-            // tabPage26
-            // 
-            this.tabPage26.Location = new System.Drawing.Point(4, 22);
-            this.tabPage26.Name = "tabPage26";
-            this.tabPage26.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage26.Size = new System.Drawing.Size(1154, 555);
-            this.tabPage26.TabIndex = 6;
-            this.tabPage26.Text = "Upload Sheet";
-            this.tabPage26.UseVisualStyleBackColor = true;
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogout.AutoSize = true;
-            this.btnLogout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnLogout.Depth = 0;
-            this.btnLogout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnLogout.Icon = null;
-            this.btnLogout.Location = new System.Drawing.Point(1070, 30);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnLogout.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Primary = false;
-            this.btnLogout.Size = new System.Drawing.Size(74, 36);
-            this.btnLogout.TabIndex = 25;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // lblCurrentUser
-            // 
-            this.lblCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCurrentUser.BackColor = System.Drawing.Color.Transparent;
-            this.lblCurrentUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblCurrentUser.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentUser.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCurrentUser.Location = new System.Drawing.Point(712, 33);
-            this.lblCurrentUser.Name = "lblCurrentUser";
-            this.lblCurrentUser.Size = new System.Drawing.Size(351, 29);
-            this.lblCurrentUser.TabIndex = 26;
-            this.lblCurrentUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(146, 124);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(347, 23);
-            this.txtSearch.TabIndex = 69;
-            // 
-            // AdminForm
+            // TeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnLogout;
             this.ClientSize = new System.Drawing.Size(1157, 735);
-            this.Controls.Add(this.lblCurrentUser);
-            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.materialTabSelector2);
             this.Controls.Add(this.materialTabControl2);
             this.MaximizeBox = false;
-            this.Name = "AdminForm";
-            this.Sizable = false;
+            this.MinimizeBox = false;
+            this.Name = "TeacherForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main";
-            this.TransparencyKey = System.Drawing.SystemColors.AppWorkspace;
-            this.Load += new System.EventHandler(this.Main_Load);
-            this.Leave += new System.EventHandler(this.Main_Leave);
+            this.Text = "Teacher Form";
+            this.Load += new System.EventHandler(this.TeacherForm_Load);
             this.materialTabControl2.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.materialTabControl3.ResumeLayout(false);
@@ -1693,31 +1175,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequest)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.tabPage13.ResumeLayout(false);
-            this.materialTabControl4.ResumeLayout(false);
-            this.tabPage25.ResumeLayout(false);
-            this.tabPage25.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUserRegister)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector2;
-
         private MaterialSkin.Controls.MaterialTabControl materialTabControl2;
         private System.Windows.Forms.TabPage tabPage8;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector3;
         private MaterialSkin.Controls.MaterialTabControl materialTabControl3;
         private System.Windows.Forms.TabPage tabPage14;
+        private MetroFramework.Controls.MetroGrid dgvEquipment;
+        private System.Windows.Forms.ComboBox drpEquipmentType;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtSearchEquipment;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnClearEquipment;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -1735,89 +1206,49 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel11;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel12;
         private System.Windows.Forms.TabPage tabPage16;
+        private System.Windows.Forms.TabPage tabPage17;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton6;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
+        private System.Windows.Forms.Label label3;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX4;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private MetroFramework.Controls.MetroTextBox txtSearchBorrow;
+        private System.Windows.Forms.Label label4;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dgvToBeBorrowed;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSearchBorrower;
+        private System.Windows.Forms.Label label2;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtBorrowerFullname;
+        private System.Windows.Forms.Label label1;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtBorrowerUsername;
         private System.Windows.Forms.TabPage tabPage18;
-
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.TabPage tabPage10;
-        private System.Windows.Forms.TabPage tabPage11;
-        private System.Windows.Forms.TabPage tabPage12;
-        private System.Windows.Forms.TabPage tabPage13;
-        private MaterialSkin.Controls.MaterialTabSelector materialTabSelector4;
-        private MaterialSkin.Controls.MaterialTabControl materialTabControl4;
-        private System.Windows.Forms.TabPage tabPage25;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dgvUserRegister;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnUserClear;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDeleteUser;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddUser;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEditUser;
-
-        private System.Windows.Forms.GroupBox groupBox5;
-        private MaterialSkin.Controls.MaterialLabel materialLabel10;
-        private MaterialSkin.Controls.MaterialLabel materialLabel11;
-
-        private System.Windows.Forms.GroupBox groupBox4;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtFirstName;
-        private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtContactNumber;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtLastName;
-        private MaterialSkin.Controls.MaterialLabel materialLabel7;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtMiddleName;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtUserID;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private MaterialSkin.Controls.MaterialRadioButton rdoStudent;
-        private MaterialSkin.Controls.MaterialRadioButton rdoTeacher;
-        private MaterialSkin.Controls.MaterialRadioButton rdoAdmin;
-        private System.Windows.Forms.TabPage tabPage26;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSearchUser;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtUsername;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPassword;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddList;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRmvList;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnClrList;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRtrnSlip;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel22;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX2;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel20;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnReturnSearch;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox3;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel15;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox4;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel16;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel20;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX1;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel22;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRmvList;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnClrList;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRtrnSlip;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddList;
-
-        private System.Windows.Forms.ComboBox drpEquipmentType;
-        private MaterialSkin.Controls.MaterialFlatButton btnLogout;
-        private System.Windows.Forms.Label lblCurrentUser;
-        private System.Windows.Forms.TabPage tabPage17;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSearch;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Label label1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSearchBorrower;
-        private System.Windows.Forms.Label label2;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtBorrowerFullname;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Label label4;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dgvToBeBorrowed;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
-        private System.Windows.Forms.Label label3;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX4;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton6;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnReturnSearch;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.TabPage tabPage11;
+        private MetroFramework.Controls.MetroGrid dgvRequest;
         private System.Windows.Forms.GroupBox groupBox6;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoOpenRequest;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton btnClosedRequest;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoPendingRequest;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoAllRequest;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private MetroFramework.Controls.MetroGrid dgvRequest;
-        private MetroFramework.Controls.MetroGrid dgvEquipment;
-        private MetroFramework.Controls.MetroTextBox txtSearchBorrow;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtBorrowerUsername;
+        private System.Windows.Forms.TabPage tabPage12;
+        private System.Windows.Forms.TabPage tabPage13;
     }
 }

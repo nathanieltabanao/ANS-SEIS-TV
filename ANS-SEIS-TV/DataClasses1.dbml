@@ -46,6 +46,14 @@
       <Association Name="TBLEQEUIPMENTTYPE_TBLEQUIPMENTDETAIL" Member="TBLEQEUIPMENTTYPE" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQEUIPMENTTYPE" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBLREQUESTREPLY" Member="TBLREQUESTREPLies">
+    <Type Name="TBLREQUESTREPLY">
+      <Column Name="ReplyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReplyContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="TBLUSERDETAIL_TBLREQUESTREPLY" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.TBLREQUESTTABLE" Member="TBLREQUESTTABLEs">
     <Type Name="TBLREQUESTTABLE">
       <Column Name="REQUESTID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
@@ -91,6 +99,7 @@
       <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ISFIRSTLOGIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TBLUSERDETAIL_EQUIPMENT_DESIGNATION" Member="EQUIPMENT_DESIGNATIONs" ThisKey="ID" OtherKey="ID" Type="EQUIPMENT_DESIGNATION" />
+      <Association Name="TBLUSERDETAIL_TBLREQUESTREPLY" Member="TBLREQUESTREPLies" ThisKey="GENID" OtherKey="GENID" Type="TBLREQUESTREPLY" />
       <Association Name="TBLUSERDETAIL_TBLREQUESTTABLE" Member="TBLREQUESTTABLEs" ThisKey="GENID" OtherKey="GENID" Type="TBLREQUESTTABLE" />
       <Association Name="TBLUSERDETAIL_TBLUSERACTIONREPORT" Member="TBLUSERACTIONREPORTs" ThisKey="ID" OtherKey="ID" Type="TBLUSERACTIONREPORT" />
       <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT" Member="TBLUSERLOGINREPORTs" ThisKey="ID" OtherKey="ID" Type="TBLUSERLOGINREPORT" />
@@ -107,9 +116,14 @@
       <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT" Member="TBLUSERDETAIL" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
-  <Function Name="dbo.sp_EquipmentDelete" Method="sp_EquipmentDelete">
-    <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
+  <Function Name="dbo.sp_EquipmentBorrowableView" Method="sp_EquipmentBorrowableView">
+    <Parameter Name="SearchKey" Parameter="searchKey" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_EquipmentBorrowableViewResult">
+      <Column Name="[Equipment Barcode]" Member="Equipment_Barcode" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="EQUIPMENT_TYPE_DESCRIPTION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
   </Function>
   <Function Name="dbo.sp_ViewPendingRequest" Method="sp_ViewPendingRequest">
     <ElementType Name="sp_ViewPendingRequestResult">
@@ -119,6 +133,10 @@
       <Column Name="[Date Requested]" Member="Date_Requested" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.sp_EquipmentDelete" Method="sp_EquipmentDelete">
+    <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_EquipmentEdit" Method="sp_EquipmentEdit">
     <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
@@ -163,6 +181,19 @@
     <Parameter Name="DATEREQUESTED" Parameter="dATEREQUESTED" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="REQUESTSTATUSID" Parameter="rEQUESTSTATUSID" Type="System.Int32" DbType="Int" />
     <Parameter Name="ISOPENED" Parameter="iSOPENED" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_RequestReplied" Method="sp_RequestReplied">
+    <Parameter Name="RequestID" Parameter="requestID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_RequestReply" Method="sp_RequestReply">
+    <Parameter Name="GENID" Parameter="gENID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="REPLYCONTENT" Parameter="rEPLYCONTENT" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_RequestViewed" Method="sp_RequestViewed">
+    <Parameter Name="RequestID" Parameter="requestID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_StudentInsert" Method="sp_StudentInsert">
@@ -272,6 +303,16 @@
       <Column Name="[Last Name]" Member="Last_Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="[Contact Number]" Member="Contact_Number" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="[User Type]" Member="User_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_UserSearchAdmin" Method="sp_UserSearchAdmin">
+    <Parameter Name="SearchKey" Parameter="searchKey" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_UserSearchAdminResult">
+      <Column Name="ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[First Name]" Member="First_Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="[Middle Name]" Member="Middle_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[Last Name]" Member="Last_Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_UserView" Method="sp_UserView">
