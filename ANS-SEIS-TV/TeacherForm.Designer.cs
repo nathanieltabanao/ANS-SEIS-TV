@@ -28,40 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabSelector2 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl2 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.materialTabSelector3 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl3 = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabPage14 = new System.Windows.Forms.TabPage();
-            this.dgvEquipment = new MetroFramework.Controls.MetroGrid();
-            this.drpEquipmentType = new System.Windows.Forms.ComboBox();
-            this.txtSearchEquipment = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.btnClearEquipment = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.numQuantity = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtEquipmentName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtEquipmentDescription = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.btnDeleteEquipment = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnAddEquipment = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnEditEquipment = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.bunifuCustomLabel10 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtEquipmentID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel12 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.tabPage17 = new System.Windows.Forms.TabPage();
             this.kryptonButton6 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -98,6 +76,7 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.btnNewRequest = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dgvRequest = new MetroFramework.Controls.MetroGrid();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.rdoOpenRequest = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
@@ -107,12 +86,11 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.lblCurrentUser = new System.Windows.Forms.Label();
+            this.btnLogout = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
-            this.tabPage14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.tabPage17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX4)).BeginInit();
             this.groupBox8.SuspendLayout();
@@ -187,7 +165,6 @@
             this.materialTabControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialTabControl3.Controls.Add(this.tabPage14);
             this.materialTabControl3.Controls.Add(this.tabPage16);
             this.materialTabControl3.Controls.Add(this.tabPage17);
             this.materialTabControl3.Controls.Add(this.tabPage18);
@@ -201,296 +178,6 @@
             this.materialTabControl3.SelectedIndex = 0;
             this.materialTabControl3.Size = new System.Drawing.Size(1162, 573);
             this.materialTabControl3.TabIndex = 24;
-            // 
-            // tabPage14
-            // 
-            this.tabPage14.BackColor = System.Drawing.Color.White;
-            this.tabPage14.Controls.Add(this.dgvEquipment);
-            this.tabPage14.Controls.Add(this.drpEquipmentType);
-            this.tabPage14.Controls.Add(this.txtSearchEquipment);
-            this.tabPage14.Controls.Add(this.btnClearEquipment);
-            this.tabPage14.Controls.Add(this.groupBox3);
-            this.tabPage14.Controls.Add(this.btnDeleteEquipment);
-            this.tabPage14.Controls.Add(this.btnAddEquipment);
-            this.tabPage14.Controls.Add(this.btnEditEquipment);
-            this.tabPage14.Controls.Add(this.bunifuCustomLabel10);
-            this.tabPage14.Controls.Add(this.txtEquipmentID);
-            this.tabPage14.Controls.Add(this.bunifuCustomLabel11);
-            this.tabPage14.Controls.Add(this.bunifuCustomLabel12);
-            this.tabPage14.Location = new System.Drawing.Point(4, 22);
-            this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(1154, 547);
-            this.tabPage14.TabIndex = 0;
-            this.tabPage14.Text = "Registration";
-            // 
-            // dgvEquipment
-            // 
-            this.dgvEquipment.AllowUserToAddRows = false;
-            this.dgvEquipment.AllowUserToDeleteRows = false;
-            this.dgvEquipment.AllowUserToResizeColumns = false;
-            this.dgvEquipment.AllowUserToResizeRows = false;
-            this.dgvEquipment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvEquipment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvEquipment.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvEquipment.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvEquipment.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvEquipment.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEquipment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEquipment.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvEquipment.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvEquipment.EnableHeadersVisualStyles = false;
-            this.dgvEquipment.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvEquipment.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvEquipment.Location = new System.Drawing.Point(396, 52);
-            this.dgvEquipment.Name = "dgvEquipment";
-            this.dgvEquipment.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEquipment.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvEquipment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvEquipment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEquipment.Size = new System.Drawing.Size(748, 489);
-            this.dgvEquipment.Style = MetroFramework.MetroColorStyle.Red;
-            this.dgvEquipment.TabIndex = 58;
-            this.dgvEquipment.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
-            // drpEquipmentType
-            // 
-            this.drpEquipmentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.drpEquipmentType.FormattingEnabled = true;
-            this.drpEquipmentType.Items.AddRange(new object[] {
-            "200 - General Equipment",
-            "201 - Computer Equipment",
-            "202 - Culinary Equipment",
-            "203 - Automotive Equipment"});
-            this.drpEquipmentType.Location = new System.Drawing.Point(126, 99);
-            this.drpEquipmentType.Name = "drpEquipmentType";
-            this.drpEquipmentType.Size = new System.Drawing.Size(252, 21);
-            this.drpEquipmentType.TabIndex = 57;
-            // 
-            // txtSearchEquipment
-            // 
-            this.txtSearchEquipment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearchEquipment.Depth = 0;
-            this.txtSearchEquipment.Hint = "";
-            this.txtSearchEquipment.Location = new System.Drawing.Point(840, 9);
-            this.txtSearchEquipment.MaxLength = 32767;
-            this.txtSearchEquipment.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtSearchEquipment.Name = "txtSearchEquipment";
-            this.txtSearchEquipment.PasswordChar = '\0';
-            this.txtSearchEquipment.SelectedText = "";
-            this.txtSearchEquipment.SelectionLength = 0;
-            this.txtSearchEquipment.SelectionStart = 0;
-            this.txtSearchEquipment.Size = new System.Drawing.Size(292, 23);
-            this.txtSearchEquipment.TabIndex = 56;
-            this.txtSearchEquipment.TabStop = false;
-            this.txtSearchEquipment.UseSystemPasswordChar = false;
-            // 
-            // btnClearEquipment
-            // 
-            this.btnClearEquipment.Location = new System.Drawing.Point(8, 321);
-            this.btnClearEquipment.Name = "btnClearEquipment";
-            this.btnClearEquipment.Size = new System.Drawing.Size(90, 34);
-            this.btnClearEquipment.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnClearEquipment.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnClearEquipment.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnClearEquipment.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearEquipment.TabIndex = 55;
-            this.btnClearEquipment.Values.Text = "Clear";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.numQuantity);
-            this.groupBox3.Controls.Add(this.materialLabel4);
-            this.groupBox3.Controls.Add(this.bunifuCustomLabel9);
-            this.groupBox3.Controls.Add(this.txtEquipmentName);
-            this.groupBox3.Controls.Add(this.materialLabel6);
-            this.groupBox3.Controls.Add(this.txtEquipmentDescription);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox3.Location = new System.Drawing.Point(4, 162);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(386, 153);
-            this.groupBox3.TabIndex = 51;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Equipment Details";
-            // 
-            // numQuantity
-            // 
-            this.numQuantity.Location = new System.Drawing.Point(151, 93);
-            this.numQuantity.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numQuantity.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numQuantity.Name = "numQuantity";
-            this.numQuantity.Size = new System.Drawing.Size(223, 22);
-            this.numQuantity.TabIndex = 26;
-            this.numQuantity.ThousandsSeparator = true;
-            this.numQuantity.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // materialLabel4
-            // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(73, 91);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(72, 19);
-            this.materialLabel4.TabIndex = 25;
-            this.materialLabel4.Text = "Quantity :";
-            // 
-            // bunifuCustomLabel9
-            // 
-            this.bunifuCustomLabel9.AutoSize = true;
-            this.bunifuCustomLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCustomLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel9.Location = new System.Drawing.Point(89, 40);
-            this.bunifuCustomLabel9.Name = "bunifuCustomLabel9";
-            this.bunifuCustomLabel9.Size = new System.Drawing.Size(56, 18);
-            this.bunifuCustomLabel9.TabIndex = 24;
-            this.bunifuCustomLabel9.Text = "Name :";
-            // 
-            // txtEquipmentName
-            // 
-            this.txtEquipmentName.Location = new System.Drawing.Point(151, 38);
-            this.txtEquipmentName.Name = "txtEquipmentName";
-            this.txtEquipmentName.Size = new System.Drawing.Size(223, 23);
-            this.txtEquipmentName.TabIndex = 2;
-            // 
-            // materialLabel6
-            // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(51, 67);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(94, 19);
-            this.materialLabel6.TabIndex = 8;
-            this.materialLabel6.Text = "Description :";
-            // 
-            // txtEquipmentDescription
-            // 
-            this.txtEquipmentDescription.Location = new System.Drawing.Point(151, 67);
-            this.txtEquipmentDescription.Name = "txtEquipmentDescription";
-            this.txtEquipmentDescription.Size = new System.Drawing.Size(223, 23);
-            this.txtEquipmentDescription.TabIndex = 3;
-            // 
-            // btnDeleteEquipment
-            // 
-            this.btnDeleteEquipment.Location = new System.Drawing.Point(111, 321);
-            this.btnDeleteEquipment.Name = "btnDeleteEquipment";
-            this.btnDeleteEquipment.Size = new System.Drawing.Size(90, 34);
-            this.btnDeleteEquipment.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnDeleteEquipment.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnDeleteEquipment.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnDeleteEquipment.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteEquipment.TabIndex = 54;
-            this.btnDeleteEquipment.Values.Text = "Delete";
-            // 
-            // btnAddEquipment
-            // 
-            this.btnAddEquipment.Location = new System.Drawing.Point(317, 321);
-            this.btnAddEquipment.Name = "btnAddEquipment";
-            this.btnAddEquipment.Size = new System.Drawing.Size(90, 34);
-            this.btnAddEquipment.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnAddEquipment.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnAddEquipment.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnAddEquipment.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddEquipment.TabIndex = 53;
-            this.btnAddEquipment.Values.Text = "Add";
-            // 
-            // btnEditEquipment
-            // 
-            this.btnEditEquipment.Location = new System.Drawing.Point(216, 321);
-            this.btnEditEquipment.Name = "btnEditEquipment";
-            this.btnEditEquipment.Size = new System.Drawing.Size(90, 34);
-            this.btnEditEquipment.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnEditEquipment.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnEditEquipment.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnEditEquipment.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditEquipment.TabIndex = 52;
-            this.btnEditEquipment.Values.Text = "Edit";
-            // 
-            // bunifuCustomLabel10
-            // 
-            this.bunifuCustomLabel10.AutoSize = true;
-            this.bunifuCustomLabel10.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCustomLabel10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.bunifuCustomLabel10.Location = new System.Drawing.Point(0, 100);
-            this.bunifuCustomLabel10.Name = "bunifuCustomLabel10";
-            this.bunifuCustomLabel10.Size = new System.Drawing.Size(120, 20);
-            this.bunifuCustomLabel10.TabIndex = 49;
-            this.bunifuCustomLabel10.Text = "Equipment type";
-            // 
-            // txtEquipmentID
-            // 
-            this.txtEquipmentID.Enabled = false;
-            this.txtEquipmentID.Location = new System.Drawing.Point(126, 52);
-            this.txtEquipmentID.Name = "txtEquipmentID";
-            this.txtEquipmentID.Size = new System.Drawing.Size(252, 23);
-            this.txtEquipmentID.TabIndex = 48;
-            // 
-            // bunifuCustomLabel11
-            // 
-            this.bunifuCustomLabel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuCustomLabel11.AutoSize = true;
-            this.bunifuCustomLabel11.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCustomLabel11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.bunifuCustomLabel11.Location = new System.Drawing.Point(746, 9);
-            this.bunifuCustomLabel11.Name = "bunifuCustomLabel11";
-            this.bunifuCustomLabel11.Size = new System.Drawing.Size(59, 20);
-            this.bunifuCustomLabel11.TabIndex = 47;
-            this.bunifuCustomLabel11.Text = "Search:";
-            // 
-            // bunifuCustomLabel12
-            // 
-            this.bunifuCustomLabel12.AutoSize = true;
-            this.bunifuCustomLabel12.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCustomLabel12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.bunifuCustomLabel12.Location = new System.Drawing.Point(7, 52);
-            this.bunifuCustomLabel12.Name = "bunifuCustomLabel12";
-            this.bunifuCustomLabel12.Size = new System.Drawing.Size(113, 20);
-            this.bunifuCustomLabel12.TabIndex = 46;
-            this.bunifuCustomLabel12.Text = "Equipment ID :";
             // 
             // tabPage16
             // 
@@ -569,14 +256,14 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridViewX4.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridViewX4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX4.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX4.DefaultCellStyle = dataGridViewCellStyle32;
             this.dataGridViewX4.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX4.Location = new System.Drawing.Point(576, 36);
             this.dataGridViewX4.Name = "dataGridViewX4";
@@ -656,14 +343,14 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dgvToBeBorrowed.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvToBeBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvToBeBorrowed.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvToBeBorrowed.DefaultCellStyle = dataGridViewCellStyle33;
             this.dgvToBeBorrowed.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvToBeBorrowed.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvToBeBorrowed.Location = new System.Drawing.Point(6, 185);
@@ -842,14 +529,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewX2.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dataGridViewX2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle34;
             this.dataGridViewX2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewX2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX2.Location = new System.Drawing.Point(547, 167);
@@ -885,14 +572,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewX1.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle35;
             this.dataGridViewX1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(6, 167);
@@ -986,6 +673,7 @@
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.btnNewRequest);
             this.tabPage11.Controls.Add(this.dgvRequest);
             this.tabPage11.Controls.Add(this.groupBox6);
             this.tabPage11.Controls.Add(this.bunifuCustomLabel1);
@@ -996,6 +684,24 @@
             this.tabPage11.TabIndex = 7;
             this.tabPage11.Text = "Requests";
             this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // btnNewRequest
+            // 
+            this.btnNewRequest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNewRequest.AutoSize = true;
+            this.btnNewRequest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnNewRequest.Depth = 0;
+            this.btnNewRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewRequest.Icon = null;
+            this.btnNewRequest.Location = new System.Drawing.Point(1021, 497);
+            this.btnNewRequest.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnNewRequest.Name = "btnNewRequest";
+            this.btnNewRequest.Primary = true;
+            this.btnNewRequest.Size = new System.Drawing.Size(113, 36);
+            this.btnNewRequest.TabIndex = 47;
+            this.btnNewRequest.Text = "New Request";
+            this.btnNewRequest.UseVisualStyleBackColor = true;
+            this.btnNewRequest.Click += new System.EventHandler(this.materialRaisedButton1_Click);
             // 
             // dgvRequest
             // 
@@ -1010,44 +716,44 @@
             this.dgvRequest.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRequest.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvRequest.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.dgvRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRequest.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRequest.DefaultCellStyle = dataGridViewCellStyle30;
             this.dgvRequest.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvRequest.EnableHeadersVisualStyles = false;
             this.dgvRequest.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvRequest.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvRequest.Location = new System.Drawing.Point(6, 56);
+            this.dgvRequest.Location = new System.Drawing.Point(9, 69);
             this.dgvRequest.MultiSelect = false;
             this.dgvRequest.Name = "dgvRequest";
             this.dgvRequest.ReadOnly = true;
             this.dgvRequest.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRequest.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRequest.RowHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.dgvRequest.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvRequest.RowTemplate.Height = 30;
             this.dgvRequest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRequest.Size = new System.Drawing.Size(1138, 480);
+            this.dgvRequest.Size = new System.Drawing.Size(1138, 422);
             this.dgvRequest.TabIndex = 46;
             this.dgvRequest.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
@@ -1073,6 +779,7 @@
             this.rdoOpenRequest.StateCommon.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoOpenRequest.TabIndex = 36;
             this.rdoOpenRequest.Values.Text = "Open";
+            this.rdoOpenRequest.CheckedChanged += new System.EventHandler(this.rdoOpenRequest_CheckedChanged);
             // 
             // btnClosedRequest
             // 
@@ -1082,6 +789,7 @@
             this.btnClosedRequest.StateCommon.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClosedRequest.TabIndex = 35;
             this.btnClosedRequest.Values.Text = "Closed";
+            this.btnClosedRequest.CheckedChanged += new System.EventHandler(this.btnClosedRequest_CheckedChanged);
             // 
             // rdoPendingRequest
             // 
@@ -1091,6 +799,7 @@
             this.rdoPendingRequest.StateCommon.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoPendingRequest.TabIndex = 34;
             this.rdoPendingRequest.Values.Text = "Pending";
+            this.rdoPendingRequest.CheckedChanged += new System.EventHandler(this.rdoPendingRequest_CheckedChanged);
             // 
             // rdoAllRequest
             // 
@@ -1100,6 +809,7 @@
             this.rdoAllRequest.StateCommon.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoAllRequest.TabIndex = 33;
             this.rdoAllRequest.Values.Text = "All";
+            this.rdoAllRequest.CheckedChanged += new System.EventHandler(this.rdoAllRequest_CheckedChanged);
             // 
             // bunifuCustomLabel1
             // 
@@ -1135,11 +845,45 @@
             this.tabPage13.Text = "User Profile";
             this.tabPage13.UseVisualStyleBackColor = true;
             // 
+            // lblCurrentUser
+            // 
+            this.lblCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCurrentUser.BackColor = System.Drawing.Color.Transparent;
+            this.lblCurrentUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblCurrentUser.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentUser.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCurrentUser.Location = new System.Drawing.Point(712, 35);
+            this.lblCurrentUser.Name = "lblCurrentUser";
+            this.lblCurrentUser.Size = new System.Drawing.Size(351, 29);
+            this.lblCurrentUser.TabIndex = 28;
+            this.lblCurrentUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogout.AutoSize = true;
+            this.btnLogout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLogout.Depth = 0;
+            this.btnLogout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnLogout.Icon = null;
+            this.btnLogout.Location = new System.Drawing.Point(1070, 32);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnLogout.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Primary = false;
+            this.btnLogout.Size = new System.Drawing.Size(74, 36);
+            this.btnLogout.TabIndex = 27;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click_1);
+            // 
             // TeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1157, 735);
+            this.Controls.Add(this.lblCurrentUser);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.materialTabSelector2);
             this.Controls.Add(this.materialTabControl2);
             this.MaximizeBox = false;
@@ -1151,11 +895,6 @@
             this.materialTabControl2.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.materialTabControl3.ResumeLayout(false);
-            this.tabPage14.ResumeLayout(false);
-            this.tabPage14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.tabPage17.ResumeLayout(false);
             this.tabPage17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX4)).EndInit();
@@ -1176,6 +915,7 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1186,25 +926,6 @@
         private System.Windows.Forms.TabPage tabPage8;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector3;
         private MaterialSkin.Controls.MaterialTabControl materialTabControl3;
-        private System.Windows.Forms.TabPage tabPage14;
-        private MetroFramework.Controls.MetroGrid dgvEquipment;
-        private System.Windows.Forms.ComboBox drpEquipmentType;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtSearchEquipment;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnClearEquipment;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown numQuantity;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel9;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtEquipmentName;
-        private MaterialSkin.Controls.MaterialLabel materialLabel6;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtEquipmentDescription;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDeleteEquipment;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddEquipment;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEditEquipment;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel10;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtEquipmentID;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel11;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel12;
         private System.Windows.Forms.TabPage tabPage16;
         private System.Windows.Forms.TabPage tabPage17;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton6;
@@ -1250,5 +971,8 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private System.Windows.Forms.TabPage tabPage12;
         private System.Windows.Forms.TabPage tabPage13;
+        private MaterialSkin.Controls.MaterialRaisedButton btnNewRequest;
+        private System.Windows.Forms.Label lblCurrentUser;
+        private MaterialSkin.Controls.MaterialFlatButton btnLogout;
     }
 }

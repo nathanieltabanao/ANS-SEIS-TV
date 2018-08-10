@@ -34,7 +34,7 @@ namespace ANS_SEIS_TV
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
         {
-            GENID = 1000000;
+            
             t.RequestContent = txtContent.Text;
             t.RequestDate = DateTime.Now;
             t.RequestStatus = 300;

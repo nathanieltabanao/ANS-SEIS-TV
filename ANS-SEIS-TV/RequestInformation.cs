@@ -24,6 +24,7 @@ namespace ANS_SEIS_TV
         public string RequestMessage { get; set; }
         public int Reply { get; set; }
         public int CurrentGENID { get; set; }
+        public int Response { get; set; }
 
         public RequestInformation()
         {
@@ -44,6 +45,7 @@ namespace ANS_SEIS_TV
             lblRequestStatus.Text = "Request Status : " + RequestStatus;
             txtRequestMessage.Text = RequestMessage;
             txtRequestSubject.Text = RequestTitle;
+            txtRequestMessage.ReadOnly = true;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -58,6 +60,7 @@ namespace ANS_SEIS_TV
 
             r.ShowDialog();
             Reply = r.Reply;
+            Response = r.Response;
             btnReply.Enabled = false;
         }
     }

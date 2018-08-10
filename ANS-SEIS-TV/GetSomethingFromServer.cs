@@ -26,15 +26,13 @@ namespace ANS_SEIS_TV
         public string Content { get; set; }
 
 
-        public void GetSomething()
-        {
-            Username = "nathan";
-            var results = from TBLUSERDETAIL in db.TBLUSERDETAILs
-                          where TBLUSERDETAIL.USERNAME == Username
-                          select TBLUSERDETAIL.USERTYPE_ID;
-
-            //string usertypeid = results.FirstOrDefault().Value.ToString();
-        }
+        //public void GetUserType()
+        //{   
+        //    var results = from TBLUSERDETAIL in db.TBLUSERDETAILs
+        //                  where TBLUSERDETAIL.USERNAME == Username
+        //                  select TBLUSERDETAIL.USERTYPE_ID;
+        //    UsertypeID = int.Parse(results.FirstOrDefault().Value.ToString());
+        //}
 
         public void GetFirstLogin()
         {

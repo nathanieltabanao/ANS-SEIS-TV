@@ -13,13 +13,13 @@ using MaterialSkin.Controls;
 
 namespace ANS_SEIS_TV
 {
-    public partial class AdminForm : MaterialForm
+    public partial class Main : MaterialForm
     {
         private readonly MaterialSkinManager materialSkinManager;
 
 
         //Main form Constructor
-        public AdminForm()
+        public Main()
         {
             InitializeComponent();
 
@@ -40,7 +40,7 @@ namespace ANS_SEIS_TV
 
         GetSomethingFromServer g = new GetSomethingFromServer();
 
-        SearchUser s = new SearchUser();
+        
 
 
         public string CurrentUser { get; set; }
@@ -59,7 +59,7 @@ namespace ANS_SEIS_TV
             txtPassword.Enabled = false;
             g.Username = CurrentUser;
             g.GetFullname();
-            lblCurrentUser.Text = "Current User : " + g.Fullname;
+            lblCurrentUser.Text = "Welcome Admin : " + g.Fullname;
             u.CurrentUsername = CurrentUser;
             g.GetUserID();
             CurrentUserID = g.ID;
@@ -67,6 +67,7 @@ namespace ANS_SEIS_TV
             rdoAllRequest.Checked = true;
             UpdateBorrow(SearchKey);
             CurrentGENID = g.GetGENID(CurrentUser);
+            AddingEquipment();
             RequestGridUpdate();
         }
 
@@ -421,11 +422,11 @@ namespace ANS_SEIS_TV
             u.Action = "User Logout";
             u.UserLoginLog();
             l.Show();
-            
         }
 
         private void kryptonButton5_Click(object sender, EventArgs e)
         {
+            SearchUser s = new SearchUser();
             s.ShowDialog();
             txtBorrowerUsername.Text = s.Username;
             txtBorrowerFullname.Text = s.Fullname;
@@ -493,7 +494,7 @@ namespace ANS_SEIS_TV
             //inig close niya naay reply kay i set niya as closed na
             if (r.Reply == 1)
             {
-                db.sp_RequestReplied(r.RequestID);
+                db.sp_RequestReplied(r.RequestID,r.Response);
             }
 
             dgvRequest.DataSource = db.sp_ViewAllRequest();
@@ -502,21 +503,37 @@ namespace ANS_SEIS_TV
 
         private void RequestGridUpdate()
         {
-            foreach (DataGridViewRow row in dgvRequest.Rows)
-            {
-                if (row.Cells[4].Value.ToString() == "OPEN")
-                {
-                    row.DefaultCellStyle.BackColor = Color.Red;
-                }
-                else if (row.Cells[4].Value.ToString() == "PENDING")
-                {
-                    row.DefaultCellStyle.BackColor = Color.Red;
-                }
-                else if (row.Cells[4].Value.ToString() == "CLOSED")
-                {
-                    row.DefaultCellStyle.BackColor = Color.Red;
-                }
-            }
+            //foreach (DataGridViewRow row in dgvRequest.Rows)
+            //{
+            //    if (row.Cells[4].Value.ToString() == "OPEN")
+            //    {
+            //        row.DefaultCellStyle.BackColor = Color.FromArgb(78, 186, 186);
+            //    }
+            //    else if (row.Cells[4].Value.ToString() == "PENDING")
+            //    {
+            //        row.DefaultCellStyle.BackColor = Color.Red;
+            //    }
+            //    else if (row.Cells[4].Value.ToString() == "CLOSED")
+            //    {
+            //        row.DefaultCellStyle.BackColor = Color.Red;
+            //    }
+            //}
+
+            //foreach (DataGridViewRow row in dgvEquipment.Rows)
+            //{
+            //    if (Convert.ToInt32(row.Cells[3].Value) == 110)
+            //    {
+            //        row.DefaultCellStyle.BackColor = Color.FromArgb(78, 186, 186);
+            //    }
+            //    else if (Convert.ToInt32(row.Cells[3].Value) == 110)
+            //    {
+            //        row.DefaultCellStyle.BackColor = Color.FromArgb(255, 206, 107);
+            //    }
+            //    if (Convert.ToInt32(row.Cells[3].Value) == 110)
+            //    {
+            //        row.DefaultCellStyle.BackColor = Color.FromArgb(255, 107, 107);
+            //    }
+            //}
         }
 
         ///////////////////////////////////////////////////////////////////
@@ -646,6 +663,21 @@ namespace ANS_SEIS_TV
         }
 
         private void kryptonButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroGrid2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnReturnSearch_Click(object sender, EventArgs e)
         {
 
         }

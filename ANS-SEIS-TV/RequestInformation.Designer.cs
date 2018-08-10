@@ -83,7 +83,6 @@
             this.txtRequestMessage.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtRequestMessage.CustomButton.UseSelectable = true;
             this.txtRequestMessage.CustomButton.Visible = false;
-            this.txtRequestMessage.Enabled = false;
             this.txtRequestMessage.Lines = new string[0];
             this.txtRequestMessage.Location = new System.Drawing.Point(27, 242);
             this.txtRequestMessage.MaxLength = 32767;
@@ -183,8 +182,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackLocation = MetroFramework.Forms.BackLocation.TopLeft;
-            this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.None;
             this.ClientSize = new System.Drawing.Size(786, 533);
             this.Controls.Add(this.txtRequestSubject);
             this.Controls.Add(this.label1);
@@ -195,6 +192,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblRequestName);
             this.Controls.Add(this.lblRequestID);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Movable = false;
             this.Name = "RequestInformation";
             this.Resizable = false;

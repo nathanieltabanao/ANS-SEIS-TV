@@ -107,6 +107,14 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
+		public System.Data.Linq.Table<TBLBORROWED> TBLBORROWEDs
+		{
+			get
+			{
+				return this.GetTable<TBLBORROWED>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TBLEQEUIPMENTTYPE> TBLEQEUIPMENTTYPEs
 		{
 			get
@@ -144,6 +152,14 @@ namespace ANS_SEIS_TV
 			get
 			{
 				return this.GetTable<TBLSTUDENTDETAIL>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBLTRANSACTION> TBLTRANSACTIONs
+		{
+			get
+			{
+				return this.GetTable<TBLTRANSACTION>();
 			}
 		}
 		
@@ -227,6 +243,13 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_EquipmentViewResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewBorrow")]
+		public int sp_NewBorrow([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WhoBorrowed", DbType="Int")] System.Nullable<int> whoBorrowed, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQBARCODE", DbType="VarChar(100)")] string eQBARCODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DATEBORROWED", DbType="DateTime")] System.Nullable<System.DateTime> dATEBORROWED)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, whoBorrowed, eQBARCODE, dATEBORROWED);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewRequest")]
 		public int sp_NewRequest([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REQUESTHEADER", DbType="VarChar(100)")] string rEQUESTHEADER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REQUESTCONTENT", DbType="NVarChar(MAX)")] string rEQUESTCONTENT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DATEREQUESTED", DbType="DateTime")] System.Nullable<System.DateTime> dATEREQUESTED, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REQUESTSTATUSID", DbType="Int")] System.Nullable<int> rEQUESTSTATUSID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISOPENED", DbType="Int")] System.Nullable<int> iSOPENED)
 		{
@@ -234,10 +257,17 @@ namespace ANS_SEIS_TV
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_RequestReplied")]
-		public int sp_RequestReplied([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RequestID", DbType="Int")] System.Nullable<int> requestID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewTransation")]
+		public int sp_NewTransation([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionDate", DbType="DateTime")] System.Nullable<System.DateTime> transactionDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionEvent", DbType="VarChar(150)")] string transactionEvent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Admin", DbType="Int")] System.Nullable<int> admin)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), requestID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionDate, transactionEvent, admin);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_RequestReplied")]
+		public int sp_RequestReplied([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RequestID", DbType="Int")] System.Nullable<int> requestID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RequestResponse", DbType="Int")] System.Nullable<int> requestResponse)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), requestID, requestResponse);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -274,6 +304,34 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_StudentViewResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TeacherViewAllRequest")]
+		public ISingleResult<sp_TeacherViewAllRequestResult> sp_TeacherViewAllRequest([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID);
+			return ((ISingleResult<sp_TeacherViewAllRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TeacherViewClosedRequest")]
+		public ISingleResult<sp_TeacherViewClosedRequestResult> sp_TeacherViewClosedRequest([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID);
+			return ((ISingleResult<sp_TeacherViewClosedRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TeacherViewOpenRequest")]
+		public ISingleResult<sp_TeacherViewOpenRequestResult> sp_TeacherViewOpenRequest([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID);
+			return ((ISingleResult<sp_TeacherViewOpenRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TeacherViewPendingRequest")]
+		public ISingleResult<sp_TeacherViewPendingRequestResult> sp_TeacherViewPendingRequest([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID);
+			return ((ISingleResult<sp_TeacherViewPendingRequestResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserActionReport")]
@@ -738,6 +796,105 @@ namespace ANS_SEIS_TV
 				if ((this._STATUSDESCRIPTION != value))
 				{
 					this._STATUSDESCRIPTION = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLBORROWED")]
+	public partial class TBLBORROWED
+	{
+		
+		private int _BorrowID;
+		
+		private System.Nullable<int> _TransactionID;
+		
+		private System.Nullable<int> _GENID;
+		
+		private string _EQBARCODE;
+		
+		private System.Nullable<System.DateTime> _DATEBORROWED;
+		
+		public TBLBORROWED()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BorrowID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int BorrowID
+		{
+			get
+			{
+				return this._BorrowID;
+			}
+			set
+			{
+				if ((this._BorrowID != value))
+				{
+					this._BorrowID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionID", DbType="Int")]
+		public System.Nullable<int> TransactionID
+		{
+			get
+			{
+				return this._TransactionID;
+			}
+			set
+			{
+				if ((this._TransactionID != value))
+				{
+					this._TransactionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENID", DbType="Int")]
+		public System.Nullable<int> GENID
+		{
+			get
+			{
+				return this._GENID;
+			}
+			set
+			{
+				if ((this._GENID != value))
+				{
+					this._GENID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQBARCODE", DbType="VarChar(100)")]
+		public string EQBARCODE
+		{
+			get
+			{
+				return this._EQBARCODE;
+			}
+			set
+			{
+				if ((this._EQBARCODE != value))
+				{
+					this._EQBARCODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DATEBORROWED", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DATEBORROWED
+		{
+			get
+			{
+				return this._DATEBORROWED;
+			}
+			set
+			{
+				if ((this._DATEBORROWED != value))
+				{
+					this._DATEBORROWED = value;
 				}
 			}
 		}
@@ -1460,6 +1617,87 @@ namespace ANS_SEIS_TV
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLTRANSACTION")]
+	public partial class TBLTRANSACTION
+	{
+		
+		private int _TransactionID;
+		
+		private System.Nullable<System.DateTime> _TransactionDate;
+		
+		private string _TransactionEvent;
+		
+		private System.Nullable<int> _GENID;
+		
+		public TBLTRANSACTION()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int TransactionID
+		{
+			get
+			{
+				return this._TransactionID;
+			}
+			set
+			{
+				if ((this._TransactionID != value))
+				{
+					this._TransactionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TransactionDate
+		{
+			get
+			{
+				return this._TransactionDate;
+			}
+			set
+			{
+				if ((this._TransactionDate != value))
+				{
+					this._TransactionDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionEvent", DbType="VarChar(150)")]
+		public string TransactionEvent
+		{
+			get
+			{
+				return this._TransactionEvent;
+			}
+			set
+			{
+				if ((this._TransactionEvent != value))
+				{
+					this._TransactionEvent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENID", DbType="Int")]
+		public System.Nullable<int> GENID
+		{
+			get
+			{
+				return this._GENID;
+			}
+			set
+			{
+				if ((this._GENID != value))
+				{
+					this._GENID = value;
+				}
 			}
 		}
 	}
@@ -2643,6 +2881,398 @@ namespace ANS_SEIS_TV
 				if ((this._NAME != value))
 				{
 					this._NAME = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_TeacherViewAllRequestResult
+	{
+		
+		private int _Request_ID;
+		
+		private string _Username;
+		
+		private string _Request_Header;
+		
+		private System.Nullable<System.DateTime> _Date_Requested;
+		
+		private string _Status;
+		
+		public sp_TeacherViewAllRequestResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request ID]", Storage="_Request_ID", DbType="Int NOT NULL")]
+		public int Request_ID
+		{
+			get
+			{
+				return this._Request_ID;
+			}
+			set
+			{
+				if ((this._Request_ID != value))
+				{
+					this._Request_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this._Username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request Header]", Storage="_Request_Header", DbType="VarChar(100)")]
+		public string Request_Header
+		{
+			get
+			{
+				return this._Request_Header;
+			}
+			set
+			{
+				if ((this._Request_Header != value))
+				{
+					this._Request_Header = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Date Requested]", Storage="_Date_Requested", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date_Requested
+		{
+			get
+			{
+				return this._Date_Requested;
+			}
+			set
+			{
+				if ((this._Date_Requested != value))
+				{
+					this._Date_Requested = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(15)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_TeacherViewClosedRequestResult
+	{
+		
+		private int _Request_ID;
+		
+		private string _Username;
+		
+		private string _Request_Header;
+		
+		private System.Nullable<System.DateTime> _Date_Requested;
+		
+		private string _Status;
+		
+		public sp_TeacherViewClosedRequestResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request ID]", Storage="_Request_ID", DbType="Int NOT NULL")]
+		public int Request_ID
+		{
+			get
+			{
+				return this._Request_ID;
+			}
+			set
+			{
+				if ((this._Request_ID != value))
+				{
+					this._Request_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this._Username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request Header]", Storage="_Request_Header", DbType="VarChar(100)")]
+		public string Request_Header
+		{
+			get
+			{
+				return this._Request_Header;
+			}
+			set
+			{
+				if ((this._Request_Header != value))
+				{
+					this._Request_Header = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Date Requested]", Storage="_Date_Requested", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date_Requested
+		{
+			get
+			{
+				return this._Date_Requested;
+			}
+			set
+			{
+				if ((this._Date_Requested != value))
+				{
+					this._Date_Requested = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(15)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_TeacherViewOpenRequestResult
+	{
+		
+		private int _Request_ID;
+		
+		private string _Username;
+		
+		private string _Request_Header;
+		
+		private System.Nullable<System.DateTime> _Date_Requested;
+		
+		private string _Status;
+		
+		public sp_TeacherViewOpenRequestResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request ID]", Storage="_Request_ID", DbType="Int NOT NULL")]
+		public int Request_ID
+		{
+			get
+			{
+				return this._Request_ID;
+			}
+			set
+			{
+				if ((this._Request_ID != value))
+				{
+					this._Request_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this._Username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request Header]", Storage="_Request_Header", DbType="VarChar(100)")]
+		public string Request_Header
+		{
+			get
+			{
+				return this._Request_Header;
+			}
+			set
+			{
+				if ((this._Request_Header != value))
+				{
+					this._Request_Header = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Date Requested]", Storage="_Date_Requested", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date_Requested
+		{
+			get
+			{
+				return this._Date_Requested;
+			}
+			set
+			{
+				if ((this._Date_Requested != value))
+				{
+					this._Date_Requested = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(15)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_TeacherViewPendingRequestResult
+	{
+		
+		private int _Request_ID;
+		
+		private string _Username;
+		
+		private string _Request_Header;
+		
+		private System.Nullable<System.DateTime> _Date_Requested;
+		
+		private string _Status;
+		
+		public sp_TeacherViewPendingRequestResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request ID]", Storage="_Request_ID", DbType="Int NOT NULL")]
+		public int Request_ID
+		{
+			get
+			{
+				return this._Request_ID;
+			}
+			set
+			{
+				if ((this._Request_ID != value))
+				{
+					this._Request_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this._Username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request Header]", Storage="_Request_Header", DbType="VarChar(100)")]
+		public string Request_Header
+		{
+			get
+			{
+				return this._Request_Header;
+			}
+			set
+			{
+				if ((this._Request_Header != value))
+				{
+					this._Request_Header = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Date Requested]", Storage="_Date_Requested", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date_Requested
+		{
+			get
+			{
+				return this._Date_Requested;
+			}
+			set
+			{
+				if ((this._Date_Requested != value))
+				{
+					this._Date_Requested = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(15)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
 				}
 			}
 		}

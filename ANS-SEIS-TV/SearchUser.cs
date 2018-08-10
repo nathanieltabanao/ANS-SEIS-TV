@@ -62,5 +62,23 @@ namespace ANS_SEIS_TV
             Fullname = FirstName + " " + MiddleName + " " + LastName;
             this.Close();
         }
+
+        private void SearchUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void SearchUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
