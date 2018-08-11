@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using MetroFramework;
 
 namespace ANS_SEIS_TV
 {
@@ -26,6 +27,8 @@ namespace ANS_SEIS_TV
         DataClasses1DataContext db = new DataClasses1DataContext();
 
         GetSomethingFromServer g = new GetSomethingFromServer();
+
+        TransactionLibrary t = new TransactionLibrary();
 
         public string CurrentUsername { get; set; }
          
@@ -120,22 +123,78 @@ namespace ANS_SEIS_TV
             dgvRequest.DataSource = db.sp_TeacherViewAllRequest(CurrentGENID);
         }
 
+
+        private void rdoAllRequest_CheckedChanged_1(object sender, EventArgs e)
+        {
+            dgvRequest.DataSource = db.sp_TeacherViewAllRequest(CurrentGENID);
+        }
+        //
+        private void rdoOpenRequest_CheckedChanged_1(object sender, EventArgs e)
+        {
+            dgvRequest.DataSource = db.sp_TeacherViewOpenRequest(CurrentGENID);
+        }
         private void rdoOpenRequest_CheckedChanged(object sender, EventArgs e)
         {
             dgvRequest.DataSource = db.sp_TeacherViewOpenRequest(CurrentGENID);
         }
+        //
 
         private void rdoPendingRequest_CheckedChanged(object sender, EventArgs e)
         {
             dgvRequest.DataSource = db.sp_TeacherViewPendingRequest(CurrentGENID);
         }
 
+        private void rdoPendingRequest_CheckedChanged_1(object sender, EventArgs e)
+        {
+            dgvRequest.DataSource = db.sp_TeacherViewPendingRequest(CurrentGENID);
+        }
+        //
         private void btnClosedRequest_CheckedChanged(object sender, EventArgs e)
         {
-            dgvRequest.DataSource = db.sp_TeacherViewClosedRequest(CurrentGENID);
+            
+        }
+
+        private void rdoDenied_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void rdoDenied_CheckedChanged_1(object sender, EventArgs e)
+        {
+            dgvRequest.DataSource = db.sp_ViewDeniedRequest();
+        }
+
+        private void rdoApproved_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvRequest.DataSource = db.sp_ViewApprovedRequest();
         }
         //Request Views
 
+
+
+
+        private void dgvRequest_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AdminRequestReply a = new AdminRequestReply();
+            a.RequestID = int.Parse(dgvRequest.CurrentRow.Cells[0].Value.ToString());
+            a.RequestTitle = dgvRequest.CurrentRow.Cells[2].Value.ToString();
+            a.DateRequested = DateTime.Parse(dgvRequest.CurrentRow.Cells[3].Value.ToString());
+            a.RequestStatus = dgvRequest.CurrentRow.Cells[4].Value.ToString();
+            if (a.RequestStatus == "OPEN" || a.RequestStatus == "PENDING") 
+            {
+                MetroMessageBox.Show(this, "The admin has not yet to replied your request", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                g.GetAdminRequestPerson(a.RequestID);
+                g.GetUsername(g.GENID);
+                g.GetFullname();
+                a.AdminName = g.Fullname;
+                a.DateReplied = g.GetDateReplied(a.RequestID);
+                a.ReplyContent = g.GetRequestReply(a.RequestID);
+                a.ShowDialog();
+            }
+        }
 
         ///////////////////////////////////////////////////////////////////
         ///
@@ -147,7 +206,5 @@ namespace ANS_SEIS_TV
         {
             dgvRequest.DataSource = db.sp_TeacherViewAllRequest(CurrentGENID);
         }
-
-        
     }
 }

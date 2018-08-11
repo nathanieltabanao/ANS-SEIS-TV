@@ -35,9 +35,10 @@ namespace ANS_SEIS_TV
 
         private void RequestInformation_Load(object sender, EventArgs e)
         {
-            if (RequestStatus=="CLOSED")
+            if (RequestStatus=="APPROVED"||RequestStatus=="DENIED")
             {
                 btnReply.Enabled = false;
+                btnReply.BackColor = Color.WhiteSmoke;
             }
             lblRequestID.Text = "Request ID : " + RequestID;
             lblRequestName.Text = "Requested By: " + RequestFullname;
@@ -57,7 +58,7 @@ namespace ANS_SEIS_TV
         {
             RequestReply r = new RequestReply();
             r.CurrentGENID = CurrentGENID;
-
+            r.RequestID = RequestID;
             r.ShowDialog();
             Reply = r.Reply;
             Response = r.Response;

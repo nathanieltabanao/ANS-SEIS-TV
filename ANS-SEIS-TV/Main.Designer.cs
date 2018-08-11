@@ -102,8 +102,9 @@
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.dgvRequest = new MetroFramework.Controls.MetroGrid();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.rdoDenied = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.rdoOpenRequest = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
-            this.btnClosedRequest = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.rdoApproved = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.rdoPendingRequest = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.rdoAllRequest = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -321,6 +322,7 @@
             this.dgvEquipment.Size = new System.Drawing.Size(748, 489);
             this.dgvEquipment.TabIndex = 58;
             this.dgvEquipment.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.dgvEquipment.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquipment_CellContentDoubleClick_1);
             // 
             // drpEquipmentType
             // 
@@ -709,6 +711,8 @@
             this.dgvToBeBorrowed.AllowUserToDeleteRows = false;
             this.dgvToBeBorrowed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvToBeBorrowed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvToBeBorrowed.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvToBeBorrowed.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
@@ -1038,6 +1042,8 @@
             this.dgvRequest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvRequest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvRequest.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvRequest.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvRequest.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRequest.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -1087,16 +1093,27 @@
             // groupBox6
             // 
             this.groupBox6.BackColor = System.Drawing.Color.White;
+            this.groupBox6.Controls.Add(this.rdoDenied);
             this.groupBox6.Controls.Add(this.rdoOpenRequest);
-            this.groupBox6.Controls.Add(this.btnClosedRequest);
+            this.groupBox6.Controls.Add(this.rdoApproved);
             this.groupBox6.Controls.Add(this.rdoPendingRequest);
             this.groupBox6.Controls.Add(this.rdoAllRequest);
             this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(855, 6);
+            this.groupBox6.Location = new System.Drawing.Point(780, 6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(281, 44);
+            this.groupBox6.Size = new System.Drawing.Size(357, 44);
             this.groupBox6.TabIndex = 45;
             this.groupBox6.TabStop = false;
+            // 
+            // rdoDenied
+            // 
+            this.rdoDenied.Location = new System.Drawing.Point(289, 14);
+            this.rdoDenied.Name = "rdoDenied";
+            this.rdoDenied.Size = new System.Drawing.Size(65, 24);
+            this.rdoDenied.StateCommon.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoDenied.TabIndex = 37;
+            this.rdoDenied.Values.Text = "Denied";
+            this.rdoDenied.CheckedChanged += new System.EventHandler(this.rdoDenied_CheckedChanged);
             // 
             // rdoOpenRequest
             // 
@@ -1108,19 +1125,19 @@
             this.rdoOpenRequest.Values.Text = "Open";
             this.rdoOpenRequest.CheckedChanged += new System.EventHandler(this.rdoOpenRequest_CheckedChanged);
             // 
-            // btnClosedRequest
+            // rdoApproved
             // 
-            this.btnClosedRequest.Location = new System.Drawing.Point(215, 14);
-            this.btnClosedRequest.Name = "btnClosedRequest";
-            this.btnClosedRequest.Size = new System.Drawing.Size(64, 24);
-            this.btnClosedRequest.StateCommon.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClosedRequest.TabIndex = 35;
-            this.btnClosedRequest.Values.Text = "Closed";
-            this.btnClosedRequest.CheckedChanged += new System.EventHandler(this.btnClosedRequest_CheckedChanged);
+            this.rdoApproved.Location = new System.Drawing.Point(202, 14);
+            this.rdoApproved.Name = "rdoApproved";
+            this.rdoApproved.Size = new System.Drawing.Size(81, 24);
+            this.rdoApproved.StateCommon.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoApproved.TabIndex = 35;
+            this.rdoApproved.Values.Text = "Approved";
+            this.rdoApproved.CheckedChanged += new System.EventHandler(this.btnClosedRequest_CheckedChanged);
             // 
             // rdoPendingRequest
             // 
-            this.rdoPendingRequest.Location = new System.Drawing.Point(136, 14);
+            this.rdoPendingRequest.Location = new System.Drawing.Point(123, 14);
             this.rdoPendingRequest.Name = "rdoPendingRequest";
             this.rdoPendingRequest.Size = new System.Drawing.Size(73, 24);
             this.rdoPendingRequest.StateCommon.ShortText.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1782,7 +1799,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnReturnSearch;
         private System.Windows.Forms.GroupBox groupBox6;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoOpenRequest;
-        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton btnClosedRequest;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoApproved;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoPendingRequest;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoAllRequest;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
@@ -1792,5 +1809,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtBorrowerUsername;
         private MetroFramework.Controls.MetroGrid dgvBorrowHistory;
         private MetroFramework.Controls.MetroGrid dgvCurrentBorrowed;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoDenied;
     }
 }

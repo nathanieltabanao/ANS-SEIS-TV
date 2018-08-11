@@ -36,9 +36,6 @@ namespace ANS_SEIS_TV
     partial void InsertTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
     partial void UpdateTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
     partial void DeleteTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
-    partial void InsertTBLEQUIPMENTDETAIL(TBLEQUIPMENTDETAIL instance);
-    partial void UpdateTBLEQUIPMENTDETAIL(TBLEQUIPMENTDETAIL instance);
-    partial void DeleteTBLEQUIPMENTDETAIL(TBLEQUIPMENTDETAIL instance);
     partial void InsertTBLSTUDENTDETAIL(TBLSTUDENTDETAIL instance);
     partial void UpdateTBLSTUDENTDETAIL(TBLSTUDENTDETAIL instance);
     partial void DeleteTBLSTUDENTDETAIL(TBLSTUDENTDETAIL instance);
@@ -187,11 +184,11 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentBorrowableView")]
-		public ISingleResult<sp_EquipmentBorrowableViewResult> sp_EquipmentBorrowableView([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchKey", DbType="VarChar(50)")] string searchKey)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DeleteDeletedEquipment")]
+		public int sp_DeleteDeletedEquipment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchKey);
-			return ((ISingleResult<sp_EquipmentBorrowableViewResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewPendingRequest")]
@@ -199,6 +196,13 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_ViewPendingRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentBorrowableView")]
+		public ISingleResult<sp_EquipmentBorrowableViewResult> sp_EquipmentBorrowableView([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchKey", DbType="VarChar(50)")] string searchKey)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchKey);
+			return ((ISingleResult<sp_EquipmentBorrowableViewResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentDelete")]
@@ -209,9 +213,9 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentEdit")]
-		public int sp_EquipmentEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQBARCODE", DbType="VarChar(100)")] string eQBARCODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_NAME", DbType="VarChar(200)")] string eQUIPMENT_NAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_DESCRIPTION", DbType="VarChar(100)")] string eQUIPMENT_DESCRIPTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_TYPE_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_TYPE_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_QUANTITY", DbType="Int")] System.Nullable<int> eQUIPMENT_QUANTITY)
+		public int sp_EquipmentEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_NAME", DbType="VarChar(200)")] string eQUIPMENT_NAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_DESCRIPTION", DbType="VarChar(100)")] string eQUIPMENT_DESCRIPTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_TYPE_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_TYPE_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_QUANTITY", DbType="Int")] System.Nullable<int> eQUIPMENT_QUANTITY)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID, eQBARCODE, eQUIPMENT_NAME, eQUIPMENT_DESCRIPTION, eQUIPMENT_TYPE_ID, eQUIPMENT_QUANTITY);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID, eQUIPMENT_NAME, eQUIPMENT_DESCRIPTION, eQUIPMENT_TYPE_ID, eQUIPMENT_QUANTITY);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -230,9 +234,9 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentRegister")]
-		public int sp_EquipmentRegister([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQBARCODE", DbType="VarChar(100)")] string eQBARCODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_NAME", DbType="VarChar(200)")] string eQUIPMENT_NAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_DESCRIPTION", DbType="VarChar(100)")] string eQUIPMENT_DESCRIPTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_TYPE_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_TYPE_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_QUANTITY", DbType="Int")] System.Nullable<int> eQUIPMENT_QUANTITY, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISBORROWABLE", DbType="Int")] System.Nullable<int> iSBORROWABLE)
+		public int sp_EquipmentRegister([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_NAME", DbType="VarChar(200)")] string eQUIPMENT_NAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_DESCRIPTION", DbType="VarChar(100)")] string eQUIPMENT_DESCRIPTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_TYPE_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_TYPE_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_QUANTITY", DbType="Int")] System.Nullable<int> eQUIPMENT_QUANTITY, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISBORROWABLE", DbType="Int")] System.Nullable<int> iSBORROWABLE)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQBARCODE, eQUIPMENT_NAME, eQUIPMENT_DESCRIPTION, eQUIPMENT_TYPE_ID, eQUIPMENT_QUANTITY, iSBORROWABLE);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_NAME, eQUIPMENT_DESCRIPTION, eQUIPMENT_TYPE_ID, eQUIPMENT_QUANTITY, iSBORROWABLE);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -244,9 +248,9 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewBorrow")]
-		public int sp_NewBorrow([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WhoBorrowed", DbType="Int")] System.Nullable<int> whoBorrowed, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQBARCODE", DbType="VarChar(100)")] string eQBARCODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DATEBORROWED", DbType="DateTime")] System.Nullable<System.DateTime> dATEBORROWED)
+		public int sp_NewBorrow([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WhoBorrowed", DbType="Int")] System.Nullable<int> whoBorrowed, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DATEBORROWED", DbType="DateTime")] System.Nullable<System.DateTime> dATEBORROWED, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, whoBorrowed, eQBARCODE, dATEBORROWED);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, whoBorrowed, eQUIPMENT_ID, dATEBORROWED, quantity);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -254,6 +258,13 @@ namespace ANS_SEIS_TV
 		public int sp_NewRequest([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REQUESTHEADER", DbType="VarChar(100)")] string rEQUESTHEADER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REQUESTCONTENT", DbType="NVarChar(MAX)")] string rEQUESTCONTENT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DATEREQUESTED", DbType="DateTime")] System.Nullable<System.DateTime> dATEREQUESTED, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REQUESTSTATUSID", DbType="Int")] System.Nullable<int> rEQUESTSTATUSID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISOPENED", DbType="Int")] System.Nullable<int> iSOPENED)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID, rEQUESTHEADER, rEQUESTCONTENT, dATEREQUESTED, rEQUESTSTATUSID, iSOPENED);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewTransactionID")]
+		public int sp_NewTransactionID()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -272,9 +283,9 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_RequestReply")]
-		public int sp_RequestReply([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REPLYCONTENT", DbType="NVarChar(MAX)")] string rEPLYCONTENT)
+		public int sp_RequestReply([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RequestID", DbType="Int")] System.Nullable<int> requestID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REPLYCONTENT", DbType="NVarChar(MAX)")] string rEPLYCONTENT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateReplied", DbType="DateTime")] System.Nullable<System.DateTime> dateReplied)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID, rEPLYCONTENT);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), requestID, gENID, rEPLYCONTENT, dateReplied);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -306,18 +317,25 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_StudentViewResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TeacherApprovedClosedRequest")]
+		public ISingleResult<sp_TeacherApprovedClosedRequestResult> sp_TeacherApprovedClosedRequest([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID);
+			return ((ISingleResult<sp_TeacherApprovedClosedRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TeacherDeniedClosedRequest")]
+		public ISingleResult<sp_TeacherDeniedClosedRequestResult> sp_TeacherDeniedClosedRequest([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID);
+			return ((ISingleResult<sp_TeacherDeniedClosedRequestResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TeacherViewAllRequest")]
 		public ISingleResult<sp_TeacherViewAllRequestResult> sp_TeacherViewAllRequest([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID);
 			return ((ISingleResult<sp_TeacherViewAllRequestResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TeacherViewClosedRequest")]
-		public ISingleResult<sp_TeacherViewClosedRequestResult> sp_TeacherViewClosedRequest([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gENID);
-			return ((ISingleResult<sp_TeacherViewClosedRequestResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TeacherViewOpenRequest")]
@@ -432,11 +450,18 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_ViewAllRequestResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewClosedRequest")]
-		public ISingleResult<sp_ViewClosedRequestResult> sp_ViewClosedRequest()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewApprovedRequest")]
+		public ISingleResult<sp_ViewApprovedRequestResult> sp_ViewApprovedRequest()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_ViewClosedRequestResult>)(result.ReturnValue));
+			return ((ISingleResult<sp_ViewApprovedRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewDeniedRequest")]
+		public ISingleResult<sp_ViewDeniedRequestResult> sp_ViewDeniedRequest()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_ViewDeniedRequestResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewOpenRequest")]
@@ -457,15 +482,11 @@ namespace ANS_SEIS_TV
 		
 		private string _ID;
 		
-		private string _EQBARCODE;
-		
 		private System.Nullable<System.DateTime> _DATE_DESIGNATED;
 		
 		private System.Nullable<System.DateTime> _DATE_RETURNED;
 		
 		private string _DESIGNATION_STATUS;
-		
-		private EntityRef<TBLEQUIPMENTDETAIL> _TBLEQUIPMENTDETAIL;
 		
 		private EntityRef<TBLUSERDETAIL> _TBLUSERDETAIL;
 		
@@ -477,8 +498,6 @@ namespace ANS_SEIS_TV
     partial void OnEQ_DESIGNATION_IDChanged();
     partial void OnIDChanging(string value);
     partial void OnIDChanged();
-    partial void OnEQBARCODEChanging(string value);
-    partial void OnEQBARCODEChanged();
     partial void OnDATE_DESIGNATEDChanging(System.Nullable<System.DateTime> value);
     partial void OnDATE_DESIGNATEDChanged();
     partial void OnDATE_RETURNEDChanging(System.Nullable<System.DateTime> value);
@@ -489,7 +508,6 @@ namespace ANS_SEIS_TV
 		
 		public EQUIPMENT_DESIGNATION()
 		{
-			this._TBLEQUIPMENTDETAIL = default(EntityRef<TBLEQUIPMENTDETAIL>);
 			this._TBLUSERDETAIL = default(EntityRef<TBLUSERDETAIL>);
 			OnCreated();
 		}
@@ -534,30 +552,6 @@ namespace ANS_SEIS_TV
 					this._ID = value;
 					this.SendPropertyChanged("ID");
 					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQBARCODE", DbType="VarChar(100)")]
-		public string EQBARCODE
-		{
-			get
-			{
-				return this._EQBARCODE;
-			}
-			set
-			{
-				if ((this._EQBARCODE != value))
-				{
-					if (this._TBLEQUIPMENTDETAIL.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEQBARCODEChanging(value);
-					this.SendPropertyChanging();
-					this._EQBARCODE = value;
-					this.SendPropertyChanged("EQBARCODE");
-					this.OnEQBARCODEChanged();
 				}
 			}
 		}
@@ -618,40 +612,6 @@ namespace ANS_SEIS_TV
 					this._DESIGNATION_STATUS = value;
 					this.SendPropertyChanged("DESIGNATION_STATUS");
 					this.OnDESIGNATION_STATUSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLEQUIPMENTDETAIL_EQUIPMENT_DESIGNATION", Storage="_TBLEQUIPMENTDETAIL", ThisKey="EQBARCODE", OtherKey="EQBARCODE", IsForeignKey=true)]
-		public TBLEQUIPMENTDETAIL TBLEQUIPMENTDETAIL
-		{
-			get
-			{
-				return this._TBLEQUIPMENTDETAIL.Entity;
-			}
-			set
-			{
-				TBLEQUIPMENTDETAIL previousValue = this._TBLEQUIPMENTDETAIL.Entity;
-				if (((previousValue != value) 
-							|| (this._TBLEQUIPMENTDETAIL.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBLEQUIPMENTDETAIL.Entity = null;
-						previousValue.EQUIPMENT_DESIGNATIONs.Remove(this);
-					}
-					this._TBLEQUIPMENTDETAIL.Entity = value;
-					if ((value != null))
-					{
-						value.EQUIPMENT_DESIGNATIONs.Add(this);
-						this._EQBARCODE = value.EQBARCODE;
-					}
-					else
-					{
-						this._EQBARCODE = default(string);
-					}
-					this.SendPropertyChanged("TBLEQUIPMENTDETAIL");
 				}
 			}
 		}
@@ -811,9 +771,11 @@ namespace ANS_SEIS_TV
 		
 		private System.Nullable<int> _GENID;
 		
-		private string _EQBARCODE;
+		private System.Nullable<int> _EQUIPMENT_ID;
 		
 		private System.Nullable<System.DateTime> _DATEBORROWED;
+		
+		private System.Nullable<int> _Quantity;
 		
 		public TBLBORROWED()
 		{
@@ -867,18 +829,18 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQBARCODE", DbType="VarChar(100)")]
-		public string EQBARCODE
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_ID", DbType="Int")]
+		public System.Nullable<int> EQUIPMENT_ID
 		{
 			get
 			{
-				return this._EQBARCODE;
+				return this._EQUIPMENT_ID;
 			}
 			set
 			{
-				if ((this._EQBARCODE != value))
+				if ((this._EQUIPMENT_ID != value))
 				{
-					this._EQBARCODE = value;
+					this._EQUIPMENT_ID = value;
 				}
 			}
 		}
@@ -898,6 +860,22 @@ namespace ANS_SEIS_TV
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
+				}
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLEQEUIPMENTTYPE")]
@@ -909,8 +887,6 @@ namespace ANS_SEIS_TV
 		private int _EQUIPMENT_TYPE_ID;
 		
 		private string _EQUIPMENT_TYPE_DESCRIPTION;
-		
-		private EntitySet<TBLEQUIPMENTDETAIL> _TBLEQUIPMENTDETAILs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -924,7 +900,6 @@ namespace ANS_SEIS_TV
 		
 		public TBLEQEUIPMENTTYPE()
 		{
-			this._TBLEQUIPMENTDETAILs = new EntitySet<TBLEQUIPMENTDETAIL>(new Action<TBLEQUIPMENTDETAIL>(this.attach_TBLEQUIPMENTDETAILs), new Action<TBLEQUIPMENTDETAIL>(this.detach_TBLEQUIPMENTDETAILs));
 			OnCreated();
 		}
 		
@@ -968,19 +943,6 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLEQEUIPMENTTYPE_TBLEQUIPMENTDETAIL", Storage="_TBLEQUIPMENTDETAILs", ThisKey="EQUIPMENT_TYPE_ID", OtherKey="EQUIPMENT_TYPE_ID")]
-		public EntitySet<TBLEQUIPMENTDETAIL> TBLEQUIPMENTDETAILs
-		{
-			get
-			{
-				return this._TBLEQUIPMENTDETAILs;
-			}
-			set
-			{
-				this._TBLEQUIPMENTDETAILs.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1000,29 +962,13 @@ namespace ANS_SEIS_TV
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
-		private void attach_TBLEQUIPMENTDETAILs(TBLEQUIPMENTDETAIL entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLEQEUIPMENTTYPE = this;
-		}
-		
-		private void detach_TBLEQUIPMENTDETAILs(TBLEQUIPMENTDETAIL entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLEQEUIPMENTTYPE = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLEQUIPMENTDETAILS")]
-	public partial class TBLEQUIPMENTDETAIL : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class TBLEQUIPMENTDETAIL
 	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
 		private int _EQUIPMENT_ID;
-		
-		private string _EQBARCODE;
 		
 		private string _EQUIPMENT_NAME;
 		
@@ -1034,35 +980,8 @@ namespace ANS_SEIS_TV
 		
 		private System.Nullable<int> _ISBORROWABLE;
 		
-		private EntitySet<EQUIPMENT_DESIGNATION> _EQUIPMENT_DESIGNATIONs;
-		
-		private EntityRef<TBLEQEUIPMENTTYPE> _TBLEQEUIPMENTTYPE;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEQUIPMENT_IDChanging(int value);
-    partial void OnEQUIPMENT_IDChanged();
-    partial void OnEQBARCODEChanging(string value);
-    partial void OnEQBARCODEChanged();
-    partial void OnEQUIPMENT_NAMEChanging(string value);
-    partial void OnEQUIPMENT_NAMEChanged();
-    partial void OnEQUIPMENT_DESCRIPTIONChanging(string value);
-    partial void OnEQUIPMENT_DESCRIPTIONChanged();
-    partial void OnEQUIPMENT_TYPE_IDChanging(System.Nullable<int> value);
-    partial void OnEQUIPMENT_TYPE_IDChanged();
-    partial void OnEQUIPMENT_QUANTITYChanging(System.Nullable<int> value);
-    partial void OnEQUIPMENT_QUANTITYChanged();
-    partial void OnISBORROWABLEChanging(System.Nullable<int> value);
-    partial void OnISBORROWABLEChanged();
-    #endregion
-		
 		public TBLEQUIPMENTDETAIL()
 		{
-			this._EQUIPMENT_DESIGNATIONs = new EntitySet<EQUIPMENT_DESIGNATION>(new Action<EQUIPMENT_DESIGNATION>(this.attach_EQUIPMENT_DESIGNATIONs), new Action<EQUIPMENT_DESIGNATION>(this.detach_EQUIPMENT_DESIGNATIONs));
-			this._TBLEQEUIPMENTTYPE = default(EntityRef<TBLEQEUIPMENTTYPE>);
-			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
@@ -1076,31 +995,7 @@ namespace ANS_SEIS_TV
 			{
 				if ((this._EQUIPMENT_ID != value))
 				{
-					this.OnEQUIPMENT_IDChanging(value);
-					this.SendPropertyChanging();
 					this._EQUIPMENT_ID = value;
-					this.SendPropertyChanged("EQUIPMENT_ID");
-					this.OnEQUIPMENT_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQBARCODE", DbType="VarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string EQBARCODE
-		{
-			get
-			{
-				return this._EQBARCODE;
-			}
-			set
-			{
-				if ((this._EQBARCODE != value))
-				{
-					this.OnEQBARCODEChanging(value);
-					this.SendPropertyChanging();
-					this._EQBARCODE = value;
-					this.SendPropertyChanged("EQBARCODE");
-					this.OnEQBARCODEChanged();
 				}
 			}
 		}
@@ -1116,11 +1011,7 @@ namespace ANS_SEIS_TV
 			{
 				if ((this._EQUIPMENT_NAME != value))
 				{
-					this.OnEQUIPMENT_NAMEChanging(value);
-					this.SendPropertyChanging();
 					this._EQUIPMENT_NAME = value;
-					this.SendPropertyChanged("EQUIPMENT_NAME");
-					this.OnEQUIPMENT_NAMEChanged();
 				}
 			}
 		}
@@ -1136,11 +1027,7 @@ namespace ANS_SEIS_TV
 			{
 				if ((this._EQUIPMENT_DESCRIPTION != value))
 				{
-					this.OnEQUIPMENT_DESCRIPTIONChanging(value);
-					this.SendPropertyChanging();
 					this._EQUIPMENT_DESCRIPTION = value;
-					this.SendPropertyChanged("EQUIPMENT_DESCRIPTION");
-					this.OnEQUIPMENT_DESCRIPTIONChanged();
 				}
 			}
 		}
@@ -1156,15 +1043,7 @@ namespace ANS_SEIS_TV
 			{
 				if ((this._EQUIPMENT_TYPE_ID != value))
 				{
-					if (this._TBLEQEUIPMENTTYPE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEQUIPMENT_TYPE_IDChanging(value);
-					this.SendPropertyChanging();
 					this._EQUIPMENT_TYPE_ID = value;
-					this.SendPropertyChanged("EQUIPMENT_TYPE_ID");
-					this.OnEQUIPMENT_TYPE_IDChanged();
 				}
 			}
 		}
@@ -1180,11 +1059,7 @@ namespace ANS_SEIS_TV
 			{
 				if ((this._EQUIPMENT_QUANTITY != value))
 				{
-					this.OnEQUIPMENT_QUANTITYChanging(value);
-					this.SendPropertyChanging();
 					this._EQUIPMENT_QUANTITY = value;
-					this.SendPropertyChanged("EQUIPMENT_QUANTITY");
-					this.OnEQUIPMENT_QUANTITYChanged();
 				}
 			}
 		}
@@ -1200,92 +1075,9 @@ namespace ANS_SEIS_TV
 			{
 				if ((this._ISBORROWABLE != value))
 				{
-					this.OnISBORROWABLEChanging(value);
-					this.SendPropertyChanging();
 					this._ISBORROWABLE = value;
-					this.SendPropertyChanged("ISBORROWABLE");
-					this.OnISBORROWABLEChanged();
 				}
 			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLEQUIPMENTDETAIL_EQUIPMENT_DESIGNATION", Storage="_EQUIPMENT_DESIGNATIONs", ThisKey="EQBARCODE", OtherKey="EQBARCODE")]
-		public EntitySet<EQUIPMENT_DESIGNATION> EQUIPMENT_DESIGNATIONs
-		{
-			get
-			{
-				return this._EQUIPMENT_DESIGNATIONs;
-			}
-			set
-			{
-				this._EQUIPMENT_DESIGNATIONs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLEQEUIPMENTTYPE_TBLEQUIPMENTDETAIL", Storage="_TBLEQEUIPMENTTYPE", ThisKey="EQUIPMENT_TYPE_ID", OtherKey="EQUIPMENT_TYPE_ID", IsForeignKey=true)]
-		public TBLEQEUIPMENTTYPE TBLEQEUIPMENTTYPE
-		{
-			get
-			{
-				return this._TBLEQEUIPMENTTYPE.Entity;
-			}
-			set
-			{
-				TBLEQEUIPMENTTYPE previousValue = this._TBLEQEUIPMENTTYPE.Entity;
-				if (((previousValue != value) 
-							|| (this._TBLEQEUIPMENTTYPE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBLEQEUIPMENTTYPE.Entity = null;
-						previousValue.TBLEQUIPMENTDETAILs.Remove(this);
-					}
-					this._TBLEQEUIPMENTTYPE.Entity = value;
-					if ((value != null))
-					{
-						value.TBLEQUIPMENTDETAILs.Add(this);
-						this._EQUIPMENT_TYPE_ID = value.EQUIPMENT_TYPE_ID;
-					}
-					else
-					{
-						this._EQUIPMENT_TYPE_ID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TBLEQEUIPMENTTYPE");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_EQUIPMENT_DESIGNATIONs(EQUIPMENT_DESIGNATION entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLEQUIPMENTDETAIL = this;
-		}
-		
-		private void detach_EQUIPMENT_DESIGNATIONs(EQUIPMENT_DESIGNATION entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLEQUIPMENTDETAIL = null;
 		}
 	}
 	
@@ -1295,9 +1087,13 @@ namespace ANS_SEIS_TV
 		
 		private int _ReplyID;
 		
+		private System.Nullable<int> _REQUESTID;
+		
 		private System.Nullable<int> _GENID;
 		
 		private string _ReplyContent;
+		
+		private System.Nullable<System.DateTime> _DateReplied;
 		
 		public TBLREQUESTREPLY()
 		{
@@ -1315,6 +1111,22 @@ namespace ANS_SEIS_TV
 				if ((this._ReplyID != value))
 				{
 					this._ReplyID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REQUESTID", DbType="Int")]
+		public System.Nullable<int> REQUESTID
+		{
+			get
+			{
+				return this._REQUESTID;
+			}
+			set
+			{
+				if ((this._REQUESTID != value))
+				{
+					this._REQUESTID = value;
 				}
 			}
 		}
@@ -1347,6 +1159,22 @@ namespace ANS_SEIS_TV
 				if ((this._ReplyContent != value))
 				{
 					this._ReplyContent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateReplied", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateReplied
+		{
+			get
+			{
+				return this._DateReplied;
+			}
+			set
+			{
+				if ((this._DateReplied != value))
+				{
+					this._DateReplied = value;
 				}
 			}
 		}
@@ -2486,86 +2314,6 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
-	public partial class sp_EquipmentBorrowableViewResult
-	{
-		
-		private string _Equipment_Barcode;
-		
-		private string _Name;
-		
-		private string _Description;
-		
-		private string _EQUIPMENT_TYPE_DESCRIPTION;
-		
-		public sp_EquipmentBorrowableViewResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Equipment Barcode]", Storage="_Equipment_Barcode", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Equipment_Barcode
-		{
-			get
-			{
-				return this._Equipment_Barcode;
-			}
-			set
-			{
-				if ((this._Equipment_Barcode != value))
-				{
-					this._Equipment_Barcode = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(100)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this._Description = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_TYPE_DESCRIPTION", DbType="VarChar(100)")]
-		public string EQUIPMENT_TYPE_DESCRIPTION
-		{
-			get
-			{
-				return this._EQUIPMENT_TYPE_DESCRIPTION;
-			}
-			set
-			{
-				if ((this._EQUIPMENT_TYPE_DESCRIPTION != value))
-				{
-					this._EQUIPMENT_TYPE_DESCRIPTION = value;
-				}
-			}
-		}
-	}
-	
 	public partial class sp_ViewPendingRequestResult
 	{
 		
@@ -2659,6 +2407,86 @@ namespace ANS_SEIS_TV
 				if ((this._Status != value))
 				{
 					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_EquipmentBorrowableViewResult
+	{
+		
+		private int _Equipment_ID;
+		
+		private string _Name;
+		
+		private string _Description;
+		
+		private System.Nullable<int> _Available_Quantity;
+		
+		public sp_EquipmentBorrowableViewResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Equipment ID]", Storage="_Equipment_ID", DbType="Int NOT NULL")]
+		public int Equipment_ID
+		{
+			get
+			{
+				return this._Equipment_ID;
+			}
+			set
+			{
+				if ((this._Equipment_ID != value))
+				{
+					this._Equipment_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(100)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Available Quantity]", Storage="_Available_Quantity", DbType="Int")]
+		public System.Nullable<int> Available_Quantity
+		{
+			get
+			{
+				return this._Available_Quantity;
+			}
+			set
+			{
+				if ((this._Available_Quantity != value))
+				{
+					this._Available_Quantity = value;
 				}
 			}
 		}
@@ -2886,7 +2714,7 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
-	public partial class sp_TeacherViewAllRequestResult
+	public partial class sp_TeacherApprovedClosedRequestResult
 	{
 		
 		private int _Request_ID;
@@ -2899,7 +2727,7 @@ namespace ANS_SEIS_TV
 		
 		private string _Status;
 		
-		public sp_TeacherViewAllRequestResult()
+		public sp_TeacherApprovedClosedRequestResult()
 		{
 		}
 		
@@ -2984,7 +2812,7 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
-	public partial class sp_TeacherViewClosedRequestResult
+	public partial class sp_TeacherDeniedClosedRequestResult
 	{
 		
 		private int _Request_ID;
@@ -2997,7 +2825,105 @@ namespace ANS_SEIS_TV
 		
 		private string _Status;
 		
-		public sp_TeacherViewClosedRequestResult()
+		public sp_TeacherDeniedClosedRequestResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request ID]", Storage="_Request_ID", DbType="Int NOT NULL")]
+		public int Request_ID
+		{
+			get
+			{
+				return this._Request_ID;
+			}
+			set
+			{
+				if ((this._Request_ID != value))
+				{
+					this._Request_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this._Username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request Header]", Storage="_Request_Header", DbType="VarChar(100)")]
+		public string Request_Header
+		{
+			get
+			{
+				return this._Request_Header;
+			}
+			set
+			{
+				if ((this._Request_Header != value))
+				{
+					this._Request_Header = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Date Requested]", Storage="_Date_Requested", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date_Requested
+		{
+			get
+			{
+				return this._Date_Requested;
+			}
+			set
+			{
+				if ((this._Date_Requested != value))
+				{
+					this._Date_Requested = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(15)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_TeacherViewAllRequestResult
+	{
+		
+		private int _Request_ID;
+		
+		private string _Username;
+		
+		private string _Request_Header;
+		
+		private System.Nullable<System.DateTime> _Date_Requested;
+		
+		private string _Status;
+		
+		public sp_TeacherViewAllRequestResult()
 		{
 		}
 		
@@ -3848,7 +3774,7 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
-	public partial class sp_ViewClosedRequestResult
+	public partial class sp_ViewApprovedRequestResult
 	{
 		
 		private int _Request_ID;
@@ -3861,7 +3787,105 @@ namespace ANS_SEIS_TV
 		
 		private string _Status;
 		
-		public sp_ViewClosedRequestResult()
+		public sp_ViewApprovedRequestResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request ID]", Storage="_Request_ID", DbType="Int NOT NULL")]
+		public int Request_ID
+		{
+			get
+			{
+				return this._Request_ID;
+			}
+			set
+			{
+				if ((this._Request_ID != value))
+				{
+					this._Request_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this._Username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request Header]", Storage="_Request_Header", DbType="VarChar(100)")]
+		public string Request_Header
+		{
+			get
+			{
+				return this._Request_Header;
+			}
+			set
+			{
+				if ((this._Request_Header != value))
+				{
+					this._Request_Header = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Date Requested]", Storage="_Date_Requested", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date_Requested
+		{
+			get
+			{
+				return this._Date_Requested;
+			}
+			set
+			{
+				if ((this._Date_Requested != value))
+				{
+					this._Date_Requested = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(15)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ViewDeniedRequestResult
+	{
+		
+		private int _Request_ID;
+		
+		private string _Username;
+		
+		private string _Request_Header;
+		
+		private System.Nullable<System.DateTime> _Date_Requested;
+		
+		private string _Status;
+		
+		public sp_ViewDeniedRequestResult()
 		{
 		}
 		

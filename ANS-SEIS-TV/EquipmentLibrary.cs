@@ -27,12 +27,12 @@ namespace ANS_SEIS_TV
 
         public void EquipmentInsert()
         {
-            db.sp_EquipmentRegister(EquipmentBarcode, EquipmentName, EquipmentDescription, EquipmentTypeID, EquipmentQuantity,IsBorrowable);
+            db.sp_EquipmentRegister(/*EquipmentBarcode,*/ EquipmentName, EquipmentDescription, EquipmentTypeID, EquipmentQuantity,IsBorrowable);
         }
 
         public void EquipmentUpdate()
         {
-            db.sp_EquipmentEdit(ID, EquipmentBarcode, EquipmentName, EquipmentDescription, EquipmentTypeID, EquipmentQuantity);
+            db.sp_EquipmentEdit(ID, /*EquipmentBarcode,*/ EquipmentName, EquipmentDescription, EquipmentTypeID, EquipmentQuantity);
         }
 
         public void EquipmentDelete()

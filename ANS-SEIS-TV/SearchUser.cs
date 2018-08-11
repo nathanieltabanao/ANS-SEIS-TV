@@ -34,7 +34,8 @@ namespace ANS_SEIS_TV
         private void SearchUser_Load(object sender, EventArgs e)
         {
             SearchKey = "";
-            dgvSearch.DataSource = db.sp_UserSearchAdmin(SearchKey);
+            dgvUser.DataSource = db.sp_UserSearchAdmin(SearchKey);
+            rdoTeacher.Checked = true;
         }
 
         private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -49,16 +50,23 @@ namespace ANS_SEIS_TV
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            dgvSearch.DataSource = db.sp_UserSearchAdmin(SearchKey);
+            if (rdoStudent.Checked)
+            {
+                dgvUser.DataSource = db.sp_StudentSearch(SearchKey);
+            }
+            else if (rdoTeacher.Checked)
+            {
+                dgvUser.DataSource = db.sp_UserSearchAdmin(SearchKey);
+            }
         }
 
         private void dgvSearch_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ID = dgvSearch.CurrentRow.Cells[0].Value.ToString();
-            Username = dgvSearch.CurrentRow.Cells[1].Value.ToString();
-            FirstName = dgvSearch.CurrentRow.Cells[2].Value.ToString();
-            MiddleName = dgvSearch.CurrentRow.Cells[3].Value.ToString();
-            LastName = dgvSearch.CurrentRow.Cells[4].Value.ToString();
+            ID = dgvUser.CurrentRow.Cells[0].Value.ToString();
+            Username = dgvUser.CurrentRow.Cells[1].Value.ToString();
+            FirstName = dgvUser.CurrentRow.Cells[2].Value.ToString();
+            MiddleName = dgvUser.CurrentRow.Cells[3].Value.ToString();
+            LastName = dgvUser.CurrentRow.Cells[4].Value.ToString();
             Fullname = FirstName + " " + MiddleName + " " + LastName;
             this.Close();
         }
@@ -79,6 +87,16 @@ namespace ANS_SEIS_TV
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void rdoTeacher_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvUser.DataSource = db.sp_UserSearchAdmin(SearchKey);
+        }
+
+        private void rdoStudent_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvUser.DataSource = db.sp_StudentView();
         }
     }
 }

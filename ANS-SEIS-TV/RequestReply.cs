@@ -24,6 +24,8 @@ namespace ANS_SEIS_TV
         public int Reply { get; set; }
         public int CurrentGENID { get; set; }
         public int Response { get; set; }
+        public int ReplyInt { get; set; }
+        public int RequestID { get; set; }
 
         DataClasses1DataContext db = new DataClasses1DataContext();
 
@@ -56,7 +58,7 @@ namespace ANS_SEIS_TV
         private void SendResponse()
         {
             Reply = 1;
-            db.sp_RequestReply(CurrentGENID, txtReply.Text);
+            db.sp_RequestReply(RequestID, CurrentGENID, txtReply.Text,DateTime.Now);
 
             MetroMessageBox.Show(this, "Reply Submitted!", "Request Reply");
             this.Hide();

@@ -4,11 +4,9 @@
     <Type Name="EQUIPMENT_DESIGNATION">
       <Column Name="EQ_DESIGNATION_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="EQBARCODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="DATE_DESIGNATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DATE_RETURNED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DESIGNATION_STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="TBLEQUIPMENTDETAIL_EQUIPMENT_DESIGNATION" Member="TBLEQUIPMENTDETAIL" ThisKey="EQBARCODE" OtherKey="EQBARCODE" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
       <Association Name="TBLUSERDETAIL_EQUIPMENT_DESIGNATION" Member="TBLUSERDETAIL" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
@@ -31,9 +29,10 @@
       <Column Name="BorrowID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EQBARCODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DATEBORROWED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWED" Member="TBLEQUIPMENTDETAIL" ThisKey="EQBARCODE" OtherKey="EQBARCODE" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWED" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
       <Association Name="TBLTRANSACTION_TBLBORROWED" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
       <Association Name="TBLUSERDETAIL_TBLBORROWED" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
@@ -48,22 +47,23 @@
   <Table Name="dbo.TBLEQUIPMENTDETAILS" Member="TBLEQUIPMENTDETAILs">
     <Type Name="TBLEQUIPMENTDETAIL">
       <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="EQBARCODE" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="EQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="EQUIPMENT_DESCRIPTION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="EQUIPMENT_TYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="EQUIPMENT_QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ISBORROWABLE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TBLEQUIPMENTDETAIL_EQUIPMENT_DESIGNATION" Member="EQUIPMENT_DESIGNATIONs" ThisKey="EQBARCODE" OtherKey="EQBARCODE" Type="EQUIPMENT_DESIGNATION" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWED" Member="TBLBORROWEDs" ThisKey="EQBARCODE" OtherKey="EQBARCODE" Type="TBLBORROWED" />
+      <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWED" Member="TBLBORROWEDs" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLBORROWED" />
       <Association Name="TBLEQEUIPMENTTYPE_TBLEQUIPMENTDETAIL" Member="TBLEQEUIPMENTTYPE" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQEUIPMENTTYPE" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLREQUESTREPLY" Member="TBLREQUESTREPLies">
     <Type Name="TBLREQUESTREPLY">
       <Column Name="ReplyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="REQUESTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ReplyContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateReplied" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="TBLREQUESTTABLE_TBLREQUESTREPLY" Member="TBLREQUESTTABLE" ThisKey="REQUESTID" OtherKey="REQUESTID" Type="TBLREQUESTTABLE" IsForeignKey="true" />
       <Association Name="TBLUSERDETAIL_TBLREQUESTREPLY" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
@@ -76,6 +76,7 @@
       <Column Name="DATEREQUESTED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="REQUESTSTATUSID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ISOPENED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TBLREQUESTTABLE_TBLREQUESTREPLY" Member="TBLREQUESTREPLies" ThisKey="REQUESTID" OtherKey="REQUESTID" Type="TBLREQUESTREPLY" />
       <Association Name="REQUESTSTATUS_TBLREQUESTTABLE" Member="REQUESTSTATUS" ThisKey="REQUESTSTATUSID" OtherKey="REQUESTSTATUSID" Type="REQUESTSTATUS" IsForeignKey="true" />
       <Association Name="TBLUSERDETAIL_TBLREQUESTTABLE" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
@@ -141,14 +142,9 @@
       <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT" Member="TBLUSERDETAIL" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
-  <Function Name="dbo.sp_EquipmentBorrowableView" Method="sp_EquipmentBorrowableView">
-    <Parameter Name="SearchKey" Parameter="searchKey" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="sp_EquipmentBorrowableViewResult">
-      <Column Name="[Equipment Barcode]" Member="Equipment_Barcode" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="EQUIPMENT_TYPE_DESCRIPTION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-    </ElementType>
+  <Function Name="dbo.sp_DeleteDeletedEquipment" Method="sp_DeleteDeletedEquipment">
+    <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_ViewPendingRequest" Method="sp_ViewPendingRequest">
     <ElementType Name="sp_ViewPendingRequestResult">
@@ -159,13 +155,21 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_EquipmentBorrowableView" Method="sp_EquipmentBorrowableView">
+    <Parameter Name="SearchKey" Parameter="searchKey" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_EquipmentBorrowableViewResult">
+      <Column Name="[Equipment ID]" Member="Equipment_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="[Available Quantity]" Member="Available_Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.sp_EquipmentDelete" Method="sp_EquipmentDelete">
     <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_EquipmentEdit" Method="sp_EquipmentEdit">
     <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="EQBARCODE" Parameter="eQBARCODE" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="EQUIPMENT_NAME" Parameter="eQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" />
     <Parameter Name="EQUIPMENT_DESCRIPTION" Parameter="eQUIPMENT_DESCRIPTION" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="EQUIPMENT_TYPE_ID" Parameter="eQUIPMENT_TYPE_ID" Type="System.Int32" DbType="Int" />
@@ -181,7 +185,6 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_EquipmentRegister" Method="sp_EquipmentRegister">
-    <Parameter Name="EQBARCODE" Parameter="eQBARCODE" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="EQUIPMENT_NAME" Parameter="eQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" />
     <Parameter Name="EQUIPMENT_DESCRIPTION" Parameter="eQUIPMENT_DESCRIPTION" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="EQUIPMENT_TYPE_ID" Parameter="eQUIPMENT_TYPE_ID" Type="System.Int32" DbType="Int" />
@@ -202,8 +205,9 @@
   <Function Name="dbo.sp_NewBorrow" Method="sp_NewBorrow">
     <Parameter Name="TransactionID" Parameter="transactionID" Type="System.Int32" DbType="Int" />
     <Parameter Name="WhoBorrowed" Parameter="whoBorrowed" Type="System.Int32" DbType="Int" />
-    <Parameter Name="EQBARCODE" Parameter="eQBARCODE" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
     <Parameter Name="DATEBORROWED" Parameter="dATEBORROWED" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Quantity" Parameter="quantity" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_NewRequest" Method="sp_NewRequest">
@@ -213,6 +217,9 @@
     <Parameter Name="DATEREQUESTED" Parameter="dATEREQUESTED" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="REQUESTSTATUSID" Parameter="rEQUESTSTATUSID" Type="System.Int32" DbType="Int" />
     <Parameter Name="ISOPENED" Parameter="iSOPENED" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_NewTransactionID" Method="sp_NewTransactionID">
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_NewTransation" Method="sp_NewTransation">
@@ -227,8 +234,10 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_RequestReply" Method="sp_RequestReply">
+    <Parameter Name="RequestID" Parameter="requestID" Type="System.Int32" DbType="Int" />
     <Parameter Name="GENID" Parameter="gENID" Type="System.Int32" DbType="Int" />
     <Parameter Name="REPLYCONTENT" Parameter="rEPLYCONTENT" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="DateReplied" Parameter="dateReplied" Type="System.DateTime" DbType="DateTime" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_RequestViewed" Method="sp_RequestViewed">
@@ -256,9 +265,9 @@
       <Column Name="NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_TeacherViewAllRequest" Method="sp_TeacherViewAllRequest">
+  <Function Name="dbo.sp_TeacherApprovedClosedRequest" Method="sp_TeacherApprovedClosedRequest">
     <Parameter Name="GENID" Parameter="gENID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_TeacherViewAllRequestResult">
+    <ElementType Name="sp_TeacherApprovedClosedRequestResult">
       <Column Name="[Request ID]" Member="Request_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="[Request Header]" Member="Request_Header" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
@@ -266,9 +275,19 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_TeacherViewClosedRequest" Method="sp_TeacherViewClosedRequest">
+  <Function Name="dbo.sp_TeacherDeniedClosedRequest" Method="sp_TeacherDeniedClosedRequest">
     <Parameter Name="GENID" Parameter="gENID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_TeacherViewClosedRequestResult">
+    <ElementType Name="sp_TeacherDeniedClosedRequestResult">
+      <Column Name="[Request ID]" Member="Request_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[Request Header]" Member="Request_Header" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="[Date Requested]" Member="Date_Requested" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_TeacherViewAllRequest" Method="sp_TeacherViewAllRequest">
+    <Parameter Name="GENID" Parameter="gENID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_TeacherViewAllRequestResult">
       <Column Name="[Request ID]" Member="Request_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="[Request Header]" Member="Request_Header" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
@@ -415,8 +434,17 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_ViewClosedRequest" Method="sp_ViewClosedRequest">
-    <ElementType Name="sp_ViewClosedRequestResult">
+  <Function Name="dbo.sp_ViewApprovedRequest" Method="sp_ViewApprovedRequest">
+    <ElementType Name="sp_ViewApprovedRequestResult">
+      <Column Name="[Request ID]" Member="Request_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[Request Header]" Member="Request_Header" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="[Date Requested]" Member="Date_Requested" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ViewDeniedRequest" Method="sp_ViewDeniedRequest">
+    <ElementType Name="sp_ViewDeniedRequestResult">
       <Column Name="[Request ID]" Member="Request_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="[Request Header]" Member="Request_Header" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
