@@ -26,14 +26,22 @@ namespace ANS_SEIS_TV
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dgv.DataSource = db.sp_UserView();
+            dgv.DataSource = db.sp_ViewAllRequest();
 
             foreach (DataGridViewRow row in dgv.Rows)
             {
-                if (Convert.ToInt32(row.Cells[7].Value) == 110)
+                if (row.Cells[3].Value == "OPEN")
                 {
-                    row.DefaultCellStyle.BackColor = Color.Red;
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(78, 186, 186);
                 }
+                //else if (row.Cells[4].Value == "PENDING")
+                //{
+                //    row.DefaultCellStyle.BackColor = Color.Red;
+                //}
+                //else if (row.Cells[4].Value == "CLOSED")
+                //{
+                //    row.DefaultCellStyle.BackColor = Color.Red;
+                //}
             }
         }
 

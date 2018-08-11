@@ -64,20 +64,23 @@ namespace ANS_SEIS_TV
                 
                 g.GetFirstLogin();
 
+                this.Hide();
+
                 if (g.FirstLogin==0)
                 {
-                    AdminForm m = new AdminForm();
-                    this.Hide();
-                    m.CurrentUser = txtUsername.Text;
-                    m.Show();
+                    g.GetUserType();
+                    if (g.UsertypeID==110)
+                    {
+                        AdminLogin();
+                    }
+                    else if (g.UsertypeID==111)
+                    {
+                        TeacherLogin();
+                    }
                 }
                 else
                 {
-                    FirstLoginForm f = new FirstLoginForm();
-                    f.Username = txtUsername.Text;
-                    MessageBox.Show("Please setup your account");
-                    this.Hide();
-                    f.Show();
+                    FirstLogin();
                 }
                 
             }
@@ -88,9 +91,37 @@ namespace ANS_SEIS_TV
             }
         }
 
+        private void TeacherLogin()
+        {
+            TeacherForm t = new TeacherForm();
+            t.CurrentUsername = txtUsername.Text;
+            t.Show();
+        }
+
+        private void AdminLogin()
+        {
+            Main m = new Main();
+            m.CurrentUser = txtUsername.Text;
+            m.Show();
+        }
+
+        private void FirstLogin()
+        {
+            FirstLoginForm f = new FirstLoginForm();
+            f.Username = txtUsername.Text;
+            MessageBox.Show("Please setup your account");
+            //this.Hide();
+            f.Show();
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

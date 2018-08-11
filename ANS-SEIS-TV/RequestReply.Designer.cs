@@ -30,6 +30,10 @@
         {
             this.txtReply = new MetroFramework.Controls.MetroTextBox();
             this.btnReply = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdoApproved = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.rdoDenied = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtReply
@@ -79,13 +83,41 @@
             this.btnReply.UseVisualStyleBackColor = true;
             this.btnReply.Click += new System.EventHandler(this.btnReply_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.rdoDenied);
+            this.groupBox1.Controls.Add(this.rdoApproved);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(615, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(162, 44);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Request Response";
+            // 
+            // rdoApproved
+            // 
+            this.rdoApproved.Location = new System.Drawing.Point(6, 18);
+            this.rdoApproved.Name = "rdoApproved";
+            this.rdoApproved.Size = new System.Drawing.Size(76, 20);
+            this.rdoApproved.TabIndex = 3;
+            this.rdoApproved.Values.Text = "Approved";
+            // 
+            // rdoDenied
+            // 
+            this.rdoDenied.Location = new System.Drawing.Point(88, 18);
+            this.rdoDenied.Name = "rdoDenied";
+            this.rdoDenied.Size = new System.Drawing.Size(61, 20);
+            this.rdoDenied.TabIndex = 4;
+            this.rdoDenied.Values.Text = "Denied";
+            // 
             // RequestReply
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackLocation = MetroFramework.Forms.BackLocation.TopLeft;
-            this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnReply);
             this.Controls.Add(this.txtReply);
             this.MaximizeBox = false;
@@ -95,6 +127,8 @@
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             this.Text = "Request Reply";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,5 +138,8 @@
 
         private MetroFramework.Controls.MetroTextBox txtReply;
         private MaterialSkin.Controls.MaterialRaisedButton btnReply;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoDenied;
+        private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoApproved;
     }
 }

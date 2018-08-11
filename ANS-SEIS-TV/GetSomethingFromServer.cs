@@ -24,17 +24,16 @@ namespace ANS_SEIS_TV
         public string LastName { get; set; }
         public string RequestContent { get; set; }
         public string Content { get; set; }
+        public int RequestID { get; set; }
 
 
-        public void GetSomething()
-        {
-            Username = "nathan";
-            var results = from TBLUSERDETAIL in db.TBLUSERDETAILs
-                          where TBLUSERDETAIL.USERNAME == Username
-                          select TBLUSERDETAIL.USERTYPE_ID;
-
-            //string usertypeid = results.FirstOrDefault().Value.ToString();
-        }
+        //public void GetUserType()
+        //{   
+        //    var results = from TBLUSERDETAIL in db.TBLUSERDETAILs
+        //                  where TBLUSERDETAIL.USERNAME == Username
+        //                  select TBLUSERDETAIL.USERTYPE_ID;
+        //    UsertypeID = int.Parse(results.FirstOrDefault().Value.ToString());
+        //}
 
         public void GetFirstLogin()
         {
@@ -137,6 +136,42 @@ namespace ANS_SEIS_TV
             var results = from TBLREQUESTTABLE in db.TBLREQUESTTABLEs
                           where TBLREQUESTTABLE.REQUESTID == GENID // the ID here refers to the request ID
                           select TBLREQUESTTABLE.REQUESTCONTENT;
+        }
+
+        public void GetAdminRequestPerson(int RequestID)
+        {
+            var results = from TBLREQUESTREPLY in db.TBLREQUESTREPLies
+                          where TBLREQUESTREPLY.REQUESTID == RequestID // id of the request
+                          select TBLREQUESTREPLY.GENID;
+
+            GENID = int.Parse(results.FirstOrDefault().Value.ToString());
+        }
+
+        public void GetUsername(int GENID)
+        {
+            var results = from TBLUSERDETAIL in db.TBLUSERDETAILs
+                          where TBLUSERDETAIL.GENID == GENID
+                          select TBLUSERDETAIL.USERNAME;
+
+            Username = results.FirstOrDefault().ToString();
+        }
+        
+        public string GetRequestReply(int RequestID)
+        {
+            var results = from TBLREQUESTREPLY in db.TBLREQUESTREPLies
+                          where TBLREQUESTREPLY.REQUESTID == RequestID
+                          select TBLREQUESTREPLY.ReplyContent;
+
+           return results.FirstOrDefault().ToString();
+        }
+
+        public DateTime GetDateReplied(int RequestID)
+        {
+            var results = from TBLREQUESTREPLY in db.TBLREQUESTREPLies
+                          where TBLREQUESTREPLY.REQUESTID == RequestID
+                          select TBLREQUESTREPLY.DateReplied;
+
+            return DateTime.Parse(results.FirstOrDefault().Value.ToString());
         }
     }
 }

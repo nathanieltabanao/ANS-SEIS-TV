@@ -9,17 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using MetroFramework;
 
 
 namespace ANS_SEIS_TV
 {
-    public partial class AdminForm : MaterialForm
+    public partial class Main : MaterialForm
     {
         private readonly MaterialSkinManager materialSkinManager;
 
 
         //Main form Constructor
-        public AdminForm()
+        public Main()
         {
             InitializeComponent();
 
@@ -40,7 +41,7 @@ namespace ANS_SEIS_TV
 
         GetSomethingFromServer g = new GetSomethingFromServer();
 
-        SearchUser s = new SearchUser();
+        TransactionLibrary t = new TransactionLibrary();
 
 
         public string CurrentUser { get; set; }
@@ -53,24 +54,34 @@ namespace ANS_SEIS_TV
         private void Main_Load(object sender, EventArgs e)
         {
             SearchKey = "";
-            ViewUser();
-            ViewEquipment();
             txtUsername.Enabled = false;
             txtPassword.Enabled = false;
             g.Username = CurrentUser;
             g.GetFullname();
-            lblCurrentUser.Text = "Current User : " + g.Fullname;
+            lblCurrentUser.Text = "Welcome Admin : " + g.Fullname;
             u.CurrentUsername = CurrentUser;
             g.GetUserID();
             CurrentUserID = g.ID;
             u.CurrentID = CurrentUserID;
             rdoAllRequest.Checked = true;
-            UpdateBorrow(SearchKey);
+            
             CurrentGENID = g.GetGENID(CurrentUser);
+            AddingEquipment();
             RequestGridUpdate();
+            AddUser();
+            UpdateAllTable();
+            txtEquipmentID.Text = db.sp_EquipmentID().ToString();
         }
 
+        private void UpdateAllTable()
+        {
+            ViewEquipment();
+            
+            dgvRequest.DataSource = db.sp_ViewAllRequest();
+            dgvUserRegister.DataSource = db.sp_UserView();
 
+            dgvToBeBorrowed.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
+        }
 
         
 
@@ -108,11 +119,6 @@ namespace ANS_SEIS_TV
             btnEditUser.Enabled = false;
             btnDeleteUser.Enabled = false;
             btnUserClear.Enabled = true;
-        }
-
-        private void ViewUser()
-        {
-            dgvUserRegister.DataSource = db.sp_UserView();
         }
 
         public void Teacher()
@@ -160,7 +166,7 @@ namespace ANS_SEIS_TV
 
             u.UserInsert();
             ClearUser();
-            ViewUser();
+            UpdateAllTable();
 
             u.ID = u.CurrentID;
             u.Action = "Registered a new User";
@@ -223,7 +229,7 @@ namespace ANS_SEIS_TV
             u.ID = txtUserID.Text;
             u.UserDelete();
             ClearUser();
-            ViewUser();
+            UpdateAllTable();
 
             u.ID = u.CurrentID;
             u.Action = "Deleted a user";
@@ -339,26 +345,54 @@ namespace ANS_SEIS_TV
                     default:
                         break;
                 }
+                if (string.IsNullOrEmpty(txtEquipmentName.Text) || string.IsNullOrEmpty(txtEquipmentDescription.Text) || string.IsNullOrEmpty(txtEquipmentID.Text)) 
+                {
+                    MetroMessageBox.Show(this, "Please fill all necessary information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    txtEquipmentID.Text = db.sp_EquipmentID().ToString();
+                    eq.ID = db.sp_EquipmentID();
+                    eq.EquipmentBarcode = txtEquipmentID.Text;
+                    eq.EquipmentName = txtEquipmentName.Text;
+                    eq.EquipmentDescription = txtEquipmentDescription.Text;
+                    eq.EquipmentTypeID = EquipmentTypeID; // int.Parse(drpEquipmentType.Text.Substring(0,3));
+                    eq.EquipmentQuantity = int.Parse(numQuantity.Value.ToString());
+                    eq.EquipmentInsert();
 
-                txtEquipmentID.Text = eq.EquipmentID().ToString();
-                eq.EquipmentBarcode = txtEquipmentID.Text;
-                eq.EquipmentName = txtEquipmentName.Text;
-                eq.EquipmentDescription = txtEquipmentDescription.Text;
-                eq.EquipmentTypeID = EquipmentTypeID; // int.Parse(drpEquipmentType.Text.Substring(0,3));
-                eq.EquipmentQuantity = int.Parse(numQuantity.Value.ToString());
-                eq.EquipmentInsert();
-                ViewEquipment();
-                EquipmentClear();
+                    t.NewTransaction(DateTime.Now, t.Action, CurrentGENID);
+                    t.NewBorrowed(t.TID, CurrentGENID, eq.ID, DateTime.Now, 0);
 
-                u.ID = u.CurrentID;
-                u.Action = "Registered a new Equipment";
-                u.ActionReport();
+                    EquipmentClear();
+
+                    u.ID = u.CurrentID;
+                    u.Action = "Registered a new Equipment";
+                    t.Action = u.Action;
+                    t.TransactionID();
+                    ViewEquipment();
+
+                    u.ActionReport();
+
+                    UpdateAllTable();
+                }
             }
         }
 
 
         //load selected 
         private void dgvEquipment_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtEquipmentID.Text = dgvEquipment.CurrentRow.Cells[0].Value.ToString();
+            txtEquipmentName.Text = dgvEquipment.CurrentRow.Cells[1].Value.ToString();
+            txtEquipmentDescription.Text = dgvEquipment.CurrentRow.Cells[2].Value.ToString();
+            drpEquipmentType.Text = dgvEquipment.CurrentRow.Cells[3].Value.ToString();
+            EquipmentTypeID = int.Parse(dgvEquipment.CurrentRow.Cells[3].Value.ToString());
+            numQuantity.Value = decimal.Parse(dgvEquipment.CurrentRow.Cells[4].Value.ToString());
+            EditEquipment();
+        }
+
+
+        private void dgvEquipment_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             txtEquipmentID.Text = dgvEquipment.CurrentRow.Cells[0].Value.ToString();
             txtEquipmentName.Text = dgvEquipment.CurrentRow.Cells[1].Value.ToString();
@@ -385,18 +419,22 @@ namespace ANS_SEIS_TV
             u.ID = u.CurrentID;
             u.Action = "Edited a detail of an Equipment";
             u.ActionReport();
+            UpdateAllTable();
         }
 
         private void btnDeleteEquipment_Click(object sender, EventArgs e)
         {
             eq.ID = int.Parse(txtEquipmentID.Text);
+            t.DeleteDeletedEquipment(eq.ID);
+
             eq.EquipmentDelete();
             ViewEquipment();
             EquipmentClear();
-
+            UpdateAllTable();
             u.ID = u.CurrentID;
             u.Action = "Deleted an Equipment";
             u.ActionReport();
+            UpdateAllTable();
         }
 
 
@@ -421,11 +459,11 @@ namespace ANS_SEIS_TV
             u.Action = "User Logout";
             u.UserLoginLog();
             l.Show();
-            
         }
 
         private void kryptonButton5_Click(object sender, EventArgs e)
         {
+            SearchUser s = new SearchUser();
             s.ShowDialog();
             txtBorrowerUsername.Text = s.Username;
             txtBorrowerFullname.Text = s.Fullname;
@@ -435,11 +473,6 @@ namespace ANS_SEIS_TV
         private void txtSearchBorrow_TextChanged(object sender, EventArgs e)
         {
             SearchKey = txtSearchBorrow.Text;
-            UpdateBorrow(SearchKey);
-        }
-
-        private void UpdateBorrow(string SearchKey)
-        {
             dgvToBeBorrowed.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
         }
 
@@ -460,7 +493,12 @@ namespace ANS_SEIS_TV
 
         private void btnClosedRequest_CheckedChanged(object sender, EventArgs e)
         {
-            dgvRequest.DataSource = db.sp_ViewClosedRequest();
+            dgvRequest.DataSource = db.sp_ViewApprovedRequest();
+        }
+
+        private void rdoDenied_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvRequest.DataSource = db.sp_ViewDeniedRequest();
         }
 
         private void dgvRequest_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -493,7 +531,7 @@ namespace ANS_SEIS_TV
             //inig close niya naay reply kay i set niya as closed na
             if (r.Reply == 1)
             {
-                db.sp_RequestReplied(r.RequestID);
+                db.sp_RequestReplied(r.RequestID,r.Response);
             }
 
             dgvRequest.DataSource = db.sp_ViewAllRequest();
@@ -502,21 +540,37 @@ namespace ANS_SEIS_TV
 
         private void RequestGridUpdate()
         {
-            foreach (DataGridViewRow row in dgvRequest.Rows)
-            {
-                if (row.Cells[4].Value.ToString() == "OPEN")
-                {
-                    row.DefaultCellStyle.BackColor = Color.Red;
-                }
-                else if (row.Cells[4].Value.ToString() == "PENDING")
-                {
-                    row.DefaultCellStyle.BackColor = Color.Red;
-                }
-                else if (row.Cells[4].Value.ToString() == "CLOSED")
-                {
-                    row.DefaultCellStyle.BackColor = Color.Red;
-                }
-            }
+            //foreach (DataGridViewRow row in dgvRequest.Rows)
+            //{
+            //    if (row.Cells[4].Value.ToString() == "OPEN")
+            //    {
+            //        row.DefaultCellStyle.BackColor = Color.FromArgb(78, 186, 186);
+            //    }
+            //    else if (row.Cells[4].Value.ToString() == "PENDING")
+            //    {
+            //        row.DefaultCellStyle.BackColor = Color.Red;
+            //    }
+            //    else if (row.Cells[4].Value.ToString() == "CLOSED")
+            //    {
+            //        row.DefaultCellStyle.BackColor = Color.Red;
+            //    }
+            //}
+
+            //foreach (DataGridViewRow row in dgvEquipment.Rows)
+            //{
+            //    if (Convert.ToInt32(row.Cells[3].Value) == 110)
+            //    {
+            //        row.DefaultCellStyle.BackColor = Color.FromArgb(78, 186, 186);
+            //    }
+            //    else if (Convert.ToInt32(row.Cells[3].Value) == 110)
+            //    {
+            //        row.DefaultCellStyle.BackColor = Color.FromArgb(255, 206, 107);
+            //    }
+            //    if (Convert.ToInt32(row.Cells[3].Value) == 110)
+            //    {
+            //        row.DefaultCellStyle.BackColor = Color.FromArgb(255, 107, 107);
+            //    }
+            //}
         }
 
         ///////////////////////////////////////////////////////////////////
@@ -646,6 +700,21 @@ namespace ANS_SEIS_TV
         }
 
         private void kryptonButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroGrid2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnReturnSearch_Click(object sender, EventArgs e)
         {
 
         }

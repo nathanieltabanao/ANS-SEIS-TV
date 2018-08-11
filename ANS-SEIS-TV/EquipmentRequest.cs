@@ -34,17 +34,27 @@ namespace ANS_SEIS_TV
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
         {
-            GENID = 1000000;
-            t.RequestContent = txtContent.Text;
-            t.RequestDate = DateTime.Now;
-            t.RequestStatus = 300;
-            t.RequestSubject = txtSubject.Text;
+            if (string.IsNullOrEmpty(txtSubject.Text))
+            {
+                MetroMessageBox.Show(this, "Please enter a Request Subject", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrEmpty(txtContent.Text))
+            {
+                MetroMessageBox.Show(this, "Please enter a Request Message", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                t.RequestContent = txtContent.Text;
+                t.RequestDate = DateTime.Now;
+                t.RequestStatus = 300;
+                t.RequestSubject = txtSubject.Text;
 
 
-            t.NewEquipmentRequest(GENID, t.RequestSubject, t.RequestContent, t.RequestDate, t.RequestStatus);
+                t.NewEquipmentRequest(GENID, t.RequestSubject, t.RequestContent, t.RequestDate, t.RequestStatus);
 
-            MetroMessageBox.Show(this, "Request Submitted!", "Equipment Request");
-            this.Hide();
+                MetroMessageBox.Show(this, "Request Submitted!", "Equipment Request");
+                this.Hide();
+            }
         }
     }
 }
