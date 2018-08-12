@@ -31,9 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,6 +41,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabSelector2 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl2 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
@@ -70,12 +72,11 @@
             this.bunifuCustomLabel12 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.tabPage17 = new System.Windows.Forms.TabPage();
-            this.kryptonButton6 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnBorrowCheckout = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnClearBorrowList = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnRemoveBorrow = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridViewX4 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.brnAddtoBorrow = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.txtSearchBorrow = new MetroFramework.Controls.MetroTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -144,6 +145,10 @@
             this.btnLogout = new MaterialSkin.Controls.MaterialFlatButton();
             this.lblCurrentUser = new System.Windows.Forms.Label();
             this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.dgvBorrowList = new MetroFramework.Controls.MetroGrid();
+            this.EQID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EQName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EQQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
@@ -151,7 +156,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipment)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tabPage17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX4)).BeginInit();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvToBeBorrowed)).BeginInit();
             this.groupBox7.SuspendLayout();
@@ -169,6 +173,7 @@
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowList)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTabSelector2
@@ -557,12 +562,12 @@
             // 
             // tabPage17
             // 
-            this.tabPage17.Controls.Add(this.kryptonButton6);
-            this.tabPage17.Controls.Add(this.kryptonButton3);
-            this.tabPage17.Controls.Add(this.kryptonButton2);
+            this.tabPage17.Controls.Add(this.dgvBorrowList);
+            this.tabPage17.Controls.Add(this.btnBorrowCheckout);
+            this.tabPage17.Controls.Add(this.btnClearBorrowList);
+            this.tabPage17.Controls.Add(this.btnRemoveBorrow);
             this.tabPage17.Controls.Add(this.label3);
-            this.tabPage17.Controls.Add(this.dataGridViewX4);
-            this.tabPage17.Controls.Add(this.kryptonButton1);
+            this.tabPage17.Controls.Add(this.brnAddtoBorrow);
             this.tabPage17.Controls.Add(this.groupBox8);
             this.tabPage17.Controls.Add(this.dgvToBeBorrowed);
             this.tabPage17.Controls.Add(this.groupBox7);
@@ -575,37 +580,38 @@
             this.tabPage17.UseVisualStyleBackColor = true;
             this.tabPage17.Click += new System.EventHandler(this.tabPage17_Click);
             // 
-            // kryptonButton6
+            // btnBorrowCheckout
             // 
-            this.kryptonButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonButton6.Location = new System.Drawing.Point(1046, 511);
-            this.kryptonButton6.Name = "kryptonButton6";
-            this.kryptonButton6.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.kryptonButton6.Size = new System.Drawing.Size(90, 25);
-            this.kryptonButton6.TabIndex = 77;
-            this.kryptonButton6.Values.Text = "Proceed to Checkout";
+            this.btnBorrowCheckout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBorrowCheckout.Location = new System.Drawing.Point(1046, 511);
+            this.btnBorrowCheckout.Name = "btnBorrowCheckout";
+            this.btnBorrowCheckout.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.btnBorrowCheckout.Size = new System.Drawing.Size(90, 25);
+            this.btnBorrowCheckout.TabIndex = 77;
+            this.btnBorrowCheckout.Values.Text = "Proceed to Checkout";
+            this.btnBorrowCheckout.Click += new System.EventHandler(this.kryptonButton6_Click);
             // 
-            // kryptonButton3
+            // btnClearBorrowList
             // 
-            this.kryptonButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonButton3.Location = new System.Drawing.Point(854, 511);
-            this.kryptonButton3.Name = "kryptonButton3";
-            this.kryptonButton3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.kryptonButton3.Size = new System.Drawing.Size(90, 25);
-            this.kryptonButton3.TabIndex = 76;
-            this.kryptonButton3.Values.Text = "Clear";
-            this.kryptonButton3.Click += new System.EventHandler(this.kryptonButton3_Click);
+            this.btnClearBorrowList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClearBorrowList.Location = new System.Drawing.Point(854, 511);
+            this.btnClearBorrowList.Name = "btnClearBorrowList";
+            this.btnClearBorrowList.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.btnClearBorrowList.Size = new System.Drawing.Size(90, 25);
+            this.btnClearBorrowList.TabIndex = 76;
+            this.btnClearBorrowList.Values.Text = "Clear";
+            this.btnClearBorrowList.Click += new System.EventHandler(this.kryptonButton3_Click);
             // 
-            // kryptonButton2
+            // btnRemoveBorrow
             // 
-            this.kryptonButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonButton2.Location = new System.Drawing.Point(950, 511);
-            this.kryptonButton2.Name = "kryptonButton2";
-            this.kryptonButton2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.kryptonButton2.Size = new System.Drawing.Size(90, 25);
-            this.kryptonButton2.TabIndex = 75;
-            this.kryptonButton2.Values.Text = "Remove";
-            this.kryptonButton2.Click += new System.EventHandler(this.kryptonButton2_Click);
+            this.btnRemoveBorrow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRemoveBorrow.Location = new System.Drawing.Point(950, 511);
+            this.btnRemoveBorrow.Name = "btnRemoveBorrow";
+            this.btnRemoveBorrow.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.btnRemoveBorrow.Size = new System.Drawing.Size(90, 25);
+            this.btnRemoveBorrow.TabIndex = 75;
+            this.btnRemoveBorrow.Values.Text = "Remove";
+            this.btnRemoveBorrow.Click += new System.EventHandler(this.kryptonButton2_Click);
             // 
             // label3
             // 
@@ -617,38 +623,16 @@
             this.label3.TabIndex = 74;
             this.label3.Text = "Borrow List";
             // 
-            // dataGridViewX4
+            // brnAddtoBorrow
             // 
-            this.dataGridViewX4.AllowUserToAddRows = false;
-            this.dataGridViewX4.AllowUserToDeleteRows = false;
-            this.dataGridViewX4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.dataGridViewX4.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridViewX4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX4.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewX4.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX4.Location = new System.Drawing.Point(576, 36);
-            this.dataGridViewX4.Name = "dataGridViewX4";
-            this.dataGridViewX4.ReadOnly = true;
-            this.dataGridViewX4.Size = new System.Drawing.Size(560, 469);
-            this.dataGridViewX4.TabIndex = 73;
-            // 
-            // kryptonButton1
-            // 
-            this.kryptonButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonButton1.Location = new System.Drawing.Point(8, 511);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.kryptonButton1.Size = new System.Drawing.Size(90, 25);
-            this.kryptonButton1.TabIndex = 72;
-            this.kryptonButton1.Values.Text = "Add to List";
+            this.brnAddtoBorrow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.brnAddtoBorrow.Location = new System.Drawing.Point(8, 511);
+            this.brnAddtoBorrow.Name = "brnAddtoBorrow";
+            this.brnAddtoBorrow.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.brnAddtoBorrow.Size = new System.Drawing.Size(90, 25);
+            this.brnAddtoBorrow.TabIndex = 72;
+            this.brnAddtoBorrow.Values.Text = "Add to List";
+            this.brnAddtoBorrow.Click += new System.EventHandler(this.kryptonButton1_Click);
             // 
             // groupBox8
             // 
@@ -714,29 +698,30 @@
             this.dgvToBeBorrowed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvToBeBorrowed.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvToBeBorrowed.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvToBeBorrowed.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvToBeBorrowed.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvToBeBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvToBeBorrowed.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvToBeBorrowed.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvToBeBorrowed.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvToBeBorrowed.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvToBeBorrowed.Location = new System.Drawing.Point(6, 185);
             this.dgvToBeBorrowed.Name = "dgvToBeBorrowed";
             this.dgvToBeBorrowed.ReadOnly = true;
             this.dgvToBeBorrowed.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvToBeBorrowed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvToBeBorrowed.Size = new System.Drawing.Size(564, 320);
             this.dgvToBeBorrowed.TabIndex = 70;
             // 
@@ -826,29 +811,6 @@
             this.dgvBorrowHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBorrowHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvBorrowHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBorrowHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvBorrowHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBorrowHistory.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvBorrowHistory.EnableHeadersVisualStyles = false;
-            this.dgvBorrowHistory.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvBorrowHistory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.dgvBorrowHistory.Location = new System.Drawing.Point(663, 35);
-            this.dgvBorrowHistory.Name = "dgvBorrowHistory";
-            this.dgvBorrowHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -856,7 +818,30 @@
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBorrowHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvBorrowHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvBorrowHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBorrowHistory.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvBorrowHistory.EnableHeadersVisualStyles = false;
+            this.dgvBorrowHistory.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvBorrowHistory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.dgvBorrowHistory.Location = new System.Drawing.Point(663, 35);
+            this.dgvBorrowHistory.Name = "dgvBorrowHistory";
+            this.dgvBorrowHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBorrowHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvBorrowHistory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvBorrowHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBorrowHistory.Size = new System.Drawing.Size(469, 455);
@@ -873,29 +858,6 @@
             this.dgvCurrentBorrowed.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCurrentBorrowed.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvCurrentBorrowed.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCurrentBorrowed.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvCurrentBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCurrentBorrowed.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvCurrentBorrowed.EnableHeadersVisualStyles = false;
-            this.dgvCurrentBorrowed.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvCurrentBorrowed.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.dgvCurrentBorrowed.Location = new System.Drawing.Point(6, 154);
-            this.dgvCurrentBorrowed.Name = "dgvCurrentBorrowed";
-            this.dgvCurrentBorrowed.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -903,7 +865,30 @@
             dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCurrentBorrowed.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvCurrentBorrowed.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvCurrentBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCurrentBorrowed.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvCurrentBorrowed.EnableHeadersVisualStyles = false;
+            this.dgvCurrentBorrowed.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvCurrentBorrowed.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.dgvCurrentBorrowed.Location = new System.Drawing.Point(6, 154);
+            this.dgvCurrentBorrowed.Name = "dgvCurrentBorrowed";
+            this.dgvCurrentBorrowed.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCurrentBorrowed.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvCurrentBorrowed.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCurrentBorrowed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCurrentBorrowed.Size = new System.Drawing.Size(651, 336);
@@ -1048,23 +1033,23 @@
             this.dgvRequest.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRequest.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvRequest.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRequest.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRequest.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgvRequest.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvRequest.EnableHeadersVisualStyles = false;
             this.dgvRequest.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -1074,14 +1059,14 @@
             this.dgvRequest.Name = "dgvRequest";
             this.dgvRequest.ReadOnly = true;
             this.dgvRequest.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRequest.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRequest.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvRequest.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvRequest.RowTemplate.Height = 30;
             this.dgvRequest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1276,14 +1261,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUserRegister.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dgvUserRegister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUserRegister.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserRegister.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvUserRegister.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvUserRegister.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvUserRegister.Location = new System.Drawing.Point(405, 53);
@@ -1629,9 +1614,9 @@
             this.lblCurrentUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblCurrentUser.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentUser.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCurrentUser.Location = new System.Drawing.Point(712, 33);
+            this.lblCurrentUser.Location = new System.Drawing.Point(351, 33);
             this.lblCurrentUser.Name = "lblCurrentUser";
-            this.lblCurrentUser.Size = new System.Drawing.Size(351, 29);
+            this.lblCurrentUser.Size = new System.Drawing.Size(712, 29);
             this.lblCurrentUser.TabIndex = 26;
             this.lblCurrentUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -1639,8 +1624,83 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(146, 124);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(347, 20);
+            this.txtSearch.Size = new System.Drawing.Size(347, 23);
             this.txtSearch.TabIndex = 69;
+            // 
+            // dgvBorrowList
+            // 
+            this.dgvBorrowList.AllowUserToAddRows = false;
+            this.dgvBorrowList.AllowUserToDeleteRows = false;
+            this.dgvBorrowList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvBorrowList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvBorrowList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvBorrowList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvBorrowList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvBorrowList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBorrowList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvBorrowList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBorrowList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EQID,
+            this.EQName,
+            this.EQQuantity});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBorrowList.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvBorrowList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvBorrowList.EnableHeadersVisualStyles = false;
+            this.dgvBorrowList.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvBorrowList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvBorrowList.Location = new System.Drawing.Point(576, 36);
+            this.dgvBorrowList.MultiSelect = false;
+            this.dgvBorrowList.Name = "dgvBorrowList";
+            this.dgvBorrowList.ReadOnly = true;
+            this.dgvBorrowList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBorrowList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvBorrowList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvBorrowList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBorrowList.Size = new System.Drawing.Size(560, 469);
+            this.dgvBorrowList.Style = MetroFramework.MetroColorStyle.Blue;
+            this.dgvBorrowList.TabIndex = 78;
+            // 
+            // EQID
+            // 
+            this.EQID.HeaderText = "Equipment ID";
+            this.EQID.Name = "EQID";
+            this.EQID.ReadOnly = true;
+            this.EQID.Width = 127;
+            // 
+            // EQName
+            // 
+            this.EQName.HeaderText = "Name";
+            this.EQName.Name = "EQName";
+            this.EQName.ReadOnly = true;
+            this.EQName.Width = 75;
+            // 
+            // EQQuantity
+            // 
+            this.EQQuantity.HeaderText = "Quantity";
+            this.EQQuantity.Name = "EQQuantity";
+            this.EQQuantity.ReadOnly = true;
+            this.EQQuantity.Width = 93;
             // 
             // Main
             // 
@@ -1670,7 +1730,6 @@
             this.groupBox3.PerformLayout();
             this.tabPage17.ResumeLayout(false);
             this.tabPage17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX4)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvToBeBorrowed)).EndInit();
@@ -1698,6 +1757,7 @@
             this.groupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1790,12 +1850,11 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label4;
         private DevComponents.DotNetBar.Controls.DataGridViewX dgvToBeBorrowed;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton brnAddtoBorrow;
         private System.Windows.Forms.Label label3;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX4;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton6;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRemoveBorrow;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnClearBorrowList;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnBorrowCheckout;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnReturnSearch;
         private System.Windows.Forms.GroupBox groupBox6;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoOpenRequest;
@@ -1810,5 +1869,9 @@
         private MetroFramework.Controls.MetroGrid dgvBorrowHistory;
         private MetroFramework.Controls.MetroGrid dgvCurrentBorrowed;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoDenied;
+        private MetroFramework.Controls.MetroGrid dgvBorrowList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EQID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EQName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EQQuantity;
     }
 }
