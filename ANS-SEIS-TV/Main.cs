@@ -351,6 +351,7 @@ namespace ANS_SEIS_TV
                 }
                 else
                 {
+                    u.Action = "Registered a new Equipment";
                     txtEquipmentID.Text = db.sp_EquipmentID().ToString();
                     eq.ID = db.sp_EquipmentID();
                     eq.EquipmentBarcode = txtEquipmentID.Text;
@@ -358,14 +359,17 @@ namespace ANS_SEIS_TV
                     eq.EquipmentDescription = txtEquipmentDescription.Text;
                     eq.EquipmentTypeID = EquipmentTypeID; // int.Parse(drpEquipmentType.Text.Substring(0,3));
                     eq.EquipmentQuantity = int.Parse(numQuantity.Value.ToString());
+
                     eq.EquipmentInsert();
 
                     t.NewTransaction(DateTime.Now, t.Action, CurrentGENID);
+
                     t.NewBorrowed(t.TID, CurrentGENID, eq.ID, DateTime.Now, 0);
 
                     EquipmentClear();
 
                     u.ID = u.CurrentID;
+
                     u.Action = "Registered a new Equipment";
                     t.Action = u.Action;
                     t.TransactionID();
@@ -537,6 +541,68 @@ namespace ANS_SEIS_TV
             dgvRequest.DataSource = db.sp_ViewAllRequest();
             RequestGridUpdate();
         }
+        
+        private void kryptonButton1_Click(object sender, EventArgs e)
+        {
+            //dgvBorrowList.Rows.Insert(0, dgvToBeBorrowed.CurrentRow.Cells[0].Value.ToString(), g.GetEquipmentName(int.Parse(dgvToBeBorrowed.CurrentRow.Cells[0].Value.ToString())), 1);
+            g.EquipmentID = int.Parse(dgvToBeBorrowed.CurrentRow.Cells[0].Value.ToString());
+
+            bool Found = false;
+            int Qty = 1;
+
+            //rows is not blanks
+            if (dgvBorrowList.Rows.Count > 0)
+            {
+                //Check if the product exists
+                foreach (DataGridViewRow row in dgvBorrowList.Rows)
+                {
+                    if (Convert.ToString(row.Cells[0].Value)== dgvToBeBorrowed.CurrentRow.Cells[0].Value.ToString())
+                    {
+                        if (Convert.ToInt32(row.Cells[2].Value.ToString()) < Convert.ToInt32(dgvToBeBorrowed.CurrentRow.Cells[3].Value.ToString()))
+                        {
+                            row.Cells[2].Value = Convert.ToString(1 + Convert.ToInt32(row.Cells[2].Value));
+                        }
+                        else
+                        {
+                            MetroMessageBox.Show(this, "You cannot add more than what is available", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        //row.Cells[2].Value = Convert.ToString(1 + Convert.ToInt32(row.Cells[2].Value));
+                        Found = true;
+                    }
+                }
+                if (!Found)
+                {
+                    //Add new text
+                    dgvBorrowList.Rows.Insert(0, dgvToBeBorrowed.CurrentRow.Cells[0].Value.ToString(), g.GetEquipmentName(int.Parse(dgvToBeBorrowed.CurrentRow.Cells[0].Value.ToString())), 1);
+                }
+            }
+            else
+            {
+                //add the first row if
+                dgvBorrowList.Rows.Insert(0, dgvToBeBorrowed.CurrentRow.Cells[0].Value.ToString(), g.GetEquipmentName(int.Parse(dgvToBeBorrowed.CurrentRow.Cells[0].Value.ToString())), 1);
+            }
+        }
+
+        private void kryptonButton2_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in this.dgvBorrowList.SelectedRows)
+            {
+                dgvBorrowList.Rows.RemoveAt(item.Index);
+            }
+        }
+
+        private void kryptonButton3_Click(object sender, EventArgs e)
+        {
+            dgvBorrowList.Rows.Clear();
+        }
+
+        private void kryptonButton6_Click(object sender, EventArgs e)
+        {
+            FinalizeTransaction f = new FinalizeTransaction();
+            f.dgvTransaction.DataSource = dgvBorrowList.DataSource;
+            f.CopyDataGridView(dgvBorrowList);
+            f.ShowDialog();
+        }
 
         private void RequestGridUpdate()
         {
@@ -690,16 +756,6 @@ namespace ANS_SEIS_TV
         }
 
         private void tabPage17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void kryptonButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void kryptonButton3_Click(object sender, EventArgs e)
         {
 
         }

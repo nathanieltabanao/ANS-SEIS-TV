@@ -26,6 +26,9 @@ namespace ANS_SEIS_TV
         public string Content { get; set; }
         public int RequestID { get; set; }
 
+        public int EquipmentID { get; set; }
+        public string EquipmentName { get; set; }
+
 
         //public void GetUserType()
         //{   
@@ -172,6 +175,15 @@ namespace ANS_SEIS_TV
                           select TBLREQUESTREPLY.DateReplied;
 
             return DateTime.Parse(results.FirstOrDefault().Value.ToString());
+        }
+
+        public string GetEquipmentName(int EquipmentID)
+        {
+            var results = from TBLEQUIPMENTDETAIL in db.TBLEQUIPMENTDETAILs
+                          where TBLEQUIPMENTDETAIL.EQUIPMENT_ID == EquipmentID
+                          select TBLEQUIPMENTDETAIL.EQUIPMENT_NAME;
+
+            return results.FirstOrDefault().ToString();
         }
     }
 }

@@ -26,14 +26,14 @@ namespace ANS_SEIS_TV
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dgv.DataSource = db.sp_ViewAllRequest();
+            
 
             foreach (DataGridViewRow row in dgv.Rows)
             {
-                if (row.Cells[3].Value == "OPEN")
-                {
-                    row.DefaultCellStyle.BackColor = Color.FromArgb(78, 186, 186);
-                }
+                //if (row.Cells[3].Value == "OPEN")
+                //{
+                //    row.DefaultCellStyle.BackColor = Color.FromArgb(78, 186, 186);
+                //}
                 //else if (row.Cells[4].Value == "PENDING")
                 //{
                 //    row.DefaultCellStyle.BackColor = Color.Red;
@@ -54,6 +54,11 @@ namespace ANS_SEIS_TV
                     row.DefaultCellStyle.BackColor = Color.Red;
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.dgv.Rows.Insert(0, "one", "two", "three", "four");
         }
     }
 }

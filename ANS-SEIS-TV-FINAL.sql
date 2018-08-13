@@ -8,6 +8,8 @@ DROP DATABASE ANS_SEIS_TV
 
 -- THE ARRANGEMENT OF CODES BELOW ARE THE WAY HOW THEY SHOULD BE RUNNED
 
+
+
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 
@@ -755,7 +757,7 @@ INNER JOIN TBLBORROWED ON TBLEQUIPMENTDETAILS.EQUIPMENT_ID =TBLBORROWED.EQUIPMEN
 INNER JOIN TBLEQEUIPMENTTYPE ON TBLEQUIPMENTDETAILS.EQUIPMENT_TYPE_ID=TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_ID
 WHERE TBLEQUIPMENTDETAILS.EQUIPMENT_ID like '%'+@SearchKey+'%' OR EQUIPMENT_NAME like '%'+@SearchKey+'%' OR EQUIPMENT_DESCRIPTION like '%'+@SearchKey+'%' OR TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_DESCRIPTION like '%'+@SearchKey+'%'
 
-
+SELECT * FROM TBLEQUIPMENTDETAILS
 
 -------------------------------------------------------------------------------------------------
 
@@ -821,3 +823,10 @@ INSERT INTO TBLEQUIPMENTDETAILS
 VALUES	('2000000','Test Equipment 1','Test Description 1',200,3,1),
 		('2000001','Test Equipment 2','Test Description 2',200,3,1),
 		('2000002','Test Equipment 3','Test Description 3',200,3,1)
+
+SELECT * FROM TBLEQUIPMENTDETAILS
+SELECT * FROM TBLTRANSACTION
+SELECT * FROM TBLBORROWED
+
+DELETE FROM TBLBORROWED
+WHERE BorrowID=7000000
