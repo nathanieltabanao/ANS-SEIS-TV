@@ -37,6 +37,14 @@
       <Association Name="TBLUSERDETAIL_TBLBORROWED" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBLBORROWQUANTITY" Member="TBLBORROWQUANTITies">
+    <Type Name="TBLBORROWQUANTITY">
+      <Column Name="BORROWID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWQUANTITY" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.TBLEQEUIPMENTTYPE" Member="TBLEQEUIPMENTTYPEs">
     <Type Name="TBLEQEUIPMENTTYPE">
       <Column Name="EQUIPMENT_TYPE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -53,6 +61,7 @@
       <Column Name="EQUIPMENT_QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ISBORROWABLE" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWED" Member="TBLBORROWEDs" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLBORROWED" />
+      <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWQUANTITY" Member="TBLBORROWQUANTITies" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLBORROWQUANTITY" />
       <Association Name="TBLEQEUIPMENTTYPE_TBLEQUIPMENTDETAIL" Member="TBLEQEUIPMENTTYPE" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQEUIPMENTTYPE" IsForeignKey="true" />
     </Type>
   </Table>
@@ -142,8 +151,9 @@
       <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT" Member="TBLUSERDETAIL" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
-  <Function Name="dbo.sp_DeleteDeletedEquipment" Method="sp_DeleteDeletedEquipment">
+  <Function Name="dbo.sp_BorrowAddQuantity" Method="sp_BorrowAddQuantity">
     <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QUANTITY" Parameter="qUANTITY" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_ViewPendingRequest" Method="sp_ViewPendingRequest">
@@ -154,6 +164,10 @@
       <Column Name="[Date Requested]" Member="Date_Requested" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.sp_DeleteDeletedEquipment" Method="sp_DeleteDeletedEquipment">
+    <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_EquipmentBorrowableView" Method="sp_EquipmentBorrowableView">
     <Parameter Name="SearchKey" Parameter="searchKey" Type="System.String" DbType="VarChar(50)" />
@@ -208,6 +222,11 @@
     <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
     <Parameter Name="DATEBORROWED" Parameter="dATEBORROWED" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="Quantity" Parameter="quantity" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_NewBorrowQuantityAdded" Method="sp_NewBorrowQuantityAdded">
+    <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QUANTITY" Parameter="qUANTITY" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_NewRequest" Method="sp_NewRequest">

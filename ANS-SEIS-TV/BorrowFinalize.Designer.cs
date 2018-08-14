@@ -31,9 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.llblTransactionType = new System.Windows.Forms.Label();
+            this.lblBorrower = new System.Windows.Forms.Label();
+            this.lblTransactionID = new System.Windows.Forms.Label();
+            this.lblTransactionType = new System.Windows.Forms.Label();
             this.dgvTransaction = new MetroFramework.Controls.MetroGrid();
             this.EQID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EQName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,35 +42,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblBorrower
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(75, 91);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Borrower :";
+            this.lblBorrower.AutoSize = true;
+            this.lblBorrower.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBorrower.Location = new System.Drawing.Point(75, 91);
+            this.lblBorrower.Name = "lblBorrower";
+            this.lblBorrower.Size = new System.Drawing.Size(79, 21);
+            this.lblBorrower.TabIndex = 0;
+            this.lblBorrower.Text = "Borrower :";
             // 
-            // label2
+            // lblTransactionID
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(39, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 21);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Transaction ID :";
+            this.lblTransactionID.AutoSize = true;
+            this.lblTransactionID.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTransactionID.Location = new System.Drawing.Point(39, 60);
+            this.lblTransactionID.Name = "lblTransactionID";
+            this.lblTransactionID.Size = new System.Drawing.Size(115, 21);
+            this.lblTransactionID.TabIndex = 1;
+            this.lblTransactionID.Text = "Transaction ID :";
             // 
-            // llblTransactionType
+            // lblTransactionType
             // 
-            this.llblTransactionType.AutoSize = true;
-            this.llblTransactionType.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblTransactionType.Location = new System.Drawing.Point(23, 122);
-            this.llblTransactionType.Name = "llblTransactionType";
-            this.llblTransactionType.Size = new System.Drawing.Size(131, 21);
-            this.llblTransactionType.TabIndex = 2;
-            this.llblTransactionType.Text = "Transaction Type :";
+            this.lblTransactionType.AutoSize = true;
+            this.lblTransactionType.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTransactionType.Location = new System.Drawing.Point(23, 122);
+            this.lblTransactionType.Name = "lblTransactionType";
+            this.lblTransactionType.Size = new System.Drawing.Size(131, 21);
+            this.lblTransactionType.TabIndex = 2;
+            this.lblTransactionType.Text = "Transaction Type :";
             // 
             // dgvTransaction
             // 
@@ -133,7 +133,7 @@
             this.EQID.HeaderText = "Equipment ID";
             this.EQID.Name = "EQID";
             this.EQID.ReadOnly = true;
-            this.EQID.Width = 116;
+            this.EQID.Width = 127;
             // 
             // EQName
             // 
@@ -167,6 +167,7 @@
             this.btnSubmit.TabIndex = 4;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // FinalizeTransaction
             // 
@@ -175,9 +176,9 @@
             this.ClientSize = new System.Drawing.Size(568, 499);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.dgvTransaction);
-            this.Controls.Add(this.llblTransactionType);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTransactionType);
+            this.Controls.Add(this.lblTransactionID);
+            this.Controls.Add(this.lblBorrower);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Movable = false;
@@ -187,6 +188,7 @@
             this.ShowInTaskbar = false;
             this.Style = MetroFramework.MetroColorStyle.Black;
             this.Text = "Finalize Transaction";
+            this.Load += new System.EventHandler(this.FinalizeTransaction_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -195,9 +197,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label llblTransactionType;
+        private System.Windows.Forms.Label lblBorrower;
+        private System.Windows.Forms.Label lblTransactionID;
+        private System.Windows.Forms.Label lblTransactionType;
         public MetroFramework.Controls.MetroGrid dgvTransaction;
         private System.Windows.Forms.DataGridViewTextBoxColumn EQID;
         private System.Windows.Forms.DataGridViewTextBoxColumn EQName;

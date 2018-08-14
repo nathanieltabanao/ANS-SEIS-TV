@@ -19,8 +19,21 @@ namespace ANS_SEIS_TV
         public FinalizeTransaction()
         {
             InitializeComponent();
-
         }
+
+        public DataTable dgv;
+
+        TransactionLibrary t = new TransactionLibrary();
+
+        GetSomethingFromServer g = new GetSomethingFromServer();
+
+        public int TransactionID { get; set; }
+        public string Borrower { get; set; }
+        public string Action { get; set; }
+        public string TransactionType { get; set; }
+        public int AdminID { get; set; }
+        public int BorrowerID { get; set; }
+
 
         public DataGridView CopyDataGridView(DataGridView dgv_org)
         {
@@ -57,6 +70,27 @@ namespace ANS_SEIS_TV
                 //cf.ShowExceptionErrorMsg("Copy DataGridViw", ex);
             }
             return dgv_copy;
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            t.NewTransaction(DateTime.Now, Action, AdminID);
+            
+            foreach (DataGridViewRow row in dgvTransaction.Rows)
+            {
+                t.NewBorrowed(TransactionID, g.GetGENID(Borrower), Convert.ToInt32(row.Cells[0].Value), DateTime.Now, Convert.ToInt32(row.Cells[2].Value));
+                t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) +Convert.ToInt32(row.Cells[2].Value));
+            }
+            MetroMessageBox.Show(this, "Transaction Complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void FinalizeTransaction_Load(object sender, EventArgs e)
+        {
+            g.Username = Borrower;
+            g.GetFullname();
+            lblBorrower.Text = "Borrower : " + g.Fullname;
+            lblTransactionType.Text = "Transaction Type : " + TransactionType;
+            lblTransactionID.Text = "Transaction ID : " + TransactionID;
         }
     }
 }
