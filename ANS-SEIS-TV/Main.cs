@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using MetroFramework;
+using System.Data.Linq;
 
 
 namespace ANS_SEIS_TV
@@ -361,7 +362,8 @@ namespace ANS_SEIS_TV
                     eq.EquipmentQuantity = int.Parse(numQuantity.Value.ToString());
 
                     eq.EquipmentInsert();
-
+                    t.NewEquipmentAdded(eq.ID, 0);
+                    t.Action = "Registered an Equipment";
                     t.NewTransaction(DateTime.Now, t.Action, CurrentGENID);
 
                     t.NewBorrowed(t.TID, CurrentGENID, eq.ID, DateTime.Now, 0);
@@ -371,7 +373,7 @@ namespace ANS_SEIS_TV
                     u.ID = u.CurrentID;
 
                     u.Action = "Registered a new Equipment";
-                    t.Action = u.Action;
+                    
                     t.TransactionID();
                     ViewEquipment();
 
@@ -599,8 +601,41 @@ namespace ANS_SEIS_TV
         private void kryptonButton6_Click(object sender, EventArgs e)
         {
             FinalizeTransaction f = new FinalizeTransaction();
-            f.dgvTransaction.DataSource = dgvBorrowList.DataSource;
-            f.CopyDataGridView(dgvBorrowList);
+            //f.dgvTransaction.DataSource = dgvBorrowList.DataSource;
+            //f.CopyDataGridView(dgvBorrowList);
+            //f.dgv = dgvBorrowList.DataSource;
+
+            //var gd1 =
+            //        (from a in dgvBorrowList.Rows.Cast<DataGridViewRow>()
+            //        select new { Column1 = a.Cells["Column1"].Value.ToString() }).ToList();
+
+            ////loop dg1 and save it to datagridview2
+            //foreach (var b in gd1)
+            //{
+            //    f.dgv.Rows.Add(b.Column1);
+            //}
+
+            DataGridViewRow row = new DataGridViewRow();
+
+            for (int i = 0; i < dgvBorrowList.Rows.Count; i++)
+            {
+                row = (DataGridViewRow)dgvBorrowList.Rows[i].Clone();
+                int intColIndex = 0;
+                foreach (DataGridViewCell cell in dgvBorrowList.Rows[i].Cells)
+                {
+                    row.Cells[intColIndex].Value = cell.Value;
+                    intColIndex++;
+                }
+                f.dgvTransaction.Rows.Add(row);
+            }
+            t.TransactionID();
+            f.dgvTransaction.AllowUserToAddRows = false;
+            f.dgvTransaction.Refresh();
+            f.TransactionID = t.TID;
+            f.Borrower = txtBorrowerUsername.Text;
+            f.Action = "Borrowed an Equipment";
+            f.TransactionType = "Equipment Borrowing";
+            f.AdminID = CurrentGENID;
             f.ShowDialog();
         }
 

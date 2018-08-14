@@ -44,5 +44,15 @@ namespace ANS_SEIS_TV
         {
             db.sp_DeleteDeletedEquipment(EQID);
         }
+
+        public void NewEquipmentAdded(int EquipmentID, int Quantity)
+        {
+            db.sp_NewBorrowQuantityAdded(EquipmentID, Quantity);
+        }
+
+        public void BorrowableEditQuantity(int EquipmentID, int Quantity)
+        {
+            db.sp_BorrowAddQuantity(EquipmentID, Quantity);
+        }
     }
 }

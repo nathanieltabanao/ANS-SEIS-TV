@@ -185,5 +185,13 @@ namespace ANS_SEIS_TV
 
             return results.FirstOrDefault().ToString();
         }
+
+        public int GetEquipmentBorrowableQuantity(int EquipmentID)
+        {
+            var results = from TBLBORROWQUANTITY in db.TBLBORROWQUANTITies
+                          where TBLBORROWQUANTITY.EQUIPMENT_ID == EquipmentID
+                          select TBLBORROWQUANTITY.QUANTITY;
+            return int.Parse(results.FirstOrDefault().Value.ToString());
+        }
     }
 }

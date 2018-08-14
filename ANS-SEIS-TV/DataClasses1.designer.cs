@@ -112,6 +112,14 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
+		public System.Data.Linq.Table<TBLBORROWQUANTITY> TBLBORROWQUANTITies
+		{
+			get
+			{
+				return this.GetTable<TBLBORROWQUANTITY>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TBLEQEUIPMENTTYPE> TBLEQEUIPMENTTYPEs
 		{
 			get
@@ -184,10 +192,10 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DeleteDeletedEquipment")]
-		public int sp_DeleteDeletedEquipment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_BorrowAddQuantity")]
+		public int sp_BorrowAddQuantity([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUANTITY", DbType="Int")] System.Nullable<int> qUANTITY)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID, qUANTITY);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -196,6 +204,13 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_ViewPendingRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DeleteDeletedEquipment")]
+		public int sp_DeleteDeletedEquipment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentBorrowableView")]
@@ -251,6 +266,13 @@ namespace ANS_SEIS_TV
 		public int sp_NewBorrow([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WhoBorrowed", DbType="Int")] System.Nullable<int> whoBorrowed, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DATEBORROWED", DbType="DateTime")] System.Nullable<System.DateTime> dATEBORROWED, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, whoBorrowed, eQUIPMENT_ID, dATEBORROWED, quantity);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewBorrowQuantityAdded")]
+		public int sp_NewBorrowQuantityAdded([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUANTITY", DbType="Int")] System.Nullable<int> qUANTITY)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID, qUANTITY);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -873,6 +895,69 @@ namespace ANS_SEIS_TV
 				if ((this._Quantity != value))
 				{
 					this._Quantity = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLBORROWQUANTITY")]
+	public partial class TBLBORROWQUANTITY
+	{
+		
+		private int _BORROWID;
+		
+		private System.Nullable<int> _EQUIPMENT_ID;
+		
+		private System.Nullable<int> _QUANTITY;
+		
+		public TBLBORROWQUANTITY()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BORROWID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int BORROWID
+		{
+			get
+			{
+				return this._BORROWID;
+			}
+			set
+			{
+				if ((this._BORROWID != value))
+				{
+					this._BORROWID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_ID", DbType="Int")]
+		public System.Nullable<int> EQUIPMENT_ID
+		{
+			get
+			{
+				return this._EQUIPMENT_ID;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_ID != value))
+				{
+					this._EQUIPMENT_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUANTITY", DbType="Int")]
+		public System.Nullable<int> QUANTITY
+		{
+			get
+			{
+				return this._QUANTITY;
+			}
+			set
+			{
+				if ((this._QUANTITY != value))
+				{
+					this._QUANTITY = value;
 				}
 			}
 		}
