@@ -51,7 +51,7 @@ namespace ANS_SEIS_TV
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::ANS_SEIS_TV.Properties.Settings.Default.ANS_SEIS_TVConnectionString1, mappingSource)
+				base(global::ANS_SEIS_TV.Properties.Settings.Default.ANS_SEIS_TVConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -149,6 +149,14 @@ namespace ANS_SEIS_TV
 			get
 			{
 				return this.GetTable<TBLREQUESTTABLE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBLRETURNEDEQUIPMENT> TBLRETURNEDEQUIPMENTs
+		{
+			get
+			{
+				return this.GetTable<TBLRETURNEDEQUIPMENT>();
 			}
 		}
 		
@@ -263,9 +271,9 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewBorrow")]
-		public int sp_NewBorrow([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WhoBorrowed", DbType="Int")] System.Nullable<int> whoBorrowed, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DATEBORROWED", DbType="DateTime")] System.Nullable<System.DateTime> dATEBORROWED, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity)
+		public int sp_NewBorrow([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WhoBorrowed", DbType="Int")] System.Nullable<int> whoBorrowed, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DATEBORROWED", DbType="DateTime")] System.Nullable<System.DateTime> dATEBORROWED, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGoodCondition", DbType="Bit")] System.Nullable<bool> isGoodCondition, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsReturned", DbType="Bit")] System.Nullable<bool> isReturned)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, whoBorrowed, eQUIPMENT_ID, dATEBORROWED, quantity);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, whoBorrowed, eQUIPMENT_ID, dATEBORROWED, quantity, isGoodCondition, isReturned);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -315,6 +323,13 @@ namespace ANS_SEIS_TV
 		public int sp_RequestViewed([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RequestID", DbType="Int")] System.Nullable<int> requestID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), requestID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ReturnEquipments")]
+		public int sp_ReturnEquipments([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateReturned", DbType="DateTime")] System.Nullable<System.DateTime> dateReturned, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GENID", DbType="Int")] System.Nullable<int> gENID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, eQUIPMENT_ID, quantity, dateReturned, gENID);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -477,6 +492,13 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_ViewApprovedRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewBorrowedEquipment")]
+		public ISingleResult<sp_ViewBorrowedEquipmentResult> sp_ViewBorrowedEquipment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID);
+			return ((ISingleResult<sp_ViewBorrowedEquipmentResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewDeniedRequest")]
@@ -799,6 +821,10 @@ namespace ANS_SEIS_TV
 		
 		private System.Nullable<int> _Quantity;
 		
+		private System.Nullable<bool> _IsGoodCondition;
+		
+		private System.Nullable<bool> _IsReturned;
+		
 		public TBLBORROWED()
 		{
 		}
@@ -895,6 +921,38 @@ namespace ANS_SEIS_TV
 				if ((this._Quantity != value))
 				{
 					this._Quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsGoodCondition", DbType="Bit")]
+		public System.Nullable<bool> IsGoodCondition
+		{
+			get
+			{
+				return this._IsGoodCondition;
+			}
+			set
+			{
+				if ((this._IsGoodCondition != value))
+				{
+					this._IsGoodCondition = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsReturned", DbType="Bit")]
+		public System.Nullable<bool> IsReturned
+		{
+			get
+			{
+				return this._IsReturned;
+			}
+			set
+			{
+				if ((this._IsReturned != value))
+				{
+					this._IsReturned = value;
 				}
 			}
 		}
@@ -1400,6 +1458,123 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLRETURNEDEQUIPMENTS")]
+	public partial class TBLRETURNEDEQUIPMENT
+	{
+		
+		private int _ReturnID;
+		
+		private System.Nullable<int> _TransactionID;
+		
+		private System.Nullable<int> _EQUIPMENT_ID;
+		
+		private System.Nullable<int> _Quantity;
+		
+		private System.Nullable<System.DateTime> _DateReturned;
+		
+		private System.Nullable<int> _GENID;
+		
+		public TBLRETURNEDEQUIPMENT()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReturnID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int ReturnID
+		{
+			get
+			{
+				return this._ReturnID;
+			}
+			set
+			{
+				if ((this._ReturnID != value))
+				{
+					this._ReturnID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionID", DbType="Int")]
+		public System.Nullable<int> TransactionID
+		{
+			get
+			{
+				return this._TransactionID;
+			}
+			set
+			{
+				if ((this._TransactionID != value))
+				{
+					this._TransactionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_ID", DbType="Int")]
+		public System.Nullable<int> EQUIPMENT_ID
+		{
+			get
+			{
+				return this._EQUIPMENT_ID;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_ID != value))
+				{
+					this._EQUIPMENT_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateReturned", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateReturned
+		{
+			get
+			{
+				return this._DateReturned;
+			}
+			set
+			{
+				if ((this._DateReturned != value))
+				{
+					this._DateReturned = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENID", DbType="Int")]
+		public System.Nullable<int> GENID
+		{
+			get
+			{
+				return this._GENID;
+			}
+			set
+			{
+				if ((this._GENID != value))
+				{
+					this._GENID = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLSTUDENTDETAILS")]
 	public partial class TBLSTUDENTDETAIL : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1414,6 +1589,8 @@ namespace ANS_SEIS_TV
 		
 		private string _NAME;
 		
+		private System.Nullable<int> _USERTYPE_ID;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1426,6 +1603,8 @@ namespace ANS_SEIS_TV
     partial void OnPASSWORDChanged();
     partial void OnNAMEChanging(string value);
     partial void OnNAMEChanged();
+    partial void OnUSERTYPE_IDChanging(System.Nullable<int> value);
+    partial void OnUSERTYPE_IDChanged();
     #endregion
 		
 		public TBLSTUDENTDETAIL()
@@ -1509,6 +1688,26 @@ namespace ANS_SEIS_TV
 					this._NAME = value;
 					this.SendPropertyChanged("NAME");
 					this.OnNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", DbType="Int")]
+		public System.Nullable<int> USERTYPE_ID
+		{
+			get
+			{
+				return this._USERTYPE_ID;
+			}
+			set
+			{
+				if ((this._USERTYPE_ID != value))
+				{
+					this.OnUSERTYPE_IDChanging(value);
+					this.SendPropertyChanging();
+					this._USERTYPE_ID = value;
+					this.SendPropertyChanged("USERTYPE_ID");
+					this.OnUSERTYPE_IDChanged();
 				}
 			}
 		}
@@ -2580,96 +2779,96 @@ namespace ANS_SEIS_TV
 	public partial class sp_EquipmentViewResult
 	{
 		
-		private int _equipment_id;
+		private int _Equipment_ID;
 		
-		private string _EQUIPMENT_NAME;
+		private string _Name;
 		
-		private string _equipment_description;
+		private string _Description;
 		
-		private System.Nullable<int> _equipment_type_id;
+		private string _Type;
 		
-		private System.Nullable<int> _equipment_quantity;
+		private System.Nullable<int> _Quantity;
 		
 		public sp_EquipmentViewResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_equipment_id", DbType="Int NOT NULL")]
-		public int equipment_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Equipment ID]", Storage="_Equipment_ID", DbType="Int NOT NULL")]
+		public int Equipment_ID
 		{
 			get
 			{
-				return this._equipment_id;
+				return this._Equipment_ID;
 			}
 			set
 			{
-				if ((this._equipment_id != value))
+				if ((this._Equipment_ID != value))
 				{
-					this._equipment_id = value;
+					this._Equipment_ID = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_NAME", DbType="VarChar(200)")]
-		public string EQUIPMENT_NAME
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200)")]
+		public string Name
 		{
 			get
 			{
-				return this._EQUIPMENT_NAME;
+				return this._Name;
 			}
 			set
 			{
-				if ((this._EQUIPMENT_NAME != value))
+				if ((this._Name != value))
 				{
-					this._EQUIPMENT_NAME = value;
+					this._Name = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_equipment_description", DbType="VarChar(100)")]
-		public string equipment_description
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(100)")]
+		public string Description
 		{
 			get
 			{
-				return this._equipment_description;
+				return this._Description;
 			}
 			set
 			{
-				if ((this._equipment_description != value))
+				if ((this._Description != value))
 				{
-					this._equipment_description = value;
+					this._Description = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_equipment_type_id", DbType="Int")]
-		public System.Nullable<int> equipment_type_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="VarChar(100)")]
+		public string Type
 		{
 			get
 			{
-				return this._equipment_type_id;
+				return this._Type;
 			}
 			set
 			{
-				if ((this._equipment_type_id != value))
+				if ((this._Type != value))
 				{
-					this._equipment_type_id = value;
+					this._Type = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_equipment_quantity", DbType="Int")]
-		public System.Nullable<int> equipment_quantity
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
 		{
 			get
 			{
-				return this._equipment_quantity;
+				return this._Quantity;
 			}
 			set
 			{
-				if ((this._equipment_quantity != value))
+				if ((this._Quantity != value))
 				{
-					this._equipment_quantity = value;
+					this._Quantity = value;
 				}
 			}
 		}
@@ -3952,6 +4151,104 @@ namespace ANS_SEIS_TV
 				if ((this._Status != value))
 				{
 					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ViewBorrowedEquipmentResult
+	{
+		
+		private int _ID;
+		
+		private string _Name;
+		
+		private System.Nullable<int> _Quantity;
+		
+		private System.Nullable<bool> _Returned_;
+		
+		private System.Nullable<bool> _Good_Condition_;
+		
+		public sp_ViewBorrowedEquipmentResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Returned?]", Storage="_Returned_", DbType="Bit")]
+		public System.Nullable<bool> Returned_
+		{
+			get
+			{
+				return this._Returned_;
+			}
+			set
+			{
+				if ((this._Returned_ != value))
+				{
+					this._Returned_ = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Good Condition?]", Storage="_Good_Condition_", DbType="Bit")]
+		public System.Nullable<bool> Good_Condition_
+		{
+			get
+			{
+				return this._Good_Condition_;
+			}
+			set
+			{
+				if ((this._Good_Condition_ != value))
+				{
+					this._Good_Condition_ = value;
 				}
 			}
 		}

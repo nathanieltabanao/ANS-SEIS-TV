@@ -11,6 +11,7 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using MetroFramework;
 using MetroFramework.Forms;
+using System.Globalization;
 
 namespace ANS_SEIS_TV
 {
@@ -19,6 +20,12 @@ namespace ANS_SEIS_TV
         public FinalizeTransaction()
         {
             InitializeComponent();
+
+            this.BorderStyle = MetroFormBorderStyle.FixedSingle;
+            this.ShadowType = MetroFormShadowType.AeroShadow;
+
+            backgroundWorker1.WorkerReportsProgress = true;
+            backgroundWorker1.WorkerSupportsCancellation = true;
         }
 
         public DataTable dgv;
@@ -33,7 +40,17 @@ namespace ANS_SEIS_TV
         public string TransactionType { get; set; }
         public int AdminID { get; set; }
         public int BorrowerID { get; set; }
+        
 
+        private void FinalizeTransaction_Load(object sender, EventArgs e)
+        {
+            g.Username = Borrower;
+            g.GetFullname();
+            lblBorrower.Text = "Borrower : " + g.Fullname;
+            lblTransactionType.Text = "Transaction Type : " + TransactionType;
+            lblTransactionID.Text = "Transaction ID : " + TransactionID;
+            lblDate.Text = "Transaction Date :" + DateTime.Now.ToShortDateString();
+        }
 
         public DataGridView CopyDataGridView(DataGridView dgv_org)
         {
@@ -74,23 +91,49 @@ namespace ANS_SEIS_TV
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            t.NewTransaction(DateTime.Now, Action, AdminID);
-            
-            foreach (DataGridViewRow row in dgvTransaction.Rows)
+            if (backgroundWorker1.IsBusy != true)
             {
-                t.NewBorrowed(TransactionID, g.GetGENID(Borrower), Convert.ToInt32(row.Cells[0].Value), DateTime.Now, Convert.ToInt32(row.Cells[2].Value));
-                t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) +Convert.ToInt32(row.Cells[2].Value));
+                backgroundWorker1.RunWorkerAsync();
+                LoadingScreen l = new LoadingScreen();
+                l.ShowDialog();
             }
-            MetroMessageBox.Show(this, "Transaction Complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            //    t.NewTransaction(DateTime.Now, Action, AdminID);
+
+            //    foreach (DataGridViewRow row in dgvTransaction.Rows)
+            //    {
+            //        t.NewBorrowed(TransactionID, g.GetGENID(Borrower), Convert.ToInt32(row.Cells[0].Value), DateTime.Now, Convert.ToInt32(row.Cells[2].Value),false,false);
+            //        t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) +Convert.ToInt32(row.Cells[2].Value));
+            //    }
+            //    MetroMessageBox.Show(this, "Transaction Complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void FinalizeTransaction_Load(object sender, EventArgs e)
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            g.Username = Borrower;
-            g.GetFullname();
-            lblBorrower.Text = "Borrower : " + g.Fullname;
-            lblTransactionType.Text = "Transaction Type : " + TransactionType;
-            lblTransactionID.Text = "Transaction ID : " + TransactionID;
+            BackgroundWorker worker = sender as BackgroundWorker;
+
+            System.Threading.Thread.Sleep(2000);
+
+            t.NewTransaction(DateTime.Now, Action, AdminID);
+            foreach (DataGridViewRow row in dgvTransaction.Rows)
+            {
+                t.NewBorrowed(TransactionID, g.GetGENID(Borrower), Convert.ToInt32(row.Cells[0].Value), DateTime.Now, Convert.ToInt32(row.Cells[2].Value), false, false);
+                t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) + Convert.ToInt32(row.Cells[2].Value));
+            }
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error != null) 
+            {
+                MetroMessageBox.Show(this, "Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MetroMessageBox.Show(this, "Transaction Complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
         }
     }
 }

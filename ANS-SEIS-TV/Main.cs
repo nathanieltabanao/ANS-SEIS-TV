@@ -11,6 +11,7 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using MetroFramework;
 using System.Data.Linq;
+using System.Threading;
 
 
 namespace ANS_SEIS_TV
@@ -23,13 +24,25 @@ namespace ANS_SEIS_TV
         //Main form Constructor
         public Main()
         {
+            
+            Thread t = new Thread(new ThreadStart(StartForm));
+            t.Start();
+            Thread.Sleep(5000);
+
             InitializeComponent();
+
+            t.Abort();
 
             // Initialize MaterialSkinManager
             //materialSkinManager = MaterialSkinManager.Instance;
             //materialSkinManager.AddFormToManage(this);
             //materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             //materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey600, Primary.Grey400, Primary.BlueGrey600, Accent.LightBlue400, TextShade.WHITE);
+        }
+
+        public void StartForm()
+        {
+            Application.Run(new SplashScreen());
         }
 
         //initialize Connection
@@ -366,7 +379,9 @@ namespace ANS_SEIS_TV
                     t.Action = "Registered an Equipment";
                     t.NewTransaction(DateTime.Now, t.Action, CurrentGENID);
 
-                    t.NewBorrowed(t.TID, CurrentGENID, eq.ID, DateTime.Now, 0);
+                    //commented cuz ok na
+                    t.NewBorrowed(t.TID, CurrentGENID, eq.ID, DateTime.Now, 0,true,true);
+                    t.NewEquipmentAdded(eq.ID, 0);
 
                     EquipmentClear();
 
@@ -600,43 +615,40 @@ namespace ANS_SEIS_TV
 
         private void kryptonButton6_Click(object sender, EventArgs e)
         {
-            FinalizeTransaction f = new FinalizeTransaction();
-            //f.dgvTransaction.DataSource = dgvBorrowList.DataSource;
-            //f.CopyDataGridView(dgvBorrowList);
-            //f.dgv = dgvBorrowList.DataSource;
-
-            //var gd1 =
-            //        (from a in dgvBorrowList.Rows.Cast<DataGridViewRow>()
-            //        select new { Column1 = a.Cells["Column1"].Value.ToString() }).ToList();
-
-            ////loop dg1 and save it to datagridview2
-            //foreach (var b in gd1)
-            //{
-            //    f.dgv.Rows.Add(b.Column1);
-            //}
-
-            DataGridViewRow row = new DataGridViewRow();
-
-            for (int i = 0; i < dgvBorrowList.Rows.Count; i++)
+            if (string.IsNullOrEmpty(txtBorrowerFullname.Text)||string.IsNullOrEmpty(txtBorrowerUsername.Text))
             {
-                row = (DataGridViewRow)dgvBorrowList.Rows[i].Clone();
-                int intColIndex = 0;
-                foreach (DataGridViewCell cell in dgvBorrowList.Rows[i].Cells)
-                {
-                    row.Cells[intColIndex].Value = cell.Value;
-                    intColIndex++;
-                }
-                f.dgvTransaction.Rows.Add(row);
+                MetroMessageBox.Show(this, "Please select a borrower!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            t.TransactionID();
-            f.dgvTransaction.AllowUserToAddRows = false;
-            f.dgvTransaction.Refresh();
-            f.TransactionID = t.TID;
-            f.Borrower = txtBorrowerUsername.Text;
-            f.Action = "Borrowed an Equipment";
-            f.TransactionType = "Equipment Borrowing";
-            f.AdminID = CurrentGENID;
-            f.ShowDialog();
+            else
+            {
+                FinalizeTransaction f = new FinalizeTransaction();
+
+
+                DataGridViewRow row = new DataGridViewRow();
+
+                for (int i = 0; i < dgvBorrowList.Rows.Count; i++)
+                {
+                    row = (DataGridViewRow)dgvBorrowList.Rows[i].Clone();
+                    int intColIndex = 0;
+                    foreach (DataGridViewCell cell in dgvBorrowList.Rows[i].Cells)
+                    {
+                        row.Cells[intColIndex].Value = cell.Value;
+                        intColIndex++;
+                    }
+                    f.dgvTransaction.Rows.Add(row);
+                }
+                t.TransactionID();
+                f.dgvTransaction.AllowUserToAddRows = false;
+                f.dgvTransaction.Refresh();
+                f.TransactionID = t.TID;
+                f.Borrower = txtBorrowerUsername.Text;
+                f.Action = "Borrowed an Equipment";
+                f.TransactionType = "Equipment Borrowing";
+                f.AdminID = CurrentGENID;
+
+                f.ShowDialog();
+                dgvBorrowList.Rows.Clear();
+            }
         }
 
         private void RequestGridUpdate()
@@ -806,6 +818,11 @@ namespace ANS_SEIS_TV
         }
 
         private void btnReturnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtReturnID_TextChanged(object sender, EventArgs e)
         {
 
         }

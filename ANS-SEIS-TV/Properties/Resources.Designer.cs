@@ -63,7 +63,6 @@ namespace ANS_SEIS_TV.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-
         internal static System.Drawing.Bitmap _009_user_6_vaE_icon {
             get {
                 object obj = ResourceManager.GetObject("009_user_6_vaE_icon", resourceCulture);
@@ -87,7 +86,16 @@ namespace ANS_SEIS_TV.Properties {
         internal static System.Drawing.Bitmap ANS_SEIS_TV_Login_copy1 {
             get {
                 object obj = ResourceManager.GetObject("ANS-SEIS-TV-Login copy1", resourceCulture);
-
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap splash {
+            get {
+                object obj = ResourceManager.GetObject("splash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

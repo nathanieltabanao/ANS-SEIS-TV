@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,14 +40,19 @@
             this.EQName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EQQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSubmit = new MaterialSkin.Controls.MaterialFlatButton();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.metroStyleExtender1 = new MetroFramework.Components.MetroStyleExtender(this.components);
+            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBorrower
             // 
             this.lblBorrower.AutoSize = true;
             this.lblBorrower.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBorrower.Location = new System.Drawing.Point(75, 91);
+            this.lblBorrower.Location = new System.Drawing.Point(76, 116);
             this.lblBorrower.Name = "lblBorrower";
             this.lblBorrower.Size = new System.Drawing.Size(79, 21);
             this.lblBorrower.TabIndex = 0;
@@ -56,7 +62,7 @@
             // 
             this.lblTransactionID.AutoSize = true;
             this.lblTransactionID.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTransactionID.Location = new System.Drawing.Point(39, 60);
+            this.lblTransactionID.Location = new System.Drawing.Point(40, 64);
             this.lblTransactionID.Name = "lblTransactionID";
             this.lblTransactionID.Size = new System.Drawing.Size(115, 21);
             this.lblTransactionID.TabIndex = 1;
@@ -66,7 +72,7 @@
             // 
             this.lblTransactionType.AutoSize = true;
             this.lblTransactionType.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTransactionType.Location = new System.Drawing.Point(23, 122);
+            this.lblTransactionType.Location = new System.Drawing.Point(24, 146);
             this.lblTransactionType.Name = "lblTransactionType";
             this.lblTransactionType.Size = new System.Drawing.Size(131, 21);
             this.lblTransactionType.TabIndex = 2;
@@ -110,7 +116,7 @@
             this.dgvTransaction.EnableHeadersVisualStyles = false;
             this.dgvTransaction.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvTransaction.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvTransaction.Location = new System.Drawing.Point(23, 173);
+            this.dgvTransaction.Location = new System.Drawing.Point(23, 185);
             this.dgvTransaction.MultiSelect = false;
             this.dgvTransaction.Name = "dgvTransaction";
             this.dgvTransaction.ReadOnly = true;
@@ -125,7 +131,7 @@
             this.dgvTransaction.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTransaction.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvTransaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTransaction.Size = new System.Drawing.Size(505, 254);
+            this.dgvTransaction.Size = new System.Drawing.Size(505, 288);
             this.dgvTransaction.TabIndex = 3;
             // 
             // EQID
@@ -158,7 +164,7 @@
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSubmit.Font = new System.Drawing.Font("Segoe UI Semilight", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.Icon = null;
-            this.btnSubmit.Location = new System.Drawing.Point(457, 436);
+            this.btnSubmit.Location = new System.Drawing.Point(457, 482);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSubmit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSubmit.Name = "btnSubmit";
@@ -169,11 +175,31 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(23, 88);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(132, 21);
+            this.lblDate.TabIndex = 5;
+            this.lblDate.Text = "Transaction Date :";
+            // 
+            // metroStyleManager1
+            // 
+            this.metroStyleManager1.Owner = null;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // FinalizeTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 499);
+            this.ClientSize = new System.Drawing.Size(568, 533);
+            this.Controls.Add(this.lblDate);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.dgvTransaction);
             this.Controls.Add(this.lblTransactionType);
@@ -190,6 +216,7 @@
             this.Text = "Finalize Transaction";
             this.Load += new System.EventHandler(this.FinalizeTransaction_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +232,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EQName;
         private System.Windows.Forms.DataGridViewTextBoxColumn EQQuantity;
         private MaterialSkin.Controls.MaterialFlatButton btnSubmit;
+        private System.Windows.Forms.Label lblDate;
+        private MetroFramework.Components.MetroStyleExtender metroStyleExtender1;
+        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
