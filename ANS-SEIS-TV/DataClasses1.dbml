@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ANS_SEIS_TV" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=NATHANIEL-VX15\NATHANIEL;Initial Catalog=ANS_SEIS_TV;Integrated Security=True" SettingsObjectName="ANS_SEIS_TV.Properties.Settings" SettingsPropertyName="ANS_SEIS_TVConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NATHANIEL-VX15\;Initial Catalog=ANS_SEIS_TV;Integrated Security=True" SettingsObjectName="ANS_SEIS_TV.Properties.Settings" SettingsPropertyName="ANS_SEIS_TVConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.EQUIPMENT_DESIGNATION" Member="EQUIPMENT_DESIGNATIONs">
     <Type Name="EQUIPMENT_DESIGNATION">
       <Column Name="EQ_DESIGNATION_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -14,6 +14,7 @@
     <Type Name="USERTYPE">
       <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="USERTYPE_DESCRIPTION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="USERTYPE_TBLSTUDENTDETAIL" Member="TBLSTUDENTDETAILs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLSTUDENTDETAIL" />
       <Association Name="USERTYPE_TBLUSERDETAIL" Member="TBLUSERDETAILs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLUSERDETAIL" />
     </Type>
   </Table>
@@ -32,6 +33,8 @@
       <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DATEBORROWED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsGoodCondition" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsReturned" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWED" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
       <Association Name="TBLTRANSACTION_TBLBORROWED" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
       <Association Name="TBLUSERDETAIL_TBLBORROWED" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
@@ -62,6 +65,7 @@
       <Column Name="ISBORROWABLE" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWED" Member="TBLBORROWEDs" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLBORROWED" />
       <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWQUANTITY" Member="TBLBORROWQUANTITies" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLBORROWQUANTITY" />
+      <Association Name="TBLEQUIPMENTDETAIL_TBLRETURNEDEQUIPMENT" Member="TBLRETURNEDEQUIPMENTs" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLRETURNEDEQUIPMENT" />
       <Association Name="TBLEQEUIPMENTTYPE_TBLEQUIPMENTDETAIL" Member="TBLEQEUIPMENTTYPE" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQEUIPMENTTYPE" IsForeignKey="true" />
     </Type>
   </Table>
@@ -90,12 +94,27 @@
       <Association Name="TBLUSERDETAIL_TBLREQUESTTABLE" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBLRETURNEDEQUIPMENTS" Member="TBLRETURNEDEQUIPMENTs">
+    <Type Name="TBLRETURNEDEQUIPMENT">
+      <Column Name="ReturnID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateReturned" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TBLEQUIPMENTDETAIL_TBLRETURNEDEQUIPMENT" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
+      <Association Name="TBLTRANSACTION_TBLRETURNEDEQUIPMENT" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
+      <Association Name="TBLUSERDETAIL_TBLRETURNEDEQUIPMENT" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.TBLSTUDENTDETAILS" Member="TBLSTUDENTDETAILs">
     <Type Name="TBLSTUDENTDETAIL">
       <Column Name="GENID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="USERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="PASSWORD" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="USERTYPE_TBLSTUDENTDETAIL" Member="USERTYPE" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="USERTYPE" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLTRANSACTION" Member="TBLTRANSACTIONs">
@@ -105,6 +124,7 @@
       <Column Name="TransactionEvent" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TBLTRANSACTION_TBLBORROWED" Member="TBLBORROWEDs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLBORROWED" />
+      <Association Name="TBLTRANSACTION_TBLRETURNEDEQUIPMENT" Member="TBLRETURNEDEQUIPMENTs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLRETURNEDEQUIPMENT" />
       <Association Name="TBLUSERDETAIL_TBLTRANSACTION" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
@@ -135,6 +155,7 @@
       <Association Name="TBLUSERDETAIL_TBLBORROWED" Member="TBLBORROWEDs" ThisKey="GENID" OtherKey="GENID" Type="TBLBORROWED" />
       <Association Name="TBLUSERDETAIL_TBLREQUESTREPLY" Member="TBLREQUESTREPLies" ThisKey="GENID" OtherKey="GENID" Type="TBLREQUESTREPLY" />
       <Association Name="TBLUSERDETAIL_TBLREQUESTTABLE" Member="TBLREQUESTTABLEs" ThisKey="GENID" OtherKey="GENID" Type="TBLREQUESTTABLE" />
+      <Association Name="TBLUSERDETAIL_TBLRETURNEDEQUIPMENT" Member="TBLRETURNEDEQUIPMENTs" ThisKey="GENID" OtherKey="GENID" Type="TBLRETURNEDEQUIPMENT" />
       <Association Name="TBLUSERDETAIL_TBLTRANSACTION" Member="TBLTRANSACTIONs" ThisKey="GENID" OtherKey="GENID" Type="TBLTRANSACTION" />
       <Association Name="TBLUSERDETAIL_TBLUSERACTIONREPORT" Member="TBLUSERACTIONREPORTs" ThisKey="ID" OtherKey="ID" Type="TBLUSERACTIONREPORT" />
       <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT" Member="TBLUSERLOGINREPORTs" ThisKey="ID" OtherKey="ID" Type="TBLUSERLOGINREPORT" />
@@ -209,11 +230,11 @@
   <Function Name="dbo.sp_EquipmentView" Method="sp_EquipmentView">
     <Parameter Name="SearchKey" Parameter="searchKey" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="sp_EquipmentViewResult">
-      <Column Name="equipment_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="equipment_description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="equipment_type_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="equipment_quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Equipment ID]" Member="Equipment_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_NewBorrow" Method="sp_NewBorrow">
@@ -222,6 +243,8 @@
     <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
     <Parameter Name="DATEBORROWED" Parameter="dATEBORROWED" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="Quantity" Parameter="quantity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IsGoodCondition" Parameter="isGoodCondition" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsReturned" Parameter="isReturned" Type="System.Boolean" DbType="Bit" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_NewBorrowQuantityAdded" Method="sp_NewBorrowQuantityAdded">
@@ -261,6 +284,14 @@
   </Function>
   <Function Name="dbo.sp_RequestViewed" Method="sp_RequestViewed">
     <Parameter Name="RequestID" Parameter="requestID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ReturnEquipments" Method="sp_ReturnEquipments">
+    <Parameter Name="TransactionID" Parameter="transactionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Quantity" Parameter="quantity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DateReturned" Parameter="dateReturned" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="GENID" Parameter="gENID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_StudentInsert" Method="sp_StudentInsert">
@@ -460,6 +491,16 @@
       <Column Name="[Request Header]" Member="Request_Header" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="[Date Requested]" Member="Date_Requested" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ViewBorrowedEquipment" Method="sp_ViewBorrowedEquipment">
+    <Parameter Name="TransactionID" Parameter="transactionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ViewBorrowedEquipmentResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Returned?]" Member="Returned_" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[Good Condition?]" Member="Good_Condition_" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_ViewDeniedRequest" Method="sp_ViewDeniedRequest">

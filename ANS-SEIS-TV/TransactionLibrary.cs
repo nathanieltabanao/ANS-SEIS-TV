@@ -24,9 +24,9 @@ namespace ANS_SEIS_TV
             db.sp_NewRequest(GENID, Subject, Content, Date, StatusID,0);
         }
 
-        public void NewBorrowed(int TransactionID, int WhoBorrowed, int EQID, DateTime DateBorrowed, int Quantity)
+        public void NewBorrowed(int TransactionID, int WhoBorrowed, int EQID, DateTime DateBorrowed, int Quantity, bool IsReturned, bool IsGoodCondition)
         {
-            db.sp_NewBorrow(TransactionID, WhoBorrowed, EQID, DateBorrowed, Quantity);
+            db.sp_NewBorrow(TransactionID, WhoBorrowed, EQID, DateBorrowed, Quantity,IsReturned,IsGoodCondition);
         }
 
         public void NewTransaction(DateTime DateTransacted,string Action,int AdminID)

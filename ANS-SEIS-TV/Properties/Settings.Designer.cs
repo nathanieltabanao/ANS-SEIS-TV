@@ -44,5 +44,15 @@ namespace ANS_SEIS_TV.Properties {
                 return ((string)(this["ANS_SEIS_TVConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NATHANIEL-VX15\\;Initial Catalog=ANS_SEIS_TV;Integrated Security=True")]
+        public string ANS_SEIS_TVConnectionString2 {
+            get {
+                return ((string)(this["ANS_SEIS_TVConnectionString2"]));
+            }
+        }
     }
 }

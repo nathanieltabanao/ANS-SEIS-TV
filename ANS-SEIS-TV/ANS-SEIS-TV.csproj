@@ -129,6 +129,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GetSomethingFromServer.cs" />
+    <Compile Include="LoadingScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingScreen.Designer.cs">
+      <DependentUpon>LoadingScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,18 @@
     <Compile Include="SearchUser.Designer.cs">
       <DependentUpon>SearchUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskWindowControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaskWindowControl.Designer.cs">
+      <DependentUpon>TaskWindowControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="TeacherForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +238,9 @@
     <EmbeddedResource Include="FirstLoginForm.resx">
       <DependentUpon>FirstLoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoadingScreen.resx">
+      <DependentUpon>LoadingScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,6 +261,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchUser.resx">
       <DependentUpon>SearchUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskWindowControl.resx">
+      <DependentUpon>TaskWindowControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherForm.resx">
       <DependentUpon>TeacherForm.cs</DependentUpon>
@@ -288,6 +315,7 @@
     <None Include="Resources\009_user_6_vaE_icon.ico" />
     <None Include="Resources\user.png" />
     <None Include="Resources\user 2.png" />
+    <None Include="Resources\splash.png" />
     <Content Include="UIDESIGN_LOGIN.jpg" />
   </ItemGroup>
   <ItemGroup>
