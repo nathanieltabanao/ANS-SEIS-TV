@@ -135,5 +135,10 @@ namespace ANS_SEIS_TV
                 this.Close();
             }
         }
+
+        private void dgvTransaction_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

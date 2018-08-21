@@ -263,6 +263,13 @@ namespace ANS_SEIS_TV
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentReturning")]
+		public int sp_EquipmentReturning([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EquipmentID", DbType="Int")] System.Nullable<int> equipmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGoodCondition", DbType="Bit")] System.Nullable<bool> isGoodCondition, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsReturned", DbType="Bit")] System.Nullable<bool> isReturned)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, equipmentID, isGoodCondition, isReturned);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentView")]
 		public ISingleResult<sp_EquipmentViewResult> sp_EquipmentView([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchKey", DbType="VarChar(50)")] string searchKey)
 		{

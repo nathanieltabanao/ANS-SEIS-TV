@@ -25,6 +25,7 @@ namespace ANS_SEIS_TV
         public string RequestContent { get; set; }
         public string Content { get; set; }
         public int RequestID { get; set; }
+        public string EquipmentType { get; set; }
 
         public int EquipmentID { get; set; }
         public string EquipmentName { get; set; }
@@ -191,6 +192,24 @@ namespace ANS_SEIS_TV
             var results = from TBLBORROWQUANTITY in db.TBLBORROWQUANTITies
                           where TBLBORROWQUANTITY.EQUIPMENT_ID == EquipmentID
                           select TBLBORROWQUANTITY.QUANTITY;
+            return int.Parse(results.FirstOrDefault().Value.ToString());
+        }
+
+        public int GetEquipmentTypeID(string EquipmentType)
+        {
+            var results = from TBLEQEUIPMENTTYPE in db.TBLEQEUIPMENTTYPEs
+                          where TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_DESCRIPTION == EquipmentType
+                          select TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_ID;
+
+            return int.Parse(results.FirstOrDefault().ToString());
+        }
+
+        public int GetBorrowerGENID(int TransactionID)
+        {
+            var results = from TBLBORROWED in db.TBLBORROWEDs
+                          where TBLBORROWED.TransactionID == TransactionID
+                          select TBLBORROWED.GENID;
+
             return int.Parse(results.FirstOrDefault().Value.ToString());
         }
     }

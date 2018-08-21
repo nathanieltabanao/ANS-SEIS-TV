@@ -45,11 +45,11 @@
             // 
             // metroProgressBar1
             // 
-            this.metroProgressBar1.Location = new System.Drawing.Point(141, 557);
-            this.metroProgressBar1.MarqueeAnimationSpeed = 1000;
+            this.metroProgressBar1.Location = new System.Drawing.Point(140, 523);
+            this.metroProgressBar1.MarqueeAnimationSpeed = 10;
             this.metroProgressBar1.Name = "metroProgressBar1";
             this.metroProgressBar1.ProgressBarStyle = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.metroProgressBar1.Size = new System.Drawing.Size(875, 27);
+            this.metroProgressBar1.Size = new System.Drawing.Size(870, 30);
             this.metroProgressBar1.TabIndex = 1;
             // 
             // SplashScreen
@@ -59,6 +59,7 @@
             this.ClientSize = new System.Drawing.Size(1155, 735);
             this.Controls.Add(this.metroProgressBar1);
             this.Controls.Add(this.pictureBox1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

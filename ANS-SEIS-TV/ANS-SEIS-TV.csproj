@@ -79,6 +79,11 @@
     <Compile Include="Admin_Form.Designer.cs">
       <DependentUpon>Admin_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="ANS_SEIS_TVDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ANS_SEIS_TVDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BorrowFinalize.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +178,12 @@
     <Compile Include="RequestReply.Designer.cs">
       <DependentUpon>RequestReply.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReturnFinalize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReturnFinalize.Designer.cs">
+      <DependentUpon>ReturnFinalize.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReturningForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +233,17 @@
     <EmbeddedResource Include="BorrowingForm.resx">
       <DependentUpon>BorrowingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ANS_SEIS_TVDataSet.xsc">
+      <DependentUpon>ANS_SEIS_TVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ANS_SEIS_TVDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ANS_SEIS_TVDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ANS_SEIS_TVDataSet.xss">
+      <DependentUpon>ANS_SEIS_TVDataSet.xsd</DependentUpon>
+    </None>
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
@@ -255,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RequestReply.resx">
       <DependentUpon>RequestReply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReturnFinalize.resx">
+      <DependentUpon>ReturnFinalize.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReturningForm.resx">
       <DependentUpon>ReturningForm.cs</DependentUpon>

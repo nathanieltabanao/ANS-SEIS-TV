@@ -727,6 +727,8 @@ INSERT INTO TBLBORROWED
 VALUES (6000000,1000000,2000000,8/11/18,2)
 
 
+
+
 -------------------------------------------------------------------------------------------------
 -- Procedures for borrow table
 CREATE PROCEDURE sp_NewBorrow
@@ -766,6 +768,17 @@ WHERE TBLEQUIPMENTDETAILS.EQUIPMENT_ID like '%'+@SearchKey+'%' OR EQUIPMENT_NAME
 
 SELECT * FROM TBLEQUIPMENTDETAILS
 
+CREATE PROC sp_EquipmentReturning
+(
+	@TransactionID int,
+	@EquipmentID int,
+	@IsGoodCondition bit,
+	@IsReturned bit
+)
+as
+UPDATE TBLBORROWED
+SET IsGoodCondition=@IsGoodCondition, IsReturned=@IsReturned
+WHERE TransactionID=@TransactionID AND EQUIPMENT_ID=@EquipmentID
 
 -------------------------------------------------------------------------------------------------
 -- tables ABOUT TOTAL BORROWED
