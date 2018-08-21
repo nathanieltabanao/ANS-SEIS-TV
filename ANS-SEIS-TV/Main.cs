@@ -56,7 +56,7 @@ namespace ANS_SEIS_TV
         GetSomethingFromServer g = new GetSomethingFromServer();
 
         TransactionLibrary t = new TransactionLibrary();
-
+        
 
         public string CurrentUser { get; set; }
         public string CurrentUserID { get; set; }
@@ -90,8 +90,8 @@ namespace ANS_SEIS_TV
         private void UpdateAllTable()
         {
             ViewEquipment();
-            
-            dgvRequest.DataSource = db.sp_ViewAllRequest();
+
+            rdoOpenRequest.Checked = true;
             dgvUserRegister.DataSource = db.sp_UserView();
 
             dgvToBeBorrowed.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
@@ -419,7 +419,7 @@ namespace ANS_SEIS_TV
             txtEquipmentName.Text = dgvEquipment.CurrentRow.Cells[1].Value.ToString();
             txtEquipmentDescription.Text = dgvEquipment.CurrentRow.Cells[2].Value.ToString();
             drpEquipmentType.Text = dgvEquipment.CurrentRow.Cells[3].Value.ToString();
-            EquipmentTypeID = int.Parse(dgvEquipment.CurrentRow.Cells[3].Value.ToString());
+            EquipmentTypeID = g.GetEquipmentTypeID(dgvEquipment.CurrentRow.Cells[3].Value.ToString());
             numQuantity.Value = decimal.Parse(dgvEquipment.CurrentRow.Cells[4].Value.ToString());
             EditEquipment();
         }
@@ -615,15 +615,14 @@ namespace ANS_SEIS_TV
 
         private void kryptonButton6_Click(object sender, EventArgs e)
         {
+            FinalizeTransaction f = new FinalizeTransaction();
+
             if (string.IsNullOrEmpty(txtBorrowerFullname.Text)||string.IsNullOrEmpty(txtBorrowerUsername.Text))
             {
                 MetroMessageBox.Show(this, "Please select a borrower!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                FinalizeTransaction f = new FinalizeTransaction();
-
-
                 DataGridViewRow row = new DataGridViewRow();
 
                 for (int i = 0; i < dgvBorrowList.Rows.Count; i++)
@@ -648,7 +647,61 @@ namespace ANS_SEIS_TV
 
                 f.ShowDialog();
                 dgvBorrowList.Rows.Clear();
+                txtBorrowerFullname.Text = null;
+                txtBorrowerUsername.Text = null;
+                UpdateAllTable();
             }
+        }
+
+        //search for transaction
+        private void btnReturnSearch_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtReturnID.Text))
+            {
+                MetroMessageBox.Show(this, "Please fill correct transaction ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                dgvCurrentBorrowed.DataSource = db.sp_ViewBorrowedEquipment(int.Parse(txtReturnID.Text));
+            }
+        }
+
+        private void btnReturnSelected_Click(object sender, EventArgs e)
+        {
+            ReturnFinalize r = new ReturnFinalize();
+
+            DataGridViewRow row = new DataGridViewRow();
+
+            for (int i = 0; i < dgvCurrentBorrowed.Rows.Count; i++)
+            {
+                row = (DataGridViewRow)dgvCurrentBorrowed.Rows[i].Clone();
+                //bool IsSelected = Convert.ToBoolean(row.Cells[3].Value);
+                //if (IsSelected)
+                //{
+                    int intColIndex = 0;
+                    foreach (DataGridViewCell cell in dgvCurrentBorrowed.Rows[i].Cells)
+                    {
+                        row.Cells[intColIndex].Value = cell.Value;
+                        intColIndex++;
+                    }
+                //}
+                r.dgvTransaction.Rows.Add(row);
+            }
+                r.OldTransactionID = int.Parse(txtReturnID.Text);
+                t.TransactionID();
+                r.dgvTransaction.AllowUserToAddRows = false;
+                r.dgvTransaction.Refresh();
+                r.TransactionID = t.TID;
+                r.BorrowerID = g.GetBorrowerGENID(int.Parse(txtReturnID.Text));
+                g.GetUsername(r.BorrowerID);
+                r.Borrower = g.Username;
+                r.Action = "Returning an Equipment";
+                r.TransactionType = "Equipment Returning";
+                r.AdminID = CurrentGENID;
+
+                r.ShowDialog();
+                dgvCurrentBorrowed.Rows.Clear();
+                txtReturnID.Text = null;
         }
 
         private void RequestGridUpdate()
@@ -823,6 +876,11 @@ namespace ANS_SEIS_TV
         }
 
         private void txtReturnID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvCurrentBorrowed_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

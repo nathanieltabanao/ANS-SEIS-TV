@@ -16,5 +16,10 @@ namespace ANS_SEIS_TV
         {
             InitializeComponent();
         }
+
+        private void metroProgressSpinner1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

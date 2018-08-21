@@ -54,5 +54,15 @@ namespace ANS_SEIS_TV
         {
             db.sp_BorrowAddQuantity(EquipmentID, Quantity);
         }
+        
+        public void ReturnEquipment(int TransactionID,int EquipmentID, int Quantity, DateTime DateReturned,int GENID)
+        {
+            db.sp_ReturnEquipments(TransactionID, EquipmentID, Quantity, DateReturned, GENID);
+        }
+
+        public void ReturnEquipmentEdit(int TransactionID, int EquipmentID, bool Returned, bool GoodCondition)
+        {
+            db.sp_EquipmentReturning(TransactionID, EquipmentID, GoodCondition, Returned);
+        }
     }
 }
