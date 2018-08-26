@@ -28,68 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.dgv = new MetroFramework.Controls.MetroGrid();
             this.button1 = new System.Windows.Forms.Button();
-            this.EquipmenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EQName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EQQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.barCodeControl1 = new KeepAutomation.Barcode.Windows.BarCodeControl();
+            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
             // 
             // backgroundWorker1
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            // 
-            // dgv
-            // 
-            this.dgv.AllowUserToResizeRows = false;
-            this.dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EquipmenID,
-            this.EQName,
-            this.EQQuantity});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv.EnableHeadersVisualStyles = false;
-            this.dgv.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgv.Location = new System.Drawing.Point(181, 76);
-            this.dgv.Name = "dgv";
-            this.dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(940, 424);
-            this.dgv.TabIndex = 0;
             // 
             // button1
             // 
@@ -101,43 +48,100 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // EquipmenID
+            // barCodeControl1
             // 
-            this.EquipmenID.HeaderText = "Equipment ID";
-            this.EquipmenID.Name = "EquipmenID";
+            this.barCodeControl1.ApplicationIndicator = 0;
+            this.barCodeControl1.BarCodeHeight = 0F;
+            this.barCodeControl1.BarcodeUnit = KeepAutomation.Barcode.BarcodeUnit.Pixel;
+            this.barCodeControl1.BarCodeWidth = 0F;
+            this.barCodeControl1.BearerBarLeft = 1F;
+            this.barCodeControl1.BearerBarTop = 1F;
+            this.barCodeControl1.BottomMargin = 0F;
+            this.barCodeControl1.ChecksumEnabled = false;
+            this.barCodeControl1.CodabarStartChar = KeepAutomation.Barcode.CodabarStartStopChar.A;
+            this.barCodeControl1.CodabarStopChar = KeepAutomation.Barcode.CodabarStartStopChar.A;
+            this.barCodeControl1.CodeToEncode = "128";
+            this.barCodeControl1.DataMatrixDataMode = KeepAutomation.Barcode.DataMatrixDataMode.Auto;
+            this.barCodeControl1.DataMatrixFormatMode = KeepAutomation.Barcode.DataMatrixFormatMode.FM_12X12;
+            this.barCodeControl1.DisplayChecksum = true;
+            this.barCodeControl1.DisplayStartStop = true;
+            this.barCodeControl1.DisplayText = true;
+            this.barCodeControl1.DPI = 72;
+            this.barCodeControl1.FNC1 = KeepAutomation.Barcode.FNC1.None;
+            this.barCodeControl1.GroupEnabled = false;
+            this.barCodeControl1.GroupId = 0;
+            this.barCodeControl1.GroupItemCount = 0;
+            this.barCodeControl1.GroupItemId = 0;
+            this.barCodeControl1.I = 1F;
+            this.barCodeControl1.ImageFormat = System.Drawing.Imaging.ImageFormat.Png;
+            this.barCodeControl1.LeftMargin = 0F;
+            this.barCodeControl1.Location = new System.Drawing.Point(403, 132);
+            this.barCodeControl1.Name = "barCodeControl1";
+            this.barCodeControl1.Orientation = KeepAutomation.Barcode.Orientation.Degree0;
+            this.barCodeControl1.PDF417ColumnCount = 5;
+            this.barCodeControl1.PDF417DataMode = KeepAutomation.Barcode.PDF417DataMode.Text;
+            this.barCodeControl1.PDF417ECL = KeepAutomation.Barcode.PDF417ECL.ECL_2;
+            this.barCodeControl1.PDF417RowCount = 3;
+            this.barCodeControl1.PDF417Truncated = false;
+            this.barCodeControl1.PDF417XtoYRatio = 0.33333F;
+            this.barCodeControl1.QRCodeDataMode = KeepAutomation.Barcode.QRCodeDataMode.Auto;
+            this.barCodeControl1.QRCodeECI = 3;
+            this.barCodeControl1.QRCodeECL = KeepAutomation.Barcode.QRCodeECL.L;
+            this.barCodeControl1.QRCodeVersion = KeepAutomation.Barcode.QRCodeVersion.V1;
+            this.barCodeControl1.RightMargin = 0F;
+            this.barCodeControl1.ShortTallRatio = 0.4F;
+            this.barCodeControl1.Size = new System.Drawing.Size(150, 150);
+            this.barCodeControl1.SupplementCode = "";
+            this.barCodeControl1.SupplementHeight = 0.8F;
+            this.barCodeControl1.SupplementSpace = 15F;
+            this.barCodeControl1.Symbology = KeepAutomation.Barcode.Symbology.EAN128;
+            this.barCodeControl1.TabIndex = 2;
+            this.barCodeControl1.TextFont = new System.Drawing.Font("Arial", 9F);
+            this.barCodeControl1.TextMargin = 6F;
+            this.barCodeControl1.TildeEnabled = false;
+            this.barCodeControl1.TopMargin = 0F;
+            this.barCodeControl1.WideNarrowRatio = 2F;
+            this.barCodeControl1.X = 1F;
+            this.barCodeControl1.Y = 50F;
             // 
-            // EQName
+            // materialFlatButton1
             // 
-            this.EQName.HeaderText = "Equipment Name";
-            this.EQName.Name = "EQName";
-            // 
-            // EQQuantity
-            // 
-            this.EQQuantity.HeaderText = "Quantity";
-            this.EQQuantity.Name = "EQQuantity";
+            this.materialFlatButton1.AutoSize = true;
+            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton1.Depth = 0;
+            this.materialFlatButton1.Icon = null;
+            this.materialFlatButton1.Location = new System.Drawing.Point(505, 404);
+            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton1.Name = "materialFlatButton1";
+            this.materialFlatButton1.Primary = false;
+            this.materialFlatButton1.Size = new System.Drawing.Size(181, 36);
+            this.materialFlatButton1.TabIndex = 3;
+            this.materialFlatButton1.Text = "materialFlatButton1";
+            this.materialFlatButton1.UseVisualStyleBackColor = true;
+            this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1194, 609);
+            this.Controls.Add(this.materialFlatButton1);
+            this.Controls.Add(this.barCodeControl1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgv);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private MetroFramework.Controls.MetroGrid dgv;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipmenID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EQName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EQQuantity;
+        private KeepAutomation.Barcode.Windows.BarCodeControl barCodeControl1;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
     }
 }
 

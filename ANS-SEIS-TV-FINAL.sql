@@ -849,7 +849,44 @@ as
 INSERT INTO TBLRETURNEDEQUIPMENTS
 VALUES (@TransactionID,@EQUIPMENT_ID,@Quantity,@DateReturned,@GENID)
 
+-------------------------------------------------------------------------------------------------
 
+-- TABLES FOR RESERVATION
+
+CREATE TABLE TBLEQUIPMENTRESERVATION
+(
+	ReservationID INT UNIQUE identity (9000000,1),
+	TransactionID int FOREIGN KEY REFERENCES TBLTRANSACTION(TransactionID),
+	GENID INT FOREIGN KEY REFERENCES TBLUSERDETAILS(GENID),
+	EQUIPMENT_ID INT FOREIGN KEY REFERENCES TBLEQUIPMENTDETAILS(EQUIPMENT_ID),
+	DateReserved DATETIME,
+	Quantity int,
+	IsReturned BIT,
+)
+
+CREATE PROC sp_NewReservation
+(
+	@TransactionID INT,
+	@WhoReserved INT,
+	@EquipmentID INT,
+	@DateBorrowed DATETIME,
+	@Quantity int,
+	@IsReturned BIT
+)
+AS
+INSERT INTO TBLEQUIPMENTRESERVATION
+VALUES (@TransactionID,@WhoReserved,@EquipmentID,@DateBorrowed,@Quantity,@IsReturned)
+
+CREATE PROC sp_ReturnReservedEquipment
+(
+	@TransactionID int,
+	@EquipmentID int,
+	@IsReturned bit
+)
+as
+UPDATE TBLEQUIPMENTRESERVATION
+SET TBLEQUIPMENTRESERVATION.IsReturned=@IsReturned
+WHERE TransactionID=@TransactionID and EQUIPMENT_ID=@EquipmentID
 
 
 -------------------------------------------------------------------------------------------------
