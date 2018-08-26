@@ -38,8 +38,14 @@
     <Reference Include="ComponentFactory.Krypton.Toolkit">
       <HintPath>DLL\Krypton-master\Source\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DevComponents.DotNetBar2">
       <HintPath>DLL\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="KeepAutomation.Barcode.Windows">
+      <HintPath>DLL\KeepAutomation.Barcode.Windows.dll</HintPath>
     </Reference>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
@@ -95,6 +101,12 @@
     </Compile>
     <Compile Include="BorrowingForm.Designer.cs">
       <DependentUpon>BorrowingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
@@ -178,6 +190,12 @@
     <Compile Include="RequestReply.Designer.cs">
       <DependentUpon>RequestReply.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReservationFinalize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationFinalize.Designer.cs">
+      <DependentUpon>ReservationFinalize.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReturnFinalize.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +265,10 @@
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="EquipmentInventory.resx">
       <DependentUpon>EquipmentInventory.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RequestReply.resx">
       <DependentUpon>RequestReply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationFinalize.resx">
+      <DependentUpon>ReservationFinalize.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReturnFinalize.resx">
       <DependentUpon>ReturnFinalize.cs</DependentUpon>
@@ -341,10 +366,13 @@
     <None Include="Resources\user.png" />
     <None Include="Resources\user 2.png" />
     <None Include="Resources\splash.png" />
+    <None Include="Resources\splash1.png" />
+    <None Include="Resources\splash2.png" />
     <Content Include="UIDESIGN_LOGIN.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

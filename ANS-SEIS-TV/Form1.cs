@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
 using MaterialSkin.Animations;
+using KeepAutomation.Barcode.Bean;
+using KeepAutomation.Barcode;
+using KeepAutomation;
 
 namespace ANS_SEIS_TV
 {
@@ -17,48 +20,60 @@ namespace ANS_SEIS_TV
         public Form1()
         {
             InitializeComponent();
-
-            
-
         }
+
+        EquipmentLibrary el = new EquipmentLibrary();
 
         DataClasses1DataContext db = new DataClasses1DataContext();
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
 
-            foreach (DataGridViewRow row in dgv.Rows)
-            {
-                //if (row.Cells[3].Value == "OPEN")
-                //{
-                //    row.DefaultCellStyle.BackColor = Color.FromArgb(78, 186, 186);
-                //}
-                //else if (row.Cells[4].Value == "PENDING")
-                //{
-                //    row.DefaultCellStyle.BackColor = Color.Red;
-                //}
-                //else if (row.Cells[4].Value == "CLOSED")
-                //{
-                //    row.DefaultCellStyle.BackColor = Color.Red;
-                //}
-            }
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            foreach (DataGridViewRow row in dgv.Rows)
-            {
-                if (Convert.ToInt32(row.Cells[7].Value)==110)
-                {
-                    row.DefaultCellStyle.BackColor = Color.Red;
-                }
-            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.dgv.Rows.Insert(0, "one", "two", "three", "four");
+            
+        }
+
+        private void materialFlatButton1_Click(object sender, EventArgs e)
+        {
+            
+            BarCode code93 = new BarCode();
+
+            //Set barcode symbology type to Code 93              
+            code93.Symbology = Symbology.Code93;
+
+            //Set Code 93 valid input: All ASCII characters, including 0-9, A-Z, a-z, special 
+            
+           code93.CodeToEncode = el.EquipmentID().ToString();
+
+            //Set Code 93 image size
+
+            code93.BarcodeUnit = BarcodeUnit.Pixel;    // Unit of measure, Pixel, Cm and Inch supported. 
+            code93.DPI = 72;                           // Code 93 image resolution in DPI.
+            code93.X = 3;                              // Code 93 bar module width (X dimention)
+            code93.Y = 60;                             // Code 93 bar module height (Y dimention)
+            code93.LeftMargin = 0;                 // Image left margin size, minimum value is 10X.
+            code93.RightMargin = 0;                    // Image right margin size, minimum value is 10X.
+            code93.TopMargin = 0;                  // Code 93 image top margin size
+            code93.BottomMargin = 0;               // Code 93 image bottom margin size
+            code93.Orientation =KeepAutomation.Barcode.Orientation.Degree0;  // Orientation, 90, 180, 270 degrees supported
+
+            //Set Code 93 human readable text style
+
+            code93.DisplayText = true;                 // Display human readable text
+            code93.TextFont = new Font("Arial", 10f, FontStyle.Regular);
+            code93.TextMargin = 6;                     // Space between barcode and text
+
+            //Generate Code 93 barcodes in image GIF format
+            code93.generateBarcodeToImageFile(@"C: \Users\Nathaniel Angelico\Desktop\barcode.png");
+            
         }
     }
 }

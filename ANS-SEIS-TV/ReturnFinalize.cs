@@ -70,10 +70,12 @@ namespace ANS_SEIS_TV
                 bool isSelected = Convert.ToBoolean(row.Cells[3].Value);
                 if (isSelected)
                 {
+                    bool GoodCondition = Convert.ToBoolean(row.Cells[4].Value);
+
                     t.NewTransaction(DateTime.Now, Action, AdminID);
                     t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) - Convert.ToInt32(row.Cells[2].Value));
                     t.ReturnEquipment(TransactionID, Convert.ToInt32(row.Cells[0].Value), Convert.ToInt32(row.Cells[2].Value), DateTime.Now, BorrowerID);
-                    t.ReturnEquipmentEdit(OldTransactionID, Convert.ToInt32(row.Cells[0].Value), true, bool.Parse(row.Cells[4].Value.ToString()));
+                    t.ReturnEquipmentEdit(OldTransactionID, Convert.ToInt32(row.Cells[0].Value), true,GoodCondition);
                 }
             }
         }

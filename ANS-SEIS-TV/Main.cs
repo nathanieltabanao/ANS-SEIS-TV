@@ -30,9 +30,11 @@ namespace ANS_SEIS_TV
             Thread.Sleep(5000);
 
             InitializeComponent();
-
+            
             t.Abort();
 
+            bgwEquipmentRegistration.WorkerReportsProgress = true;
+            bgwEquipmentRegistration.WorkerSupportsCancellation = true;
             // Initialize MaterialSkinManager
             //materialSkinManager = MaterialSkinManager.Instance;
             //materialSkinManager.AddFormToManage(this);
@@ -95,6 +97,8 @@ namespace ANS_SEIS_TV
             dgvUserRegister.DataSource = db.sp_UserView();
 
             dgvToBeBorrowed.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
+
+            dgvEquipmentReservation.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
         }
 
         
@@ -359,7 +363,7 @@ namespace ANS_SEIS_TV
                     default:
                         break;
                 }
-                if (string.IsNullOrEmpty(txtEquipmentName.Text) || string.IsNullOrEmpty(txtEquipmentDescription.Text) || string.IsNullOrEmpty(txtEquipmentID.Text)) 
+                if (string.IsNullOrEmpty(txtEquipmentName.Text) || string.IsNullOrEmpty(txtEquipmentDescription.Text) || string.IsNullOrEmpty(txtEquipmentID.Text))
                 {
                     MetroMessageBox.Show(this, "Please fill all necessary information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -380,7 +384,7 @@ namespace ANS_SEIS_TV
                     t.NewTransaction(DateTime.Now, t.Action, CurrentGENID);
 
                     //commented cuz ok na
-                    t.NewBorrowed(t.TID, CurrentGENID, eq.ID, DateTime.Now, 0,true,true);
+                    t.NewBorrowed(t.TID, CurrentGENID, eq.ID, DateTime.Now, 0, true, true);
                     t.NewEquipmentAdded(eq.ID, 0);
 
                     EquipmentClear();
@@ -388,15 +392,32 @@ namespace ANS_SEIS_TV
                     u.ID = u.CurrentID;
 
                     u.Action = "Registered a new Equipment";
-                    
+
                     t.TransactionID();
                     ViewEquipment();
 
                     u.ActionReport();
 
                     UpdateAllTable();
+                    MetroMessageBox.Show(this, "Equipment Succesfully Registered", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+
+            //if (bgwEquipmentRegistration.IsBusy != true)
+            //{
+            //    bgwEquipmentRegistration.RunWorkerAsync();
+            //    LoadingScreen l = new LoadingScreen();
+            //    l.ShowDialog();
+            //}
+        }
+
+        private void bgwEquipmentRegistration_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+
+            System.Threading.Thread.Sleep(2000);
+
+
         }
 
 
@@ -487,8 +508,7 @@ namespace ANS_SEIS_TV
             SearchUser s = new SearchUser();
             s.ShowDialog();
             txtBorrowerUsername.Text = s.Username;
-            txtBorrowerFullname.Text = s.Fullname;
-            
+            txtBorrowerFullname.Text = s.Fullname;            
         }
 
         private void txtSearchBorrow_TextChanged(object sender, EventArgs e)
@@ -615,41 +635,48 @@ namespace ANS_SEIS_TV
 
         private void kryptonButton6_Click(object sender, EventArgs e)
         {
-            FinalizeTransaction f = new FinalizeTransaction();
-
-            if (string.IsNullOrEmpty(txtBorrowerFullname.Text)||string.IsNullOrEmpty(txtBorrowerUsername.Text))
+            if (dgvBorrowList.Rows.Count==0)
             {
-                MetroMessageBox.Show(this, "Please select a borrower!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(this, "Please fill all necessary information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                DataGridViewRow row = new DataGridViewRow();
+                FinalizeTransaction f = new FinalizeTransaction();
 
-                for (int i = 0; i < dgvBorrowList.Rows.Count; i++)
+                if (string.IsNullOrEmpty(txtBorrowerFullname.Text) || string.IsNullOrEmpty(txtBorrowerUsername.Text))
                 {
-                    row = (DataGridViewRow)dgvBorrowList.Rows[i].Clone();
-                    int intColIndex = 0;
-                    foreach (DataGridViewCell cell in dgvBorrowList.Rows[i].Cells)
-                    {
-                        row.Cells[intColIndex].Value = cell.Value;
-                        intColIndex++;
-                    }
-                    f.dgvTransaction.Rows.Add(row);
+                    MetroMessageBox.Show(this, "Please select a borrower!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                t.TransactionID();
-                f.dgvTransaction.AllowUserToAddRows = false;
-                f.dgvTransaction.Refresh();
-                f.TransactionID = t.TID;
-                f.Borrower = txtBorrowerUsername.Text;
-                f.Action = "Borrowed an Equipment";
-                f.TransactionType = "Equipment Borrowing";
-                f.AdminID = CurrentGENID;
+                else
+                {
+                    DataGridViewRow row = new DataGridViewRow();
 
-                f.ShowDialog();
-                dgvBorrowList.Rows.Clear();
-                txtBorrowerFullname.Text = null;
-                txtBorrowerUsername.Text = null;
-                UpdateAllTable();
+                    for (int i = 0; i < dgvBorrowList.Rows.Count; i++)
+                    {
+                        row = (DataGridViewRow)dgvBorrowList.Rows[i].Clone();
+                        int intColIndex = 0;
+                        foreach (DataGridViewCell cell in dgvBorrowList.Rows[i].Cells)
+                        {
+                            row.Cells[intColIndex].Value = cell.Value;
+                            intColIndex++;
+                        }
+                        f.dgvTransaction.Rows.Add(row);
+                    }
+                    t.TransactionID();
+                    f.dgvTransaction.AllowUserToAddRows = false;
+                    f.dgvTransaction.Refresh();
+                    f.TransactionID = t.TID;
+                    f.Borrower = txtBorrowerUsername.Text;
+                    f.Action = "Borrowed an Equipment";
+                    f.TransactionType = "Equipment Borrowing";
+                    f.AdminID = CurrentGENID;
+
+                    f.ShowDialog();
+                    dgvBorrowList.Rows.Clear();
+                    txtBorrowerFullname.Text = null;
+                    txtBorrowerUsername.Text = null;
+                    UpdateAllTable();
+                }
             }
         }
 
@@ -668,25 +695,32 @@ namespace ANS_SEIS_TV
 
         private void btnReturnSelected_Click(object sender, EventArgs e)
         {
-            ReturnFinalize r = new ReturnFinalize();
-
-            DataGridViewRow row = new DataGridViewRow();
-
-            for (int i = 0; i < dgvCurrentBorrowed.Rows.Count; i++)
+            if (dgvCurrentBorrowed.Rows.Count==0)
             {
-                row = (DataGridViewRow)dgvCurrentBorrowed.Rows[i].Clone();
-                //bool IsSelected = Convert.ToBoolean(row.Cells[3].Value);
-                //if (IsSelected)
-                //{
+                MetroMessageBox.Show(this, "Please check your Transaction ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                ReturnFinalize r = new ReturnFinalize();
+
+                DataGridViewRow row = new DataGridViewRow();
+
+                for (int i = 0; i < dgvCurrentBorrowed.Rows.Count; i++)
+                {
+                    row = (DataGridViewRow)dgvCurrentBorrowed.Rows[i].Clone();
+                    //bool IsSelected = Convert.ToBoolean(row.Cells[3].Value);
+                    //if (IsSelected)
+                    //{
                     int intColIndex = 0;
                     foreach (DataGridViewCell cell in dgvCurrentBorrowed.Rows[i].Cells)
                     {
                         row.Cells[intColIndex].Value = cell.Value;
                         intColIndex++;
                     }
-                //}
-                r.dgvTransaction.Rows.Add(row);
-            }
+                    //}
+                    r.dgvTransaction.Rows.Add(row);
+                }
+
                 r.OldTransactionID = int.Parse(txtReturnID.Text);
                 t.TransactionID();
                 r.dgvTransaction.AllowUserToAddRows = false;
@@ -702,6 +736,99 @@ namespace ANS_SEIS_TV
                 r.ShowDialog();
                 dgvCurrentBorrowed.Rows.Clear();
                 txtReturnID.Text = null;
+            }
+        }
+
+        //Search User for Reservation
+        private void kryptonButton1_Click_1(object sender, EventArgs e)
+        {
+            SearchUser s = new SearchUser();
+            s.ShowDialog();
+            txtReserverUsername.Text = s.Username;
+            txtReserverFullname.Text = s.Fullname;
+        }
+
+        //Search of Equipment to be Reserved
+        private void metroTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            SearchKey = txtEquipmentReserveSearch.Text;
+            dgvEquipmentReservation.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
+        }
+
+        private void kryptonButton1_Click_2(object sender, EventArgs e)
+        {
+            //dgvEquipmentReservation source
+            //dgvEquipmentToReserve dest
+
+            //to be borrowed source
+            //borrow list dest
+
+            g.EquipmentID = int.Parse(dgvEquipmentReservation.CurrentRow.Cells[0].Value.ToString());
+
+            bool Found = false;
+            int Qty = 1;
+
+            //rows is not blanks
+            if (dgvEquipmentToReserve.Rows.Count > 0)
+            {
+                //Check if the product exists
+                foreach (DataGridViewRow row in dgvEquipmentToReserve.Rows)
+                {
+                    if (Convert.ToString(row.Cells[0].Value) == dgvEquipmentReservation.CurrentRow.Cells[0].Value.ToString())
+                    {
+                        if (Convert.ToInt32(row.Cells[2].Value.ToString()) < Convert.ToInt32(dgvEquipmentReservation.CurrentRow.Cells[3].Value.ToString()))
+                        {
+                            row.Cells[2].Value = Convert.ToString(1 + Convert.ToInt32(row.Cells[2].Value));
+                        }
+                        else
+                        {
+                            MetroMessageBox.Show(this, "You cannot add more than what is available", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        //row.Cells[2].Value = Convert.ToString(1 + Convert.ToInt32(row.Cells[2].Value));
+                        Found = true;
+                    }
+                }
+                if (!Found)
+                {
+                    //Add new text
+                    dgvEquipmentToReserve.Rows.Insert(0, dgvEquipmentReservation.CurrentRow.Cells[0].Value.ToString(), g.GetEquipmentName(int.Parse(dgvEquipmentReservation.CurrentRow.Cells[0].Value.ToString())), 1);
+                }
+            }
+            else
+            {
+                //add the first row if
+                dgvEquipmentToReserve.Rows.Insert(0, dgvEquipmentReservation.CurrentRow.Cells[0].Value.ToString(), g.GetEquipmentName(int.Parse(dgvEquipmentReservation.CurrentRow.Cells[0].Value.ToString())), 1);
+            }
+        }
+
+
+        private void btnFinalizeReservation_Click(object sender, EventArgs e)
+        {
+            ReservationFinalize r = new ReservationFinalize();
+
+            DataGridViewRow row = new DataGridViewRow();
+
+            for (int i = 0; i < dgvEquipmentToReserve.Rows.Count; i++)
+            {
+                row = (DataGridViewRow)dgvEquipmentToReserve.Rows[i].Clone();
+                int intColindex = 0;
+                foreach (DataGridViewCell cell in dgvEquipmentToReserve.Rows[i].Cells)
+                {
+                    row.Cells[intColindex].Value = cell.Value;
+                    intColindex++;
+                }
+                r.dgvReservation.Rows.Add(row);     
+            }
+
+            t.TransactionID();
+            r.dgvReservation.Refresh();
+            r.TransactionID = t.TID;
+            r.Reservee = txtReserverUsername.Text;
+            r.Action = "Reserved an Equipment";
+            r.TransactionType = "Equipment Reservation";
+            r.AdminID = CurrentGENID;
+            r.ReservationDate = dtpReseravationDate.Value;
+            r.ShowDialog();
         }
 
         private void RequestGridUpdate()
@@ -881,6 +1008,11 @@ namespace ANS_SEIS_TV
         }
 
         private void dgvCurrentBorrowed_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bgwEquipmentRegistration_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
         }
