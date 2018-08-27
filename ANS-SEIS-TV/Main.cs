@@ -12,6 +12,7 @@ using MaterialSkin.Controls;
 using MetroFramework;
 using System.Data.Linq;
 using System.Threading;
+using System.IO;
 
 
 namespace ANS_SEIS_TV
@@ -58,6 +59,8 @@ namespace ANS_SEIS_TV
         GetSomethingFromServer g = new GetSomethingFromServer();
 
         TransactionLibrary t = new TransactionLibrary();
+
+        StuffLibrary s = new StuffLibrary();
         
 
         public string CurrentUser { get; set; }
@@ -87,6 +90,8 @@ namespace ANS_SEIS_TV
             AddUser();
             UpdateAllTable();
             txtEquipmentID.Text = db.sp_EquipmentID().ToString();
+
+
         }
 
         private void UpdateAllTable()
@@ -298,7 +303,7 @@ namespace ANS_SEIS_TV
         {
             eq.SearchKey = "";
             txtEquipmentID.Text = eq.EquipmentID().ToString();
-            dgvEquipment.DataSource = db.sp_EquipmentView(eq.SearchKey);
+            dgvEquipment.DataSource = db.sp_EquipmentViewBarcode(eq.SearchKey);   
         }
 
         private void AddingEquipment()
@@ -371,14 +376,42 @@ namespace ANS_SEIS_TV
                 {
                     u.Action = "Registered a new Equipment";
                     txtEquipmentID.Text = db.sp_EquipmentID().ToString();
-                    eq.ID = db.sp_EquipmentID();
+                    eq.ID = db.sp_EquipmentID(); // Get Equipment ID
+
+
+
+
                     eq.EquipmentBarcode = txtEquipmentID.Text;
                     eq.EquipmentName = txtEquipmentName.Text;
                     eq.EquipmentDescription = txtEquipmentDescription.Text;
                     eq.EquipmentTypeID = EquipmentTypeID; // int.Parse(drpEquipmentType.Text.Substring(0,3));
                     eq.EquipmentQuantity = int.Parse(numQuantity.Value.ToString());
 
-                    eq.EquipmentInsert();
+                    eq.EquipmentInsert(); // Save data to Database
+
+                    
+                    s.GenerateBarcode(eq.EquipmentBarcode.ToString());
+
+                    //Image img = Image.FromFile(s.SavePath);
+                    //byte[] arr;
+
+                    //using (MemoryStream ms = new MemoryStream())
+                    //{
+                    //    img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    //    arr = ms.ToArray();
+                    //}
+
+                    String strBLOBFilePath = s.SavePath;//Modify this path as needed.
+
+                    //Read jpg into file stream, and from there into Byte array.
+                    FileStream fsBLOBFile = new FileStream(strBLOBFilePath, FileMode.Open, FileAccess.Read);
+                    Byte[] bytBLOBData = new Byte[fsBLOBFile.Length];
+                    fsBLOBFile.Read(bytBLOBData, 0, bytBLOBData.Length);
+                    fsBLOBFile.Close();
+
+
+                    db.sp_NewEquipmentBarcodeInsert(Convert.ToInt32(eq.EquipmentBarcode), bytBLOBData, s.SavePath);
+
                     t.NewEquipmentAdded(eq.ID, 0);
                     t.Action = "Registered an Equipment";
                     t.NewTransaction(DateTime.Now, t.Action, CurrentGENID);
