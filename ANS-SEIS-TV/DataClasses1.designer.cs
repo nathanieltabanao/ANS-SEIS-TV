@@ -80,19 +80,19 @@ namespace ANS_SEIS_TV
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<USERTYPE> USERTYPEs
-		{
-			get
-			{
-				return this.GetTable<USERTYPE>();
-			}
-		}
-		
 		public System.Data.Linq.Table<EQUIPMENT_DESIGNATION> EQUIPMENT_DESIGNATIONs
 		{
 			get
 			{
 				return this.GetTable<EQUIPMENT_DESIGNATION>();
+			}
+		}
+		
+		public System.Data.Linq.Table<USERTYPE> USERTYPEs
+		{
+			get
+			{
+				return this.GetTable<USERTYPE>();
 			}
 		}
 		
@@ -125,6 +125,14 @@ namespace ANS_SEIS_TV
 			get
 			{
 				return this.GetTable<TBLEQEUIPMENTTYPE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBLEQUIPMENTBARCODE> TBLEQUIPMENTBARCODEs
+		{
+			get
+			{
+				return this.GetTable<TBLEQUIPMENTBARCODE>();
 			}
 		}
 		
@@ -285,6 +293,20 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_EquipmentViewResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentViewBarcode")]
+		public ISingleResult<sp_EquipmentViewBarcodeResult> sp_EquipmentViewBarcode([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchKey", DbType="VarChar(50)")] string searchKey)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchKey);
+			return ((ISingleResult<sp_EquipmentViewBarcodeResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentViewBarcodePath")]
+		public ISingleResult<sp_EquipmentViewBarcodePathResult> sp_EquipmentViewBarcodePath([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchKey", DbType="VarChar(50)")] string searchKey)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchKey);
+			return ((ISingleResult<sp_EquipmentViewBarcodePathResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewBorrow")]
 		public int sp_NewBorrow([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WhoBorrowed", DbType="Int")] System.Nullable<int> whoBorrowed, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DATEBORROWED", DbType="DateTime")] System.Nullable<System.DateTime> dATEBORROWED, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGoodCondition", DbType="Bit")] System.Nullable<bool> isGoodCondition, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsReturned", DbType="Bit")] System.Nullable<bool> isReturned)
 		{
@@ -296,6 +318,13 @@ namespace ANS_SEIS_TV
 		public int sp_NewBorrowQuantityAdded([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUANTITY", DbType="Int")] System.Nullable<int> qUANTITY)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID, qUANTITY);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewEquipmentBarcodeInsert")]
+		public int sp_NewEquipmentBarcodeInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Equipment_ID", DbType="Int")] System.Nullable<int> equipment_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EquipmentBarcode", DbType="VarBinary(MAX)")] System.Data.Linq.Binary equipmentBarcode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQBarcodepath", DbType="VarChar(MAX)")] string eQBarcodepath)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), equipment_ID, equipmentBarcode, eQBarcodepath);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -545,51 +574,6 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USERTYPE")]
-	public partial class USERTYPE
-	{
-		
-		private int _USERTYPE_ID;
-		
-		private string _USERTYPE_DESCRIPTION;
-		
-		public USERTYPE()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int USERTYPE_ID
-		{
-			get
-			{
-				return this._USERTYPE_ID;
-			}
-			set
-			{
-				if ((this._USERTYPE_ID != value))
-				{
-					this._USERTYPE_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_DESCRIPTION", DbType="VarChar(50)")]
-		public string USERTYPE_DESCRIPTION
-		{
-			get
-			{
-				return this._USERTYPE_DESCRIPTION;
-			}
-			set
-			{
-				if ((this._USERTYPE_DESCRIPTION != value))
-				{
-					this._USERTYPE_DESCRIPTION = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EQUIPMENT_DESIGNATION")]
 	public partial class EQUIPMENT_DESIGNATION : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -785,6 +769,51 @@ namespace ANS_SEIS_TV
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USERTYPE")]
+	public partial class USERTYPE
+	{
+		
+		private int _USERTYPE_ID;
+		
+		private string _USERTYPE_DESCRIPTION;
+		
+		public USERTYPE()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int USERTYPE_ID
+		{
+			get
+			{
+				return this._USERTYPE_ID;
+			}
+			set
+			{
+				if ((this._USERTYPE_ID != value))
+				{
+					this._USERTYPE_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_DESCRIPTION", DbType="VarChar(50)")]
+		public string USERTYPE_DESCRIPTION
+		{
+			get
+			{
+				return this._USERTYPE_DESCRIPTION;
+			}
+			set
+			{
+				if ((this._USERTYPE_DESCRIPTION != value))
+				{
+					this._USERTYPE_DESCRIPTION = value;
+				}
 			}
 		}
 	}
@@ -1132,6 +1161,87 @@ namespace ANS_SEIS_TV
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLEQUIPMENTBARCODE")]
+	public partial class TBLEQUIPMENTBARCODE
+	{
+		
+		private int _BarcodeID;
+		
+		private System.Nullable<int> _Equipment_ID;
+		
+		private System.Data.Linq.Binary _EquipmentBarcode;
+		
+		private string _EQBarcodepath;
+		
+		public TBLEQUIPMENTBARCODE()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarcodeID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int BarcodeID
+		{
+			get
+			{
+				return this._BarcodeID;
+			}
+			set
+			{
+				if ((this._BarcodeID != value))
+				{
+					this._BarcodeID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Equipment_ID", DbType="Int")]
+		public System.Nullable<int> Equipment_ID
+		{
+			get
+			{
+				return this._Equipment_ID;
+			}
+			set
+			{
+				if ((this._Equipment_ID != value))
+				{
+					this._Equipment_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EquipmentBarcode", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary EquipmentBarcode
+		{
+			get
+			{
+				return this._EquipmentBarcode;
+			}
+			set
+			{
+				if ((this._EquipmentBarcode != value))
+				{
+					this._EquipmentBarcode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQBarcodepath", DbType="VarChar(MAX)")]
+		public string EQBarcodepath
+		{
+			get
+			{
+				return this._EQBarcodepath;
+			}
+			set
+			{
+				if ((this._EQBarcodepath != value))
+				{
+					this._EQBarcodepath = value;
+				}
 			}
 		}
 	}
@@ -3033,6 +3143,238 @@ namespace ANS_SEIS_TV
 				if ((this._Quantity != value))
 				{
 					this._Quantity = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_EquipmentViewBarcodeResult
+	{
+		
+		private int _Equipment_ID;
+		
+		private string _Name;
+		
+		private string _Description;
+		
+		private string _Type;
+		
+		private System.Nullable<int> _Quantity;
+		
+		private System.Data.Linq.Binary _EquipmentBarcode;
+		
+		public sp_EquipmentViewBarcodeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Equipment ID]", Storage="_Equipment_ID", DbType="Int NOT NULL")]
+		public int Equipment_ID
+		{
+			get
+			{
+				return this._Equipment_ID;
+			}
+			set
+			{
+				if ((this._Equipment_ID != value))
+				{
+					this._Equipment_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(100)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="VarChar(100)")]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this._Type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EquipmentBarcode", DbType="VarBinary(MAX)")]
+		public System.Data.Linq.Binary EquipmentBarcode
+		{
+			get
+			{
+				return this._EquipmentBarcode;
+			}
+			set
+			{
+				if ((this._EquipmentBarcode != value))
+				{
+					this._EquipmentBarcode = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_EquipmentViewBarcodePathResult
+	{
+		
+		private int _Equipment_ID;
+		
+		private string _Name;
+		
+		private string _Description;
+		
+		private string _Type;
+		
+		private System.Nullable<int> _Quantity;
+		
+		private string _EQBarcodepath;
+		
+		public sp_EquipmentViewBarcodePathResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Equipment ID]", Storage="_Equipment_ID", DbType="Int NOT NULL")]
+		public int Equipment_ID
+		{
+			get
+			{
+				return this._Equipment_ID;
+			}
+			set
+			{
+				if ((this._Equipment_ID != value))
+				{
+					this._Equipment_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(100)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="VarChar(100)")]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this._Type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQBarcodepath", DbType="VarChar(MAX)")]
+		public string EQBarcodepath
+		{
+			get
+			{
+				return this._EQBarcodepath;
+			}
+			set
+			{
+				if ((this._EQBarcodepath != value))
+				{
+					this._EQBarcodepath = value;
 				}
 			}
 		}

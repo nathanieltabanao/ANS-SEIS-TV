@@ -373,6 +373,28 @@ CREATE TABLE TBLEQUIPMENTDETAILS
 	ISBORROWABLE INT
 )
 
+---------------------------------------------------------------------------------
+
+-- EQUIPMENT BARCODES TABLE
+
+
+CREATE TABLE TBLEQUIPMENTBARCODE
+(
+	BarcodeID INT UNIQUE identity (10000000,1),
+	Equipment_ID INT FOREIGN KEY REFERENCES TBLEQUIPMENTDETAILS(EQUIPMENT_ID),
+	EquipmentBarcode varbinary(MAX),
+	EQBarcodepath VARCHAR(MAX)
+)
+
+CREATE PROC sp_NewEquipmentBarcodeInsert
+(
+	@Equipment_ID INT,
+	@EquipmentBarcode varbinary(MAX),
+	@EQBarcodepath VARCHAR(MAX)
+)
+AS
+INSERT INTO TBLEQUIPMENTBARCODE
+VALUES (@Equipment_ID,@EquipmentBarcode,@EQBarcodepath)
 
 
 
@@ -431,6 +453,29 @@ as
 select equipment_id as 'Equipment ID',/*EQBARCODE,*/ EQUIPMENT_NAME as 'Name',equipment_description as 'Description',TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_DESCRIPTION as 'Type',equipment_quantity as 'Quantity' from TBLEQUIPMENTDETAILS
 inner join TBLEQEUIPMENTTYPE on TBLEQUIPMENTDETAILS.EQUIPMENT_TYPE_ID=TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_ID
 where EQUIPMENT_ID  like '%'+@SearchKey+'%' or EQUIPMENT_NAME like '%'+@SearchKey+'%' or EQUIPMENT_DESCRIPTION  like '%'+@SearchKey+'%' /*or EQBARCODE like '%'+@SearchKey+'%' */
+
+--view Equipment Table with barocodo
+CREATE PROC sp_EquipmentViewBarcode
+(
+	@SearchKey varchar(50)
+)
+as
+select TBLEQUIPMENTDETAILS.EQUIPMENT_ID as 'Equipment ID',/*EQBARCODE,*/ EQUIPMENT_NAME as 'Name',equipment_description as 'Description',TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_DESCRIPTION as 'Type',equipment_quantity as 'Quantity',TBLEQUIPMENTBARCODE.EquipmentBarcode from TBLEQUIPMENTDETAILS
+inner join TBLEQEUIPMENTTYPE on TBLEQUIPMENTDETAILS.EQUIPMENT_TYPE_ID=TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_ID
+inner join TBLEQUIPMENTBARCODE ON TBLEQUIPMENTDETAILS.EQUIPMENT_ID=TBLEQUIPMENTBARCODE.Equipment_ID
+where TBLEQUIPMENTDETAILS.EQUIPMENT_ID like '%'+@SearchKey+'%' or EQUIPMENT_NAME like '%'+@SearchKey+'%' or EQUIPMENT_DESCRIPTION  like '%'+@SearchKey+'%' /*or EQBARCODE like '%'+@SearchKey+'%' */
+
+--view Equipment Table with barocodo but using patho
+CREATE PROC sp_EquipmentViewBarcodePath
+(
+	@SearchKey varchar(50)
+)
+as
+select TBLEQUIPMENTDETAILS.EQUIPMENT_ID as 'Equipment ID',/*EQBARCODE,*/ EQUIPMENT_NAME as 'Name',equipment_description as 'Description',TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_DESCRIPTION as 'Type',equipment_quantity as 'Quantity',TBLEQUIPMENTBARCODE.EQBarcodepath from TBLEQUIPMENTDETAILS
+inner join TBLEQEUIPMENTTYPE on TBLEQUIPMENTDETAILS.EQUIPMENT_TYPE_ID=TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_ID
+inner join TBLEQUIPMENTBARCODE ON TBLEQUIPMENTDETAILS.EQUIPMENT_ID=TBLEQUIPMENTBARCODE.Equipment_ID
+where TBLEQUIPMENTDETAILS.EQUIPMENT_ID like '%'+@SearchKey+'%' or EQUIPMENT_NAME like '%'+@SearchKey+'%' or EQUIPMENT_DESCRIPTION  like '%'+@SearchKey+'%' /*or EQBARCODE like '%'+@SearchKey+'%' */
+
 
 -- EDIT AN EQUIPMENT
 CREATE PROC sp_EquipmentEdit
@@ -958,6 +1003,8 @@ SELECT * FROM TBLEQUIPMENTDETAILS
 SELECT * FROM TBLTRANSACTION
 SELECT * FROM TBLBORROWED
 SELECT * FROM TBLBORROWQUANTITY
+SELECT * FROM TBLEQUIPMENTBARCODE
+
 
 DELETE FROM TBLBORROWED
 WHERE BorrowID=7000000

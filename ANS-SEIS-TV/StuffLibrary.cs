@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MaterialSkin.Controls;
-using MaterialSkin.Animations;
 using KeepAutomation.Barcode.Bean;
 using KeepAutomation.Barcode;
 using KeepAutomation;
@@ -16,68 +14,17 @@ using System.IO;
 
 namespace ANS_SEIS_TV
 {
-    public partial class Form1 : MaterialForm
+    class StuffLibrary
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
-        EquipmentLibrary el = new EquipmentLibrary();
-
         DataClasses1DataContext db = new DataClasses1DataContext();
 
-        private void Form1_Load(object sender, EventArgs e)
+        public string SavePath;
+
+        public void GenerateBarcode(string ToBarode)
         {
-            //kryptonDataGridView1.CellFormatting += kryptonDataGridView1_CellFormatting;
-            kryptonDataGridView1.DataSource = db.sp_EquipmentViewBarcodePath("");
-            metroGrid1.DataSource = db.sp_EquipmentViewBarcodePath("");
-           
-
-
-        }
-
-        private void kryptonDataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            //foreach (DataGridViewRow row in kryptonDataGridView1.Rows)
-            //{
-            //    if (kryptonDataGridView1.Columns[5].Name == "EQBarcodepath")
-            //    {
-            //            e.Value = Image.FromFile(kryptonDataGridView1.Columns[5].ToString());
-            //        e.FormattingApplied = true;
-            //    }
-            //}
-        }
-
-        private void metroGrid1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            //if (metroGrid1.Columns[5].Name == "EQBarcodepath")
-            //{
-                
-
-            //    e.Value = Image.FromFile(e.Value.ToString());
-            //    e.FormattingApplied = true;
-            //}
-        }
-
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void materialFlatButton1_Click(object sender, EventArgs e)
-        {
-
-
             BarCode code128 = new BarCode();
             code128.Symbology = KeepAutomation.Barcode.Symbology.Code128Auto;
-            code128.CodeToEncode = db.sp_EquipmentID().ToString();
+            code128.CodeToEncode = ToBarode;
 
             //Apply checksum for Code 128 barcode.
             code128.ChecksumEnabled = true;
@@ -118,19 +65,20 @@ namespace ANS_SEIS_TV
             code128.TextMargin = 6;
             //Generate Code 93 barcodes in image PNG format
 
+            //Generate the barcode
+            SavePath = Application.StartupPath + @"\barcodes\" + ToBarode + ".png";
 
-
-            
-            code128.generateBarcodeToImageFile(Application.StartupPath + @"\barcodes\"+db.sp_EquipmentID().ToString()+".png");
-
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+            code128.generateBarcodeToImageFile(SavePath);
         }
 
         
+
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+        }
+
     }
 }

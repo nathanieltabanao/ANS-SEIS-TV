@@ -116,7 +116,7 @@ namespace ANS_SEIS_TV
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
