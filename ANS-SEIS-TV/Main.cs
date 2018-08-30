@@ -19,6 +19,7 @@ namespace ANS_SEIS_TV
 {
     public partial class Main : MaterialForm
     {
+    
         private readonly MaterialSkinManager materialSkinManager;
 
 
@@ -1048,6 +1049,19 @@ namespace ANS_SEIS_TV
         private void bgwEquipmentRegistration_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
+        }
+
+        private void dgvEquipment_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dgvEquipment.Columns[e.ColumnIndex] is DataGridViewImageColumn)
+            {
+                string imagePath = (e.Value ?? "").ToString().Trim();
+
+                if (imagePath != "")
+                {
+                    e.Value = Image.FromFile(imagePath);
+                }
+            }
         }
     }
 }

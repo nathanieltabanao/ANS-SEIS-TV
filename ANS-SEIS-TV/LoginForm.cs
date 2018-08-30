@@ -31,6 +31,8 @@ namespace ANS_SEIS_TV
 
         GetSomethingFromServer g = new GetSomethingFromServer();
 
+        int FailedCount;
+
         //loginbutton
         private void button1_Click(object sender, EventArgs e)
         {
@@ -88,6 +90,11 @@ namespace ANS_SEIS_TV
             { 
                 MessageBox.Show("Invalid Username or Password!");
                 txtPassword.Text = "";
+                FailedCount++;
+                if (FailedCount >= 3) 
+                {
+                    lblForgot.Text = "Forgot Password?";
+                }
             }
         }
 
@@ -122,6 +129,14 @@ namespace ANS_SEIS_TV
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lblForgot_LinkClicked(object sender, EventArgs e)
+        {
+            this.Hide();
+            AccountRecovery a = new AccountRecovery();
+            a.Username = txtUsername.Text;
+            a.Show();
         }
     }
 }

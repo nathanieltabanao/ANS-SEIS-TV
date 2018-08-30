@@ -216,11 +216,11 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_BorrowAddQuantity")]
-		public int sp_BorrowAddQuantity([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUANTITY", DbType="Int")] System.Nullable<int> qUANTITY)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_AccountRecovery")]
+		public ISingleResult<sp_AccountRecoveryResult> sp_AccountRecovery([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecurityQuestion", DbType="VarChar(MAX)")] string securityQuestion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecurityAnswer", DbType="VarChar(MAX)")] string securityAnswer)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID, qUANTITY);
-			return ((int)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, securityQuestion, securityAnswer);
+			return ((ISingleResult<sp_AccountRecoveryResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewPendingRequest")]
@@ -228,6 +228,20 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_ViewPendingRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_BorrowAddQuantity")]
+		public int sp_BorrowAddQuantity([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUANTITY", DbType="Int")] System.Nullable<int> qUANTITY)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID, qUANTITY);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ChangePassword")]
+		public int sp_ChangePassword([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(MAX)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DeleteDeletedEquipment")]
@@ -2868,6 +2882,32 @@ namespace ANS_SEIS_TV
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	public partial class sp_AccountRecoveryResult
+	{
+		
+		private string _USERNAME;
+		
+		public sp_AccountRecoveryResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(50)")]
+		public string USERNAME
+		{
+			get
+			{
+				return this._USERNAME;
+			}
+			set
+			{
+				if ((this._USERNAME != value))
+				{
+					this._USERNAME = value;
+				}
 			}
 		}
 	}

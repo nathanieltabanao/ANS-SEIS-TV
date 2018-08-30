@@ -35,6 +35,7 @@
             this.txtPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new MaterialSkin.Controls.MaterialFlatButton();
+            this.lblForgot = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,10 +73,10 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnLogin.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLogin.Location = new System.Drawing.Point(650, 273);
+            this.btnLogin.Location = new System.Drawing.Point(650, 261);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(98, 39);
-            this.btnLogin.TabIndex = 5;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.button1_Click);
@@ -140,10 +141,19 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Primary = false;
             this.btnExit.Size = new System.Drawing.Size(50, 36);
-            this.btnExit.TabIndex = 8;
+            this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // lblForgot
+            // 
+            this.lblForgot.Location = new System.Drawing.Point(641, 306);
+            this.lblForgot.Name = "lblForgot";
+            this.lblForgot.Size = new System.Drawing.Size(6, 2);
+            this.lblForgot.TabIndex = 4;
+            this.lblForgot.Values.Text = "";
+            this.lblForgot.LinkClicked += new System.EventHandler(this.lblForgot_LinkClicked);
             // 
             // LoginForm
             // 
@@ -151,6 +161,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 449);
+            this.Controls.Add(this.lblForgot);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
@@ -179,6 +190,7 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtUsername;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtPassword;
         private MaterialSkin.Controls.MaterialFlatButton btnExit;
+        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel lblForgot;
     }
 }
 
