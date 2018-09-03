@@ -174,6 +174,9 @@
             this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.sp_ViewBorrowedEquipmentTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSetTableAdapters.sp_ViewBorrowedEquipmentTableAdapter();
             this.bgwEquipmentRegistration = new System.ComponentModel.BackgroundWorker();
+            this.aNS_SEIS_TVDataSet3 = new ANS_SEIS_TV.ANS_SEIS_TVDataSet3();
+            this.spEquipmentViewBarcodePathBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sp_EquipmentViewBarcodePathTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet3TableAdapters.sp_EquipmentViewBarcodePathTableAdapter();
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
@@ -206,6 +209,8 @@
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spEquipmentViewBarcodePathBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTabSelector2
@@ -346,6 +351,7 @@
             this.dgvEquipment.Location = new System.Drawing.Point(396, 52);
             this.dgvEquipment.MultiSelect = false;
             this.dgvEquipment.Name = "dgvEquipment";
+            this.dgvEquipment.ReadOnly = true;
             this.dgvEquipment.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -1979,7 +1985,7 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(146, 124);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(347, 20);
+            this.txtSearch.Size = new System.Drawing.Size(347, 23);
             this.txtSearch.TabIndex = 69;
             // 
             // sp_ViewBorrowedEquipmentTableAdapter
@@ -1990,6 +1996,20 @@
             // 
             this.bgwEquipmentRegistration.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwEquipmentRegistration_DoWork);
             this.bgwEquipmentRegistration.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwEquipmentRegistration_RunWorkerCompleted);
+            // 
+            // aNS_SEIS_TVDataSet3
+            // 
+            this.aNS_SEIS_TVDataSet3.DataSetName = "ANS_SEIS_TVDataSet3";
+            this.aNS_SEIS_TVDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spEquipmentViewBarcodePathBindingSource
+            // 
+            this.spEquipmentViewBarcodePathBindingSource.DataMember = "sp_EquipmentViewBarcodePath";
+            this.spEquipmentViewBarcodePathBindingSource.DataSource = this.aNS_SEIS_TVDataSet3;
+            // 
+            // sp_EquipmentViewBarcodePathTableAdapter
+            // 
+            this.sp_EquipmentViewBarcodePathTableAdapter.ClearBeforeFill = true;
             // 
             // Main
             // 
@@ -2057,6 +2077,8 @@
             this.groupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spEquipmentViewBarcodePathBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2198,5 +2220,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ReserveEquipmentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReserveEquipmentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReserveEquipmentQuantity;
+        private System.Windows.Forms.BindingSource spEquipmentViewBarcodePathBindingSource;
+        private ANS_SEIS_TVDataSet3 aNS_SEIS_TVDataSet3;
+        private ANS_SEIS_TVDataSet3TableAdapters.sp_EquipmentViewBarcodePathTableAdapter sp_EquipmentViewBarcodePathTableAdapter;
     }
 }

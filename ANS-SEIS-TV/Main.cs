@@ -304,7 +304,7 @@ namespace ANS_SEIS_TV
         {
             eq.SearchKey = "";
             txtEquipmentID.Text = eq.EquipmentID().ToString();
-            dgvEquipment.DataSource = db.sp_EquipmentViewBarcode(eq.SearchKey);   
+            dgvEquipment.DataSource = db.sp_EquipmentView(eq.SearchKey);   
         }
 
         private void AddingEquipment()
@@ -704,6 +704,7 @@ namespace ANS_SEIS_TV
                     f.Action = "Borrowed an Equipment";
                     f.TransactionType = "Equipment Borrowing";
                     f.AdminID = CurrentGENID;
+                    f.AdminName = g.Fullname;
 
                     f.ShowDialog();
                     dgvBorrowList.Rows.Clear();

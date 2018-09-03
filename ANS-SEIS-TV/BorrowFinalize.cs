@@ -40,6 +40,7 @@ namespace ANS_SEIS_TV
         public string TransactionType { get; set; }
         public int AdminID { get; set; }
         public int BorrowerID { get; set; }
+        public string AdminName;
         
 
         private void FinalizeTransaction_Load(object sender, EventArgs e)
@@ -91,6 +92,7 @@ namespace ANS_SEIS_TV
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+
             if (backgroundWorker1.IsBusy != true)
             {
                 backgroundWorker1.RunWorkerAsync();
@@ -132,6 +134,10 @@ namespace ANS_SEIS_TV
             else
             {
                 MetroMessageBox.Show(this, "Transaction Complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                fromPrint f = new fromPrint(TransactionID, Borrower, DateTime.Parse(DateTime.Now.ToShortDateString()), AdminName);
+                f.ShowDialog();
+                btnSubmit.Enabled = false;
                 this.Close();
             }
         }

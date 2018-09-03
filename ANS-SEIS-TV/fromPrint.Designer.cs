@@ -28,38 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.BorrowSlip1 = new ANS_SEIS_TV.BorrowSlip();
             this.SuspendLayout();
             // 
-            // crystalReportViewer1
+            // crystalReportViewer
             // 
-            this.crystalReportViewer1.ActiveViewIndex = 0;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(20, 60);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.BorrowSlip1;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1085, 657);
-            this.crystalReportViewer1.TabIndex = 0;
-            this.crystalReportViewer1.Load += new System.EventHandler(this.crystalReportViewer1_Load);
+            this.crystalReportViewer.ActiveViewIndex = 0;
+            this.crystalReportViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer.Location = new System.Drawing.Point(20, 60);
+            this.crystalReportViewer.Name = "crystalReportViewer";
+            this.crystalReportViewer.ReportSource = this.BorrowSlip1;
+            this.crystalReportViewer.Size = new System.Drawing.Size(1085, 1020);
+            this.crystalReportViewer.TabIndex = 0;
+            this.crystalReportViewer.Load += new System.EventHandler(this.crystalReportViewer1_Load);
             // 
             // fromPrint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1125, 737);
-            this.Controls.Add(this.crystalReportViewer1);
+            this.ClientSize = new System.Drawing.Size(1125, 1100);
+            this.Controls.Add(this.crystalReportViewer);
             this.Name = "fromPrint";
             this.Text = "Print Details";
+            this.Load += new System.EventHandler(this.fromPrint_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer;
         private BorrowSlip BorrowSlip1;
     }
 }

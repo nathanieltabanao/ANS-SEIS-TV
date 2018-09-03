@@ -244,6 +244,13 @@ namespace ANS_SEIS_TV
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_CurrentBorrowed")]
+		public ISingleResult<sp_CurrentBorrowedResult> sp_CurrentBorrowed([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID);
+			return ((ISingleResult<sp_CurrentBorrowedResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DeleteDeletedEquipment")]
 		public int sp_DeleteDeletedEquipment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID)
 		{
@@ -3005,6 +3012,86 @@ namespace ANS_SEIS_TV
 				if ((this._Status != value))
 				{
 					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_CurrentBorrowedResult
+	{
+		
+		private string _BARCODE;
+		
+		private int _ID;
+		
+		private string _Name;
+		
+		private System.Nullable<int> _Quantity;
+		
+		public sp_CurrentBorrowedResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BARCODE", DbType="VarChar(MAX)")]
+		public string BARCODE
+		{
+			get
+			{
+				return this._BARCODE;
+			}
+			set
+			{
+				if ((this._BARCODE != value))
+				{
+					this._BARCODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
 				}
 			}
 		}
