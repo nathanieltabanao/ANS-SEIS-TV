@@ -39,18 +39,21 @@ namespace ANS_SEIS_TV
 
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
-            IEnumerable<List> query = from TBLBORROWED in db.TBLBORROWEDs.AsEnumerable()
-                                         join TBLEQUIPMENTDETAIL in db.TBLEQUIPMENTDETAILs on TBLBORROWED.EQUIPMENT_ID equals TBLEQUIPMENTDETAIL.EQUIPMENT_ID
-                                         join TBLTRANSACTION in db.TBLTRANSACTIONs on TBLBORROWED.TransactionID equals TBLTRANSACTION.TransactionID
-                                         join TBLEQUIPMENTBARCODE in db.TBLEQUIPMENTBARCODEs on TBLBORROWED.EQUIPMENT_ID equals TBLEQUIPMENTBARCODE.Equipment_ID
-                                         where TBLBORROWED.TransactionID == TransactionID
-                                         select new { TBLEQUIPMENTBARCODE.EQBarcodepath, TBLEQUIPMENTDETAIL.EQUIPMENT_ID, TBLEQUIPMENTDETAIL.EQUIPMENT_NAME, TBLBORROWED.Quantity };
-
-            BorrowSlip1.SetDataSource(db.sp_CurrentBorrowed(TransactionID));
+            //var query = (from TBLBORROWED in db.TBLBORROWEDs
+            //             join TBLEQUIPMENTDETAIL in db.TBLEQUIPMENTDETAILs on TBLBORROWED.EQUIPMENT_ID equals TBLEQUIPMENTDETAIL.EQUIPMENT_ID
+            //             join TBLTRANSACTION in db.TBLTRANSACTIONs on TBLBORROWED.TransactionID equals TBLTRANSACTION.TransactionID
+            //             join TBLEQUIPMENTBARCODE in db.TBLEQUIPMENTBARCODEs on TBLBORROWED.EQUIPMENT_ID equals TBLEQUIPMENTBARCODE.Equipment_ID
+            //             where TBLBORROWED.TransactionID == TransactionID
+            //             select new { TBLEQUIPMENTBARCODE.EQBarcodepath, TBLEQUIPMENTDETAIL.EQUIPMENT_ID, TBLEQUIPMENTDETAIL.EQUIPMENT_NAME, TBLBORROWED.Quantity }).ToList();
+            //var mylist = query.ToList();
+            //List<BorrowDetail> list = mylist;
+            
+            BorrowSlip1.SetParameterValue("@TransactionID", TransactionID);
             BorrowSlip1.SetParameterValue("pTransactionID", TransactionID);
             BorrowSlip1.SetParameterValue("pBorrower", Borrower);
             BorrowSlip1.SetParameterValue("pDateBorrowed", TransactionDate);
             BorrowSlip1.SetParameterValue("pProcessedBy", Attendant);
+            BorrowSlip1.SetParameterValue("@BarcodeTransaction", TransactionID);
             crystalReportViewer.ReportSource = BorrowSlip1;
         }
 

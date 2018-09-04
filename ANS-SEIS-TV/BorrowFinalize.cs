@@ -12,6 +12,7 @@ using MaterialSkin.Controls;
 using MetroFramework;
 using MetroFramework.Forms;
 using System.Globalization;
+using System.IO;
 
 namespace ANS_SEIS_TV
 {
@@ -34,6 +35,12 @@ namespace ANS_SEIS_TV
 
         GetSomethingFromServer g = new GetSomethingFromServer();
 
+        DataClasses1DataContext db = new DataClasses1DataContext();
+
+        fromPrint f;
+
+        StuffLibrary s = new StuffLibrary();
+
         public int TransactionID { get; set; }
         public string Borrower { get; set; }
         public string Action { get; set; }
@@ -41,6 +48,7 @@ namespace ANS_SEIS_TV
         public int AdminID { get; set; }
         public int BorrowerID { get; set; }
         public string AdminName;
+        public string BorrowerName { get; set; }
         
 
         private void FinalizeTransaction_Load(object sender, EventArgs e)
@@ -48,6 +56,7 @@ namespace ANS_SEIS_TV
             g.Username = Borrower;
             g.GetFullname();
             lblBorrower.Text = "Borrower : " + g.Fullname;
+            BorrowerName = g.Fullname;
             lblTransactionType.Text = "Transaction Type : " + TransactionType;
             lblTransactionID.Text = "Transaction ID : " + TransactionID;
             lblDate.Text = "Transaction Date :" + DateTime.Now.ToShortDateString();
@@ -123,6 +132,17 @@ namespace ANS_SEIS_TV
                 t.NewBorrowed(TransactionID, g.GetGENID(Borrower), Convert.ToInt32(row.Cells[0].Value), DateTime.Now, Convert.ToInt32(row.Cells[2].Value), false, false);
                 t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) + Convert.ToInt32(row.Cells[2].Value));
             }
+            s.GenerateBarcode(TransactionID.ToString());
+
+            String strBLOBFilePath = s.SavePath;//Modify this path as needed.
+
+            //Read jpg into file stream, and from there into Byte array.
+            FileStream fsBLOBFile = new FileStream(strBLOBFilePath, FileMode.Open, FileAccess.Read);
+            Byte[] bytBLOBData = new Byte[fsBLOBFile.Length];
+            fsBLOBFile.Read(bytBLOBData, 0, bytBLOBData.Length);
+            fsBLOBFile.Close();
+
+            db.sp_NewBorrowBarcodeInsert(TransactionID, bytBLOBData, s.SavePath);
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -134,8 +154,7 @@ namespace ANS_SEIS_TV
             else
             {
                 MetroMessageBox.Show(this, "Transaction Complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                fromPrint f = new fromPrint(TransactionID, Borrower, DateTime.Parse(DateTime.Now.ToShortDateString()), AdminName);
+                f = new fromPrint(TransactionID, BorrowerName, DateTime.Parse(DateTime.Now.ToShortDateString()), AdminName);
                 f.ShowDialog();
                 btnSubmit.Enabled = false;
                 this.Close();
