@@ -51,7 +51,7 @@ namespace ANS_SEIS_TV
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::ANS_SEIS_TV.Properties.Settings.Default.ANS_SEIS_TVConnectionString2, mappingSource)
+				base(global::ANS_SEIS_TV.Properties.Settings.Default.ANS_SEIS_TVConnectionString3, mappingSource)
 		{
 			OnCreated();
 		}
@@ -80,19 +80,19 @@ namespace ANS_SEIS_TV
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<EQUIPMENT_DESIGNATION> EQUIPMENT_DESIGNATIONs
-		{
-			get
-			{
-				return this.GetTable<EQUIPMENT_DESIGNATION>();
-			}
-		}
-		
 		public System.Data.Linq.Table<USERTYPE> USERTYPEs
 		{
 			get
 			{
 				return this.GetTable<USERTYPE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EQUIPMENT_DESIGNATION> EQUIPMENT_DESIGNATIONs
+		{
+			get
+			{
+				return this.GetTable<EQUIPMENT_DESIGNATION>();
 			}
 		}
 		
@@ -216,11 +216,19 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_BorrowAddQuantity")]
-		public int sp_BorrowAddQuantity([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUANTITY", DbType="Int")] System.Nullable<int> qUANTITY)
+		public System.Data.Linq.Table<TBLBORRIWINGBARCODE> TBLBORRIWINGBARCODEs
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID, qUANTITY);
-			return ((int)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<TBLBORRIWINGBARCODE>();
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_AccountRecovery")]
+		public ISingleResult<sp_AccountRecoveryResult> sp_AccountRecovery([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecurityQuestion", DbType="VarChar(MAX)")] string securityQuestion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecurityAnswer", DbType="VarChar(MAX)")] string securityAnswer)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, securityQuestion, securityAnswer);
+			return ((ISingleResult<sp_AccountRecoveryResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewPendingRequest")]
@@ -228,6 +236,27 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_ViewPendingRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_BorrowAddQuantity")]
+		public int sp_BorrowAddQuantity([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUANTITY", DbType="Int")] System.Nullable<int> qUANTITY)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID, qUANTITY);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ChangePassword")]
+		public int sp_ChangePassword([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(MAX)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_CurrentBorrowed")]
+		public ISingleResult<sp_CurrentBorrowedResult> sp_CurrentBorrowed([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID);
+			return ((ISingleResult<sp_CurrentBorrowedResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DeleteDeletedEquipment")]
@@ -311,6 +340,13 @@ namespace ANS_SEIS_TV
 		public int sp_NewBorrow([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WhoBorrowed", DbType="Int")] System.Nullable<int> whoBorrowed, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DATEBORROWED", DbType="DateTime")] System.Nullable<System.DateTime> dATEBORROWED, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGoodCondition", DbType="Bit")] System.Nullable<bool> isGoodCondition, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsReturned", DbType="Bit")] System.Nullable<bool> isReturned)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, whoBorrowed, eQUIPMENT_ID, dATEBORROWED, quantity, isGoodCondition, isReturned);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewBorrowBarcodeInsert")]
+		public int sp_NewBorrowBarcodeInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BorrowingBarcode", DbType="VarBinary(MAX)")] System.Data.Linq.Binary borrowingBarcode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BWBarcodePath", DbType="VarChar(MAX)")] string bWBarcodePath)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, borrowingBarcode, bWBarcodePath);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -447,6 +483,13 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_TeacherViewPendingRequestResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TransactionBarcode")]
+		public ISingleResult<sp_TransactionBarcodeResult> sp_TransactionBarcode([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BarcodeTransaction", DbType="Int")] System.Nullable<int> barcodeTransaction)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), barcodeTransaction);
+			return ((ISingleResult<sp_TransactionBarcodeResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserActionReport")]
 		public int sp_UserActionReport([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="VarChar(50)")] string iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Action", DbType="VarChar(50)")] string action, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Timestamp", DbType="DateTime")] System.Nullable<System.DateTime> timestamp)
 		{
@@ -571,6 +614,51 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_ViewOpenRequestResult>)(result.ReturnValue));
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USERTYPE")]
+	public partial class USERTYPE
+	{
+		
+		private int _USERTYPE_ID;
+		
+		private string _USERTYPE_DESCRIPTION;
+		
+		public USERTYPE()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int USERTYPE_ID
+		{
+			get
+			{
+				return this._USERTYPE_ID;
+			}
+			set
+			{
+				if ((this._USERTYPE_ID != value))
+				{
+					this._USERTYPE_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_DESCRIPTION", DbType="VarChar(50)")]
+		public string USERTYPE_DESCRIPTION
+		{
+			get
+			{
+				return this._USERTYPE_DESCRIPTION;
+			}
+			set
+			{
+				if ((this._USERTYPE_DESCRIPTION != value))
+				{
+					this._USERTYPE_DESCRIPTION = value;
+				}
+			}
 		}
 	}
 	
@@ -769,51 +857,6 @@ namespace ANS_SEIS_TV
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USERTYPE")]
-	public partial class USERTYPE
-	{
-		
-		private int _USERTYPE_ID;
-		
-		private string _USERTYPE_DESCRIPTION;
-		
-		public USERTYPE()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int USERTYPE_ID
-		{
-			get
-			{
-				return this._USERTYPE_ID;
-			}
-			set
-			{
-				if ((this._USERTYPE_ID != value))
-				{
-					this._USERTYPE_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_DESCRIPTION", DbType="VarChar(50)")]
-		public string USERTYPE_DESCRIPTION
-		{
-			get
-			{
-				return this._USERTYPE_DESCRIPTION;
-			}
-			set
-			{
-				if ((this._USERTYPE_DESCRIPTION != value))
-				{
-					this._USERTYPE_DESCRIPTION = value;
-				}
 			}
 		}
 	}
@@ -2872,6 +2915,113 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLBORRIWINGBARCODE")]
+	public partial class TBLBORRIWINGBARCODE
+	{
+		
+		private int _BarcodeID;
+		
+		private System.Nullable<int> _TransactionID;
+		
+		private System.Data.Linq.Binary _BorrowingBarcode;
+		
+		private string _BWBarcodePath;
+		
+		public TBLBORRIWINGBARCODE()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarcodeID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int BarcodeID
+		{
+			get
+			{
+				return this._BarcodeID;
+			}
+			set
+			{
+				if ((this._BarcodeID != value))
+				{
+					this._BarcodeID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionID", DbType="Int")]
+		public System.Nullable<int> TransactionID
+		{
+			get
+			{
+				return this._TransactionID;
+			}
+			set
+			{
+				if ((this._TransactionID != value))
+				{
+					this._TransactionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BorrowingBarcode", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary BorrowingBarcode
+		{
+			get
+			{
+				return this._BorrowingBarcode;
+			}
+			set
+			{
+				if ((this._BorrowingBarcode != value))
+				{
+					this._BorrowingBarcode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BWBarcodePath", DbType="VarChar(MAX)")]
+		public string BWBarcodePath
+		{
+			get
+			{
+				return this._BWBarcodePath;
+			}
+			set
+			{
+				if ((this._BWBarcodePath != value))
+				{
+					this._BWBarcodePath = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_AccountRecoveryResult
+	{
+		
+		private string _USERNAME;
+		
+		public sp_AccountRecoveryResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(50)")]
+		public string USERNAME
+		{
+			get
+			{
+				return this._USERNAME;
+			}
+			set
+			{
+				if ((this._USERNAME != value))
+				{
+					this._USERNAME = value;
+				}
+			}
+		}
+	}
+	
 	public partial class sp_ViewPendingRequestResult
 	{
 		
@@ -2965,6 +3115,86 @@ namespace ANS_SEIS_TV
 				if ((this._Status != value))
 				{
 					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_CurrentBorrowedResult
+	{
+		
+		private string _BARCODE;
+		
+		private int _ID;
+		
+		private string _Name;
+		
+		private System.Nullable<int> _Quantity;
+		
+		public sp_CurrentBorrowedResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BARCODE", DbType="VarChar(MAX)")]
+		public string BARCODE
+		{
+			get
+			{
+				return this._BARCODE;
+			}
+			set
+			{
+				if ((this._BARCODE != value))
+				{
+					this._BARCODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
 				}
 			}
 		}
@@ -3989,6 +4219,32 @@ namespace ANS_SEIS_TV
 				if ((this._Status != value))
 				{
 					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_TransactionBarcodeResult
+	{
+		
+		private string _BWBarcodePath;
+		
+		public sp_TransactionBarcodeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BWBarcodePath", DbType="VarChar(MAX)")]
+		public string BWBarcodePath
+		{
+			get
+			{
+				return this._BWBarcodePath;
+			}
+			set
+			{
+				if ((this._BWBarcodePath != value))
+				{
+					this._BWBarcodePath = value;
 				}
 			}
 		}

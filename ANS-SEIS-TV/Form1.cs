@@ -39,25 +39,28 @@ namespace ANS_SEIS_TV
 
         private void kryptonDataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            //foreach (DataGridViewRow row in kryptonDataGridView1.Rows)
-            //{
-            //    if (kryptonDataGridView1.Columns[5].Name == "EQBarcodepath")
-            //    {
-            //            e.Value = Image.FromFile(kryptonDataGridView1.Columns[5].ToString());
-            //        e.FormattingApplied = true;
-            //    }
-            //}
+            if (this.kryptonDataGridView1.Columns[e.ColumnIndex] is DataGridViewImageColumn)
+            {
+                string imagePath = (e.Value ?? "").ToString().Trim();
+
+                if (imagePath != "")
+                {
+                    e.Value = Image.FromFile(imagePath);
+                }
+            }
         }
 
         private void metroGrid1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            //if (metroGrid1.Columns[5].Name == "EQBarcodepath")
-            //{
-                
+            if (this.kryptonDataGridView1.Columns[e.ColumnIndex] is DataGridViewImageColumn)
+            {
+                string imagePath = (e.Value ?? "").ToString().Trim();
 
-            //    e.Value = Image.FromFile(e.Value.ToString());
-            //    e.FormattingApplied = true;
-            //}
+                if (imagePath != "")
+                {
+                    e.Value = Image.FromFile(imagePath);
+                }
+            }
         }
 
 

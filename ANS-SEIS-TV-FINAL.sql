@@ -131,6 +131,26 @@ UPDATE TBLUSERDETAILS
 SET USERNAME=@USERNAME,PASSWORD=@PASSWORD,SECURITY_QUESTION=@SECURITY_QUESTION,SECURITY_ANSWER=@SECURITY_ANSWER,ISFIRSTLOGIN=0
 WHERE USERNAME=@USERNAME
 
+CREATE PROC sp_AccountRecovery
+(
+	@Username varchar(50),
+	@SecurityQuestion varchar(max),
+	@SecurityAnswer varchar(max)
+)
+as
+SELECT USERNAME FROM TBLUSERDETAILS
+WHERE USERNAME=@Username and SECURITY_QUESTION=@SecurityQuestion and SECURITY_ANSWER=@SecurityAnswer
+
+CREATE PROC sp_ChangePassword
+(
+	@Username varchar(50),
+	@Password varchar(max)
+)
+as
+update TBLUSERDETAILS
+set PASSWORD=@Password
+where USERNAME=@Username
+
 --Edit User
 CREATE PROC sp_UserEdit
 (
@@ -373,28 +393,6 @@ CREATE TABLE TBLEQUIPMENTDETAILS
 	ISBORROWABLE INT
 )
 
----------------------------------------------------------------------------------
-
--- EQUIPMENT BARCODES TABLE
-
-
-CREATE TABLE TBLEQUIPMENTBARCODE
-(
-	BarcodeID INT UNIQUE identity (10000000,1),
-	Equipment_ID INT FOREIGN KEY REFERENCES TBLEQUIPMENTDETAILS(EQUIPMENT_ID),
-	EquipmentBarcode varbinary(MAX),
-	EQBarcodepath VARCHAR(MAX)
-)
-
-CREATE PROC sp_NewEquipmentBarcodeInsert
-(
-	@Equipment_ID INT,
-	@EquipmentBarcode varbinary(MAX),
-	@EQBarcodepath VARCHAR(MAX)
-)
-AS
-INSERT INTO TBLEQUIPMENTBARCODE
-VALUES (@Equipment_ID,@EquipmentBarcode,@EQBarcodepath)
 
 
 
@@ -450,7 +448,7 @@ CREATE PROC sp_EquipmentView
 	@SearchKey varchar(50)
 )
 as
-select equipment_id as 'Equipment ID',/*EQBARCODE,*/ EQUIPMENT_NAME as 'Name',equipment_description as 'Description',TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_DESCRIPTION as 'Type',equipment_quantity as 'Quantity' from TBLEQUIPMENTDETAILS
+select distinct equipment_id as 'Equipment ID',/*EQBARCODE,*/ EQUIPMENT_NAME as 'Name',equipment_description as 'Description',TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_DESCRIPTION as 'Type',equipment_quantity as 'Quantity' from TBLEQUIPMENTDETAILS
 inner join TBLEQEUIPMENTTYPE on TBLEQUIPMENTDETAILS.EQUIPMENT_TYPE_ID=TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_ID
 where EQUIPMENT_ID  like '%'+@SearchKey+'%' or EQUIPMENT_NAME like '%'+@SearchKey+'%' or EQUIPMENT_DESCRIPTION  like '%'+@SearchKey+'%' /*or EQBARCODE like '%'+@SearchKey+'%' */
 
@@ -882,6 +880,21 @@ INNER JOIN TBLEQUIPMENTDETAILS ON TBLBORROWED.EQUIPMENT_ID=TBLEQUIPMENTDETAILS.E
 INNER JOIN TBLTRANSACTION ON TBLBORROWED.TransactionID=TBLTRANSACTION.TransactionID
 WHERE TBLTRANSACTION.TransactionID=@TransactionID
 
+CREATE PROC sp_CurrentBorrowed
+(
+	@TransactionID int
+)
+as
+SELECT DISTINCT TBLEQUIPMENTBARCODE.EQBarcodepath AS 'BARCODE', TBLEQUIPMENTDETAILS.EQUIPMENT_ID as 'ID', TBLEQUIPMENTDETAILS.EQUIPMENT_NAME as 'Name', TBLBORROWED.Quantity FROM TBLBORROWED
+INNER JOIN TBLEQUIPMENTDETAILS ON TBLBORROWED.EQUIPMENT_ID=TBLEQUIPMENTDETAILS.EQUIPMENT_ID
+INNER JOIN TBLTRANSACTION ON TBLBORROWED.TransactionID=TBLTRANSACTION.TransactionID
+INNER JOIN TBLEQUIPMENTBARCODE ON TBLBORROWED.EQUIPMENT_ID=TBLEQUIPMENTBARCODE.Equipment_ID
+WHERE TBLTRANSACTION.TransactionID=@TransactionID
+
+
+CREATE VIEW sp_ViewToBeBorrowed
+
+
 CREATE PROC sp_ReturnEquipments
 (
 	@TransactionID int,
@@ -947,9 +960,82 @@ WHERE TransactionID=@TransactionID and EQUIPMENT_ID=@EquipmentID
 
 
 
+
+
+
 -------------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------
+
+-- THINGS ABOUT BARCODES STARTS HERE
+
+
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+
+
+-- EQUIPMENT BARCODES TABLE
+
+
+CREATE TABLE TBLEQUIPMENTBARCODE
+(
+	BarcodeID INT UNIQUE identity (10000000,1),
+	Equipment_ID INT FOREIGN KEY REFERENCES TBLEQUIPMENTDETAILS(EQUIPMENT_ID),
+	EquipmentBarcode varbinary(MAX),
+	EQBarcodepath VARCHAR(MAX)
+)
+
+CREATE PROC sp_NewEquipmentBarcodeInsert
+(
+	@Equipment_ID INT,
+	@EquipmentBarcode varbinary(MAX),
+	@EQBarcodepath VARCHAR(MAX)
+)
+AS
+INSERT INTO TBLEQUIPMENTBARCODE
+VALUES (@Equipment_ID,@EquipmentBarcode,@EQBarcodepath)
+
+
+
+-- BORROWING BARCODES TABLE
+CREATE TABLE TBLBORRIWINGBARCODE
+(
+	BarcodeID INT UNIQUE identity (11000000,1),
+	TransactionID int FOREIGN KEY REFERENCES TBLTRANSACTION(TransactionID),
+	BorrowingBarcode VARBINARY(MAX),
+	BWBarcodePath VARCHAR(MAX)
+)
+
+CREATE PROC sp_NewBorrowBarcodeInsert
+(
+	@TransactionID int,
+	@BorrowingBarcode VARBINARY(MAX),
+	@BWBarcodePath VARCHAR(MAX)
+)
+AS
+INSERT INTO TBLBORRIWINGBARCODE
+VALUES (@TransactionID,@BorrowingBarcode,@BWBarcodePath)
+
+SELECT * FROM TBLBORRIWINGBARCODE
+
+
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+
+-- THINGS ABOUT BARCODES STARTS HERE
+
+
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+
+
+
+
+
+
 
 -- INITIAL TABLE DATA'S
 
@@ -1004,6 +1090,7 @@ SELECT * FROM TBLTRANSACTION
 SELECT * FROM TBLBORROWED
 SELECT * FROM TBLBORROWQUANTITY
 SELECT * FROM TBLEQUIPMENTBARCODE
+SELECT * FROM TBLBORRIWINGBARCODE
 
 
 DELETE FROM TBLBORROWED

@@ -19,6 +19,7 @@ namespace ANS_SEIS_TV
 {
     public partial class Main : MaterialForm
     {
+    
         private readonly MaterialSkinManager materialSkinManager;
 
 
@@ -303,7 +304,7 @@ namespace ANS_SEIS_TV
         {
             eq.SearchKey = "";
             txtEquipmentID.Text = eq.EquipmentID().ToString();
-            dgvEquipment.DataSource = db.sp_EquipmentViewBarcode(eq.SearchKey);   
+            dgvEquipment.DataSource = db.sp_EquipmentView(eq.SearchKey);   
         }
 
         private void AddingEquipment()
@@ -703,6 +704,7 @@ namespace ANS_SEIS_TV
                     f.Action = "Borrowed an Equipment";
                     f.TransactionType = "Equipment Borrowing";
                     f.AdminID = CurrentGENID;
+                    f.AdminName = g.Fullname;
 
                     f.ShowDialog();
                     dgvBorrowList.Rows.Clear();
@@ -1048,6 +1050,19 @@ namespace ANS_SEIS_TV
         private void bgwEquipmentRegistration_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
+        }
+
+        private void dgvEquipment_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dgvEquipment.Columns[e.ColumnIndex] is DataGridViewImageColumn)
+            {
+                string imagePath = (e.Value ?? "").ToString().Trim();
+
+                if (imagePath != "")
+                {
+                    e.Value = Image.FromFile(imagePath);
+                }
+            }
         }
     }
 }

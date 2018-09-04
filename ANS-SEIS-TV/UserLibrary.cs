@@ -213,6 +213,18 @@ namespace ANS_SEIS_TV
             UserLoginLog();
         }
 
+        public int AccountRecoveryVerification(string Username, string Question, string Answer)
+        {
+            result = db.sp_AccountRecovery(Username, Question, Answer).Count();
+
+            return result;
+        }
+
+        public void ChangePassword (string Username, string Password)
+        {
+            db.sp_ChangePassword(Username, Password);
+        }
+
         public void UserLoginLog()
         {
 

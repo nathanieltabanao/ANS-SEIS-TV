@@ -70,9 +70,7 @@ namespace ANS_SEIS_TV
 
             code128.generateBarcodeToImageFile(SavePath);
         }
-
         
-
         public Image byteArrayToImage(byte[] byteArrayIn)
         {
             MemoryStream ms = new MemoryStream(byteArrayIn);
@@ -80,5 +78,13 @@ namespace ANS_SEIS_TV
             return returnImage;
         }
 
+        public byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, imageIn.RawFormat);
+                return ms.ToArray();
+            }
+        }
     }
 }

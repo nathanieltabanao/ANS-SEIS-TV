@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ANS_SEIS_TV" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=NATHANIEL-VX15\;Initial Catalog=ANS_SEIS_TV;Integrated Security=True" SettingsObjectName="ANS_SEIS_TV.Properties.Settings" SettingsPropertyName="ANS_SEIS_TVConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NATHANIEL-VX15;Initial Catalog=ANS_SEIS_TV;Integrated Security=True" SettingsObjectName="ANS_SEIS_TV.Properties.Settings" SettingsPropertyName="ANS_SEIS_TVConnectionString3" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.USERTYPE" Member="USERTYPEs">
+    <Type Name="USERTYPE">
+      <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USERTYPE_DESCRIPTION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="USERTYPE_TBLSTUDENTDETAIL" Member="TBLSTUDENTDETAILs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLSTUDENTDETAIL" />
+      <Association Name="USERTYPE_TBLUSERDETAIL" Member="TBLUSERDETAILs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLUSERDETAIL" />
+    </Type>
+  </Table>
   <Table Name="dbo.EQUIPMENT_DESIGNATION" Member="EQUIPMENT_DESIGNATIONs">
     <Type Name="EQUIPMENT_DESIGNATION">
       <Column Name="EQ_DESIGNATION_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -8,14 +16,6 @@
       <Column Name="DATE_RETURNED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DESIGNATION_STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="TBLUSERDETAIL_EQUIPMENT_DESIGNATION" Member="TBLUSERDETAIL" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.USERTYPE" Member="USERTYPEs">
-    <Type Name="USERTYPE">
-      <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="USERTYPE_DESCRIPTION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="USERTYPE_TBLSTUDENTDETAIL" Member="TBLSTUDENTDETAILs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLSTUDENTDETAIL" />
-      <Association Name="USERTYPE_TBLUSERDETAIL" Member="TBLUSERDETAILs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLUSERDETAIL" />
     </Type>
   </Table>
   <Table Name="dbo.REQUESTSTATUS" Member="REQUESTSTATUS">
@@ -151,6 +151,7 @@
       <Association Name="TBLTRANSACTION_TBLBORROWED" Member="TBLBORROWEDs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLBORROWED" />
       <Association Name="TBLTRANSACTION_TBLEQUIPMENTRESERVATION" Member="TBLEQUIPMENTRESERVATIONs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLEQUIPMENTRESERVATION" />
       <Association Name="TBLTRANSACTION_TBLRETURNEDEQUIPMENT" Member="TBLRETURNEDEQUIPMENTs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLRETURNEDEQUIPMENT" />
+      <Association Name="TBLTRANSACTION_TBLBORRIWINGBARCODE" Member="TBLBORRIWINGBARCODEs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLBORRIWINGBARCODE" />
       <Association Name="TBLUSERDETAIL_TBLTRANSACTION" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
@@ -199,10 +200,22 @@
       <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT" Member="TBLUSERDETAIL" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
-  <Function Name="dbo.sp_BorrowAddQuantity" Method="sp_BorrowAddQuantity">
-    <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="QUANTITY" Parameter="qUANTITY" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
+  <Table Name="dbo.TBLBORRIWINGBARCODE" Member="TBLBORRIWINGBARCODEs">
+    <Type Name="TBLBORRIWINGBARCODE">
+      <Column Name="BarcodeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BorrowingBarcode" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BWBarcodePath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="TBLTRANSACTION_TBLBORRIWINGBARCODE" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_AccountRecovery" Method="sp_AccountRecovery">
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SecurityQuestion" Parameter="securityQuestion" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="SecurityAnswer" Parameter="securityAnswer" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType Name="sp_AccountRecoveryResult">
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
   </Function>
   <Function Name="dbo.sp_ViewPendingRequest" Method="sp_ViewPendingRequest">
     <ElementType Name="sp_ViewPendingRequestResult">
@@ -211,6 +224,25 @@
       <Column Name="[Request Header]" Member="Request_Header" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="[Date Requested]" Member="Date_Requested" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_BorrowAddQuantity" Method="sp_BorrowAddQuantity">
+    <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QUANTITY" Parameter="qUANTITY" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ChangePassword" Method="sp_ChangePassword">
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_CurrentBorrowed" Method="sp_CurrentBorrowed">
+    <Parameter Name="TransactionID" Parameter="transactionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_CurrentBorrowedResult">
+      <Column Name="BARCODE" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_DeleteDeletedEquipment" Method="sp_DeleteDeletedEquipment">
@@ -301,6 +333,12 @@
     <Parameter Name="Quantity" Parameter="quantity" Type="System.Int32" DbType="Int" />
     <Parameter Name="IsGoodCondition" Parameter="isGoodCondition" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="IsReturned" Parameter="isReturned" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_NewBorrowBarcodeInsert" Method="sp_NewBorrowBarcodeInsert">
+    <Parameter Name="TransactionID" Parameter="transactionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BorrowingBarcode" Parameter="borrowingBarcode" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="BWBarcodePath" Parameter="bWBarcodePath" Type="System.String" DbType="VarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_NewBorrowQuantityAdded" Method="sp_NewBorrowQuantityAdded">
@@ -440,6 +478,12 @@
       <Column Name="[Request Header]" Member="Request_Header" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="[Date Requested]" Member="Date_Requested" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_TransactionBarcode" Method="sp_TransactionBarcode">
+    <Parameter Name="BarcodeTransaction" Parameter="barcodeTransaction" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_TransactionBarcodeResult">
+      <Column Name="BWBarcodePath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_UserActionReport" Method="sp_UserActionReport">
