@@ -21,5 +21,10 @@ namespace ANS_SEIS_TV
         {
 
         }
+
+        private void metroProgressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

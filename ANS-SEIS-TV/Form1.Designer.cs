@@ -34,6 +34,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.kryptonDataGridView1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.equipmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EQBarcodepath = new System.Windows.Forms.DataGridViewImageColumn();
+            this.image = new System.Windows.Forms.DataGridViewImageColumn();
             this.spEquipmentViewBarcodePathBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aNS_SEIS_TVDataSet3 = new ANS_SEIS_TV.ANS_SEIS_TVDataSet3();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
@@ -47,13 +54,10 @@
             this.sp_EquipmentViewTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet2TableAdapters.sp_EquipmentViewTableAdapter();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sp_EquipmentViewBarcodePathTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet3TableAdapters.sp_EquipmentViewBarcodePathTableAdapter();
-            this.equipmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EQBarcodepath = new System.Windows.Forms.DataGridViewImageColumn();
-            this.image = new System.Windows.Forms.DataGridViewImageColumn();
+            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroProgressBar1 = new MetroFramework.Controls.MetroProgressBar();
+            this.metroProgressBar2 = new MetroFramework.Controls.MetroProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spEquipmentViewBarcodePathBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet3)).BeginInit();
@@ -95,6 +99,62 @@
             this.kryptonDataGridView1.Size = new System.Drawing.Size(1578, 314);
             this.kryptonDataGridView1.TabIndex = 4;
             this.kryptonDataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.kryptonDataGridView1_CellFormatting);
+            // 
+            // equipmentIDDataGridViewTextBoxColumn
+            // 
+            this.equipmentIDDataGridViewTextBoxColumn.DataPropertyName = "Equipment ID";
+            this.equipmentIDDataGridViewTextBoxColumn.HeaderText = "Equipment ID";
+            this.equipmentIDDataGridViewTextBoxColumn.Name = "equipmentIDDataGridViewTextBoxColumn";
+            this.equipmentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.equipmentIDDataGridViewTextBoxColumn.Width = 108;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 68;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.Width = 96;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.typeDataGridViewTextBoxColumn.Width = 61;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantityDataGridViewTextBoxColumn.Width = 82;
+            // 
+            // EQBarcodepath
+            // 
+            this.EQBarcodepath.DataPropertyName = "EQBarcodepath";
+            this.EQBarcodepath.HeaderText = "EQBarcodepath";
+            this.EQBarcodepath.Name = "EQBarcodepath";
+            this.EQBarcodepath.ReadOnly = true;
+            this.EQBarcodepath.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.EQBarcodepath.Width = 99;
+            // 
+            // image
+            // 
+            this.image.HeaderText = "image";
+            this.image.Name = "image";
+            this.image.ReadOnly = true;
+            this.image.Width = 50;
             // 
             // spEquipmentViewBarcodePathBindingSource
             // 
@@ -202,67 +262,47 @@
             // 
             this.sp_EquipmentViewBarcodePathTableAdapter.ClearBeforeFill = true;
             // 
-            // equipmentIDDataGridViewTextBoxColumn
+            // materialFlatButton1
             // 
-            this.equipmentIDDataGridViewTextBoxColumn.DataPropertyName = "Equipment ID";
-            this.equipmentIDDataGridViewTextBoxColumn.HeaderText = "Equipment ID";
-            this.equipmentIDDataGridViewTextBoxColumn.Name = "equipmentIDDataGridViewTextBoxColumn";
-            this.equipmentIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.equipmentIDDataGridViewTextBoxColumn.Width = 108;
+            this.materialFlatButton1.AutoSize = true;
+            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton1.Depth = 0;
+            this.materialFlatButton1.Icon = null;
+            this.materialFlatButton1.Location = new System.Drawing.Point(1157, 374);
+            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton1.Name = "materialFlatButton1";
+            this.materialFlatButton1.Primary = false;
+            this.materialFlatButton1.Size = new System.Drawing.Size(181, 36);
+            this.materialFlatButton1.TabIndex = 7;
+            this.materialFlatButton1.Text = "materialFlatButton1";
+            this.materialFlatButton1.UseVisualStyleBackColor = true;
             // 
-            // nameDataGridViewTextBoxColumn
+            // metroButton1
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 68;
+            this.metroButton1.Location = new System.Drawing.Point(0, 0);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.TabIndex = 0;
+            this.metroButton1.UseSelectable = true;
             // 
-            // descriptionDataGridViewTextBoxColumn
+            // metroProgressBar1
             // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descriptionDataGridViewTextBoxColumn.Width = 96;
+            this.metroProgressBar1.Location = new System.Drawing.Point(0, 0);
+            this.metroProgressBar1.Name = "metroProgressBar1";
+            this.metroProgressBar1.TabIndex = 0;
             // 
-            // typeDataGridViewTextBoxColumn
+            // metroProgressBar2
             // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.typeDataGridViewTextBoxColumn.Width = 61;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quantityDataGridViewTextBoxColumn.Width = 82;
-            // 
-            // EQBarcodepath
-            // 
-            this.EQBarcodepath.DataPropertyName = "EQBarcodepath";
-            this.EQBarcodepath.HeaderText = "EQBarcodepath";
-            this.EQBarcodepath.Name = "EQBarcodepath";
-            this.EQBarcodepath.ReadOnly = true;
-            this.EQBarcodepath.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.EQBarcodepath.Width = 99;
-            // 
-            // image
-            // 
-            this.image.HeaderText = "image";
-            this.image.Name = "image";
-            this.image.ReadOnly = true;
-            this.image.Width = 50;
+            this.metroProgressBar2.Location = new System.Drawing.Point(0, 0);
+            this.metroProgressBar2.Name = "metroProgressBar2";
+            this.metroProgressBar2.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1578, 741);
+            this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.metroGrid1);
             this.Controls.Add(this.kryptonDataGridView1);
@@ -282,6 +322,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spEquipmentViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -308,6 +349,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn EQBarcodepath;
         private System.Windows.Forms.DataGridViewImageColumn image;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroProgressBar metroProgressBar1;
+        private MetroFramework.Controls.MetroProgressBar metroProgressBar2;
     }
 }
 

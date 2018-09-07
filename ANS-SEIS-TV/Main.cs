@@ -1064,5 +1064,18 @@ namespace ANS_SEIS_TV
                 }
             }
         }
+
+        private void txtReturnID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                btnReturnSearch.PerformClick();
+            }
+        }
+
+        private void btnTransactionFilter_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
