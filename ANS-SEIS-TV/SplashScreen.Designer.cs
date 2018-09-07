@@ -39,6 +39,7 @@
             this.metroProgressBar1.ProgressBarStyle = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.metroProgressBar1.Size = new System.Drawing.Size(870, 30);
             this.metroProgressBar1.TabIndex = 1;
+            this.metroProgressBar1.Click += new System.EventHandler(this.metroProgressBar1_Click);
             // 
             // SplashScreen
             // 

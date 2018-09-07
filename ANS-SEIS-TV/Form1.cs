@@ -13,6 +13,7 @@ using KeepAutomation.Barcode.Bean;
 using KeepAutomation.Barcode;
 using KeepAutomation;
 using System.IO;
+using MetroFramework;
 
 namespace ANS_SEIS_TV
 {

@@ -522,6 +522,60 @@ CREATE TABLE EQUIPMENT_DESIGNATION
 
 
 
+
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+
+-- THINGS ABOUT FACILITIES STARTS HERE
+
+
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+
+CREATE TABLE TBLFACILITIES
+(
+	FacilityID INT PRIMARY KEY IDENTITY(12000000,1),
+	FacilityName VARCHAR(200),
+	GENID INT foreign key references tbluserdetails(GENID),
+	FacilityType  VARCHAR(100),
+	FacilityRoomNo VARCHAR(100)
+)
+
+CREATE PROC sp_NewFacilities
+(
+	@FacilityName VARCHAR(200),
+	@Instructor INT,
+	@FacilityType  VARCHAR(100),
+	@FacilityRoomNo VARCHAR(100)
+)
+as
+INSERT INTO TBLFACILITIES
+VALUES (@FacilityName,@Instructor,@FacilityType,@FacilityRoomNo)
+
+CREATE PROC sp_ViewAllFacilities
+(
+	@SearchKey VARCHAR(100)
+)
+AS
+SELECT * FROM TBLFACILITIES
+WHERE FacilityID like '%'+@SearchKey+'%' OR FacilityName like '%'+@SearchKey+'%' or GENID like '%'+@SearchKey+'%' or FacilityType like '%'+@SearchKey+'%' or FacilityRoomNo like '%'+@SearchKey+'%'
+
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+
+-- THINGS ABOUT FACILITIES ENDS HERE
+
+
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+
+
+
+
 -------------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------

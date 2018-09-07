@@ -41,6 +41,10 @@
             this.crystalReportViewer.Location = new System.Drawing.Point(20, 60);
             this.crystalReportViewer.Name = "crystalReportViewer";
             this.crystalReportViewer.ReportSource = this.BorrowSlip1;
+            this.crystalReportViewer.ShowCloseButton = false;
+            this.crystalReportViewer.ShowLogo = false;
+            this.crystalReportViewer.ShowParameterPanelButton = false;
+            this.crystalReportViewer.ShowRefreshButton = false;
             this.crystalReportViewer.Size = new System.Drawing.Size(1085, 445);
             this.crystalReportViewer.TabIndex = 0;
             this.crystalReportViewer.Load += new System.EventHandler(this.crystalReportViewer1_Load);

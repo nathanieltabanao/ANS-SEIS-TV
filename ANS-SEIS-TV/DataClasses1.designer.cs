@@ -36,6 +36,9 @@ namespace ANS_SEIS_TV
     partial void InsertTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
     partial void UpdateTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
     partial void DeleteTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
+    partial void InsertTBLFACILITy(TBLFACILITy instance);
+    partial void UpdateTBLFACILITy(TBLFACILITy instance);
+    partial void DeleteTBLFACILITy(TBLFACILITy instance);
     partial void InsertTBLSTUDENTDETAIL(TBLSTUDENTDETAIL instance);
     partial void UpdateTBLSTUDENTDETAIL(TBLSTUDENTDETAIL instance);
     partial void DeleteTBLSTUDENTDETAIL(TBLSTUDENTDETAIL instance);
@@ -80,14 +83,6 @@ namespace ANS_SEIS_TV
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<USERTYPE> USERTYPEs
-		{
-			get
-			{
-				return this.GetTable<USERTYPE>();
-			}
-		}
-		
 		public System.Data.Linq.Table<EQUIPMENT_DESIGNATION> EQUIPMENT_DESIGNATIONs
 		{
 			get
@@ -96,11 +91,27 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
+		public System.Data.Linq.Table<USERTYPE> USERTYPEs
+		{
+			get
+			{
+				return this.GetTable<USERTYPE>();
+			}
+		}
+		
 		public System.Data.Linq.Table<REQUESTSTATUS> REQUESTSTATUS
 		{
 			get
 			{
 				return this.GetTable<REQUESTSTATUS>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBLBORRIWINGBARCODE> TBLBORRIWINGBARCODEs
+		{
+			get
+			{
+				return this.GetTable<TBLBORRIWINGBARCODE>();
 			}
 		}
 		
@@ -149,6 +160,14 @@ namespace ANS_SEIS_TV
 			get
 			{
 				return this.GetTable<TBLEQUIPMENTRESERVATION>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBLFACILITy> TBLFACILITies
+		{
+			get
+			{
+				return this.GetTable<TBLFACILITy>();
 			}
 		}
 		
@@ -213,14 +232,6 @@ namespace ANS_SEIS_TV
 			get
 			{
 				return this.GetTable<TBLUSERLOGINREPORT>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TBLBORRIWINGBARCODE> TBLBORRIWINGBARCODEs
-		{
-			get
-			{
-				return this.GetTable<TBLBORRIWINGBARCODE>();
 			}
 		}
 		
@@ -361,6 +372,13 @@ namespace ANS_SEIS_TV
 		public int sp_NewEquipmentBarcodeInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Equipment_ID", DbType="Int")] System.Nullable<int> equipment_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EquipmentBarcode", DbType="VarBinary(MAX)")] System.Data.Linq.Binary equipmentBarcode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQBarcodepath", DbType="VarChar(MAX)")] string eQBarcodepath)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), equipment_ID, equipmentBarcode, eQBarcodepath);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewFacilities")]
+		public int sp_NewFacilities([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FacilityName", DbType="VarChar(200)")] string facilityName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Instructor", DbType="Int")] System.Nullable<int> instructor, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FacilityType", DbType="VarChar(100)")] string facilityType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FacilityRoomNo", DbType="VarChar(100)")] string facilityRoomNo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), facilityName, instructor, facilityType, facilityRoomNo);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -581,6 +599,13 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_UserViewResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewAllFacilities")]
+		public ISingleResult<sp_ViewAllFacilitiesResult> sp_ViewAllFacilities([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchKey", DbType="VarChar(100)")] string searchKey)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchKey);
+			return ((ISingleResult<sp_ViewAllFacilitiesResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewAllRequest")]
 		public ISingleResult<sp_ViewAllRequestResult> sp_ViewAllRequest()
 		{
@@ -614,51 +639,6 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_ViewOpenRequestResult>)(result.ReturnValue));
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USERTYPE")]
-	public partial class USERTYPE
-	{
-		
-		private int _USERTYPE_ID;
-		
-		private string _USERTYPE_DESCRIPTION;
-		
-		public USERTYPE()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int USERTYPE_ID
-		{
-			get
-			{
-				return this._USERTYPE_ID;
-			}
-			set
-			{
-				if ((this._USERTYPE_ID != value))
-				{
-					this._USERTYPE_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_DESCRIPTION", DbType="VarChar(50)")]
-		public string USERTYPE_DESCRIPTION
-		{
-			get
-			{
-				return this._USERTYPE_DESCRIPTION;
-			}
-			set
-			{
-				if ((this._USERTYPE_DESCRIPTION != value))
-				{
-					this._USERTYPE_DESCRIPTION = value;
-				}
-			}
 		}
 	}
 	
@@ -861,6 +841,51 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USERTYPE")]
+	public partial class USERTYPE
+	{
+		
+		private int _USERTYPE_ID;
+		
+		private string _USERTYPE_DESCRIPTION;
+		
+		public USERTYPE()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int USERTYPE_ID
+		{
+			get
+			{
+				return this._USERTYPE_ID;
+			}
+			set
+			{
+				if ((this._USERTYPE_ID != value))
+				{
+					this._USERTYPE_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_DESCRIPTION", DbType="VarChar(50)")]
+		public string USERTYPE_DESCRIPTION
+		{
+			get
+			{
+				return this._USERTYPE_DESCRIPTION;
+			}
+			set
+			{
+				if ((this._USERTYPE_DESCRIPTION != value))
+				{
+					this._USERTYPE_DESCRIPTION = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.REQUESTSTATUS")]
 	public partial class REQUESTSTATUS
 	{
@@ -901,6 +926,87 @@ namespace ANS_SEIS_TV
 				if ((this._STATUSDESCRIPTION != value))
 				{
 					this._STATUSDESCRIPTION = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLBORRIWINGBARCODE")]
+	public partial class TBLBORRIWINGBARCODE
+	{
+		
+		private int _BarcodeID;
+		
+		private System.Nullable<int> _TransactionID;
+		
+		private System.Data.Linq.Binary _BorrowingBarcode;
+		
+		private string _BWBarcodePath;
+		
+		public TBLBORRIWINGBARCODE()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarcodeID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int BarcodeID
+		{
+			get
+			{
+				return this._BarcodeID;
+			}
+			set
+			{
+				if ((this._BarcodeID != value))
+				{
+					this._BarcodeID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionID", DbType="Int")]
+		public System.Nullable<int> TransactionID
+		{
+			get
+			{
+				return this._TransactionID;
+			}
+			set
+			{
+				if ((this._TransactionID != value))
+				{
+					this._TransactionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BorrowingBarcode", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary BorrowingBarcode
+		{
+			get
+			{
+				return this._BorrowingBarcode;
+			}
+			set
+			{
+				if ((this._BorrowingBarcode != value))
+				{
+					this._BorrowingBarcode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BWBarcodePath", DbType="VarChar(MAX)")]
+		public string BWBarcodePath
+		{
+			get
+			{
+				return this._BWBarcodePath;
+			}
+			set
+			{
+				if ((this._BWBarcodePath != value))
+				{
+					this._BWBarcodePath = value;
 				}
 			}
 		}
@@ -1537,6 +1643,205 @@ namespace ANS_SEIS_TV
 				{
 					this._IsReturned = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLFACILITIES")]
+	public partial class TBLFACILITy : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _FacilityID;
+		
+		private string _FacilityName;
+		
+		private System.Nullable<int> _GENID;
+		
+		private string _FacilityType;
+		
+		private string _FacilityRoomNo;
+		
+		private EntityRef<TBLUSERDETAIL> _TBLUSERDETAIL;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFacilityIDChanging(int value);
+    partial void OnFacilityIDChanged();
+    partial void OnFacilityNameChanging(string value);
+    partial void OnFacilityNameChanged();
+    partial void OnGENIDChanging(System.Nullable<int> value);
+    partial void OnGENIDChanged();
+    partial void OnFacilityTypeChanging(string value);
+    partial void OnFacilityTypeChanged();
+    partial void OnFacilityRoomNoChanging(string value);
+    partial void OnFacilityRoomNoChanged();
+    #endregion
+		
+		public TBLFACILITy()
+		{
+			this._TBLUSERDETAIL = default(EntityRef<TBLUSERDETAIL>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacilityID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int FacilityID
+		{
+			get
+			{
+				return this._FacilityID;
+			}
+			set
+			{
+				if ((this._FacilityID != value))
+				{
+					this.OnFacilityIDChanging(value);
+					this.SendPropertyChanging();
+					this._FacilityID = value;
+					this.SendPropertyChanged("FacilityID");
+					this.OnFacilityIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacilityName", DbType="VarChar(200)")]
+		public string FacilityName
+		{
+			get
+			{
+				return this._FacilityName;
+			}
+			set
+			{
+				if ((this._FacilityName != value))
+				{
+					this.OnFacilityNameChanging(value);
+					this.SendPropertyChanging();
+					this._FacilityName = value;
+					this.SendPropertyChanged("FacilityName");
+					this.OnFacilityNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENID", DbType="Int")]
+		public System.Nullable<int> GENID
+		{
+			get
+			{
+				return this._GENID;
+			}
+			set
+			{
+				if ((this._GENID != value))
+				{
+					if (this._TBLUSERDETAIL.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGENIDChanging(value);
+					this.SendPropertyChanging();
+					this._GENID = value;
+					this.SendPropertyChanged("GENID");
+					this.OnGENIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacilityType", DbType="VarChar(100)")]
+		public string FacilityType
+		{
+			get
+			{
+				return this._FacilityType;
+			}
+			set
+			{
+				if ((this._FacilityType != value))
+				{
+					this.OnFacilityTypeChanging(value);
+					this.SendPropertyChanging();
+					this._FacilityType = value;
+					this.SendPropertyChanged("FacilityType");
+					this.OnFacilityTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacilityRoomNo", DbType="VarChar(100)")]
+		public string FacilityRoomNo
+		{
+			get
+			{
+				return this._FacilityRoomNo;
+			}
+			set
+			{
+				if ((this._FacilityRoomNo != value))
+				{
+					this.OnFacilityRoomNoChanging(value);
+					this.SendPropertyChanging();
+					this._FacilityRoomNo = value;
+					this.SendPropertyChanged("FacilityRoomNo");
+					this.OnFacilityRoomNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLFACILITy", Storage="_TBLUSERDETAIL", ThisKey="GENID", OtherKey="GENID", IsForeignKey=true)]
+		public TBLUSERDETAIL TBLUSERDETAIL
+		{
+			get
+			{
+				return this._TBLUSERDETAIL.Entity;
+			}
+			set
+			{
+				TBLUSERDETAIL previousValue = this._TBLUSERDETAIL.Entity;
+				if (((previousValue != value) 
+							|| (this._TBLUSERDETAIL.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TBLUSERDETAIL.Entity = null;
+						previousValue.TBLFACILITies.Remove(this);
+					}
+					this._TBLUSERDETAIL.Entity = value;
+					if ((value != null))
+					{
+						value.TBLFACILITies.Add(this);
+						this._GENID = value.GENID;
+					}
+					else
+					{
+						this._GENID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TBLUSERDETAIL");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -2338,6 +2643,8 @@ namespace ANS_SEIS_TV
 		
 		private EntitySet<EQUIPMENT_DESIGNATION> _EQUIPMENT_DESIGNATIONs;
 		
+		private EntitySet<TBLFACILITy> _TBLFACILITies;
+		
 		private EntitySet<TBLUSERACTIONREPORT> _TBLUSERACTIONREPORTs;
 		
 		private EntitySet<TBLUSERLOGINREPORT> _TBLUSERLOGINREPORTs;
@@ -2375,6 +2682,7 @@ namespace ANS_SEIS_TV
 		public TBLUSERDETAIL()
 		{
 			this._EQUIPMENT_DESIGNATIONs = new EntitySet<EQUIPMENT_DESIGNATION>(new Action<EQUIPMENT_DESIGNATION>(this.attach_EQUIPMENT_DESIGNATIONs), new Action<EQUIPMENT_DESIGNATION>(this.detach_EQUIPMENT_DESIGNATIONs));
+			this._TBLFACILITies = new EntitySet<TBLFACILITy>(new Action<TBLFACILITy>(this.attach_TBLFACILITies), new Action<TBLFACILITy>(this.detach_TBLFACILITies));
 			this._TBLUSERACTIONREPORTs = new EntitySet<TBLUSERACTIONREPORT>(new Action<TBLUSERACTIONREPORT>(this.attach_TBLUSERACTIONREPORTs), new Action<TBLUSERACTIONREPORT>(this.detach_TBLUSERACTIONREPORTs));
 			this._TBLUSERLOGINREPORTs = new EntitySet<TBLUSERLOGINREPORT>(new Action<TBLUSERLOGINREPORT>(this.attach_TBLUSERLOGINREPORTs), new Action<TBLUSERLOGINREPORT>(this.detach_TBLUSERLOGINREPORTs));
 			OnCreated();
@@ -2633,6 +2941,19 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLFACILITy", Storage="_TBLFACILITies", ThisKey="GENID", OtherKey="GENID")]
+		public EntitySet<TBLFACILITy> TBLFACILITies
+		{
+			get
+			{
+				return this._TBLFACILITies;
+			}
+			set
+			{
+				this._TBLFACILITies.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLUSERACTIONREPORT", Storage="_TBLUSERACTIONREPORTs", ThisKey="ID", OtherKey="ID")]
 		public EntitySet<TBLUSERACTIONREPORT> TBLUSERACTIONREPORTs
 		{
@@ -2686,6 +3007,18 @@ namespace ANS_SEIS_TV
 		}
 		
 		private void detach_EQUIPMENT_DESIGNATIONs(EQUIPMENT_DESIGNATION entity)
+		{
+			this.SendPropertyChanging();
+			entity.TBLUSERDETAIL = null;
+		}
+		
+		private void attach_TBLFACILITies(TBLFACILITy entity)
+		{
+			this.SendPropertyChanging();
+			entity.TBLUSERDETAIL = this;
+		}
+		
+		private void detach_TBLFACILITies(TBLFACILITy entity)
 		{
 			this.SendPropertyChanging();
 			entity.TBLUSERDETAIL = null;
@@ -2911,87 +3244,6 @@ namespace ANS_SEIS_TV
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLBORRIWINGBARCODE")]
-	public partial class TBLBORRIWINGBARCODE
-	{
-		
-		private int _BarcodeID;
-		
-		private System.Nullable<int> _TransactionID;
-		
-		private System.Data.Linq.Binary _BorrowingBarcode;
-		
-		private string _BWBarcodePath;
-		
-		public TBLBORRIWINGBARCODE()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarcodeID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int BarcodeID
-		{
-			get
-			{
-				return this._BarcodeID;
-			}
-			set
-			{
-				if ((this._BarcodeID != value))
-				{
-					this._BarcodeID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionID", DbType="Int")]
-		public System.Nullable<int> TransactionID
-		{
-			get
-			{
-				return this._TransactionID;
-			}
-			set
-			{
-				if ((this._TransactionID != value))
-				{
-					this._TransactionID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BorrowingBarcode", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary BorrowingBarcode
-		{
-			get
-			{
-				return this._BorrowingBarcode;
-			}
-			set
-			{
-				if ((this._BorrowingBarcode != value))
-				{
-					this._BorrowingBarcode = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BWBarcodePath", DbType="VarChar(MAX)")]
-		public string BWBarcodePath
-		{
-			get
-			{
-				return this._BWBarcodePath;
-			}
-			set
-			{
-				if ((this._BWBarcodePath != value))
-				{
-					this._BWBarcodePath = value;
-				}
 			}
 		}
 	}
@@ -4717,6 +4969,104 @@ namespace ANS_SEIS_TV
 				if ((this._User_Type != value))
 				{
 					this._User_Type = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ViewAllFacilitiesResult
+	{
+		
+		private int _FacilityID;
+		
+		private string _FacilityName;
+		
+		private System.Nullable<int> _GENID;
+		
+		private string _FacilityType;
+		
+		private string _FacilityRoomNo;
+		
+		public sp_ViewAllFacilitiesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacilityID", DbType="Int NOT NULL")]
+		public int FacilityID
+		{
+			get
+			{
+				return this._FacilityID;
+			}
+			set
+			{
+				if ((this._FacilityID != value))
+				{
+					this._FacilityID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacilityName", DbType="VarChar(200)")]
+		public string FacilityName
+		{
+			get
+			{
+				return this._FacilityName;
+			}
+			set
+			{
+				if ((this._FacilityName != value))
+				{
+					this._FacilityName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENID", DbType="Int")]
+		public System.Nullable<int> GENID
+		{
+			get
+			{
+				return this._GENID;
+			}
+			set
+			{
+				if ((this._GENID != value))
+				{
+					this._GENID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacilityType", DbType="VarChar(100)")]
+		public string FacilityType
+		{
+			get
+			{
+				return this._FacilityType;
+			}
+			set
+			{
+				if ((this._FacilityType != value))
+				{
+					this._FacilityType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacilityRoomNo", DbType="VarChar(100)")]
+		public string FacilityRoomNo
+		{
+			get
+			{
+				return this._FacilityRoomNo;
+			}
+			set
+			{
+				if ((this._FacilityRoomNo != value))
+				{
+					this._FacilityRoomNo = value;
 				}
 			}
 		}
