@@ -105,7 +105,7 @@ namespace ANS_SEIS_TV
             if (backgroundWorker1.IsBusy != true)
             {
                 backgroundWorker1.RunWorkerAsync();
-                LoadingScreen l = new LoadingScreen();
+                LoadingScreen2 l = new LoadingScreen2();
                 l.ShowDialog();
             }
 

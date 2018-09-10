@@ -57,6 +57,15 @@
       <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWQUANTITY" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBLDEPLOYMENT" Member="TBLDEPLOYMENTs">
+    <Type Name="TBLDEPLOYMENT">
+      <Column Name="DeploymentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FacilitiyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TBLFACILITy_TBLDEPLOYMENT" Member="TBLFACILITy" ThisKey="FacilitiyID" OtherKey="FacilityID" Type="TBLFACILITy" IsForeignKey="true" />
+      <Association Name="TBLTRANSACTION_TBLDEPLOYMENT" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.TBLEQEUIPMENTTYPE" Member="TBLEQEUIPMENTTYPEs">
     <Type Name="TBLEQEUIPMENTTYPE">
       <Column Name="EQUIPMENT_TYPE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -110,7 +119,18 @@
       <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="FacilityType" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="FacilityRoomNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="TBLFACILITy_TBLDEPLOYMENT" Member="TBLDEPLOYMENTs" ThisKey="FacilityID" OtherKey="FacilitiyID" Type="TBLDEPLOYMENT" />
+      <Association Name="TBLFACILITy_TBLJDEPLOYMENT" Member="TBLJDEPLOYMENTs" ThisKey="FacilityID" OtherKey="FacilitiyID" Type="TBLJDEPLOYMENT" />
       <Association Name="TBLUSERDETAIL_TBLFACILITy" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLJDEPLOYMENT" Member="TBLJDEPLOYMENTs">
+    <Type Name="TBLJDEPLOYMENT">
+      <Column Name="DeploymentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FacilitiyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TBLFACILITy_TBLJDEPLOYMENT" Member="TBLFACILITy" ThisKey="FacilitiyID" OtherKey="FacilityID" Type="TBLFACILITy" IsForeignKey="true" />
+      <Association Name="TBLTRANSACTION_TBLJDEPLOYMENT" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLREQUESTREPLY" Member="TBLREQUESTREPLies">
@@ -169,7 +189,9 @@
       <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TBLTRANSACTION_TBLBORRIWINGBARCODE" Member="TBLBORRIWINGBARCODEs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLBORRIWINGBARCODE" />
       <Association Name="TBLTRANSACTION_TBLBORROWED" Member="TBLBORROWEDs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLBORROWED" />
+      <Association Name="TBLTRANSACTION_TBLDEPLOYMENT" Member="TBLDEPLOYMENTs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLDEPLOYMENT" />
       <Association Name="TBLTRANSACTION_TBLEQUIPMENTRESERVATION" Member="TBLEQUIPMENTRESERVATIONs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLEQUIPMENTRESERVATION" />
+      <Association Name="TBLTRANSACTION_TBLJDEPLOYMENT" Member="TBLJDEPLOYMENTs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLJDEPLOYMENT" />
       <Association Name="TBLTRANSACTION_TBLRETURNEDEQUIPMENT" Member="TBLRETURNEDEQUIPMENTs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLRETURNEDEQUIPMENT" />
       <Association Name="TBLUSERDETAIL_TBLTRANSACTION" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
@@ -357,6 +379,11 @@
     <Parameter Name="QUANTITY" Parameter="qUANTITY" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.sp_NewDeployment" Method="sp_NewDeployment">
+    <Parameter Name="TransactionID" Parameter="transactionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FacilitiyID" Parameter="facilitiyID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.sp_NewEquipmentBarcodeInsert" Method="sp_NewEquipmentBarcodeInsert">
     <Parameter Name="Equipment_ID" Parameter="equipment_ID" Type="System.Int32" DbType="Int" />
     <Parameter Name="EquipmentBarcode" Parameter="equipmentBarcode" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
@@ -502,6 +529,25 @@
     <Parameter Name="BarcodeTransaction" Parameter="barcodeTransaction" Type="System.Int32" DbType="Int" />
     <ElementType Name="sp_TransactionBarcodeResult">
       <Column Name="BWBarcodePath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_TransactionSearchDate" Method="sp_TransactionSearchDate">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EventType" Parameter="eventType" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="sp_TransactionSearchDateResult">
+      <Column Name="[Transaction ID]" Member="Transaction_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Transaction Date]" Member="Transaction_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="[Transaction Event]" Member="Transaction_Event" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="[Processed By]" Member="Processed_By" Type="System.String" DbType="VarChar(303)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_TransactionViewAll" Method="sp_TransactionViewAll">
+    <ElementType Name="sp_TransactionViewAllResult">
+      <Column Name="[Transaction ID]" Member="Transaction_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Transaction Date]" Member="Transaction_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="[Transaction Event]" Member="Transaction_Event" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="[Processed By]" Member="Processed_By" Type="System.String" DbType="VarChar(303)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_UserActionReport" Method="sp_UserActionReport">

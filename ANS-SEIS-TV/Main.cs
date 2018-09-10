@@ -32,16 +32,16 @@ namespace ANS_SEIS_TV
             Thread.Sleep(5000);
 
             InitializeComponent();
-            
+
+            backgroundWorker1.DoWork += backgroundWorker1_DoWork;
+            backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
+            backgroundWorker1.RunWorkerCompleted += backgroundWorker1_RunWorkerCompleted;
+
+
             t.Abort();
 
             bgwEquipmentRegistration.WorkerReportsProgress = true;
             bgwEquipmentRegistration.WorkerSupportsCancellation = true;
-            // Initialize MaterialSkinManager
-            //materialSkinManager = MaterialSkinManager.Instance;
-            //materialSkinManager.AddFormToManage(this);
-            //materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            //materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey600, Primary.Grey400, Primary.BlueGrey600, Accent.LightBlue400, TextShade.WHITE);
         }
 
         public void StartForm()
@@ -92,7 +92,7 @@ namespace ANS_SEIS_TV
             UpdateAllTable();
             txtEquipmentID.Text = db.sp_EquipmentID().ToString();
 
-
+            dgvTransactionHistory.DataSource = db.sp_TransactionViewAll();
         }
 
         private void UpdateAllTable()
@@ -866,6 +866,108 @@ namespace ANS_SEIS_TV
             r.ShowDialog();
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorker1.IsBusy != true)
+            {
+                backgroundWorker1.RunWorkerAsync();
+                l.ShowDialog();
+            }
+        }
+
+        LoadingScreen2 l = new LoadingScreen2();
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Thread.Sleep(2000);
+            TableUpdate();
+        }
+
+        private void TableUpdate()
+        {
+            dgvToBeBorrowed.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
+
+            dgvEquipmentReservation.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
+
+            dgvTransactionHistory.DataSource = db.sp_TransactionViewAll();
+
+            dgvUserRegister.DataSource = db.sp_UserView();
+
+            dgvRequest.DataSource = db.sp_ViewOpenRequest();
+
+            eq.SearchKey = "";
+            txtEquipmentID.Text = eq.EquipmentID().ToString();
+
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            dgvEquipment.DataSource = db.sp_EquipmentView(eq.SearchKey);
+        }
+
+        private void txtReturnID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnReturnSearch.PerformClick();
+            }
+        }
+
+        private void btnTransactionFilter_Click(object sender, EventArgs e)
+        {
+            string type = "";
+            if (drpTransactionType.Text == "Equipment Registration")
+            {
+                type = "Registered an Equipment";
+            }
+            else if (drpTransactionType.Text == "Equipment Borrowing")
+            {
+                type = "Borrowed an Equipment";
+            }
+            else if (drpTransactionType.Text == "Equipment Returning")
+            {
+                type = "Returning an Equipment";
+            }
+            else if (drpTransactionType.Text == "Equipment Reservation")
+            {
+                type = "Reserved an Equipment";
+            }
+            else if (drpTransactionType.Text == "Equipment Deployment")
+            {
+                type = "Deployed an Equipment";
+            }
+            else if (drpTransactionType.Text == "All")
+            {
+                type = "";
+            }
+            else
+            {
+                type = "";
+            }
+            dgvTransactionHistory.DataSource = db.sp_TransactionSearchDate(dtpTransactionFrom.Value, dtpTransactionTo.Value, type);
+        }
+
+        private void dgvTransactionHistory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TransactionDetails td = new TransactionDetails(int.Parse(dgvTransactionHistory.CurrentRow.Cells[0].Value.ToString()), DateTime.Parse(dgvTransactionHistory.CurrentRow.Cells[1].Value.ToString()), dgvTransactionHistory.CurrentRow.Cells[3].Value.ToString(), CurrentGENID, dgvTransactionHistory.CurrentRow.Cells[2].Value.ToString());
+
+            if (dgvTransactionHistory.CurrentRow.Cells[2].Value.ToString() == "Borrowed an Equipment")
+            {
+
+            }
+            else if (dgvTransactionHistory.CurrentRow.Cells[2].Value.ToString() == "Returning an Equipment")
+            {
+
+            }
+
+            td.ShowDialog();
+        }
+
         private void RequestGridUpdate()
         {
             //foreach (DataGridViewRow row in dgvRequest.Rows)
@@ -1064,16 +1166,9 @@ namespace ANS_SEIS_TV
                 }
             }
         }
+        
 
-        private void txtReturnID_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode==Keys.Enter)
-            {
-                btnReturnSearch.PerformClick();
-            }
-        }
-
-        private void btnTransactionFilter_Click(object sender, EventArgs e)
+        private void lblCurrentUser_Click(object sender, EventArgs e)
         {
 
         }

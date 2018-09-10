@@ -76,6 +76,9 @@
             this.MonitoringTabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.MonitoringTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnTransactionFilter = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.drpTransactionType = new MetroFramework.Controls.MetroComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dtpTransactionTo = new MetroFramework.Controls.MetroDateTime();
             this.label10 = new System.Windows.Forms.Label();
@@ -189,9 +192,11 @@
             this.aNS_SEIS_TVDataSet3 = new ANS_SEIS_TV.ANS_SEIS_TVDataSet3();
             this.spEquipmentViewBarcodePathBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sp_EquipmentViewBarcodePathTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet3TableAdapters.sp_EquipmentViewBarcodePathTableAdapter();
-            this.label12 = new System.Windows.Forms.Label();
-            this.drpTransactionType = new MetroFramework.Controls.MetroComboBox();
-            this.btnTransactionFilter = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.aNS_SEIS_TVDataSet4 = new ANS_SEIS_TV.ANS_SEIS_TVDataSet4();
+            this.spTransactionSearchDateBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sp_TransactionSearchDateTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet4TableAdapters.sp_TransactionSearchDateTableAdapter();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnRefresh = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
@@ -230,6 +235,8 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spEquipmentViewBarcodePathBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spTransactionSearchDateBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTabSelector2
@@ -665,12 +672,60 @@
             this.tabPage4.Text = "Transaction History";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // btnTransactionFilter
+            // 
+            this.btnTransactionFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTransactionFilter.AutoSize = true;
+            this.btnTransactionFilter.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnTransactionFilter.Depth = 0;
+            this.btnTransactionFilter.Icon = null;
+            this.btnTransactionFilter.Location = new System.Drawing.Point(1053, 29);
+            this.btnTransactionFilter.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnTransactionFilter.Name = "btnTransactionFilter";
+            this.btnTransactionFilter.Primary = true;
+            this.btnTransactionFilter.Size = new System.Drawing.Size(64, 36);
+            this.btnTransactionFilter.TabIndex = 8;
+            this.btnTransactionFilter.Text = "Filter";
+            this.btnTransactionFilter.UseVisualStyleBackColor = true;
+            this.btnTransactionFilter.Click += new System.EventHandler(this.btnTransactionFilter_Click);
+            // 
+            // drpTransactionType
+            // 
+            this.drpTransactionType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.drpTransactionType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.drpTransactionType.FormattingEnabled = true;
+            this.drpTransactionType.ItemHeight = 23;
+            this.drpTransactionType.Items.AddRange(new object[] {
+            "All",
+            "Equipment Registration",
+            "Equipment Borrowing",
+            "Equipment Returning",
+            "Equipment Reservation",
+            "Equipment Deployment"});
+            this.drpTransactionType.Location = new System.Drawing.Point(925, 34);
+            this.drpTransactionType.Name = "drpTransactionType";
+            this.drpTransactionType.PromptText = "Transaction Type";
+            this.drpTransactionType.Size = new System.Drawing.Size(121, 29);
+            this.drpTransactionType.TabIndex = 7;
+            this.drpTransactionType.UseSelectable = true;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(788, 36);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(131, 21);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Transaction Type :";
+            // 
             // label11
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(538, 37);
+            this.label11.Location = new System.Drawing.Point(554, 36);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(33, 21);
             this.label11.TabIndex = 5;
@@ -679,20 +734,20 @@
             // dtpTransactionTo
             // 
             this.dtpTransactionTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpTransactionTo.Location = new System.Drawing.Point(577, 33);
-            this.dtpTransactionTo.MaxDate = new System.DateTime(2018, 9, 7, 0, 0, 0, 0);
+            this.dtpTransactionTo.Location = new System.Drawing.Point(593, 32);
+            this.dtpTransactionTo.MaxDate = new System.DateTime(2018, 9, 10, 0, 0, 0, 0);
             this.dtpTransactionTo.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpTransactionTo.Name = "dtpTransactionTo";
-            this.dtpTransactionTo.Size = new System.Drawing.Size(200, 29);
+            this.dtpTransactionTo.Size = new System.Drawing.Size(184, 29);
             this.dtpTransactionTo.TabIndex = 4;
-            this.dtpTransactionTo.Value = new System.DateTime(2018, 9, 7, 0, 0, 0, 0);
+            this.dtpTransactionTo.Value = new System.DateTime(2018, 9, 10, 0, 0, 0, 0);
             // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(153, 37);
+            this.label10.Location = new System.Drawing.Point(169, 36);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(172, 21);
             this.label10.TabIndex = 3;
@@ -701,13 +756,13 @@
             // dtpTransactionFrom
             // 
             this.dtpTransactionFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpTransactionFrom.Location = new System.Drawing.Point(325, 34);
-            this.dtpTransactionFrom.MaxDate = new System.DateTime(2018, 9, 7, 0, 0, 0, 0);
+            this.dtpTransactionFrom.Location = new System.Drawing.Point(341, 33);
+            this.dtpTransactionFrom.MaxDate = new System.DateTime(2018, 9, 10, 0, 0, 0, 0);
             this.dtpTransactionFrom.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpTransactionFrom.Name = "dtpTransactionFrom";
-            this.dtpTransactionFrom.Size = new System.Drawing.Size(200, 29);
+            this.dtpTransactionFrom.Size = new System.Drawing.Size(184, 29);
             this.dtpTransactionFrom.TabIndex = 2;
-            this.dtpTransactionFrom.Value = new System.DateTime(2018, 9, 7, 0, 0, 0, 0);
+            this.dtpTransactionFrom.Value = new System.DateTime(2018, 9, 10, 0, 0, 0, 0);
             // 
             // label8
             // 
@@ -727,22 +782,24 @@
             this.dgvTransactionHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTransactionHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvTransactionHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTransactionHistory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvTransactionHistory.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvTransactionHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvTransactionHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvTransactionHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTransactionHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semilight", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -768,6 +825,7 @@
             this.dgvTransactionHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTransactionHistory.Size = new System.Drawing.Size(1117, 412);
             this.dgvTransactionHistory.TabIndex = 0;
+            this.dgvTransactionHistory.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTransactionHistory_CellDoubleClick);
             // 
             // tabPage17
             // 
@@ -783,7 +841,7 @@
             this.tabPage17.Location = new System.Drawing.Point(4, 22);
             this.tabPage17.Name = "tabPage17";
             this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage17.Size = new System.Drawing.Size(1154, 547);
+            this.tabPage17.Size = new System.Drawing.Size(1143, 547);
             this.tabPage17.TabIndex = 3;
             this.tabPage17.Text = "Borrowing";
             this.tabPage17.UseVisualStyleBackColor = true;
@@ -1080,7 +1138,7 @@
             this.tabPage18.Location = new System.Drawing.Point(4, 22);
             this.tabPage18.Name = "tabPage18";
             this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage18.Size = new System.Drawing.Size(1154, 547);
+            this.tabPage18.Size = new System.Drawing.Size(1143, 547);
             this.tabPage18.TabIndex = 4;
             this.tabPage18.Text = "Return";
             this.tabPage18.UseVisualStyleBackColor = true;
@@ -1123,7 +1181,7 @@
             this.dgvCurrentBorrowed.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgvCurrentBorrowed.Location = new System.Drawing.Point(6, 112);
             this.dgvCurrentBorrowed.Name = "dgvCurrentBorrowed";
-            this.dgvCurrentBorrowed.Size = new System.Drawing.Size(1131, 390);
+            this.dgvCurrentBorrowed.Size = new System.Drawing.Size(1120, 390);
             this.dgvCurrentBorrowed.TabIndex = 70;
             this.dgvCurrentBorrowed.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCurrentBorrowed_CellContentClick);
             // 
@@ -1236,7 +1294,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1154, 547);
+            this.tabPage7.Size = new System.Drawing.Size(1143, 547);
             this.tabPage7.TabIndex = 5;
             this.tabPage7.Text = "Deploy";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1246,7 +1304,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(1154, 547);
+            this.tabPage10.Size = new System.Drawing.Size(1143, 547);
             this.tabPage10.TabIndex = 6;
             this.tabPage10.Text = "Pull Out";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -1259,7 +1317,7 @@
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(1154, 547);
+            this.tabPage11.Size = new System.Drawing.Size(1143, 547);
             this.tabPage11.TabIndex = 7;
             this.tabPage11.Text = "Requests";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -1316,7 +1374,7 @@
             this.dgvRequest.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvRequest.RowTemplate.Height = 30;
             this.dgvRequest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRequest.Size = new System.Drawing.Size(1138, 480);
+            this.dgvRequest.Size = new System.Drawing.Size(1127, 480);
             this.dgvRequest.TabIndex = 46;
             this.dgvRequest.Theme = MetroFramework.MetroThemeStyle.Light;
             this.dgvRequest.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRequest_CellContentDoubleClick);
@@ -1394,7 +1452,7 @@
             this.bunifuCustomLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Roboto Condensed", 13F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(8, 15);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(-3, 15);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(100, 26);
             this.bunifuCustomLabel1.TabIndex = 44;
@@ -1412,7 +1470,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1154, 547);
+            this.tabPage1.Size = new System.Drawing.Size(1143, 547);
             this.tabPage1.TabIndex = 8;
             this.tabPage1.Text = "RESERVATION";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1420,7 +1478,7 @@
             // btnFinalizeReservation
             // 
             this.btnFinalizeReservation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFinalizeReservation.Location = new System.Drawing.Point(1025, 515);
+            this.btnFinalizeReservation.Location = new System.Drawing.Point(1014, 515);
             this.btnFinalizeReservation.Name = "btnFinalizeReservation";
             this.btnFinalizeReservation.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.btnFinalizeReservation.Size = new System.Drawing.Size(119, 25);
@@ -2150,6 +2208,7 @@
             this.lblCurrentUser.Size = new System.Drawing.Size(712, 29);
             this.lblCurrentUser.TabIndex = 26;
             this.lblCurrentUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCurrentUser.Click += new System.EventHandler(this.lblCurrentUser_Click);
             // 
             // txtSearch
             // 
@@ -2181,56 +2240,42 @@
             // 
             this.sp_EquipmentViewBarcodePathTableAdapter.ClearBeforeFill = true;
             // 
-            // label12
+            // aNS_SEIS_TVDataSet4
             // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(788, 36);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(131, 21);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Transaction Type :";
+            this.aNS_SEIS_TVDataSet4.DataSetName = "ANS_SEIS_TVDataSet4";
+            this.aNS_SEIS_TVDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // drpTransactionType
+            // spTransactionSearchDateBindingSource
             // 
-            this.drpTransactionType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.drpTransactionType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.drpTransactionType.FormattingEnabled = true;
-            this.drpTransactionType.ItemHeight = 23;
-            this.drpTransactionType.Items.AddRange(new object[] {
-            "Equipment Registration",
-            "Equipment Borrowing",
-            "Equipment Returning",
-            "Equipment Reservation"});
-            this.drpTransactionType.Location = new System.Drawing.Point(925, 34);
-            this.drpTransactionType.Name = "drpTransactionType";
-            this.drpTransactionType.Size = new System.Drawing.Size(121, 29);
-            this.drpTransactionType.TabIndex = 7;
-            this.drpTransactionType.UseSelectable = true;
+            this.spTransactionSearchDateBindingSource.DataMember = "sp_TransactionSearchDate";
+            this.spTransactionSearchDateBindingSource.DataSource = this.aNS_SEIS_TVDataSet4;
             // 
-            // btnTransactionFilter
+            // sp_TransactionSearchDateTableAdapter
             // 
-            this.btnTransactionFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTransactionFilter.AutoSize = true;
-            this.btnTransactionFilter.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnTransactionFilter.Depth = 0;
-            this.btnTransactionFilter.Icon = null;
-            this.btnTransactionFilter.Location = new System.Drawing.Point(1053, 29);
-            this.btnTransactionFilter.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnTransactionFilter.Name = "btnTransactionFilter";
-            this.btnTransactionFilter.Primary = true;
-            this.btnTransactionFilter.Size = new System.Drawing.Size(64, 36);
-            this.btnTransactionFilter.TabIndex = 8;
-            this.btnTransactionFilter.Text = "Filter";
-            this.btnTransactionFilter.UseVisualStyleBackColor = true;
-            this.btnTransactionFilter.Click += new System.EventHandler(this.btnTransactionFilter_Click);
+            this.sp_TransactionSearchDateTableAdapter.ClearBeforeFill = true;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(6, 5);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
+            this.btnRefresh.Size = new System.Drawing.Size(90, 34);
+            this.btnRefresh.TabIndex = 27;
+            this.btnRefresh.Values.Text = "Refresh Tables";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1157, 735);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lblCurrentUser);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.materialTabSelector2);
@@ -2240,7 +2285,6 @@
             this.Name = "Main";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main";
             this.TransparencyKey = System.Drawing.SystemColors.AppWorkspace;
             this.Load += new System.EventHandler(this.Main_Load);
             this.Leave += new System.EventHandler(this.Main_Leave);
@@ -2299,6 +2343,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spEquipmentViewBarcodePathBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spTransactionSearchDateBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2455,5 +2501,10 @@
         private MetroFramework.Controls.MetroComboBox drpTransactionType;
         private System.Windows.Forms.Label label12;
         private MaterialSkin.Controls.MaterialRaisedButton btnTransactionFilter;
+        private System.Windows.Forms.BindingSource spTransactionSearchDateBindingSource;
+        private ANS_SEIS_TVDataSet4 aNS_SEIS_TVDataSet4;
+        private ANS_SEIS_TVDataSet4TableAdapters.sp_TransactionSearchDateTableAdapter sp_TransactionSearchDateTableAdapter;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRefresh;
     }
 }
