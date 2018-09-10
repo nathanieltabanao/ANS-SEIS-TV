@@ -34,7 +34,7 @@ namespace ANS_SEIS_TV
             kryptonDataGridView1.DataSource = db.sp_EquipmentViewBarcodePath("");
             metroGrid1.DataSource = db.sp_EquipmentViewBarcodePath("");
            
-
+            
 
         }
 
@@ -135,6 +135,13 @@ namespace ANS_SEIS_TV
 
         }
 
-        
+        private void materialFlatButton1_Click_1(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                //circularProgressBar1.Value = i;
+                //circularProgressBar1.Refresh();
+            }
+        }
     }
 }

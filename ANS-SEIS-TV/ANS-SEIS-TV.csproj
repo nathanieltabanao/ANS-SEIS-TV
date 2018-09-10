@@ -32,11 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bunifu_UI_v1.4">
-      <HintPath>DLL\Bunifu_UI_v1.4.dll</HintPath>
-    </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>DLL\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="CircularProgressBar, Version=2.6.6823.24527, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CircularProgressBar.2.6.6823.24527\lib\net35-client\CircularProgressBar.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit">
       <HintPath>DLL\ComponentFactory.Krypton.Toolkit.dll</HintPath>
@@ -79,6 +79,9 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Telerik.Reporting, Version=12.1.18.620, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="WinFormAnimation, Version=1.5.6298.3372, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.5.6298.3372\lib\net35-client\WinFormAnimation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountRecovery.cs">
@@ -118,6 +121,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ANS_SEIS_TVDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ANS_SEIS_TVDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ANS_SEIS_TVDataSet4.xsd</DependentUpon>
     </Compile>
     <Compile Include="BorrowDetail.cs" />
     <Compile Include="BorrowFinalize.cs">
@@ -214,6 +222,12 @@
     <Compile Include="LoadingScreen.Designer.cs">
       <DependentUpon>LoadingScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoadingScreen2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingScreen2.Designer.cs">
+      <DependentUpon>LoadingScreen2.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +322,12 @@
       <DependentUpon>TeacherForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TestClass.cs" />
+    <Compile Include="TransactionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransactionDetails.Designer.cs">
+      <DependentUpon>TransactionDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransactionLibrary.cs" />
     <Compile Include="UserLibrary.cs" />
     <Compile Include="UserRegistration.cs">
@@ -373,6 +393,17 @@
     <None Include="ANS_SEIS_TVDataSet3.xss">
       <DependentUpon>ANS_SEIS_TVDataSet3.xsd</DependentUpon>
     </None>
+    <None Include="ANS_SEIS_TVDataSet4.xsc">
+      <DependentUpon>ANS_SEIS_TVDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="ANS_SEIS_TVDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ANS_SEIS_TVDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ANS_SEIS_TVDataSet4.xss">
+      <DependentUpon>ANS_SEIS_TVDataSet4.xsd</DependentUpon>
+    </None>
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
@@ -409,6 +440,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingScreen.resx">
       <DependentUpon>LoadingScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingScreen2.resx">
+      <DependentUpon>LoadingScreen2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -452,6 +486,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherForm.resx">
       <DependentUpon>TeacherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransactionDetails.resx">
+      <DependentUpon>TransactionDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserRegistration.resx">
       <DependentUpon>UserRegistration.cs</DependentUpon>

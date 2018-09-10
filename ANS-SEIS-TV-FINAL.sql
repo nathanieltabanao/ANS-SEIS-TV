@@ -562,6 +562,24 @@ AS
 SELECT * FROM TBLFACILITIES
 WHERE FacilityID like '%'+@SearchKey+'%' OR FacilityName like '%'+@SearchKey+'%' or GENID like '%'+@SearchKey+'%' or FacilityType like '%'+@SearchKey+'%' or FacilityRoomNo like '%'+@SearchKey+'%'
 
+
+
+CREATE TABLE TBLDEPLOYMENT
+(
+	DeploymentID INT PRIMARY KEY IDENTITY(13000000,1),
+	TransactionID int FOREIGN KEY REFERENCES TBLTRANSACTION(TransactionID),
+	FacilitiyID INT FOREIGN KEY REFERENCES TBLFACILITIES(FacilityID)
+)
+
+CREATE PROC sp_NewDeployment
+(
+	@TransactionID int,
+	@FacilitiyID INT
+)
+AS
+INSERT INTO TBLDEPLOYMENT
+VALUES (@TransactionID, @FacilitiyID)
+
 -------------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------
@@ -802,8 +820,26 @@ DECLARE @TRANSACTIONID int
 SELECT @TRANSACTIONID = IDENT_CURRENT('TBLTRANSACTION')
 RETURN @TRANSACTIONID
 
+CREATE PROC sp_TransactionViewAll
+as
+SELECT TransactionID AS 'Transaction ID', TransactionDate as 'Transaction Date', TransactionEvent as 'Transaction Event', TBLUSERDETAILS.LASTNAME+', '+TBLUSERDETAILS.FIRSTNAME+' '+TBLUSERDETAILS.MIDDLENAME as 'Processed By'   FROM TBLTRANSACTION
+inner join TBLUSERDETAILS ON TBLTRANSACTION.GENID=TBLUSERDETAILS.GENID
 
 
+CREATE PROC sp_TransactionSearchDate
+(
+	@StartDate DATETIME,
+	@EndDate DATETIME,
+	@EventType VARCHAR(100)
+)
+as
+SELECT TransactionID AS 'Transaction ID', TransactionDate as 'Transaction Date', TransactionEvent as 'Transaction Event', TBLUSERDETAILS.LASTNAME+', '+TBLUSERDETAILS.FIRSTNAME+' '+TBLUSERDETAILS.MIDDLENAME as 'Processed By'   FROM TBLTRANSACTION
+inner join TBLUSERDETAILS ON TBLTRANSACTION.GENID=TBLUSERDETAILS.GENID
+WHERE TBLTRANSACTION.TransactionEvent like '%'+@EventType+'%' AND TBLTRANSACTION.TransactionDate BETWEEN @StartDate AND @EndDate
+
+SELECT TransactionID AS 'Transaction ID', TransactionDate as 'Transaction Date', TransactionEvent as 'Transaction Event', TBLUSERDETAILS.LASTNAME+', '+TBLUSERDETAILS.FIRSTNAME+' '+TBLUSERDETAILS.MIDDLENAME as 'Processed By'   FROM TBLTRANSACTION
+inner join TBLUSERDETAILS ON TBLTRANSACTION.GENID=TBLUSERDETAILS.GENID
+WHERE TBLTRANSACTION.TransactionEvent='' AND TBLTRANSACTION.TransactionDate BETWEEN '9/4/18' AND '9/5/18'
 
 -------------------------------------------------------------------------------------------------
 
@@ -1145,6 +1181,7 @@ SELECT * FROM TBLBORROWED
 SELECT * FROM TBLBORROWQUANTITY
 SELECT * FROM TBLEQUIPMENTBARCODE
 SELECT * FROM TBLBORRIWINGBARCODE
+SELECT * FROM TBLUSERDETAILS
 
 
 DELETE FROM TBLBORROWED

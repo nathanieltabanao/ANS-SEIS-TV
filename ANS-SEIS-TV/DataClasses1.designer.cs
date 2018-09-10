@@ -33,12 +33,18 @@ namespace ANS_SEIS_TV
     partial void InsertEQUIPMENT_DESIGNATION(EQUIPMENT_DESIGNATION instance);
     partial void UpdateEQUIPMENT_DESIGNATION(EQUIPMENT_DESIGNATION instance);
     partial void DeleteEQUIPMENT_DESIGNATION(EQUIPMENT_DESIGNATION instance);
+    partial void InsertTBLDEPLOYMENT(TBLDEPLOYMENT instance);
+    partial void UpdateTBLDEPLOYMENT(TBLDEPLOYMENT instance);
+    partial void DeleteTBLDEPLOYMENT(TBLDEPLOYMENT instance);
     partial void InsertTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
     partial void UpdateTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
     partial void DeleteTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
     partial void InsertTBLFACILITy(TBLFACILITy instance);
     partial void UpdateTBLFACILITy(TBLFACILITy instance);
     partial void DeleteTBLFACILITy(TBLFACILITy instance);
+    partial void InsertTBLJDEPLOYMENT(TBLJDEPLOYMENT instance);
+    partial void UpdateTBLJDEPLOYMENT(TBLJDEPLOYMENT instance);
+    partial void DeleteTBLJDEPLOYMENT(TBLJDEPLOYMENT instance);
     partial void InsertTBLSTUDENTDETAIL(TBLSTUDENTDETAIL instance);
     partial void UpdateTBLSTUDENTDETAIL(TBLSTUDENTDETAIL instance);
     partial void DeleteTBLSTUDENTDETAIL(TBLSTUDENTDETAIL instance);
@@ -131,6 +137,14 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
+		public System.Data.Linq.Table<TBLDEPLOYMENT> TBLDEPLOYMENTs
+		{
+			get
+			{
+				return this.GetTable<TBLDEPLOYMENT>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TBLEQEUIPMENTTYPE> TBLEQEUIPMENTTYPEs
 		{
 			get
@@ -168,6 +182,14 @@ namespace ANS_SEIS_TV
 			get
 			{
 				return this.GetTable<TBLFACILITy>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBLJDEPLOYMENT> TBLJDEPLOYMENTs
+		{
+			get
+			{
+				return this.GetTable<TBLJDEPLOYMENT>();
 			}
 		}
 		
@@ -368,6 +390,13 @@ namespace ANS_SEIS_TV
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewDeployment")]
+		public int sp_NewDeployment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FacilitiyID", DbType="Int")] System.Nullable<int> facilitiyID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, facilitiyID);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewEquipmentBarcodeInsert")]
 		public int sp_NewEquipmentBarcodeInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Equipment_ID", DbType="Int")] System.Nullable<int> equipment_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EquipmentBarcode", DbType="VarBinary(MAX)")] System.Data.Linq.Binary equipmentBarcode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQBarcodepath", DbType="VarChar(MAX)")] string eQBarcodepath)
 		{
@@ -506,6 +535,20 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), barcodeTransaction);
 			return ((ISingleResult<sp_TransactionBarcodeResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TransactionSearchDate")]
+		public ISingleResult<sp_TransactionSearchDateResult> sp_TransactionSearchDate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDate", DbType="DateTime")] System.Nullable<System.DateTime> startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndDate", DbType="DateTime")] System.Nullable<System.DateTime> endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EventType", DbType="VarChar(100)")] string eventType)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), startDate, endDate, eventType);
+			return ((ISingleResult<sp_TransactionSearchDateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TransactionViewAll")]
+		public ISingleResult<sp_TransactionViewAllResult> sp_TransactionViewAll()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_TransactionViewAllResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UserActionReport")]
@@ -1228,6 +1271,157 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLDEPLOYMENT")]
+	public partial class TBLDEPLOYMENT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _DeploymentID;
+		
+		private System.Nullable<int> _TransactionID;
+		
+		private System.Nullable<int> _FacilitiyID;
+		
+		private EntityRef<TBLFACILITy> _TBLFACILITy;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDeploymentIDChanging(int value);
+    partial void OnDeploymentIDChanged();
+    partial void OnTransactionIDChanging(System.Nullable<int> value);
+    partial void OnTransactionIDChanged();
+    partial void OnFacilitiyIDChanging(System.Nullable<int> value);
+    partial void OnFacilitiyIDChanged();
+    #endregion
+		
+		public TBLDEPLOYMENT()
+		{
+			this._TBLFACILITy = default(EntityRef<TBLFACILITy>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeploymentID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int DeploymentID
+		{
+			get
+			{
+				return this._DeploymentID;
+			}
+			set
+			{
+				if ((this._DeploymentID != value))
+				{
+					this.OnDeploymentIDChanging(value);
+					this.SendPropertyChanging();
+					this._DeploymentID = value;
+					this.SendPropertyChanged("DeploymentID");
+					this.OnDeploymentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionID", DbType="Int")]
+		public System.Nullable<int> TransactionID
+		{
+			get
+			{
+				return this._TransactionID;
+			}
+			set
+			{
+				if ((this._TransactionID != value))
+				{
+					this.OnTransactionIDChanging(value);
+					this.SendPropertyChanging();
+					this._TransactionID = value;
+					this.SendPropertyChanged("TransactionID");
+					this.OnTransactionIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacilitiyID", DbType="Int")]
+		public System.Nullable<int> FacilitiyID
+		{
+			get
+			{
+				return this._FacilitiyID;
+			}
+			set
+			{
+				if ((this._FacilitiyID != value))
+				{
+					if (this._TBLFACILITy.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFacilitiyIDChanging(value);
+					this.SendPropertyChanging();
+					this._FacilitiyID = value;
+					this.SendPropertyChanged("FacilitiyID");
+					this.OnFacilitiyIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLFACILITy_TBLDEPLOYMENT", Storage="_TBLFACILITy", ThisKey="FacilitiyID", OtherKey="FacilityID", IsForeignKey=true)]
+		public TBLFACILITy TBLFACILITy
+		{
+			get
+			{
+				return this._TBLFACILITy.Entity;
+			}
+			set
+			{
+				TBLFACILITy previousValue = this._TBLFACILITy.Entity;
+				if (((previousValue != value) 
+							|| (this._TBLFACILITy.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TBLFACILITy.Entity = null;
+						previousValue.TBLDEPLOYMENTs.Remove(this);
+					}
+					this._TBLFACILITy.Entity = value;
+					if ((value != null))
+					{
+						value.TBLDEPLOYMENTs.Add(this);
+						this._FacilitiyID = value.FacilityID;
+					}
+					else
+					{
+						this._FacilitiyID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TBLFACILITy");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLEQEUIPMENTTYPE")]
 	public partial class TBLEQEUIPMENTTYPE : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1663,6 +1857,10 @@ namespace ANS_SEIS_TV
 		
 		private string _FacilityRoomNo;
 		
+		private EntitySet<TBLDEPLOYMENT> _TBLDEPLOYMENTs;
+		
+		private EntitySet<TBLJDEPLOYMENT> _TBLJDEPLOYMENTs;
+		
 		private EntityRef<TBLUSERDETAIL> _TBLUSERDETAIL;
 		
     #region Extensibility Method Definitions
@@ -1683,6 +1881,8 @@ namespace ANS_SEIS_TV
 		
 		public TBLFACILITy()
 		{
+			this._TBLDEPLOYMENTs = new EntitySet<TBLDEPLOYMENT>(new Action<TBLDEPLOYMENT>(this.attach_TBLDEPLOYMENTs), new Action<TBLDEPLOYMENT>(this.detach_TBLDEPLOYMENTs));
+			this._TBLJDEPLOYMENTs = new EntitySet<TBLJDEPLOYMENT>(new Action<TBLJDEPLOYMENT>(this.attach_TBLJDEPLOYMENTs), new Action<TBLJDEPLOYMENT>(this.detach_TBLJDEPLOYMENTs));
 			this._TBLUSERDETAIL = default(EntityRef<TBLUSERDETAIL>);
 			OnCreated();
 		}
@@ -1791,6 +1991,32 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLFACILITy_TBLDEPLOYMENT", Storage="_TBLDEPLOYMENTs", ThisKey="FacilityID", OtherKey="FacilitiyID")]
+		public EntitySet<TBLDEPLOYMENT> TBLDEPLOYMENTs
+		{
+			get
+			{
+				return this._TBLDEPLOYMENTs;
+			}
+			set
+			{
+				this._TBLDEPLOYMENTs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLFACILITy_TBLJDEPLOYMENT", Storage="_TBLJDEPLOYMENTs", ThisKey="FacilityID", OtherKey="FacilitiyID")]
+		public EntitySet<TBLJDEPLOYMENT> TBLJDEPLOYMENTs
+		{
+			get
+			{
+				return this._TBLJDEPLOYMENTs;
+			}
+			set
+			{
+				this._TBLJDEPLOYMENTs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLFACILITy", Storage="_TBLUSERDETAIL", ThisKey="GENID", OtherKey="GENID", IsForeignKey=true)]
 		public TBLUSERDETAIL TBLUSERDETAIL
 		{
@@ -1821,6 +2047,181 @@ namespace ANS_SEIS_TV
 						this._GENID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("TBLUSERDETAIL");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TBLDEPLOYMENTs(TBLDEPLOYMENT entity)
+		{
+			this.SendPropertyChanging();
+			entity.TBLFACILITy = this;
+		}
+		
+		private void detach_TBLDEPLOYMENTs(TBLDEPLOYMENT entity)
+		{
+			this.SendPropertyChanging();
+			entity.TBLFACILITy = null;
+		}
+		
+		private void attach_TBLJDEPLOYMENTs(TBLJDEPLOYMENT entity)
+		{
+			this.SendPropertyChanging();
+			entity.TBLFACILITy = this;
+		}
+		
+		private void detach_TBLJDEPLOYMENTs(TBLJDEPLOYMENT entity)
+		{
+			this.SendPropertyChanging();
+			entity.TBLFACILITy = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLJDEPLOYMENT")]
+	public partial class TBLJDEPLOYMENT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _DeploymentID;
+		
+		private System.Nullable<int> _TransactionID;
+		
+		private System.Nullable<int> _FacilitiyID;
+		
+		private EntityRef<TBLFACILITy> _TBLFACILITy;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDeploymentIDChanging(int value);
+    partial void OnDeploymentIDChanged();
+    partial void OnTransactionIDChanging(System.Nullable<int> value);
+    partial void OnTransactionIDChanged();
+    partial void OnFacilitiyIDChanging(System.Nullable<int> value);
+    partial void OnFacilitiyIDChanged();
+    #endregion
+		
+		public TBLJDEPLOYMENT()
+		{
+			this._TBLFACILITy = default(EntityRef<TBLFACILITy>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeploymentID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int DeploymentID
+		{
+			get
+			{
+				return this._DeploymentID;
+			}
+			set
+			{
+				if ((this._DeploymentID != value))
+				{
+					this.OnDeploymentIDChanging(value);
+					this.SendPropertyChanging();
+					this._DeploymentID = value;
+					this.SendPropertyChanged("DeploymentID");
+					this.OnDeploymentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionID", DbType="Int")]
+		public System.Nullable<int> TransactionID
+		{
+			get
+			{
+				return this._TransactionID;
+			}
+			set
+			{
+				if ((this._TransactionID != value))
+				{
+					this.OnTransactionIDChanging(value);
+					this.SendPropertyChanging();
+					this._TransactionID = value;
+					this.SendPropertyChanged("TransactionID");
+					this.OnTransactionIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacilitiyID", DbType="Int")]
+		public System.Nullable<int> FacilitiyID
+		{
+			get
+			{
+				return this._FacilitiyID;
+			}
+			set
+			{
+				if ((this._FacilitiyID != value))
+				{
+					if (this._TBLFACILITy.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFacilitiyIDChanging(value);
+					this.SendPropertyChanging();
+					this._FacilitiyID = value;
+					this.SendPropertyChanged("FacilitiyID");
+					this.OnFacilitiyIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLFACILITy_TBLJDEPLOYMENT", Storage="_TBLFACILITy", ThisKey="FacilitiyID", OtherKey="FacilityID", IsForeignKey=true)]
+		public TBLFACILITy TBLFACILITy
+		{
+			get
+			{
+				return this._TBLFACILITy.Entity;
+			}
+			set
+			{
+				TBLFACILITy previousValue = this._TBLFACILITy.Entity;
+				if (((previousValue != value) 
+							|| (this._TBLFACILITy.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TBLFACILITy.Entity = null;
+						previousValue.TBLJDEPLOYMENTs.Remove(this);
+					}
+					this._TBLFACILITy.Entity = value;
+					if ((value != null))
+					{
+						value.TBLJDEPLOYMENTs.Add(this);
+						this._FacilitiyID = value.FacilityID;
+					}
+					else
+					{
+						this._FacilitiyID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TBLFACILITy");
 				}
 			}
 		}
@@ -4497,6 +4898,166 @@ namespace ANS_SEIS_TV
 				if ((this._BWBarcodePath != value))
 				{
 					this._BWBarcodePath = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_TransactionSearchDateResult
+	{
+		
+		private int _Transaction_ID;
+		
+		private System.Nullable<System.DateTime> _Transaction_Date;
+		
+		private string _Transaction_Event;
+		
+		private string _Processed_By;
+		
+		public sp_TransactionSearchDateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Transaction ID]", Storage="_Transaction_ID", DbType="Int NOT NULL")]
+		public int Transaction_ID
+		{
+			get
+			{
+				return this._Transaction_ID;
+			}
+			set
+			{
+				if ((this._Transaction_ID != value))
+				{
+					this._Transaction_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Transaction Date]", Storage="_Transaction_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Transaction_Date
+		{
+			get
+			{
+				return this._Transaction_Date;
+			}
+			set
+			{
+				if ((this._Transaction_Date != value))
+				{
+					this._Transaction_Date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Transaction Event]", Storage="_Transaction_Event", DbType="VarChar(150)")]
+		public string Transaction_Event
+		{
+			get
+			{
+				return this._Transaction_Event;
+			}
+			set
+			{
+				if ((this._Transaction_Event != value))
+				{
+					this._Transaction_Event = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Processed By]", Storage="_Processed_By", DbType="VarChar(303)")]
+		public string Processed_By
+		{
+			get
+			{
+				return this._Processed_By;
+			}
+			set
+			{
+				if ((this._Processed_By != value))
+				{
+					this._Processed_By = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_TransactionViewAllResult
+	{
+		
+		private int _Transaction_ID;
+		
+		private System.Nullable<System.DateTime> _Transaction_Date;
+		
+		private string _Transaction_Event;
+		
+		private string _Processed_By;
+		
+		public sp_TransactionViewAllResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Transaction ID]", Storage="_Transaction_ID", DbType="Int NOT NULL")]
+		public int Transaction_ID
+		{
+			get
+			{
+				return this._Transaction_ID;
+			}
+			set
+			{
+				if ((this._Transaction_ID != value))
+				{
+					this._Transaction_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Transaction Date]", Storage="_Transaction_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Transaction_Date
+		{
+			get
+			{
+				return this._Transaction_Date;
+			}
+			set
+			{
+				if ((this._Transaction_Date != value))
+				{
+					this._Transaction_Date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Transaction Event]", Storage="_Transaction_Event", DbType="VarChar(150)")]
+		public string Transaction_Event
+		{
+			get
+			{
+				return this._Transaction_Event;
+			}
+			set
+			{
+				if ((this._Transaction_Event != value))
+				{
+					this._Transaction_Event = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Processed By]", Storage="_Processed_By", DbType="VarChar(303)")]
+		public string Processed_By
+		{
+			get
+			{
+				return this._Processed_By;
+			}
+			set
+			{
+				if ((this._Processed_By != value))
+				{
+					this._Processed_By = value;
 				}
 			}
 		}
