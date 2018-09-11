@@ -101,7 +101,6 @@ namespace ANS_SEIS_TV
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
             if (backgroundWorker1.IsBusy != true)
             {
                 backgroundWorker1.RunWorkerAsync();
@@ -157,7 +156,7 @@ namespace ANS_SEIS_TV
                 f = new fromPrint(TransactionID, BorrowerName, DateTime.Parse(DateTime.Now.ToShortDateString()), AdminName);
                 f.ShowDialog();
                 btnSubmit.Enabled = false;
-                this.Close();
+                this.Dispose(); 
             }
         }
 

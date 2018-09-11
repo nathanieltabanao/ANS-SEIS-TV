@@ -128,7 +128,7 @@ namespace ANS_SEIS_TV
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void lblForgot_LinkClicked(object sender, EventArgs e)

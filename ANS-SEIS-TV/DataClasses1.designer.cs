@@ -36,15 +36,12 @@ namespace ANS_SEIS_TV
     partial void InsertTBLDEPLOYMENT(TBLDEPLOYMENT instance);
     partial void UpdateTBLDEPLOYMENT(TBLDEPLOYMENT instance);
     partial void DeleteTBLDEPLOYMENT(TBLDEPLOYMENT instance);
-    partial void InsertTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
-    partial void UpdateTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
-    partial void DeleteTBLEQEUIPMENTTYPE(TBLEQEUIPMENTTYPE instance);
+    partial void InsertTBLEQUIPMENTTYPE(TBLEQUIPMENTTYPE instance);
+    partial void UpdateTBLEQUIPMENTTYPE(TBLEQUIPMENTTYPE instance);
+    partial void DeleteTBLEQUIPMENTTYPE(TBLEQUIPMENTTYPE instance);
     partial void InsertTBLFACILITy(TBLFACILITy instance);
     partial void UpdateTBLFACILITy(TBLFACILITy instance);
     partial void DeleteTBLFACILITy(TBLFACILITy instance);
-    partial void InsertTBLJDEPLOYMENT(TBLJDEPLOYMENT instance);
-    partial void UpdateTBLJDEPLOYMENT(TBLJDEPLOYMENT instance);
-    partial void DeleteTBLJDEPLOYMENT(TBLJDEPLOYMENT instance);
     partial void InsertTBLSTUDENTDETAIL(TBLSTUDENTDETAIL instance);
     partial void UpdateTBLSTUDENTDETAIL(TBLSTUDENTDETAIL instance);
     partial void DeleteTBLSTUDENTDETAIL(TBLSTUDENTDETAIL instance);
@@ -145,14 +142,6 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		public System.Data.Linq.Table<TBLEQEUIPMENTTYPE> TBLEQEUIPMENTTYPEs
-		{
-			get
-			{
-				return this.GetTable<TBLEQEUIPMENTTYPE>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TBLEQUIPMENTBARCODE> TBLEQUIPMENTBARCODEs
 		{
 			get
@@ -177,19 +166,27 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
+		public System.Data.Linq.Table<TBLEQUIPMENTSTATUS> TBLEQUIPMENTSTATUS
+		{
+			get
+			{
+				return this.GetTable<TBLEQUIPMENTSTATUS>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBLEQUIPMENTTYPE> TBLEQUIPMENTTYPEs
+		{
+			get
+			{
+				return this.GetTable<TBLEQUIPMENTTYPE>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TBLFACILITy> TBLFACILITies
 		{
 			get
 			{
 				return this.GetTable<TBLFACILITy>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TBLJDEPLOYMENT> TBLJDEPLOYMENTs
-		{
-			get
-			{
-				return this.GetTable<TBLJDEPLOYMENT>();
 			}
 		}
 		
@@ -264,11 +261,11 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_AccountRecoveryResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewPendingRequest")]
-		public ISingleResult<sp_ViewPendingRequestResult> sp_ViewPendingRequest()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewTransactionBarcode")]
+		public ISingleResult<sp_ViewTransactionBarcodeResult> sp_ViewTransactionBarcode([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchBarcode", DbType="Int")] System.Nullable<int> searchBarcode)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_ViewPendingRequestResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchBarcode);
+			return ((ISingleResult<sp_ViewTransactionBarcodeResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_BorrowAddQuantity")]
@@ -345,6 +342,20 @@ namespace ANS_SEIS_TV
 		public int sp_EquipmentReturning([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EquipmentID", DbType="Int")] System.Nullable<int> equipmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGoodCondition", DbType="Bit")] System.Nullable<bool> isGoodCondition, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsReturned", DbType="Bit")] System.Nullable<bool> isReturned)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, equipmentID, isGoodCondition, isReturned);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentStatusEdit")]
+		public int sp_EquipmentStatusEdit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EquipmentID", DbType="Int")] System.Nullable<int> equipmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GoodCondition", DbType="Int")] System.Nullable<int> goodCondition, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BadCondition", DbType="Int")] System.Nullable<int> badCondition)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), equipmentID, goodCondition, badCondition);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentStatusInventoryAdd")]
+		public int sp_EquipmentStatusInventoryAdd([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EquipmentID", DbType="Int")] System.Nullable<int> equipmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GoodCondition", DbType="Int")] System.Nullable<int> goodCondition)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), equipmentID, goodCondition);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -530,13 +541,6 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_TeacherViewPendingRequestResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TransactionBarcode")]
-		public ISingleResult<sp_TransactionBarcodeResult> sp_TransactionBarcode([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BarcodeTransaction", DbType="Int")] System.Nullable<int> barcodeTransaction)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), barcodeTransaction);
-			return ((ISingleResult<sp_TransactionBarcodeResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TransactionSearchDate")]
 		public ISingleResult<sp_TransactionSearchDateResult> sp_TransactionSearchDate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDate", DbType="DateTime")] System.Nullable<System.DateTime> startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndDate", DbType="DateTime")] System.Nullable<System.DateTime> endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EventType", DbType="VarChar(100)")] string eventType)
 		{
@@ -682,6 +686,13 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_ViewOpenRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewPendingRequest")]
+		public ISingleResult<sp_ViewPendingRequestResult> sp_ViewPendingRequest()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_ViewPendingRequestResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1422,92 +1433,6 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLEQEUIPMENTTYPE")]
-	public partial class TBLEQEUIPMENTTYPE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _EQUIPMENT_TYPE_ID;
-		
-		private string _EQUIPMENT_TYPE_DESCRIPTION;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEQUIPMENT_TYPE_IDChanging(int value);
-    partial void OnEQUIPMENT_TYPE_IDChanged();
-    partial void OnEQUIPMENT_TYPE_DESCRIPTIONChanging(string value);
-    partial void OnEQUIPMENT_TYPE_DESCRIPTIONChanged();
-    #endregion
-		
-		public TBLEQEUIPMENTTYPE()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_TYPE_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int EQUIPMENT_TYPE_ID
-		{
-			get
-			{
-				return this._EQUIPMENT_TYPE_ID;
-			}
-			set
-			{
-				if ((this._EQUIPMENT_TYPE_ID != value))
-				{
-					this.OnEQUIPMENT_TYPE_IDChanging(value);
-					this.SendPropertyChanging();
-					this._EQUIPMENT_TYPE_ID = value;
-					this.SendPropertyChanged("EQUIPMENT_TYPE_ID");
-					this.OnEQUIPMENT_TYPE_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_TYPE_DESCRIPTION", DbType="VarChar(100)")]
-		public string EQUIPMENT_TYPE_DESCRIPTION
-		{
-			get
-			{
-				return this._EQUIPMENT_TYPE_DESCRIPTION;
-			}
-			set
-			{
-				if ((this._EQUIPMENT_TYPE_DESCRIPTION != value))
-				{
-					this.OnEQUIPMENT_TYPE_DESCRIPTIONChanging(value);
-					this.SendPropertyChanging();
-					this._EQUIPMENT_TYPE_DESCRIPTION = value;
-					this.SendPropertyChanged("EQUIPMENT_TYPE_DESCRIPTION");
-					this.OnEQUIPMENT_TYPE_DESCRIPTIONChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLEQUIPMENTBARCODE")]
 	public partial class TBLEQUIPMENTBARCODE
 	{
@@ -1841,6 +1766,173 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLEQUIPMENTSTATUS")]
+	public partial class TBLEQUIPMENTSTATUS
+	{
+		
+		private int _StatusID;
+		
+		private System.Nullable<int> _EQUIPMENT_ID;
+		
+		private System.Nullable<int> _GoodCondition;
+		
+		private System.Nullable<int> _BadCondition;
+		
+		public TBLEQUIPMENTSTATUS()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int StatusID
+		{
+			get
+			{
+				return this._StatusID;
+			}
+			set
+			{
+				if ((this._StatusID != value))
+				{
+					this._StatusID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_ID", DbType="Int")]
+		public System.Nullable<int> EQUIPMENT_ID
+		{
+			get
+			{
+				return this._EQUIPMENT_ID;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_ID != value))
+				{
+					this._EQUIPMENT_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GoodCondition", DbType="Int")]
+		public System.Nullable<int> GoodCondition
+		{
+			get
+			{
+				return this._GoodCondition;
+			}
+			set
+			{
+				if ((this._GoodCondition != value))
+				{
+					this._GoodCondition = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BadCondition", DbType="Int")]
+		public System.Nullable<int> BadCondition
+		{
+			get
+			{
+				return this._BadCondition;
+			}
+			set
+			{
+				if ((this._BadCondition != value))
+				{
+					this._BadCondition = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLEQUIPMENTTYPE")]
+	public partial class TBLEQUIPMENTTYPE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EQUIPMENT_TYPE_ID;
+		
+		private string _EQUIPMENT_TYPE_DESCRIPTION;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEQUIPMENT_TYPE_IDChanging(int value);
+    partial void OnEQUIPMENT_TYPE_IDChanged();
+    partial void OnEQUIPMENT_TYPE_DESCRIPTIONChanging(string value);
+    partial void OnEQUIPMENT_TYPE_DESCRIPTIONChanged();
+    #endregion
+		
+		public TBLEQUIPMENTTYPE()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_TYPE_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int EQUIPMENT_TYPE_ID
+		{
+			get
+			{
+				return this._EQUIPMENT_TYPE_ID;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_TYPE_ID != value))
+				{
+					this.OnEQUIPMENT_TYPE_IDChanging(value);
+					this.SendPropertyChanging();
+					this._EQUIPMENT_TYPE_ID = value;
+					this.SendPropertyChanged("EQUIPMENT_TYPE_ID");
+					this.OnEQUIPMENT_TYPE_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_TYPE_DESCRIPTION", DbType="VarChar(100)")]
+		public string EQUIPMENT_TYPE_DESCRIPTION
+		{
+			get
+			{
+				return this._EQUIPMENT_TYPE_DESCRIPTION;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_TYPE_DESCRIPTION != value))
+				{
+					this.OnEQUIPMENT_TYPE_DESCRIPTIONChanging(value);
+					this.SendPropertyChanging();
+					this._EQUIPMENT_TYPE_DESCRIPTION = value;
+					this.SendPropertyChanged("EQUIPMENT_TYPE_DESCRIPTION");
+					this.OnEQUIPMENT_TYPE_DESCRIPTIONChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLFACILITIES")]
 	public partial class TBLFACILITy : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1858,8 +1950,6 @@ namespace ANS_SEIS_TV
 		private string _FacilityRoomNo;
 		
 		private EntitySet<TBLDEPLOYMENT> _TBLDEPLOYMENTs;
-		
-		private EntitySet<TBLJDEPLOYMENT> _TBLJDEPLOYMENTs;
 		
 		private EntityRef<TBLUSERDETAIL> _TBLUSERDETAIL;
 		
@@ -1882,7 +1972,6 @@ namespace ANS_SEIS_TV
 		public TBLFACILITy()
 		{
 			this._TBLDEPLOYMENTs = new EntitySet<TBLDEPLOYMENT>(new Action<TBLDEPLOYMENT>(this.attach_TBLDEPLOYMENTs), new Action<TBLDEPLOYMENT>(this.detach_TBLDEPLOYMENTs));
-			this._TBLJDEPLOYMENTs = new EntitySet<TBLJDEPLOYMENT>(new Action<TBLJDEPLOYMENT>(this.attach_TBLJDEPLOYMENTs), new Action<TBLJDEPLOYMENT>(this.detach_TBLJDEPLOYMENTs));
 			this._TBLUSERDETAIL = default(EntityRef<TBLUSERDETAIL>);
 			OnCreated();
 		}
@@ -2004,19 +2093,6 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLFACILITy_TBLJDEPLOYMENT", Storage="_TBLJDEPLOYMENTs", ThisKey="FacilityID", OtherKey="FacilitiyID")]
-		public EntitySet<TBLJDEPLOYMENT> TBLJDEPLOYMENTs
-		{
-			get
-			{
-				return this._TBLJDEPLOYMENTs;
-			}
-			set
-			{
-				this._TBLJDEPLOYMENTs.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLUSERDETAIL_TBLFACILITy", Storage="_TBLUSERDETAIL", ThisKey="GENID", OtherKey="GENID", IsForeignKey=true)]
 		public TBLUSERDETAIL TBLUSERDETAIL
 		{
@@ -2081,169 +2157,6 @@ namespace ANS_SEIS_TV
 		{
 			this.SendPropertyChanging();
 			entity.TBLFACILITy = null;
-		}
-		
-		private void attach_TBLJDEPLOYMENTs(TBLJDEPLOYMENT entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLFACILITy = this;
-		}
-		
-		private void detach_TBLJDEPLOYMENTs(TBLJDEPLOYMENT entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBLFACILITy = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBLJDEPLOYMENT")]
-	public partial class TBLJDEPLOYMENT : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _DeploymentID;
-		
-		private System.Nullable<int> _TransactionID;
-		
-		private System.Nullable<int> _FacilitiyID;
-		
-		private EntityRef<TBLFACILITy> _TBLFACILITy;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnDeploymentIDChanging(int value);
-    partial void OnDeploymentIDChanged();
-    partial void OnTransactionIDChanging(System.Nullable<int> value);
-    partial void OnTransactionIDChanged();
-    partial void OnFacilitiyIDChanging(System.Nullable<int> value);
-    partial void OnFacilitiyIDChanged();
-    #endregion
-		
-		public TBLJDEPLOYMENT()
-		{
-			this._TBLFACILITy = default(EntityRef<TBLFACILITy>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeploymentID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int DeploymentID
-		{
-			get
-			{
-				return this._DeploymentID;
-			}
-			set
-			{
-				if ((this._DeploymentID != value))
-				{
-					this.OnDeploymentIDChanging(value);
-					this.SendPropertyChanging();
-					this._DeploymentID = value;
-					this.SendPropertyChanged("DeploymentID");
-					this.OnDeploymentIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionID", DbType="Int")]
-		public System.Nullable<int> TransactionID
-		{
-			get
-			{
-				return this._TransactionID;
-			}
-			set
-			{
-				if ((this._TransactionID != value))
-				{
-					this.OnTransactionIDChanging(value);
-					this.SendPropertyChanging();
-					this._TransactionID = value;
-					this.SendPropertyChanged("TransactionID");
-					this.OnTransactionIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacilitiyID", DbType="Int")]
-		public System.Nullable<int> FacilitiyID
-		{
-			get
-			{
-				return this._FacilitiyID;
-			}
-			set
-			{
-				if ((this._FacilitiyID != value))
-				{
-					if (this._TBLFACILITy.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnFacilitiyIDChanging(value);
-					this.SendPropertyChanging();
-					this._FacilitiyID = value;
-					this.SendPropertyChanged("FacilitiyID");
-					this.OnFacilitiyIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBLFACILITy_TBLJDEPLOYMENT", Storage="_TBLFACILITy", ThisKey="FacilitiyID", OtherKey="FacilityID", IsForeignKey=true)]
-		public TBLFACILITy TBLFACILITy
-		{
-			get
-			{
-				return this._TBLFACILITy.Entity;
-			}
-			set
-			{
-				TBLFACILITy previousValue = this._TBLFACILITy.Entity;
-				if (((previousValue != value) 
-							|| (this._TBLFACILITy.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBLFACILITy.Entity = null;
-						previousValue.TBLJDEPLOYMENTs.Remove(this);
-					}
-					this._TBLFACILITy.Entity = value;
-					if ((value != null))
-					{
-						value.TBLJDEPLOYMENTs.Add(this);
-						this._FacilitiyID = value.FacilityID;
-					}
-					else
-					{
-						this._FacilitiyID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TBLFACILITy");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -3675,99 +3588,27 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
-	public partial class sp_ViewPendingRequestResult
+	public partial class sp_ViewTransactionBarcodeResult
 	{
 		
-		private int _Request_ID;
+		private string _BWBarcodePath;
 		
-		private string _Username;
-		
-		private string _Request_Header;
-		
-		private System.Nullable<System.DateTime> _Date_Requested;
-		
-		private string _Status;
-		
-		public sp_ViewPendingRequestResult()
+		public sp_ViewTransactionBarcodeResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request ID]", Storage="_Request_ID", DbType="Int NOT NULL")]
-		public int Request_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BWBarcodePath", DbType="VarChar(MAX)")]
+		public string BWBarcodePath
 		{
 			get
 			{
-				return this._Request_ID;
+				return this._BWBarcodePath;
 			}
 			set
 			{
-				if ((this._Request_ID != value))
+				if ((this._BWBarcodePath != value))
 				{
-					this._Request_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
-		public string Username
-		{
-			get
-			{
-				return this._Username;
-			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this._Username = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request Header]", Storage="_Request_Header", DbType="VarChar(100)")]
-		public string Request_Header
-		{
-			get
-			{
-				return this._Request_Header;
-			}
-			set
-			{
-				if ((this._Request_Header != value))
-				{
-					this._Request_Header = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Date Requested]", Storage="_Date_Requested", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_Requested
-		{
-			get
-			{
-				return this._Date_Requested;
-			}
-			set
-			{
-				if ((this._Date_Requested != value))
-				{
-					this._Date_Requested = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(15)")]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this._Status = value;
+					this._BWBarcodePath = value;
 				}
 			}
 		}
@@ -4872,32 +4713,6 @@ namespace ANS_SEIS_TV
 				if ((this._Status != value))
 				{
 					this._Status = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_TransactionBarcodeResult
-	{
-		
-		private string _BWBarcodePath;
-		
-		public sp_TransactionBarcodeResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BWBarcodePath", DbType="VarChar(MAX)")]
-		public string BWBarcodePath
-		{
-			get
-			{
-				return this._BWBarcodePath;
-			}
-			set
-			{
-				if ((this._BWBarcodePath != value))
-				{
-					this._BWBarcodePath = value;
 				}
 			}
 		}
@@ -6039,6 +5854,104 @@ namespace ANS_SEIS_TV
 		private string _Status;
 		
 		public sp_ViewOpenRequestResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request ID]", Storage="_Request_ID", DbType="Int NOT NULL")]
+		public int Request_ID
+		{
+			get
+			{
+				return this._Request_ID;
+			}
+			set
+			{
+				if ((this._Request_ID != value))
+				{
+					this._Request_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this._Username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Request Header]", Storage="_Request_Header", DbType="VarChar(100)")]
+		public string Request_Header
+		{
+			get
+			{
+				return this._Request_Header;
+			}
+			set
+			{
+				if ((this._Request_Header != value))
+				{
+					this._Request_Header = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Date Requested]", Storage="_Date_Requested", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date_Requested
+		{
+			get
+			{
+				return this._Date_Requested;
+			}
+			set
+			{
+				if ((this._Date_Requested != value))
+				{
+					this._Date_Requested = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(15)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ViewPendingRequestResult
+	{
+		
+		private int _Request_ID;
+		
+		private string _Username;
+		
+		private string _Request_Header;
+		
+		private System.Nullable<System.DateTime> _Date_Requested;
+		
+		private string _Status;
+		
+		public sp_ViewPendingRequestResult()
 		{
 		}
 		

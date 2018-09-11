@@ -48,12 +48,15 @@ namespace ANS_SEIS_TV
             //var mylist = query.ToList();
             //List<BorrowDetail> list = mylist;
             
+            //Be sure to have Current Borrowed for the list
+            // View Transaction Barcode path for transaction Barcode
+
             BorrowSlip1.SetParameterValue("@TransactionID", TransactionID);
             BorrowSlip1.SetParameterValue("pTransactionID", TransactionID);
             BorrowSlip1.SetParameterValue("pBorrower", Borrower);
             BorrowSlip1.SetParameterValue("pDateBorrowed", TransactionDate);
             BorrowSlip1.SetParameterValue("pProcessedBy", Attendant);
-            BorrowSlip1.SetParameterValue("@BarcodeTransaction", TransactionID);
+            BorrowSlip1.SetParameterValue("@SearchBarcode", TransactionID);
             crystalReportViewer.ReportSource = BorrowSlip1;
         }
 

@@ -93,6 +93,9 @@ namespace ANS_SEIS_TV
             txtEquipmentID.Text = db.sp_EquipmentID().ToString();
 
             dgvTransactionHistory.DataSource = db.sp_TransactionViewAll();
+
+            dtpTransactionTo.MaxDate = DateTime.Now;
+            dtpReseravationDate.MinDate = DateTime.Now.AddDays(1);
         }
 
         private void UpdateAllTable()
@@ -530,7 +533,7 @@ namespace ANS_SEIS_TV
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Dispose();
             LoginForm l = new LoginForm();
             u.Action = "User Logout";
             u.UserLoginLog();
@@ -870,6 +873,7 @@ namespace ANS_SEIS_TV
         {
             if (backgroundWorker1.IsBusy != true)
             {
+                //this.Close();
                 backgroundWorker1.RunWorkerAsync();
                 l.ShowDialog();
             }
@@ -880,7 +884,22 @@ namespace ANS_SEIS_TV
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             Thread.Sleep(2000);
-            TableUpdate();
+            if (InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    TableUpdate();
+                }
+                ));
+            }
+            else
+            {
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    TableUpdate();
+                }
+                ));
+            }
         }
 
         private void TableUpdate()
@@ -898,6 +917,7 @@ namespace ANS_SEIS_TV
             eq.SearchKey = "";
             txtEquipmentID.Text = eq.EquipmentID().ToString();
 
+            dgvEquipment.DataSource = db.sp_EquipmentView(eq.SearchKey);
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -907,7 +927,7 @@ namespace ANS_SEIS_TV
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            dgvEquipment.DataSource = db.sp_EquipmentView(eq.SearchKey);
+            this.Show();   
         }
 
         private void txtReturnID_KeyDown(object sender, KeyEventArgs e)
