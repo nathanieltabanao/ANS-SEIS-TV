@@ -197,9 +197,9 @@ namespace ANS_SEIS_TV
 
         public int GetEquipmentTypeID(string EquipmentType)
         {
-            var results = from TBLEQEUIPMENTTYPE in db.TBLEQEUIPMENTTYPEs
-                          where TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_DESCRIPTION == EquipmentType
-                          select TBLEQEUIPMENTTYPE.EQUIPMENT_TYPE_ID;
+            var results = from TBLEQUIPMENTTYPE in db.TBLEQUIPMENTTYPEs
+                          where TBLEQUIPMENTTYPE.EQUIPMENT_TYPE_DESCRIPTION == EquipmentType
+                          select TBLEQUIPMENTTYPE.EQUIPMENT_TYPE_ID;
 
             return int.Parse(results.FirstOrDefault().ToString());
         }

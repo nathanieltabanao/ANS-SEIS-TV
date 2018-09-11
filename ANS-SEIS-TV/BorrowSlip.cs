@@ -130,7 +130,7 @@ namespace ANS_SEIS_TV {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_BarcodeTransaction {
+        public CrystalDecisions.Shared.IParameterField Parameter_SearchBarcode {
             get {
                 return this.DataDefinition.ParameterFields[5];
             }

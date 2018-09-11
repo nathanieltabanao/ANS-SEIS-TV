@@ -66,13 +66,6 @@
       <Association Name="TBLTRANSACTION_TBLDEPLOYMENT" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TBLEQEUIPMENTTYPE" Member="TBLEQEUIPMENTTYPEs">
-    <Type Name="TBLEQEUIPMENTTYPE">
-      <Column Name="EQUIPMENT_TYPE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="EQUIPMENT_TYPE_DESCRIPTION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Association Name="TBLEQEUIPMENTTYPE_TBLEQUIPMENTDETAIL" Member="TBLEQUIPMENTDETAILs" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQUIPMENTDETAIL" />
-    </Type>
-  </Table>
   <Table Name="dbo.TBLEQUIPMENTBARCODE" Member="TBLEQUIPMENTBARCODEs">
     <Type Name="TBLEQUIPMENTBARCODE">
       <Column Name="BarcodeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
@@ -94,8 +87,9 @@
       <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWQUANTITY" Member="TBLBORROWQUANTITies" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLBORROWQUANTITY" />
       <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTBARCODE" Member="TBLEQUIPMENTBARCODEs" ThisKey="EQUIPMENT_ID" OtherKey="Equipment_ID" Type="TBLEQUIPMENTBARCODE" />
       <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTRESERVATION" Member="TBLEQUIPMENTRESERVATIONs" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTRESERVATION" />
+      <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTSTATUS" Member="TBLEQUIPMENTSTATUS" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTSTATUS" />
       <Association Name="TBLEQUIPMENTDETAIL_TBLRETURNEDEQUIPMENT" Member="TBLRETURNEDEQUIPMENTs" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLRETURNEDEQUIPMENT" />
-      <Association Name="TBLEQEUIPMENTTYPE_TBLEQUIPMENTDETAIL" Member="TBLEQEUIPMENTTYPE" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQEUIPMENTTYPE" IsForeignKey="true" />
+      <Association Name="TBLEQUIPMENTTYPE_TBLEQUIPMENTDETAIL" Member="TBLEQUIPMENTTYPE" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQUIPMENTTYPE" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLEQUIPMENTRESERVATION" Member="TBLEQUIPMENTRESERVATIONs">
@@ -112,6 +106,22 @@
       <Association Name="TBLUSERDETAIL_TBLEQUIPMENTRESERVATION" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBLEQUIPMENTSTATUS" Member="TBLEQUIPMENTSTATUS">
+    <Type Name="TBLEQUIPMENTSTATUS">
+      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GoodCondition" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BadCondition" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTSTATUS" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLEQUIPMENTTYPE" Member="TBLEQUIPMENTTYPEs">
+    <Type Name="TBLEQUIPMENTTYPE">
+      <Column Name="EQUIPMENT_TYPE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EQUIPMENT_TYPE_DESCRIPTION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="TBLEQUIPMENTTYPE_TBLEQUIPMENTDETAIL" Member="TBLEQUIPMENTDETAILs" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQUIPMENTDETAIL" />
+    </Type>
+  </Table>
   <Table Name="dbo.TBLFACILITIES" Member="TBLFACILITies">
     <Type Name="TBLFACILITy">
       <Column Name="FacilityID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -120,17 +130,7 @@
       <Column Name="FacilityType" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="FacilityRoomNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="TBLFACILITy_TBLDEPLOYMENT" Member="TBLDEPLOYMENTs" ThisKey="FacilityID" OtherKey="FacilitiyID" Type="TBLDEPLOYMENT" />
-      <Association Name="TBLFACILITy_TBLJDEPLOYMENT" Member="TBLJDEPLOYMENTs" ThisKey="FacilityID" OtherKey="FacilitiyID" Type="TBLJDEPLOYMENT" />
       <Association Name="TBLUSERDETAIL_TBLFACILITy" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLJDEPLOYMENT" Member="TBLJDEPLOYMENTs">
-    <Type Name="TBLJDEPLOYMENT">
-      <Column Name="DeploymentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FacilitiyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TBLFACILITy_TBLJDEPLOYMENT" Member="TBLFACILITy" ThisKey="FacilitiyID" OtherKey="FacilityID" Type="TBLFACILITy" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION_TBLJDEPLOYMENT" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLREQUESTREPLY" Member="TBLREQUESTREPLies">
@@ -191,7 +191,6 @@
       <Association Name="TBLTRANSACTION_TBLBORROWED" Member="TBLBORROWEDs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLBORROWED" />
       <Association Name="TBLTRANSACTION_TBLDEPLOYMENT" Member="TBLDEPLOYMENTs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLDEPLOYMENT" />
       <Association Name="TBLTRANSACTION_TBLEQUIPMENTRESERVATION" Member="TBLEQUIPMENTRESERVATIONs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLEQUIPMENTRESERVATION" />
-      <Association Name="TBLTRANSACTION_TBLJDEPLOYMENT" Member="TBLJDEPLOYMENTs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLJDEPLOYMENT" />
       <Association Name="TBLTRANSACTION_TBLRETURNEDEQUIPMENT" Member="TBLRETURNEDEQUIPMENTs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLRETURNEDEQUIPMENT" />
       <Association Name="TBLUSERDETAIL_TBLTRANSACTION" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
@@ -250,13 +249,10 @@
       <Column Name="USERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_ViewPendingRequest" Method="sp_ViewPendingRequest">
-    <ElementType Name="sp_ViewPendingRequestResult">
-      <Column Name="[Request ID]" Member="Request_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="[Request Header]" Member="Request_Header" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="[Date Requested]" Member="Date_Requested" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+  <Function Name="dbo.sp_ViewTransactionBarcode" Method="sp_ViewTransactionBarcode">
+    <Parameter Name="SearchBarcode" Parameter="searchBarcode" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ViewTransactionBarcodeResult">
+      <Column Name="BWBarcodePath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_BorrowAddQuantity" Method="sp_BorrowAddQuantity">
@@ -324,6 +320,17 @@
     <Parameter Name="EquipmentID" Parameter="equipmentID" Type="System.Int32" DbType="Int" />
     <Parameter Name="IsGoodCondition" Parameter="isGoodCondition" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="IsReturned" Parameter="isReturned" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_EquipmentStatusEdit" Method="sp_EquipmentStatusEdit">
+    <Parameter Name="EquipmentID" Parameter="equipmentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GoodCondition" Parameter="goodCondition" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BadCondition" Parameter="badCondition" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_EquipmentStatusInventoryAdd" Method="sp_EquipmentStatusInventoryAdd">
+    <Parameter Name="EquipmentID" Parameter="equipmentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GoodCondition" Parameter="goodCondition" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_EquipmentView" Method="sp_EquipmentView">
@@ -525,12 +532,6 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_TransactionBarcode" Method="sp_TransactionBarcode">
-    <Parameter Name="BarcodeTransaction" Parameter="barcodeTransaction" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_TransactionBarcodeResult">
-      <Column Name="BWBarcodePath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_TransactionSearchDate" Method="sp_TransactionSearchDate">
     <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
@@ -709,6 +710,15 @@
   </Function>
   <Function Name="dbo.sp_ViewOpenRequest" Method="sp_ViewOpenRequest">
     <ElementType Name="sp_ViewOpenRequestResult">
+      <Column Name="[Request ID]" Member="Request_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[Request Header]" Member="Request_Header" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="[Date Requested]" Member="Date_Requested" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ViewPendingRequest" Method="sp_ViewPendingRequest">
+    <ElementType Name="sp_ViewPendingRequestResult">
       <Column Name="[Request ID]" Member="Request_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="[Request Header]" Member="Request_Header" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />

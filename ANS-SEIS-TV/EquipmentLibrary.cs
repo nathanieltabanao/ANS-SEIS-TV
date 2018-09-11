@@ -56,6 +56,15 @@ namespace ANS_SEIS_TV
         {
             return Convert.ToInt32(db.sp_EquipmentID());
         }
-        
+
+        public void EquipmentStatusAdd(int EQID, int GoodQuantity)
+        {
+            db.sp_EquipmentStatusInventoryAdd(EQID, GoodQuantity);
+        }
+
+        public void EquipmentStatusEdit(int EQID, int GoodQuantity, int BadQuantity)
+        {
+            db.sp_EquipmentStatusEdit(EQID, GoodQuantity, BadQuantity);
+        }
     }
 }
