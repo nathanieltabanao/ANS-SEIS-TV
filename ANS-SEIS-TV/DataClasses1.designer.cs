@@ -359,6 +359,13 @@ namespace ANS_SEIS_TV
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentStatusItemDelete")]
+		public int sp_EquipmentStatusItemDelete([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EquipmentID", DbType="Int")] System.Nullable<int> equipmentID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), equipmentID);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentView")]
 		public ISingleResult<sp_EquipmentViewResult> sp_EquipmentView([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchKey", DbType="VarChar(50)")] string searchKey)
 		{

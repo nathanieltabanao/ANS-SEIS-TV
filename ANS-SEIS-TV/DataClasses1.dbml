@@ -333,6 +333,10 @@
     <Parameter Name="GoodCondition" Parameter="goodCondition" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.sp_EquipmentStatusItemDelete" Method="sp_EquipmentStatusItemDelete">
+    <Parameter Name="EquipmentID" Parameter="equipmentID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.sp_EquipmentView" Method="sp_EquipmentView">
     <Parameter Name="SearchKey" Parameter="searchKey" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="sp_EquipmentViewResult">

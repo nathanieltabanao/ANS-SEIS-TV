@@ -213,6 +213,22 @@ namespace ANS_SEIS_TV
             return int.Parse(results.FirstOrDefault().Value.ToString());
         }
 
+        public int GetQuantityGoodConditionEQ(int EQID)
+        {
+            var results = from TBLEQUIPMENTSTATUS in db.TBLEQUIPMENTSTATUS
+                          where TBLEQUIPMENTSTATUS.EQUIPMENT_ID == EQID
+                          select TBLEQUIPMENTSTATUS.GoodCondition;
 
+            return int.Parse(results.FirstOrDefault().Value.ToString());
+        }
+
+        public int GetQuantityBadConditionEQ(int EQID)
+        {
+            var results = from TBLEQUIPMENTSTATUS in db.TBLEQUIPMENTSTATUS
+                          where TBLEQUIPMENTSTATUS.EQUIPMENT_ID == EQID
+                          select TBLEQUIPMENTSTATUS.BadCondition;
+
+            return int.Parse(results.FirstOrDefault().Value.ToString());
+        }
     }
 }

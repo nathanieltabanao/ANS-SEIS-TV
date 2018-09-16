@@ -66,5 +66,10 @@ namespace ANS_SEIS_TV
         {
             db.sp_EquipmentStatusEdit(EQID, GoodQuantity, BadQuantity);
         }
+
+        public void EquipmentStatusDelete(int EQID)
+        {
+            db.sp_EquipmentStatusItemDelete(EQID);
+        }
     }
 }
