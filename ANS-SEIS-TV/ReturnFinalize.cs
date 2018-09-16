@@ -64,18 +64,46 @@ namespace ANS_SEIS_TV
 
             System.Threading.Thread.Sleep(2000);
 
+            EquipmentLibrary eq = new EquipmentLibrary();
+
             t.NewTransaction(DateTime.Now, Action, AdminID);
+
+            int GoodEQ = 0, BadEQ=0;
+            
             foreach (DataGridViewRow row in dgvTransaction.Rows)
             {
+                if (Convert.ToBoolean(row.Cells[4].Value))
+                {
+                    GoodEQ += Convert.ToInt32(row.Cells[2].Value);
+                }
+                else
+                {
+                    BadEQ += Convert.ToInt32(row.Cells[2].Value);
+                }
+
+
                 bool isSelected = Convert.ToBoolean(row.Cells[3].Value);
                 if (isSelected)
                 {
                     bool GoodCondition = Convert.ToBoolean(row.Cells[4].Value);
 
                     t.NewTransaction(DateTime.Now, Action, AdminID);
+
                     t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) - Convert.ToInt32(row.Cells[2].Value));
+                    //g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) - Convert.ToInt32(row.Cells[2].Value))
+                    //spits total number of that is borrowed then minus the returned number
+
                     t.ReturnEquipment(TransactionID, Convert.ToInt32(row.Cells[0].Value), Convert.ToInt32(row.Cells[2].Value), DateTime.Now, BorrowerID);
                     t.ReturnEquipmentEdit(OldTransactionID, Convert.ToInt32(row.Cells[0].Value), true,GoodCondition);
+
+                    // Cell [0] is Equipment ID
+                    // Good EQ is always padung deduction so current Good Eq - Bad nga gi returend
+                    // Bad EQ is always pasaka kay bad EQ + current nga gi returend
+                    eq.EquipmentStatusEdit(Convert.ToInt32(row.Cells[0].Value), g.GetQuantityGoodConditionEQ(Convert.ToInt32(row.Cells[0].Value)) - BadEQ, g.GetQuantityBadConditionEQ(Convert.ToInt32(row.Cells[0].Value)) + BadEQ);
+                }
+                else
+                {
+
                 }
             }
         }

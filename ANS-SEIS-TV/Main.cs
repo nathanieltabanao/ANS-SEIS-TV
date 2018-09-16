@@ -19,50 +19,58 @@ namespace ANS_SEIS_TV
 {
     public partial class Main : MaterialForm
     {
-    
-        private readonly MaterialSkinManager materialSkinManager;
-
-
+        // private readonly MaterialSkinManager materialSkinManager;
+        
         //Main form Constructor
         public Main()
         {
-            
+            // Create new Thread For Pre Loading and Load Screen Splash
             Thread t = new Thread(new ThreadStart(StartForm));
             t.Start();
-            Thread.Sleep(5000);
 
+            Thread.Sleep(5000);
+            
+            // Load everything here at FormLoad()
             InitializeComponent();
 
+            // for background worker 1
             backgroundWorker1.DoWork += backgroundWorker1_DoWork;
             backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
             backgroundWorker1.RunWorkerCompleted += backgroundWorker1_RunWorkerCompleted;
 
-
+            // Not advised but cge nalang
             t.Abort();
 
             bgwEquipmentRegistration.WorkerReportsProgress = true;
             bgwEquipmentRegistration.WorkerSupportsCancellation = true;
         }
 
+        // Splash screen and Loadscreen at once
         public void StartForm()
         {
             Application.Run(new SplashScreen());
         }
 
-        //initialize Connection
-
+        // Direct Database Access for Tables
         DataClasses1DataContext db = new DataClasses1DataContext();
 
+        //  To access user library Class
         UserLibrary u = new UserLibrary();
 
+        // To acces Equipment Library Class
         EquipmentLibrary eq = new EquipmentLibrary();
 
+        // To access LINQ classes nga akong gihimo
         GetSomethingFromServer g = new GetSomethingFromServer();
 
+        // To access stuffs related to transaction
         TransactionLibrary t = new TransactionLibrary();
 
+        // Naa diri ang barcode hahahah
         StuffLibrary s = new StuffLibrary();
-        
+
+        // Lodeng sukureen nga gorobal
+        LoadingScreen2 l = new LoadingScreen2();
 
         public string CurrentUser { get; set; }
         public string CurrentUserID { get; set; }
@@ -73,36 +81,65 @@ namespace ANS_SEIS_TV
         //Main form load 
         private void Main_Load(object sender, EventArgs e)
         {
+            // Set searchkey to "" para ma usa ra ang search and view
             SearchKey = "";
+
+            // Username and Password sa user is false
+            // Username is auto generated
+            // Password is Default
             txtUsername.Enabled = false;
             txtPassword.Enabled = false;
+
+            // Current Username
             g.Username = CurrentUser;
+
+            // Get Current Fullname of Current User
             g.GetFullname();
+
+            // Welcome stuff
             lblCurrentUser.Text = "Welcome Admin : " + g.Fullname;
             u.CurrentUsername = CurrentUser;
             g.GetUserID();
             CurrentUserID = g.ID;
             u.CurrentID = CurrentUserID;
-            rdoAllRequest.Checked = true;
+
+            // Sets the view of Request to New Request
+            rdoOpenRequest.Checked = true;
             
             CurrentGENID = g.GetGENID(CurrentUser);
+
+            // Set the mode of Inventory to be ready for registration
             AddingEquipment();
+
+            // Updates all "Tables"
             RequestGridUpdate();
+
+            // Sets the user table to be ready for registration
             AddUser();
+
+            // Another one to update all table
             UpdateAllTable();
+
+            // Set the Equipment ID 
             txtEquipmentID.Text = db.sp_EquipmentID().ToString();
 
+            // Sets the table for Transaction History
             dgvTransactionHistory.DataSource = db.sp_TransactionViewAll();
 
+            // Sets the max and min dates for Transaction Date Range
             dtpTransactionTo.MaxDate = DateTime.Now;
             dtpReseravationDate.MinDate = DateTime.Now.AddDays(1);
         }
 
+        // Method to update all table daw
         private void UpdateAllTable()
         {
+            // Sets the table ready for viewing
             ViewEquipment();
 
             rdoOpenRequest.Checked = true;
+
+
             dgvUserRegister.DataSource = db.sp_UserView();
 
             dgvToBeBorrowed.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
@@ -118,6 +155,7 @@ namespace ANS_SEIS_TV
         /// 
         ///////////////////////////////////////////////////////////////////
 
+        // Method to clear all fields and ready for registration
         private void ClearUser()
         {
             txtLastName.Text = null;
@@ -132,6 +170,7 @@ namespace ANS_SEIS_TV
 
         }
 
+        // Sets the User tab ready for Editing Users
         private void EditUsers()
         {
             btnAddUser.Enabled = false;
@@ -140,6 +179,7 @@ namespace ANS_SEIS_TV
             btnEditUser.Enabled = true;
         }
 
+        // Sets the User Tab ready for User Registration
         private void AddUser()
         {
             btnAddUser.Enabled = true;
@@ -148,6 +188,7 @@ namespace ANS_SEIS_TV
             btnUserClear.Enabled = true;
         }
 
+        // Method for teacher prefix
         public void Teacher()
         {
             if (u.UserID() == 1)
@@ -163,6 +204,7 @@ namespace ANS_SEIS_TV
             txtPassword.Enabled = false;
         }
 
+        // Method for Admin Prefix
         public void Admin()
         {
             if (u.UserID() == 1)
@@ -178,10 +220,12 @@ namespace ANS_SEIS_TV
             txtPassword.Enabled = false;
         }
 
+        // Nethod for user registration
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             AddUser();
 
+            // Load everything to user Library
             u.GENID = u.UserID();
             u.ID = txtUserID.Text;
             u.Username = txtUsername.Text;
@@ -191,17 +235,24 @@ namespace ANS_SEIS_TV
             u.LastName = txtLastName.Text;
             u.ContactNumber = txtContactNumber.Text;
 
+            // The actual method to insert the user
             u.UserInsert();
+
+            // CLears the fields
             ClearUser();
+
+            // Update dayun table
             UpdateAllTable();
 
+            // Update User ID
             u.ID = u.CurrentID;
             u.Action = "Registered a new User";
+
+            // Action Report duhhh
             u.ActionReport();
             rdoAdmin.Checked = true;
         }
-
-
+        
 
         private void materialTabSelector2_Click(object sender, EventArgs e)
         {
@@ -219,28 +270,32 @@ namespace ANS_SEIS_TV
             AddUser();
         }
 
+        // Search a User
         private void txtSearchUser_TextChanged(object sender, EventArgs e)
         {
             dgvUserRegister.DataSource = db.sp_UserSearch(txtSearchUser.Text);
         }
 
-
+        // Rdo sa admin
         private void rdoAdmin_CheckedChanged_1(object sender, EventArgs e)
         {
             Admin();
         }
 
+
+        // RDO sa Teacher
         private void rdoTeacher_CheckedChanged_1(object sender, EventArgs e)
         {
             Teacher();
         }
 
+        // Inig double click sa content sa cell then load for editing
         private void dgvUserRegister_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Set the Tab for Edit mode
             EditUsers();
-
             
-
+            // Load values to the mao to
             u.GENID = int.Parse(dgvUserRegister.CurrentRow.Cells[0].Value.ToString());
             txtUserID.Text = dgvUserRegister.CurrentRow.Cells[1].Value.ToString();
             txtUsername.Text = dgvUserRegister.CurrentRow.Cells[2].Value.ToString();
@@ -250,10 +305,13 @@ namespace ANS_SEIS_TV
             txtContactNumber.Text = dgvUserRegister.CurrentRow.Cells[6].Value.ToString();
         }
 
+        // Delete user
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
             AddUser();
             u.ID = txtUserID.Text;
+
+            // Actual stuff nga mu delete
             u.UserDelete();
             ClearUser();
             UpdateAllTable();
@@ -264,10 +322,9 @@ namespace ANS_SEIS_TV
             Admin();
         }
 
+        // I think this doesn't work
         private void btnEditUser_Click(object sender, EventArgs e)
         {
-
-
             u.ID = u.CurrentID;
             u.Action = "Edited a user detail";
             u.ActionReport();
@@ -275,6 +332,7 @@ namespace ANS_SEIS_TV
             Admin();
         }
 
+        // This thing here autogenerates username
         private void txtLastName_TextChanged(object sender, EventArgs e)
         {
             txtUsername.Text = txtFirstName.Text.Substring(0, 1) + txtLastName.Text;
@@ -310,6 +368,7 @@ namespace ANS_SEIS_TV
             dgvEquipment.DataSource = db.sp_EquipmentView(eq.SearchKey);   
         }
 
+        // Add Equipment Mode
         private void AddingEquipment()
         {
             btnEditEquipment.Enabled = false;
@@ -318,6 +377,7 @@ namespace ANS_SEIS_TV
             btnAddEquipment.Enabled = true;
         }
 
+        // Edit Equipment Mode
         private void EditEquipment()
         {
             btnEditEquipment.Enabled = true;
@@ -372,19 +432,21 @@ namespace ANS_SEIS_TV
                     default:
                         break;
                 }
+
+                // Check if fields kay blank
+                // Dapat --> OR || < -- either anang duha para inig true doesn't go down
                 if (string.IsNullOrEmpty(txtEquipmentName.Text) || string.IsNullOrEmpty(txtEquipmentDescription.Text) || string.IsNullOrEmpty(txtEquipmentID.Text))
                 {
                     MetroMessageBox.Show(this, "Please fill all necessary information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
+                    // For User Action
                     u.Action = "Registered a new Equipment";
                     txtEquipmentID.Text = db.sp_EquipmentID().ToString();
                     eq.ID = db.sp_EquipmentID(); // Get Equipment ID
-
-
-
-
+                    
+                    // Load stuff sa Equipment Library
                     eq.EquipmentBarcode = txtEquipmentID.Text;
                     eq.EquipmentName = txtEquipmentName.Text;
                     eq.EquipmentDescription = txtEquipmentDescription.Text;
@@ -393,7 +455,7 @@ namespace ANS_SEIS_TV
 
                     eq.EquipmentInsert(); // Save data to Database
 
-                    
+                    // Generate barocodo
                     s.GenerateBarcode(eq.EquipmentBarcode.ToString());
 
                     //Image img = Image.FromFile(s.SavePath);
@@ -413,7 +475,7 @@ namespace ANS_SEIS_TV
                     fsBLOBFile.Read(bytBLOBData, 0, bytBLOBData.Length);
                     fsBLOBFile.Close();
 
-
+                    // Insert Barcode sa databse
                     db.sp_NewEquipmentBarcodeInsert(Convert.ToInt32(eq.EquipmentBarcode), bytBLOBData, s.SavePath);
 
                     t.NewEquipmentAdded(eq.ID, 0);
@@ -423,6 +485,10 @@ namespace ANS_SEIS_TV
                     //commented cuz ok na
                     t.NewBorrowed(t.TID, CurrentGENID, eq.ID, DateTime.Now, 0, true, true);
                     t.NewEquipmentAdded(eq.ID, 0);
+
+                    //for the borrowing
+                    // for status btaw na hahahaha
+                    eq.EquipmentStatusAdd(eq.ID, eq.EquipmentQuantity);
 
                     EquipmentClear();
 
@@ -448,13 +514,13 @@ namespace ANS_SEIS_TV
             //}
         }
 
+        // Defunct na ni siya kay error 
         private void bgwEquipmentRegistration_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
 
             System.Threading.Thread.Sleep(2000);
-
-
+            
         }
 
 
@@ -470,7 +536,7 @@ namespace ANS_SEIS_TV
             EditEquipment();
         }
 
-
+        // Either up or down but I think mao ni ang mugana
         private void dgvEquipment_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             txtEquipmentID.Text = dgvEquipment.CurrentRow.Cells[0].Value.ToString();
@@ -498,9 +564,13 @@ namespace ANS_SEIS_TV
             u.ID = u.CurrentID;
             u.Action = "Edited a detail of an Equipment";
             u.ActionReport();
+
+            eq.EquipmentStatusEdit(eq.ID, eq.EquipmentQuantity, 0); // zero jud na siya kay basta mao na hahaha but for real zero na siya kay always da mu deduct sa good equipment
+
             UpdateAllTable();
         }
 
+        // Derets ekuwepment
         private void btnDeleteEquipment_Click(object sender, EventArgs e)
         {
             eq.ID = int.Parse(txtEquipmentID.Text);
@@ -513,32 +583,34 @@ namespace ANS_SEIS_TV
             u.ID = u.CurrentID;
             u.Action = "Deleted an Equipment";
             u.ActionReport();
+            eq.EquipmentStatusDelete(eq.ID);
             UpdateAllTable();
         }
-
-
-
+        
+        // Kurers the ekuwepment
         private void btnClearEquipment_Click(object sender, EventArgs e)
         {
             EquipmentClear();
         }
 
+        // dozent werk
         private void Main_Leave(object sender, EventArgs e)
         {
             LoginForm l = new LoginForm();
             l.Show();
         }
-
-
-
+        
+        // Logout
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            // I dispose jud nimo ang form sama sa pag dispose niya sa imong gugma para kaniya
             this.Dispose();
             LoginForm l = new LoginForm();
             u.Action = "User Logout";
             u.UserLoginLog();
             l.Show();
         }
+
 
         private void kryptonButton5_Click(object sender, EventArgs e)
         {
@@ -878,8 +950,7 @@ namespace ANS_SEIS_TV
                 l.ShowDialog();
             }
         }
-
-        LoadingScreen2 l = new LoadingScreen2();
+        
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {

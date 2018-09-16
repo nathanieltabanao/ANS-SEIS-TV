@@ -773,6 +773,7 @@ VALUES (@RequestID,@GENID,@REPLYCONTENT,@DateReplied)
 -------------------------------------------------------------------------------------------------
 
 SELECT * FROM TBLTRANSACTION
+
 -- Transaction Table
 CREATE TABLE TBLTRANSACTION
 (
@@ -952,6 +953,14 @@ CREATE PROC sp_EquipmentStatusEdit
 as
 UPDATE TBLEQUIPMENTSTATUS
 SET TBLEQUIPMENTSTATUS.GoodCondition=@GoodCondition, TBLEQUIPMENTSTATUS.BadCondition=@BadCondition
+WHERE TBLEQUIPMENTSTATUS.EQUIPMENT_ID=@EquipmentID
+
+CREATE PROC sp_EquipmentStatusItemDelete
+(
+	@EquipmentID INT
+)
+as
+DELETE FROM TBLEQUIPMENTSTATUS
 WHERE TBLEQUIPMENTSTATUS.EQUIPMENT_ID=@EquipmentID
 
 -------------------------------------------------------------------------------------------------
