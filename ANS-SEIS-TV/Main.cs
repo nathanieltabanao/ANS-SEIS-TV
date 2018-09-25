@@ -77,10 +77,14 @@ namespace ANS_SEIS_TV
         public string SearchKey { get; set; }
         public int CurrentGENID { get; set; }
 
+        public int DeployEquipmentCount { get; set; }
+
 
         //Main form load 
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'aNS_SEIS_TVDataSet5.TBLFACILITIES' table. You can move, or remove it, as needed.
+            this.tBLFACILITIESTableAdapter.Fill(this.aNS_SEIS_TVDataSet5.TBLFACILITIES);
             // Set searchkey to "" para ma usa ra ang search and view
             SearchKey = "";
 
@@ -89,6 +93,8 @@ namespace ANS_SEIS_TV
             // Password is Default
             txtUsername.Enabled = false;
             txtPassword.Enabled = false;
+
+            DeployEquipmentCount = 0;
 
             // Current Username
             g.Username = CurrentUser;
@@ -129,6 +135,12 @@ namespace ANS_SEIS_TV
             // Sets the max and min dates for Transaction Date Range
             dtpTransactionTo.MaxDate = DateTime.Now;
             dtpReseravationDate.MinDate = DateTime.Now.AddDays(1);
+
+            // Sets min dates for Deployment
+            dtpDeploymentDate.MinDate = DateTime.Now;
+
+            // Update Final
+            TableUpdate();
         }
 
         // Method to update all table daw
@@ -145,9 +157,21 @@ namespace ANS_SEIS_TV
             dgvToBeBorrowed.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
 
             dgvEquipmentReservation.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
+
+            dgvDeployEquipment.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
+
+            //Update ID's
+            t.TransactionID();
+            lblDeployTransactionID.Text = t.TID.ToString();
         }
 
-        
+        //Load Equipment
+        public void ViewEquipment()
+        {
+            eq.SearchKey = "";
+            txtEquipmentID.Text = eq.EquipmentID().ToString();
+            dgvEquipment.DataSource = db.sp_EquipmentView(eq.SearchKey);
+        }
 
         ///////////////////////////////////////////////////////////////////
         ///
@@ -358,14 +382,6 @@ namespace ANS_SEIS_TV
         {
             eq.SearchKey = txtSearchEquipment.Text;
             dgvEquipment.DataSource = db.sp_EquipmentView(eq.SearchKey);
-        }
-
-        //Load Equipment
-        public void ViewEquipment()
-        {
-            eq.SearchKey = "";
-            txtEquipmentID.Text = eq.EquipmentID().ToString();
-            dgvEquipment.DataSource = db.sp_EquipmentView(eq.SearchKey);   
         }
 
         // Add Equipment Mode
@@ -746,7 +762,7 @@ namespace ANS_SEIS_TV
         {
             if (dgvBorrowList.Rows.Count==0)
             {
-                MetroMessageBox.Show(this, "Please fill all necessary information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(this, "Borrowlist is Empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -989,6 +1005,20 @@ namespace ANS_SEIS_TV
             txtEquipmentID.Text = eq.EquipmentID().ToString();
 
             dgvEquipment.DataSource = db.sp_EquipmentView(eq.SearchKey);
+
+            lblSumEquipments.Text = g.GetTotalEquipmentQuantity().ToString();
+            lblNewRequests.Text = g.GetTotalNumberOfNewRequests().ToString();
+            lblSumBorrowed.Text = g.GetTotalEquipmentBorrowedQuantity().ToString() + " / " + g.GetTotalEquipmentQuantity().ToString();
+            lblTotalDamaged.Text = g.GetTotalNumberOfDamagedEquipment().ToString();
+            lblTotalNumberOfReservations.Text = g.GetTotalNumberOfReservations().ToString();
+
+            int totalborrowed = g.GetTotalEquipmentBorrowedQuantity();
+            int totalquantity = g.GetTotalEquipmentQuantity();
+
+            double borrowed = ((double)totalborrowed / (double)totalquantity) * 100;
+
+            cpbBorrowed.Text = Math.Round(borrowed, 1).ToString();
+            cpbBorrowed.Value = Convert.ToInt32(borrowed);
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -1057,6 +1087,118 @@ namespace ANS_SEIS_TV
             }
 
             td.ShowDialog();
+        }
+
+        /// <summary>
+        /// Deployment Area
+        /// </summary>
+        
+
+        // Deploymen Add to List
+        private void btnAddtoDeploy_Click(object sender, EventArgs e)
+        {
+            //dgvEquipmentDeployList.Rows.Insert(0, dgvDeployEquipment.CurrentRow.Cells[0].Value.ToString(), g.GetEquipmentName(int.Parse(dgvDeployEquipment.CurrentRow.Cells[0].Value.ToString())), 1);
+            g.EquipmentID = int.Parse(dgvDeployEquipment.CurrentRow.Cells[0].Value.ToString());
+
+            bool Found = false;
+            int Qty = 1;
+
+            //rows is not blanks
+            if (dgvEquipmentDeployList.Rows.Count > 0)
+            {
+                //Check if the product exists
+                foreach (DataGridViewRow row in dgvEquipmentDeployList.Rows)
+                {
+                    if (Convert.ToString(row.Cells[0].Value) == dgvDeployEquipment.CurrentRow.Cells[0].Value.ToString())
+                    {
+                        if (Convert.ToInt32(row.Cells[2].Value.ToString()) < Convert.ToInt32(dgvDeployEquipment.CurrentRow.Cells[3].Value.ToString()))
+                        {
+                            row.Cells[2].Value = Convert.ToString(1 + Convert.ToInt32(row.Cells[2].Value));
+                        }
+                        else
+                        {
+                            MetroMessageBox.Show(this, "You cannot add more than what is available", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        //row.Cells[2].Value = Convert.ToString(1 + Convert.ToInt32(row.Cells[2].Value));
+                        Found = true;
+                    }
+                }
+                if (!Found)
+                {
+                    //Add new text
+                    dgvEquipmentDeployList.Rows.Insert(0, dgvDeployEquipment.CurrentRow.Cells[0].Value.ToString(), g.GetEquipmentName(int.Parse(dgvDeployEquipment.CurrentRow.Cells[0].Value.ToString())), 1);
+                }
+            }
+            else
+            {
+                //add the first row if
+                dgvEquipmentDeployList.Rows.Insert(0, dgvDeployEquipment.CurrentRow.Cells[0].Value.ToString(), g.GetEquipmentName(int.Parse(dgvDeployEquipment.CurrentRow.Cells[0].Value.ToString())), 1);
+            }
+
+            DeployEquipmentCount++;
+            lblDeploymentItemsCount.Text = DeployEquipmentCount.ToString();
+        }
+
+        // Remove an item from the deployment LIst
+        private void btnRemoveFromDeploy_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in dgvEquipmentDeployList.SelectedRows)
+            {
+                dgvEquipmentDeployList.Rows.RemoveAt(item.Index);
+            }
+
+            int value = Convert.ToInt32(dgvEquipmentDeployList.CurrentRow.Cells[2].Value.ToString());
+
+            DeployEquipmentCount = DeployEquipmentCount - value;
+            lblDeploymentItemsCount.Text = DeployEquipmentCount.ToString();
+        }
+
+        // Clear all the rows in the deployment list
+        private void btnClearDeploymentList_Click(object sender, EventArgs e)
+        {
+            dgvEquipmentDeployList.Rows.Clear();
+            DeployEquipmentCount = 0;
+            lblDeploymentItemsCount.Text = DeployEquipmentCount.ToString();
+        }
+
+        private void drpDeploymentDestination_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblDeploymentTeacher.Text = g.GetTeacherNameFromFacility(drpDeploymentDestination.Text);
+            lblDeploymentRmDesignation.Text = g.GetRoomName(drpDeploymentDestination.Text);
+        }
+
+        private void btnDeploymentConfirm_Click(object sender, EventArgs e)
+        {
+            if (dgvEquipmentDeployList.Rows.Count>1)
+            {
+                MetroMessageBox.Show(this, "Deployment list is Empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrEmpty( drpDeploymentDestination.Text)||string.IsNullOrEmpty(lblDeploymentRmDesignation.Text)||string.IsNullOrEmpty(lblDeploymentTeacher.Text))
+            {
+                MetroMessageBox.Show(this, "Please select deployment destination!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                t.TransactionID();
+
+                FinalizeDeployment d = new FinalizeDeployment(t.TID, drpDeploymentDestination.Text, g.GetFacilyTeacherGENID(drpDeploymentDestination.Text), dtpDeploymentDate.Value, DeployEquipmentCount, CurrentGENID);
+
+                DataGridViewRow row = new DataGridViewRow();
+
+                for (int i = 0; i < dgvEquipmentDeployList.Rows.Count; i++)
+                {
+                    row = (DataGridViewRow)dgvEquipmentDeployList.Rows[i].Clone();
+                    int intColIndex = 0;
+                    foreach (DataGridViewCell cell in dgvEquipmentDeployList.Rows[i].Cells)
+                    {
+                        row.Cells[intColIndex].Value = cell.Value;
+                        intColIndex++;
+                    }
+                    d.dgvDeployList.Rows.Add(row);
+                }
+
+                d.ShowDialog();
+            }
         }
 
         private void RequestGridUpdate()
@@ -1257,7 +1399,7 @@ namespace ANS_SEIS_TV
                 }
             }
         }
-        
+
 
         private void lblCurrentUser_Click(object sender, EventArgs e)
         {

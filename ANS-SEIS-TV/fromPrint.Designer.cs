@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.BorrowSlip1 = new ANS_SEIS_TV.BorrowSlip();
+            this.BorrowSlip1 = new ANS_SEIS_TV.rptBorrowSlip();
             this.SuspendLayout();
             // 
             // crystalReportViewer
@@ -45,15 +45,16 @@
             this.crystalReportViewer.ShowLogo = false;
             this.crystalReportViewer.ShowParameterPanelButton = false;
             this.crystalReportViewer.ShowRefreshButton = false;
-            this.crystalReportViewer.Size = new System.Drawing.Size(1085, 445);
+            this.crystalReportViewer.Size = new System.Drawing.Size(866, 637);
             this.crystalReportViewer.TabIndex = 0;
+            this.crystalReportViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             this.crystalReportViewer.Load += new System.EventHandler(this.crystalReportViewer1_Load);
             // 
             // fromPrint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1125, 525);
+            this.ClientSize = new System.Drawing.Size(906, 717);
             this.Controls.Add(this.crystalReportViewer);
             this.Name = "fromPrint";
             this.Text = "Print Details";
@@ -65,6 +66,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer;
-        private BorrowSlip BorrowSlip1;
+        private rptBorrowSlip BorrowSlip1;
     }
 }

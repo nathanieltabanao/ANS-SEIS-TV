@@ -127,12 +127,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ANS_SEIS_TVDataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ANS_SEIS_TVDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ANS_SEIS_TVDataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BorrowDetail.cs" />
-    <Compile Include="BorrowFinalize.cs">
+    <Compile Include="FinalizeBorrow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BorrowFinalize.Designer.cs">
-      <DependentUpon>BorrowFinalize.cs</DependentUpon>
+    <Compile Include="FinalizeBorrow.Designer.cs">
+      <DependentUpon>FinalizeBorrow.cs</DependentUpon>
     </Compile>
     <Compile Include="BorrowingForm.cs">
       <SubType>Form</SubType>
@@ -146,10 +151,16 @@
       <DependentUpon>BorrowReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BorrowSlip.cs">
+    <Compile Include="frmDeployment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeployment.Designer.cs">
+      <DependentUpon>frmDeployment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptBorrowSlip.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BorrowSlip.rpt</DependentUpon>
+      <DependentUpon>rptBorrowSlip.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ChangePassword.cs">
@@ -196,6 +207,12 @@
     </Compile>
     <Compile Include="EquipmentRequest.Designer.cs">
       <DependentUpon>EquipmentRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinalizeDeployment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinalizeDeployment.Designer.cs">
+      <DependentUpon>FinalizeDeployment.cs</DependentUpon>
     </Compile>
     <Compile Include="FirstLoginForm.cs">
       <SubType>Form</SubType>
@@ -296,6 +313,18 @@
     <Compile Include="ReturningForm.Designer.cs">
       <DependentUpon>ReturningForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="rptDeployment.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDeployment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptInventoryReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptInventoryReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SearchUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -343,8 +372,8 @@
     <EmbeddedResource Include="Admin_Form.resx">
       <DependentUpon>Admin_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BorrowFinalize.resx">
-      <DependentUpon>BorrowFinalize.cs</DependentUpon>
+    <EmbeddedResource Include="FinalizeBorrow.resx">
+      <DependentUpon>FinalizeBorrow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BorrowingForm.resx">
       <DependentUpon>BorrowingForm.cs</DependentUpon>
@@ -404,6 +433,17 @@
     <None Include="ANS_SEIS_TVDataSet4.xss">
       <DependentUpon>ANS_SEIS_TVDataSet4.xsd</DependentUpon>
     </None>
+    <None Include="ANS_SEIS_TVDataSet5.xsc">
+      <DependentUpon>ANS_SEIS_TVDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ANS_SEIS_TVDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ANS_SEIS_TVDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ANS_SEIS_TVDataSet5.xss">
+      <DependentUpon>ANS_SEIS_TVDataSet5.xsd</DependentUpon>
+    </None>
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
@@ -411,9 +451,12 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BorrowReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="BorrowSlip.rpt">
+    <EmbeddedResource Include="frmDeployment.resx">
+      <DependentUpon>frmDeployment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptBorrowSlip.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>BorrowSlip.cs</LastGenOutput>
+      <LastGenOutput>rptBorrowSlip.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
@@ -431,6 +474,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EquipmentRequest.resx">
       <DependentUpon>EquipmentRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalizeDeployment.resx">
+      <DependentUpon>FinalizeDeployment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FirstLoginForm.resx">
       <DependentUpon>FirstLoginForm.cs</DependentUpon>
@@ -474,6 +520,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReturningForm.resx">
       <DependentUpon>ReturningForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptDeployment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDeployment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptInventoryReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInventoryReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchUser.resx">
       <DependentUpon>SearchUser.cs</DependentUpon>

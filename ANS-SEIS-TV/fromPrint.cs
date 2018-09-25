@@ -39,18 +39,6 @@ namespace ANS_SEIS_TV
 
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
-            //var query = (from TBLBORROWED in db.TBLBORROWEDs
-            //             join TBLEQUIPMENTDETAIL in db.TBLEQUIPMENTDETAILs on TBLBORROWED.EQUIPMENT_ID equals TBLEQUIPMENTDETAIL.EQUIPMENT_ID
-            //             join TBLTRANSACTION in db.TBLTRANSACTIONs on TBLBORROWED.TransactionID equals TBLTRANSACTION.TransactionID
-            //             join TBLEQUIPMENTBARCODE in db.TBLEQUIPMENTBARCODEs on TBLBORROWED.EQUIPMENT_ID equals TBLEQUIPMENTBARCODE.Equipment_ID
-            //             where TBLBORROWED.TransactionID == TransactionID
-            //             select new { TBLEQUIPMENTBARCODE.EQBarcodepath, TBLEQUIPMENTDETAIL.EQUIPMENT_ID, TBLEQUIPMENTDETAIL.EQUIPMENT_NAME, TBLBORROWED.Quantity }).ToList();
-            //var mylist = query.ToList();
-            //List<BorrowDetail> list = mylist;
-            
-            //Be sure to have Current Borrowed for the list
-            // View Transaction Barcode path for transaction Barcode
-
             BorrowSlip1.SetParameterValue("@TransactionID", TransactionID);
             BorrowSlip1.SetParameterValue("pTransactionID", TransactionID);
             BorrowSlip1.SetParameterValue("pBorrower", Borrower);

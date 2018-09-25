@@ -11,7 +11,7 @@ namespace ANS_SEIS_TV
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
 
-        
+
 
         public string Username { get; set; }
         public string ID { get; set; }
@@ -64,7 +64,7 @@ namespace ANS_SEIS_TV
                           select TBLUSERDETAIL.ID;
 
             var temp = results?.FirstOrDefault()?.ToString();
-            if (temp==null)
+            if (temp == null)
             {
                 ID = null;
             }
@@ -93,7 +93,7 @@ namespace ANS_SEIS_TV
             var results = from TBLUSERDETAIL in db.TBLUSERDETAILs
                           where TBLUSERDETAIL.USERNAME == Username
                           select TBLUSERDETAIL.FIRSTNAME;
-                
+
             FirstName = results.FirstOrDefault().ToString();
         }
 
@@ -159,14 +159,14 @@ namespace ANS_SEIS_TV
 
             Username = results.FirstOrDefault().ToString();
         }
-        
+
         public string GetRequestReply(int RequestID)
         {
             var results = from TBLREQUESTREPLY in db.TBLREQUESTREPLies
                           where TBLREQUESTREPLY.REQUESTID == RequestID
                           select TBLREQUESTREPLY.ReplyContent;
 
-           return results.FirstOrDefault().ToString();
+            return results.FirstOrDefault().ToString();
         }
 
         public DateTime GetDateReplied(int RequestID)
@@ -229,6 +229,96 @@ namespace ANS_SEIS_TV
                           select TBLEQUIPMENTSTATUS.BadCondition;
 
             return int.Parse(results.FirstOrDefault().Value.ToString());
+        }
+
+        public int GetTotalEquipmentQuantity()
+        {
+            var results = (from TBLEQUIPMENTDETAIL in db.TBLEQUIPMENTDETAILs
+                           select TBLEQUIPMENTDETAIL.EQUIPMENT_QUANTITY).Sum();
+
+            return int.Parse(results.Value.ToString());
+        }
+
+        public int GetTotalEquipmentBorrowedQuantity()
+        {
+            var results = (from TBLBORROWED in db.TBLBORROWEDs
+                           select TBLBORROWED.Quantity).Sum();
+
+            return int.Parse(results.Value.ToString());
+        }
+
+        public int GetTotalEquipmentReservedQuantity()
+        {
+            var results = (from TBLEQUIPMENTRESERVATION in db.TBLEQUIPMENTRESERVATIONs
+                           select TBLEQUIPMENTRESERVATION.Quantity).Sum();
+
+            return int.Parse(results.Value.ToString());
+        }
+
+        public int GetTotalNumberOfTransactions()
+        {
+            var results = (from TBLTRANSACTION in db.TBLTRANSACTIONs
+                           select TBLTRANSACTION.GENID).Count();
+
+            return int.Parse(results.ToString());
+        }
+
+        public int GetTotalNumberOfNewRequests()
+        {
+            var results = (from TBLREQUESTTABLE in db.TBLREQUESTTABLEs
+                           where TBLREQUESTTABLE.REQUESTSTATUSID == 300
+                           select TBLREQUESTTABLE.GENID).Count();
+
+            return int.Parse(results.ToString());
+        }
+
+        public int GetTotalNumberOfDamagedEquipment()
+        {
+            var results = (from TBLEQUIPMENTSTATUS in db.TBLEQUIPMENTSTATUS
+                           select TBLEQUIPMENTSTATUS.BadCondition).Sum();
+
+            return int.Parse(results.Value.ToString());
+        }
+
+        public int GetTotalNumberOfReservations()
+        {
+            var results = (from TBLEQUIPMENTRESERVATION in db.TBLEQUIPMENTRESERVATIONs
+                           select TBLEQUIPMENTRESERVATION.ReservationID).Count();
+
+            return int.Parse(results.ToString());
+        }
+
+        public string GetTeacherNameFromFacility(string RoomNo)
+        {
+            var results1 = from TBLFACILITy in db.TBLFACILITies
+                           where TBLFACILITy.FacilityRoomNo == RoomNo
+                           select TBLFACILITy.GENID;
+
+            GENID = Convert.ToInt32(results1.FirstOrDefault().ToString());
+
+            GetUsername(GENID);
+
+            GetFullname();
+
+            return Fullname;
+        }
+
+        public string GetRoomName(string RoomNo)
+        {
+            var results = from TBLFACILITy in db.TBLFACILITies
+                          where TBLFACILITy.FacilityRoomNo == RoomNo
+                          select TBLFACILITy.FacilityName;
+
+            return results?.FirstOrDefault()?.ToString();
+        }
+
+        public int GetFacilyTeacherGENID(string RoomNo)
+        {
+            var results1 = from TBLFACILITy in db.TBLFACILITies
+                           where TBLFACILITy.FacilityRoomNo == RoomNo
+                           select TBLFACILITy.GENID;
+
+            return Convert.ToInt32(results1.FirstOrDefault().ToString());
         }
     }
 }

@@ -16,14 +16,14 @@ namespace ANS_SEIS_TV {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class BorrowSlip : ReportClass {
+    public class rptDeployment : ReportClass {
         
-        public BorrowSlip() {
+        public rptDeployment() {
         }
         
         public override string ResourceName {
             get {
-                return "BorrowSlip.rpt";
+                return "rptDeployment.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ANS_SEIS_TV {
         
         public override string FullResourceName {
             get {
-                return "ANS_SEIS_TV.BorrowSlip.rpt";
+                return "ANS_SEIS_TV.rptDeployment.rpt";
             }
             set {
                 // Do nothing
@@ -90,7 +90,7 @@ namespace ANS_SEIS_TV {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_pTransactionID {
+        public CrystalDecisions.Shared.IParameterField Parameter_pProcessedBy {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -98,7 +98,7 @@ namespace ANS_SEIS_TV {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_pBorrower {
+        public CrystalDecisions.Shared.IParameterField Parameter_pDateBorrowed {
             get {
                 return this.DataDefinition.ParameterFields[1];
             }
@@ -106,7 +106,7 @@ namespace ANS_SEIS_TV {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_pDateBorrowed {
+        public CrystalDecisions.Shared.IParameterField Parameter_pAdmin {
             get {
                 return this.DataDefinition.ParameterFields[2];
             }
@@ -114,7 +114,7 @@ namespace ANS_SEIS_TV {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_pProcessedBy {
+        public CrystalDecisions.Shared.IParameterField Parameter_pTeacher {
             get {
                 return this.DataDefinition.ParameterFields[3];
             }
@@ -122,7 +122,7 @@ namespace ANS_SEIS_TV {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_TransactionID {
+        public CrystalDecisions.Shared.IParameterField Parameter_pRoomNo {
             get {
                 return this.DataDefinition.ParameterFields[4];
             }
@@ -130,17 +130,41 @@ namespace ANS_SEIS_TV {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_SearchBarcode {
+        public CrystalDecisions.Shared.IParameterField Parameter_pTransactionID {
             get {
                 return this.DataDefinition.ParameterFields[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_pDateDeployed {
+            get {
+                return this.DataDefinition.ParameterFields[6];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_TransactionID {
+            get {
+                return this.DataDefinition.ParameterFields[7];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_SearchBarcode {
+            get {
+                return this.DataDefinition.ParameterFields[8];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedBorrowSlip : Component, ICachedReport {
+    public class CachedrptDeployment : Component, ICachedReport {
         
-        public CachedBorrowSlip() {
+        public CachedrptDeployment() {
         }
         
         [Browsable(false)]
@@ -177,7 +201,7 @@ namespace ANS_SEIS_TV {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            BorrowSlip rpt = new BorrowSlip();
+            rptDeployment rpt = new rptDeployment();
             rpt.Site = this.Site;
             return rpt;
         }
