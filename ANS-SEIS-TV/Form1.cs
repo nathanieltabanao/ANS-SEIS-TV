@@ -28,6 +28,8 @@ namespace ANS_SEIS_TV
 
         DataClasses1DataContext db = new DataClasses1DataContext();
 
+        GetSomethingFromServer g = new GetSomethingFromServer();
+
         private void Form1_Load(object sender, EventArgs e)
         {
             //kryptonDataGridView1.CellFormatting += kryptonDataGridView1_CellFormatting;
@@ -137,11 +139,11 @@ namespace ANS_SEIS_TV
 
         private void materialFlatButton1_Click_1(object sender, EventArgs e)
         {
-            for (int i = 0; i < 100; i++)
-            {
-                //circularProgressBar1.Value = i;
-                //circularProgressBar1.Refresh();
-            }
+            int borrowed = g.GetTotalEquipmentBorrowedQuantity();
+            int equipment = g.GetTotalEquipmentQuantity();
+            double eq = Math.Round((((double)borrowed / (double)equipment)*100),2);
+            circularProgressBar1.Value = Convert.ToInt32(eq);
+            circularProgressBar1.Text = eq.ToString();
         }
     }
 }
