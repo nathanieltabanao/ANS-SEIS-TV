@@ -241,18 +241,18 @@
       <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT" Member="TBLUSERDETAIL" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL" IsForeignKey="true" />
     </Type>
   </Table>
+  <Function Name="dbo.sp_ViewTransactionBarcode" Method="sp_ViewTransactionBarcode">
+    <Parameter Name="SearchBarcode" Parameter="searchBarcode" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ViewTransactionBarcodeResult">
+      <Column Name="BWBarcodePath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.sp_AccountRecovery" Method="sp_AccountRecovery">
     <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="SecurityQuestion" Parameter="securityQuestion" Type="System.String" DbType="VarChar(MAX)" />
     <Parameter Name="SecurityAnswer" Parameter="securityAnswer" Type="System.String" DbType="VarChar(MAX)" />
     <ElementType Name="sp_AccountRecoveryResult">
       <Column Name="USERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ViewTransactionBarcode" Method="sp_ViewTransactionBarcode">
-    <Parameter Name="SearchBarcode" Parameter="searchBarcode" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ViewTransactionBarcodeResult">
-      <Column Name="BWBarcodePath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_BorrowAddQuantity" Method="sp_BorrowAddQuantity">
@@ -433,6 +433,16 @@
     <Parameter Name="TransactionDate" Parameter="transactionDate" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="TransactionEvent" Parameter="transactionEvent" Type="System.String" DbType="VarChar(150)" />
     <Parameter Name="Admin" Parameter="admin" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_PullOutEquipment" Method="sp_PullOutEquipment">
+    <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QUANTITY" Parameter="qUANTITY" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_PullOutNewEquipment" Method="sp_PullOutNewEquipment">
+    <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QUANTITY" Parameter="qUANTITY" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_RequestReplied" Method="sp_RequestReplied">
@@ -712,6 +722,24 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_ViewDeployedEquipmentsFacilityID" Method="sp_ViewDeployedEquipmentsFacilityID">
+    <Parameter Name="FacilityID" Parameter="facilityID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ViewDeployedEquipmentsFacilityIDResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Returned?]" Member="Returned_" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ViewDeployedEquipmentsTransactionID" Method="sp_ViewDeployedEquipmentsTransactionID">
+    <Parameter Name="TransactionID" Parameter="transactionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ViewDeployedEquipmentsTransactionIDResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Returned?]" Member="Returned_" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.sp_ViewOpenRequest" Method="sp_ViewOpenRequest">
     <ElementType Name="sp_ViewOpenRequestResult">
       <Column Name="[Request ID]" Member="Request_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -728,6 +756,15 @@
       <Column Name="[Request Header]" Member="Request_Header" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="[Date Requested]" Member="Date_Requested" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ViewReservedEquipment" Method="sp_ViewReservedEquipment">
+    <Parameter Name="TransactionID" Parameter="transactionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ViewReservedEquipmentResult">
+      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

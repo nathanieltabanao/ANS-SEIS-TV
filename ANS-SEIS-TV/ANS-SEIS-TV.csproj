@@ -132,6 +132,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ANS_SEIS_TVDataSet5.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ANS_SEIS_TVDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ANS_SEIS_TVDataSet6.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BorrowDetail.cs" />
     <Compile Include="FinalizeBorrow.cs">
       <SubType>Form</SubType>
@@ -295,11 +300,11 @@
     <Compile Include="RequestReply.Designer.cs">
       <DependentUpon>RequestReply.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReservationFinalize.cs">
+    <Compile Include="FinalizeReservation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReservationFinalize.Designer.cs">
-      <DependentUpon>ReservationFinalize.cs</DependentUpon>
+    <Compile Include="FinalizeReservation.Designer.cs">
+      <DependentUpon>FinalizeReservation.cs</DependentUpon>
     </Compile>
     <Compile Include="ReturnFinalize.cs">
       <SubType>Form</SubType>
@@ -323,6 +328,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptInventoryReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptReservationSlip.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReservationSlip.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SearchUser.cs">
@@ -444,6 +455,17 @@
     <None Include="ANS_SEIS_TVDataSet5.xss">
       <DependentUpon>ANS_SEIS_TVDataSet5.xsd</DependentUpon>
     </None>
+    <None Include="ANS_SEIS_TVDataSet6.xsc">
+      <DependentUpon>ANS_SEIS_TVDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="ANS_SEIS_TVDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ANS_SEIS_TVDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ANS_SEIS_TVDataSet6.xss">
+      <DependentUpon>ANS_SEIS_TVDataSet6.xsd</DependentUpon>
+    </None>
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
@@ -512,8 +534,8 @@
     <EmbeddedResource Include="RequestReply.resx">
       <DependentUpon>RequestReply.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReservationFinalize.resx">
-      <DependentUpon>ReservationFinalize.cs</DependentUpon>
+    <EmbeddedResource Include="FinalizeReservation.resx">
+      <DependentUpon>FinalizeReservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReturnFinalize.resx">
       <DependentUpon>ReturnFinalize.cs</DependentUpon>
@@ -528,6 +550,10 @@
     <EmbeddedResource Include="rptInventoryReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptInventoryReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptReservationSlip.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReservationSlip.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchUser.resx">
       <DependentUpon>SearchUser.cs</DependentUpon>

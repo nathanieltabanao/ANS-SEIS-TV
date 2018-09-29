@@ -91,13 +91,15 @@ namespace ANS_SEIS_TV
 
         private void Deployment()
         {
+            t.TransactionID();
             t.NewTransaction(DateTime.Now, "Deployed an Equipment", Admin);
+            db.sp_NewDeployment(t.TID, g.GetFacilityID(Room));
             foreach (DataGridViewRow row in dgvDeployList.Rows)
             {
-                t.NewBorrowed(TransactionID, Teacher, Convert.ToInt32(row.Cells[0].Value), DateTime.Now, Convert.ToInt32(row.Cells[2].Value), false, false);
+                t.NewBorrowed(t.TID, Teacher, Convert.ToInt32(row.Cells[0].Value), DateTime.Now, Convert.ToInt32(row.Cells[2].Value), false, false);
                 t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) + Convert.ToInt32(row.Cells[2].Value));
             }
-            s.GenerateBarcode(TransactionID.ToString());
+            s.GenerateBarcode(t.TID.ToString());
 
             String strBLOBFilePath = s.SavePath;//Modify this path as needed.
 
@@ -107,7 +109,7 @@ namespace ANS_SEIS_TV
             fsBLOBFile.Read(bytBLOBData, 0, bytBLOBData.Length);
             fsBLOBFile.Close();
 
-            db.sp_NewBorrowBarcodeInsert(TransactionID, bytBLOBData, s.SavePath);
+            db.sp_NewBorrowBarcodeInsert(t.TID, bytBLOBData, s.SavePath);
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

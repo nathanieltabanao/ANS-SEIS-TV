@@ -320,5 +320,14 @@ namespace ANS_SEIS_TV
 
             return Convert.ToInt32(results1.FirstOrDefault().ToString());
         }
+
+        public int GetFacilityID(string RoomNo)
+        {
+            var results = from TBLFACILITy in db.TBLFACILITies
+                          where TBLFACILITy.FacilityRoomNo == RoomNo
+                          select TBLFACILITy.FacilityID;
+
+            return Convert.ToInt32(results.FirstOrDefault().ToString());
+        }
     }
 }

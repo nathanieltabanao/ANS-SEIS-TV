@@ -254,18 +254,18 @@ namespace ANS_SEIS_TV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_AccountRecovery")]
-		public ISingleResult<sp_AccountRecoveryResult> sp_AccountRecovery([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecurityQuestion", DbType="VarChar(MAX)")] string securityQuestion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecurityAnswer", DbType="VarChar(MAX)")] string securityAnswer)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, securityQuestion, securityAnswer);
-			return ((ISingleResult<sp_AccountRecoveryResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewTransactionBarcode")]
 		public ISingleResult<sp_ViewTransactionBarcodeResult> sp_ViewTransactionBarcode([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchBarcode", DbType="Int")] System.Nullable<int> searchBarcode)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchBarcode);
 			return ((ISingleResult<sp_ViewTransactionBarcodeResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_AccountRecovery")]
+		public ISingleResult<sp_AccountRecoveryResult> sp_AccountRecovery([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecurityQuestion", DbType="VarChar(MAX)")] string securityQuestion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecurityAnswer", DbType="VarChar(MAX)")] string securityAnswer)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, securityQuestion, securityAnswer);
+			return ((ISingleResult<sp_AccountRecoveryResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_BorrowAddQuantity")]
@@ -454,6 +454,20 @@ namespace ANS_SEIS_TV
 		public int sp_NewTransation([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionDate", DbType="DateTime")] System.Nullable<System.DateTime> transactionDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionEvent", DbType="VarChar(150)")] string transactionEvent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Admin", DbType="Int")] System.Nullable<int> admin)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionDate, transactionEvent, admin);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_PullOutEquipment")]
+		public int sp_PullOutEquipment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUANTITY", DbType="Int")] System.Nullable<int> qUANTITY)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID, qUANTITY);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_PullOutNewEquipment")]
+		public int sp_PullOutNewEquipment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUANTITY", DbType="Int")] System.Nullable<int> qUANTITY)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eQUIPMENT_ID, qUANTITY);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -688,6 +702,20 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_ViewDeniedRequestResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewDeployedEquipmentsFacilityID")]
+		public ISingleResult<sp_ViewDeployedEquipmentsFacilityIDResult> sp_ViewDeployedEquipmentsFacilityID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FacilityID", DbType="Int")] System.Nullable<int> facilityID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), facilityID);
+			return ((ISingleResult<sp_ViewDeployedEquipmentsFacilityIDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewDeployedEquipmentsTransactionID")]
+		public ISingleResult<sp_ViewDeployedEquipmentsTransactionIDResult> sp_ViewDeployedEquipmentsTransactionID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID);
+			return ((ISingleResult<sp_ViewDeployedEquipmentsTransactionIDResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewOpenRequest")]
 		public ISingleResult<sp_ViewOpenRequestResult> sp_ViewOpenRequest()
 		{
@@ -700,6 +728,13 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_ViewPendingRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewReservedEquipment")]
+		public ISingleResult<sp_ViewReservedEquipmentResult> sp_ViewReservedEquipment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID);
+			return ((ISingleResult<sp_ViewReservedEquipmentResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3569,32 +3604,6 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
-	public partial class sp_AccountRecoveryResult
-	{
-		
-		private string _USERNAME;
-		
-		public sp_AccountRecoveryResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(50)")]
-		public string USERNAME
-		{
-			get
-			{
-				return this._USERNAME;
-			}
-			set
-			{
-				if ((this._USERNAME != value))
-				{
-					this._USERNAME = value;
-				}
-			}
-		}
-	}
-	
 	public partial class sp_ViewTransactionBarcodeResult
 	{
 		
@@ -3616,6 +3625,32 @@ namespace ANS_SEIS_TV
 				if ((this._BWBarcodePath != value))
 				{
 					this._BWBarcodePath = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_AccountRecoveryResult
+	{
+		
+		private string _USERNAME;
+		
+		public sp_AccountRecoveryResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(50)")]
+		public string USERNAME
+		{
+			get
+			{
+				return this._USERNAME;
+			}
+			set
+			{
+				if ((this._USERNAME != value))
+				{
+					this._USERNAME = value;
 				}
 			}
 		}
@@ -5847,6 +5882,166 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
+	public partial class sp_ViewDeployedEquipmentsFacilityIDResult
+	{
+		
+		private int _ID;
+		
+		private string _Name;
+		
+		private System.Nullable<int> _Quantity;
+		
+		private System.Nullable<bool> _Returned_;
+		
+		public sp_ViewDeployedEquipmentsFacilityIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Returned?]", Storage="_Returned_", DbType="Bit")]
+		public System.Nullable<bool> Returned_
+		{
+			get
+			{
+				return this._Returned_;
+			}
+			set
+			{
+				if ((this._Returned_ != value))
+				{
+					this._Returned_ = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ViewDeployedEquipmentsTransactionIDResult
+	{
+		
+		private int _ID;
+		
+		private string _Name;
+		
+		private System.Nullable<int> _Quantity;
+		
+		private System.Nullable<bool> _Returned_;
+		
+		public sp_ViewDeployedEquipmentsTransactionIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Returned?]", Storage="_Returned_", DbType="Bit")]
+		public System.Nullable<bool> Returned_
+		{
+			get
+			{
+				return this._Returned_;
+			}
+			set
+			{
+				if ((this._Returned_ != value))
+				{
+					this._Returned_ = value;
+				}
+			}
+		}
+	}
+	
 	public partial class sp_ViewOpenRequestResult
 	{
 		
@@ -6038,6 +6233,86 @@ namespace ANS_SEIS_TV
 				if ((this._Status != value))
 				{
 					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ViewReservedEquipmentResult
+	{
+		
+		private System.Nullable<int> _TransactionID;
+		
+		private System.Nullable<int> _EQUIPMENT_ID;
+		
+		private string _EQUIPMENT_NAME;
+		
+		private System.Nullable<int> _Quantity;
+		
+		public sp_ViewReservedEquipmentResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionID", DbType="Int")]
+		public System.Nullable<int> TransactionID
+		{
+			get
+			{
+				return this._TransactionID;
+			}
+			set
+			{
+				if ((this._TransactionID != value))
+				{
+					this._TransactionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_ID", DbType="Int")]
+		public System.Nullable<int> EQUIPMENT_ID
+		{
+			get
+			{
+				return this._EQUIPMENT_ID;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_ID != value))
+				{
+					this._EQUIPMENT_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_NAME", DbType="VarChar(200)")]
+		public string EQUIPMENT_NAME
+		{
+			get
+			{
+				return this._EQUIPMENT_NAME;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_NAME != value))
+				{
+					this._EQUIPMENT_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
 				}
 			}
 		}
