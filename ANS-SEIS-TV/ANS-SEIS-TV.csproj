@@ -318,10 +318,28 @@
     <Compile Include="ReturningForm.Designer.cs">
       <DependentUpon>ReturningForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="rptCurrentBorrowed.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCurrentBorrowed.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="rptDeployment.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptDeployment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptEquipmentReservation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptEquipmentReservation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptEquipmentStatus.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptEquipmentStatus.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptInventoryReport.cs">
@@ -543,9 +561,21 @@
     <EmbeddedResource Include="ReturningForm.resx">
       <DependentUpon>ReturningForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptCurrentBorrowed.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCurrentBorrowed.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="rptDeployment.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptDeployment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptEquipmentReservation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEquipmentReservation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptEquipmentStatus.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEquipmentStatus.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptInventoryReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
