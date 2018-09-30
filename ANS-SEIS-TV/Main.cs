@@ -930,7 +930,7 @@ namespace ANS_SEIS_TV
 
         private void btnFinalizeReservation_Click(object sender, EventArgs e)
         {
-            ReservationFinalize r = new ReservationFinalize();
+            FinalizeReservation r = new FinalizeReservation();
 
             DataGridViewRow row = new DataGridViewRow();
 
@@ -1014,11 +1014,17 @@ namespace ANS_SEIS_TV
 
             int totalborrowed = g.GetTotalEquipmentBorrowedQuantity();
             int totalquantity = g.GetTotalEquipmentQuantity();
+            int totaldamaged = g.GetTotalNumberOfDamagedEquipment();
 
             double borrowed = ((double)totalborrowed / (double)totalquantity) * 100;
 
+            double damaged = ((double)totaldamaged / (double)totalquantity) * 100;
+
             cpbBorrowed.Text = Math.Round(borrowed, 1).ToString();
             cpbBorrowed.Value = Convert.ToInt32(borrowed);
+
+            cpbDamaged.Text = Math.Round(damaged, 1).ToString();
+            cpbDamaged.Value = Convert.ToInt32(damaged);
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -1169,7 +1175,7 @@ namespace ANS_SEIS_TV
 
         private void btnDeploymentConfirm_Click(object sender, EventArgs e)
         {
-            if (dgvEquipmentDeployList.Rows.Count>1)
+            if (dgvEquipmentDeployList.Rows.Count==0)
             {
                 MetroMessageBox.Show(this, "Deployment list is Empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -1402,6 +1408,73 @@ namespace ANS_SEIS_TV
 
 
         private void lblCurrentUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonRichTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonRichTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnViewPullOutDetails.PerformClick();
+            }
+        }
+
+        private void btnViewPullOutDetails_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void btnViewPullOutDetails_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnViewPullOutDetails_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPullOutTransactionID.Text.Trim()))
+            {
+                if (string.IsNullOrEmpty(drpPullOutLocation.Text.Trim()))
+                {
+                    MetroMessageBox.Show(this, "Please input Transaction ID or Room No", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    dgvPullOutView.DataSource = db.sp_ViewDeployedEquipmentsFacilityID(g.GetFacilityID(drpPullOutLocation.Text));
+                }
+            }
+            else
+            {
+                dgvPullOutView.DataSource = db.sp_ViewDeployedEquipmentsTransactionID(Convert.ToInt32(txtPullOutTransactionID.Text));
+            }
+        }
+
+        private void label31_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
         {
 
         }

@@ -11,12 +11,13 @@ using MetroFramework;
 using MetroFramework.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using System.IO;
 
 namespace ANS_SEIS_TV
 {
-    public partial class ReservationFinalize : MetroForm
+    public partial class FinalizeReservation : MetroForm
     {
-        public ReservationFinalize()
+        public FinalizeReservation()
         {
             InitializeComponent();
         }
@@ -24,6 +25,10 @@ namespace ANS_SEIS_TV
         TransactionLibrary t = new TransactionLibrary();
 
         GetSomethingFromServer g = new GetSomethingFromServer();
+
+        DataClasses1DataContext db = new DataClasses1DataContext();
+
+        StuffLibrary s = new StuffLibrary();
 
         public int TransactionID { get; set; }
         public string Reservee { get; set; }
@@ -40,6 +45,8 @@ namespace ANS_SEIS_TV
             lblReservee.Text = "Reservee :" + g.Fullname;
             lblReservationID.Text = "Transaction ID :" + TransactionID;
             lblReservationDate.Text = "Reservation Date :" + ReservationDate.ToShortDateString();
+
+            ReserveeID = g.GetGENID(Reservee);
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
@@ -50,6 +57,17 @@ namespace ANS_SEIS_TV
                 t.NewEquipmentReservation(TransactionID, ReserveeID, Convert.ToInt32(row.Cells[0].Value), ReservationDate, Convert.ToInt32(row.Cells[2].Value), false);
                 t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) + Convert.ToInt32(row.Cells[2].Value));
             }
+            s.GenerateBarcode(TransactionID.ToString());
+
+            String strBLOBFilePath = s.SavePath;//Modify this path as needed.
+
+            //Read jpg into file stream, and from there into Byte array.
+            FileStream fsBLOBFile = new FileStream(strBLOBFilePath, FileMode.Open, FileAccess.Read);
+            Byte[] bytBLOBData = new Byte[fsBLOBFile.Length];
+            fsBLOBFile.Read(bytBLOBData, 0, bytBLOBData.Length);
+            fsBLOBFile.Close();
+
+            db.sp_NewBorrowBarcodeInsert(TransactionID, bytBLOBData, s.SavePath);
             MetroMessageBox.Show(this, "Transaction Complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
