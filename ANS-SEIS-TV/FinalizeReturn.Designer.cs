@@ -1,6 +1,6 @@
 ﻿namespace ANS_SEIS_TV
 {
-    partial class ReturnFinalize
+    partial class FinalizeReturn
     {
         /// <summary>
         /// Required designer variable.

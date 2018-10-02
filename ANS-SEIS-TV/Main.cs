@@ -505,6 +505,9 @@ namespace ANS_SEIS_TV
                     // for status btaw na hahahaha
                     eq.EquipmentStatusAdd(eq.ID, eq.EquipmentQuantity);
 
+                    // for PullOut
+                    eq.NewEquipmentPullOut(eq.ID);
+
                     EquipmentClear();
 
                     u.ID = u.CurrentID;
@@ -819,7 +822,7 @@ namespace ANS_SEIS_TV
             }
             else
             {
-                ReturnFinalize r = new ReturnFinalize();
+                FinalizeReturn r = new FinalizeReturn();
 
                 DataGridViewRow row = new DataGridViewRow();
 
@@ -1285,6 +1288,34 @@ namespace ANS_SEIS_TV
             lblPulloutTotalBorrowed.Text = q.ToString();
         }
 
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            // from
+            // dgvPullOutView
+            // dgvPullOutView
+
+            // to
+            // dgvPullOutFinal
+            // 
+            FinalizePullOut f = new FinalizePullOut(CurrentGENID,g.GetFacilyTeacherGENID(drpPullOutLocation.Text),lblPullOutRoom.Text,lblPullOutRmName.Text);
+
+            DataGridViewRow row = new DataGridViewRow();
+
+            for (int i = 0; i < dgvPullOutView.Rows.Count; i++)
+            {
+                row = (DataGridViewRow)dgvPullOutView.Rows[i].Clone();
+                int intColIndex = 0;
+                foreach (DataGridViewCell cell in dgvPullOutView.Rows[i].Cells)
+                {
+                    row.Cells[intColIndex].Value = cell.Value;
+                    intColIndex++;
+                }
+                f.dgvPullOutFinal.Rows.Add(row);
+            }
+
+            f.ShowDialog();
+        }
+
         private void RequestGridUpdate()
         {
             //foreach (DataGridViewRow row in dgvRequest.Rows)
@@ -1537,7 +1568,5 @@ namespace ANS_SEIS_TV
         {
 
         }
-
-        
     }
 }

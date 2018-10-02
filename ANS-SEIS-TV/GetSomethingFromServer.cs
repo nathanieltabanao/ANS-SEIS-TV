@@ -364,5 +364,14 @@ namespace ANS_SEIS_TV
 
             return Convert.ToInt32(results.FirstOrDefault().ToString());
         }
+
+        public int GetPullOutQuantity(int EQID)
+        {
+            var results = from TBLPULLEDOUTEQUIPMENT in db.TBLPULLEDOUTEQUIPMENTs
+                          where TBLPULLEDOUTEQUIPMENT.EQUIPMENT_ID == EQID
+                          select TBLPULLEDOUTEQUIPMENT.QUANTITY;
+
+            return Convert.ToInt32(results.FirstOrDefault().Value.ToString());
+        }
     }
 }

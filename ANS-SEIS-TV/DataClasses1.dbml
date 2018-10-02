@@ -295,6 +295,12 @@
     <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.sp_DeploymentPullOut" Method="sp_DeploymentPullOut">
+    <Parameter Name="RoomNo" Parameter="roomNo" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="EquipmentID" Parameter="equipmentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Quantity" Parameter="quantity" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.sp_DeploymentReport" Method="sp_DeploymentReport">
     <ElementType Name="sp_DeploymentReportResult">
       <Column Name="TransactionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
