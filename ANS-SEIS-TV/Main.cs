@@ -244,6 +244,21 @@ namespace ANS_SEIS_TV
             txtPassword.Enabled = false;
         }
 
+        private void rdoStudent_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (u.UserID() == 1)
+            {
+                txtUserID.Text = "ST-" + (u.UserID().ToString().PadLeft(5, '0'));
+            }
+            else
+            {
+                txtUserID.Text = "ST-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
+            }
+            u.Usertype = 112;
+            txtUsername.Enabled = false;
+            txtPassword.Enabled = false;
+        }
+
         // Nethod for user registration
         private void btnAddUser_Click(object sender, EventArgs e)
         {

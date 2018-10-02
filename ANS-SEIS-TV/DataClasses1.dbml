@@ -258,10 +258,13 @@
       <Column Name="USERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_ViewTransactionBarcode" Method="sp_ViewTransactionBarcode">
-    <Parameter Name="SearchBarcode" Parameter="searchBarcode" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ViewTransactionBarcodeResult">
-      <Column Name="BWBarcodePath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+  <Function Name="dbo.sp_ViewReservedEquipment" Method="sp_ViewReservedEquipment">
+    <Parameter Name="TransactionID" Parameter="transactionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ViewReservedEquipmentResult">
+      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_BorrowAddQuantity" Method="sp_BorrowAddQuantity">
@@ -271,6 +274,15 @@
   </Function>
   <Function Name="dbo.sp_BorrowedReport" Method="sp_BorrowedReport">
     <ElementType Name="sp_BorrowedReportResult">
+      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Borrowed By]" Member="Borrowed_By" Type="System.String" DbType="VarChar(302)" CanBeNull="true" />
+      <Column Name="EQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_BorrowTeacherView" Method="sp_BorrowTeacherView">
+    <Parameter Name="GENID" Parameter="gENID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_BorrowTeacherViewResult">
       <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="[Borrowed By]" Member="Borrowed_By" Type="System.String" DbType="VarChar(302)" CanBeNull="true" />
       <Column Name="EQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
@@ -303,6 +315,17 @@
   </Function>
   <Function Name="dbo.sp_DeploymentReport" Method="sp_DeploymentReport">
     <ElementType Name="sp_DeploymentReportResult">
+      <Column Name="TransactionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Borrowed By]" Member="Borrowed_By" Type="System.String" DbType="VarChar(302)" CanBeNull="true" />
+      <Column Name="EQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TransactionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FacilityRoomNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_DeploymentViewTeacher" Method="sp_DeploymentViewTeacher">
+    <Parameter Name="GENID" Parameter="gENID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_DeploymentViewTeacherResult">
       <Column Name="TransactionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="[Borrowed By]" Member="Borrowed_By" Type="System.String" DbType="VarChar(302)" CanBeNull="true" />
       <Column Name="EQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
@@ -832,13 +855,10 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_ViewReservedEquipment" Method="sp_ViewReservedEquipment">
-    <Parameter Name="TransactionID" Parameter="transactionID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ViewReservedEquipmentResult">
-      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+  <Function Name="dbo.sp_ViewTransactionBarcode" Method="sp_ViewTransactionBarcode">
+    <Parameter Name="SearchBarcode" Parameter="searchBarcode" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ViewTransactionBarcodeResult">
+      <Column Name="BWBarcodePath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

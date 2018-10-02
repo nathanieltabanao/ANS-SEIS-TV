@@ -28,51 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabSelector2 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl2 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.materialTabSelector3 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl3 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage16 = new System.Windows.Forms.TabPage();
-            this.tabPage17 = new System.Windows.Forms.TabPage();
-            this.kryptonButton6 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dataGridViewX4 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.txtSearchBorrow = new MetroFramework.Controls.MetroTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dgvToBeBorrowed = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.btnSearchBorrower = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtBorrowerFullname = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtBorrowerUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.tabPage18 = new System.Windows.Forms.TabPage();
-            this.btnAddList = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnRmvList = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnClrList = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnRtrnSlip = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.bunifuCustomLabel22 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.dataGridViewX2 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.bunifuCustomLabel20 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnReturnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonTextBox3 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.bunifuCustomLabel15 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.kryptonTextBox4 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.bunifuCustomLabel16 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.rdoDenied = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
@@ -81,27 +52,32 @@
             this.rdoPendingRequest = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.rdoAllRequest = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.btnNewRequest = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.dgvRequest = new MetroFramework.Controls.MetroGrid();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
             this.lblCurrentUser = new System.Windows.Forms.Label();
             this.btnLogout = new MaterialSkin.Controls.MaterialFlatButton();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnRefresh = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.dgvRequest = new MetroFramework.Controls.MetroGrid();
+            this.dgvBorrowed = new MetroFramework.Controls.MetroGrid();
+            this.dgvDeployed = new MetroFramework.Controls.MetroGrid();
+            this.aNS_SEIS_TVDataSet7 = new ANS_SEIS_TV.ANS_SEIS_TVDataSet7();
+            this.spDeploymentViewTeacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sp_DeploymentViewTeacherTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet7TableAdapters.sp_DeploymentViewTeacherTableAdapter();
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
-            this.tabPage17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX4)).BeginInit();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvToBeBorrowed)).BeginInit();
-            this.groupBox7.SuspendLayout();
-            this.tabPage18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.tabPage16.SuspendLayout();
             this.tabPage11.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeployed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDeploymentViewTeacherBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTabSelector2
@@ -123,8 +99,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabControl2.Controls.Add(this.tabPage8);
-            this.materialTabControl2.Controls.Add(this.tabPage12);
-            this.materialTabControl2.Controls.Add(this.tabPage13);
             this.materialTabControl2.Depth = 0;
             this.materialTabControl2.Location = new System.Drawing.Point(-3, 109);
             this.materialTabControl2.MouseState = MaterialSkin.MouseState.HOVER;
@@ -165,9 +139,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabControl3.Controls.Add(this.tabPage16);
-            this.materialTabControl3.Controls.Add(this.tabPage17);
-            this.materialTabControl3.Controls.Add(this.tabPage18);
             this.materialTabControl3.Controls.Add(this.tabPage11);
+            this.materialTabControl3.Controls.Add(this.tabPage1);
             this.materialTabControl3.Depth = 0;
             this.materialTabControl3.Location = new System.Drawing.Point(0, 37);
             this.materialTabControl3.MouseState = MaterialSkin.MouseState.HOVER;
@@ -179,480 +152,20 @@
             // tabPage16
             // 
             this.tabPage16.BackColor = System.Drawing.Color.White;
+            this.tabPage16.Controls.Add(this.dgvBorrowed);
+            this.tabPage16.Controls.Add(this.bunifuCustomLabel2);
             this.tabPage16.Location = new System.Drawing.Point(4, 22);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage16.Size = new System.Drawing.Size(1154, 547);
             this.tabPage16.TabIndex = 2;
-            this.tabPage16.Text = "Monitoring";
-            // 
-            // tabPage17
-            // 
-            this.tabPage17.Controls.Add(this.kryptonButton6);
-            this.tabPage17.Controls.Add(this.kryptonButton3);
-            this.tabPage17.Controls.Add(this.kryptonButton2);
-            this.tabPage17.Controls.Add(this.label3);
-            this.tabPage17.Controls.Add(this.dataGridViewX4);
-            this.tabPage17.Controls.Add(this.kryptonButton1);
-            this.tabPage17.Controls.Add(this.groupBox8);
-            this.tabPage17.Controls.Add(this.dgvToBeBorrowed);
-            this.tabPage17.Controls.Add(this.groupBox7);
-            this.tabPage17.Location = new System.Drawing.Point(4, 22);
-            this.tabPage17.Name = "tabPage17";
-            this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage17.Size = new System.Drawing.Size(1154, 547);
-            this.tabPage17.TabIndex = 3;
-            this.tabPage17.Text = "Borrowing";
-            this.tabPage17.UseVisualStyleBackColor = true;
-            // 
-            // kryptonButton6
-            // 
-            this.kryptonButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonButton6.Location = new System.Drawing.Point(1046, 511);
-            this.kryptonButton6.Name = "kryptonButton6";
-            this.kryptonButton6.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.kryptonButton6.Size = new System.Drawing.Size(90, 25);
-            this.kryptonButton6.TabIndex = 77;
-            this.kryptonButton6.Values.Text = "Proceed to Checkout";
-            // 
-            // kryptonButton3
-            // 
-            this.kryptonButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonButton3.Location = new System.Drawing.Point(854, 511);
-            this.kryptonButton3.Name = "kryptonButton3";
-            this.kryptonButton3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.kryptonButton3.Size = new System.Drawing.Size(90, 25);
-            this.kryptonButton3.TabIndex = 76;
-            this.kryptonButton3.Values.Text = "Clear";
-            // 
-            // kryptonButton2
-            // 
-            this.kryptonButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonButton2.Location = new System.Drawing.Point(950, 511);
-            this.kryptonButton2.Name = "kryptonButton2";
-            this.kryptonButton2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.kryptonButton2.Size = new System.Drawing.Size(90, 25);
-            this.kryptonButton2.TabIndex = 75;
-            this.kryptonButton2.Values.Text = "Remove";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(572, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 20);
-            this.label3.TabIndex = 74;
-            this.label3.Text = "Borrow List";
-            // 
-            // dataGridViewX4
-            // 
-            this.dataGridViewX4.AllowUserToAddRows = false;
-            this.dataGridViewX4.AllowUserToDeleteRows = false;
-            this.dataGridViewX4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.dataGridViewX4.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridViewX4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX4.DefaultCellStyle = dataGridViewCellStyle18;
-            this.dataGridViewX4.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX4.Location = new System.Drawing.Point(576, 36);
-            this.dataGridViewX4.Name = "dataGridViewX4";
-            this.dataGridViewX4.ReadOnly = true;
-            this.dataGridViewX4.Size = new System.Drawing.Size(560, 469);
-            this.dataGridViewX4.TabIndex = 73;
-            // 
-            // kryptonButton1
-            // 
-            this.kryptonButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonButton1.Location = new System.Drawing.Point(8, 511);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.kryptonButton1.Size = new System.Drawing.Size(90, 25);
-            this.kryptonButton1.TabIndex = 72;
-            this.kryptonButton1.Values.Text = "Add to List";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.txtSearchBorrow);
-            this.groupBox8.Controls.Add(this.label4);
-            this.groupBox8.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(6, 116);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(564, 63);
-            this.groupBox8.TabIndex = 71;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Equipment List";
-            // 
-            // txtSearchBorrow
-            // 
-            // 
-            // 
-            // 
-            this.txtSearchBorrow.CustomButton.Image = null;
-            this.txtSearchBorrow.CustomButton.Location = new System.Drawing.Point(396, 1);
-            this.txtSearchBorrow.CustomButton.Name = "";
-            this.txtSearchBorrow.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtSearchBorrow.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtSearchBorrow.CustomButton.TabIndex = 1;
-            this.txtSearchBorrow.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtSearchBorrow.CustomButton.UseSelectable = true;
-            this.txtSearchBorrow.CustomButton.Visible = false;
-            this.txtSearchBorrow.Lines = new string[0];
-            this.txtSearchBorrow.Location = new System.Drawing.Point(140, 26);
-            this.txtSearchBorrow.MaxLength = 32767;
-            this.txtSearchBorrow.Name = "txtSearchBorrow";
-            this.txtSearchBorrow.PasswordChar = '\0';
-            this.txtSearchBorrow.PromptText = "Equipment Name / Barcode / Type";
-            this.txtSearchBorrow.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtSearchBorrow.SelectedText = "";
-            this.txtSearchBorrow.SelectionLength = 0;
-            this.txtSearchBorrow.SelectionStart = 0;
-            this.txtSearchBorrow.ShortcutsEnabled = true;
-            this.txtSearchBorrow.Size = new System.Drawing.Size(418, 23);
-            this.txtSearchBorrow.TabIndex = 2;
-            this.txtSearchBorrow.UseSelectable = true;
-            this.txtSearchBorrow.WaterMark = "Equipment Name / Barcode / Type";
-            this.txtSearchBorrow.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtSearchBorrow.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 20);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Search Equipments :";
-            // 
-            // dgvToBeBorrowed
-            // 
-            this.dgvToBeBorrowed.AllowUserToAddRows = false;
-            this.dgvToBeBorrowed.AllowUserToDeleteRows = false;
-            this.dgvToBeBorrowed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvToBeBorrowed.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dgvToBeBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvToBeBorrowed.DefaultCellStyle = dataGridViewCellStyle19;
-            this.dgvToBeBorrowed.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvToBeBorrowed.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dgvToBeBorrowed.Location = new System.Drawing.Point(6, 185);
-            this.dgvToBeBorrowed.Name = "dgvToBeBorrowed";
-            this.dgvToBeBorrowed.ReadOnly = true;
-            this.dgvToBeBorrowed.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvToBeBorrowed.Size = new System.Drawing.Size(564, 320);
-            this.dgvToBeBorrowed.TabIndex = 70;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.btnSearchBorrower);
-            this.groupBox7.Controls.Add(this.label2);
-            this.groupBox7.Controls.Add(this.txtBorrowerFullname);
-            this.groupBox7.Controls.Add(this.label1);
-            this.groupBox7.Controls.Add(this.txtBorrowerUsername);
-            this.groupBox7.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(6, 6);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(564, 104);
-            this.groupBox7.TabIndex = 69;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Borrower Details";
-            // 
-            // btnSearchBorrower
-            // 
-            this.btnSearchBorrower.Location = new System.Drawing.Point(493, 30);
-            this.btnSearchBorrower.Name = "btnSearchBorrower";
-            this.btnSearchBorrower.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
-            this.btnSearchBorrower.Size = new System.Drawing.Size(65, 52);
-            this.btnSearchBorrower.TabIndex = 70;
-            this.btnSearchBorrower.Values.Text = "Search";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(33, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Name :";
-            // 
-            // txtBorrowerFullname
-            // 
-            this.txtBorrowerFullname.Enabled = false;
-            this.txtBorrowerFullname.Location = new System.Drawing.Point(83, 59);
-            this.txtBorrowerFullname.Name = "txtBorrowerFullname";
-            this.txtBorrowerFullname.Size = new System.Drawing.Size(404, 23);
-            this.txtBorrowerFullname.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Username :";
-            // 
-            // txtBorrowerUsername
-            // 
-            this.txtBorrowerUsername.Enabled = false;
-            this.txtBorrowerUsername.Location = new System.Drawing.Point(83, 30);
-            this.txtBorrowerUsername.Name = "txtBorrowerUsername";
-            this.txtBorrowerUsername.Size = new System.Drawing.Size(404, 23);
-            this.txtBorrowerUsername.TabIndex = 0;
-            // 
-            // tabPage18
-            // 
-            this.tabPage18.Controls.Add(this.btnAddList);
-            this.tabPage18.Controls.Add(this.btnRmvList);
-            this.tabPage18.Controls.Add(this.btnClrList);
-            this.tabPage18.Controls.Add(this.btnRtrnSlip);
-            this.tabPage18.Controls.Add(this.bunifuCustomLabel22);
-            this.tabPage18.Controls.Add(this.dataGridViewX2);
-            this.tabPage18.Controls.Add(this.bunifuCustomLabel20);
-            this.tabPage18.Controls.Add(this.dataGridViewX1);
-            this.tabPage18.Controls.Add(this.groupBox2);
-            this.tabPage18.Location = new System.Drawing.Point(4, 22);
-            this.tabPage18.Name = "tabPage18";
-            this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage18.Size = new System.Drawing.Size(1154, 547);
-            this.tabPage18.TabIndex = 4;
-            this.tabPage18.Text = "Return";
-            this.tabPage18.UseVisualStyleBackColor = true;
-            // 
-            // btnAddList
-            // 
-            this.btnAddList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddList.Location = new System.Drawing.Point(6, 487);
-            this.btnAddList.Name = "btnAddList";
-            this.btnAddList.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnAddList.Size = new System.Drawing.Size(107, 45);
-            this.btnAddList.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnAddList.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnAddList.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnAddList.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddList.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
-            this.btnAddList.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
-            this.btnAddList.TabIndex = 67;
-            this.btnAddList.Values.Text = "Add";
-            // 
-            // btnRmvList
-            // 
-            this.btnRmvList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRmvList.Location = new System.Drawing.Point(576, 487);
-            this.btnRmvList.Name = "btnRmvList";
-            this.btnRmvList.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnRmvList.Size = new System.Drawing.Size(107, 45);
-            this.btnRmvList.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnRmvList.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnRmvList.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnRmvList.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRmvList.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
-            this.btnRmvList.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
-            this.btnRmvList.TabIndex = 66;
-            this.btnRmvList.Values.Text = "Remove";
-            // 
-            // btnClrList
-            // 
-            this.btnClrList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClrList.Location = new System.Drawing.Point(695, 487);
-            this.btnClrList.Name = "btnClrList";
-            this.btnClrList.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnClrList.Size = new System.Drawing.Size(107, 45);
-            this.btnClrList.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
-            this.btnClrList.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
-            this.btnClrList.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnClrList.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClrList.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
-            this.btnClrList.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
-            this.btnClrList.TabIndex = 65;
-            this.btnClrList.Values.Text = "Clear List";
-            // 
-            // btnRtrnSlip
-            // 
-            this.btnRtrnSlip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRtrnSlip.Location = new System.Drawing.Point(983, 487);
-            this.btnRtrnSlip.Name = "btnRtrnSlip";
-            this.btnRtrnSlip.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnRtrnSlip.Size = new System.Drawing.Size(149, 45);
-            this.btnRtrnSlip.StateNormal.Back.Color1 = System.Drawing.Color.ForestGreen;
-            this.btnRtrnSlip.StateNormal.Back.Color2 = System.Drawing.Color.ForestGreen;
-            this.btnRtrnSlip.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnRtrnSlip.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRtrnSlip.StatePressed.Back.Color1 = System.Drawing.Color.Firebrick;
-            this.btnRtrnSlip.StatePressed.Back.Color2 = System.Drawing.Color.IndianRed;
-            this.btnRtrnSlip.TabIndex = 64;
-            this.btnRtrnSlip.Values.Text = "PRINT RETURN SLIP";
-            // 
-            // bunifuCustomLabel22
-            // 
-            this.bunifuCustomLabel22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuCustomLabel22.AutoSize = true;
-            this.bunifuCustomLabel22.BackColor = System.Drawing.Color.SlateGray;
-            this.bunifuCustomLabel22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bunifuCustomLabel22.Font = new System.Drawing.Font("Roboto Condensed", 13F);
-            this.bunifuCustomLabel22.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel22.Location = new System.Drawing.Point(547, 138);
-            this.bunifuCustomLabel22.Name = "bunifuCustomLabel22";
-            this.bunifuCustomLabel22.Size = new System.Drawing.Size(120, 26);
-            this.bunifuCustomLabel22.TabIndex = 61;
-            this.bunifuCustomLabel22.Text = "Borrow History";
-            // 
-            // dataGridViewX2
-            // 
-            this.dataGridViewX2.AllowUserToAddRows = false;
-            this.dataGridViewX2.AllowUserToDeleteRows = false;
-            this.dataGridViewX2.AllowUserToOrderColumns = true;
-            this.dataGridViewX2.AllowUserToResizeColumns = false;
-            this.dataGridViewX2.AllowUserToResizeRows = false;
-            this.dataGridViewX2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewX2.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dataGridViewX2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle20;
-            this.dataGridViewX2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewX2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX2.Location = new System.Drawing.Point(547, 167);
-            this.dataGridViewX2.Name = "dataGridViewX2";
-            this.dataGridViewX2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridViewX2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX2.Size = new System.Drawing.Size(597, 314);
-            this.dataGridViewX2.TabIndex = 60;
-            // 
-            // bunifuCustomLabel20
-            // 
-            this.bunifuCustomLabel20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuCustomLabel20.AutoSize = true;
-            this.bunifuCustomLabel20.BackColor = System.Drawing.Color.SlateGray;
-            this.bunifuCustomLabel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bunifuCustomLabel20.Font = new System.Drawing.Font("Roboto Condensed", 13F);
-            this.bunifuCustomLabel20.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel20.Location = new System.Drawing.Point(8, 138);
-            this.bunifuCustomLabel20.Name = "bunifuCustomLabel20";
-            this.bunifuCustomLabel20.Size = new System.Drawing.Size(151, 26);
-            this.bunifuCustomLabel20.TabIndex = 55;
-            this.bunifuCustomLabel20.Text = "Currently Borrowed";
-            // 
-            // dataGridViewX1
-            // 
-            this.dataGridViewX1.AllowUserToAddRows = false;
-            this.dataGridViewX1.AllowUserToDeleteRows = false;
-            this.dataGridViewX1.AllowUserToOrderColumns = true;
-            this.dataGridViewX1.AllowUserToResizeColumns = false;
-            this.dataGridViewX1.AllowUserToResizeRows = false;
-            this.dataGridViewX1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewX1.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle21;
-            this.dataGridViewX1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX1.Location = new System.Drawing.Point(6, 167);
-            this.dataGridViewX1.Name = "dataGridViewX1";
-            this.dataGridViewX1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX1.Size = new System.Drawing.Size(523, 314);
-            this.dataGridViewX1.TabIndex = 54;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.btnReturnSearch);
-            this.groupBox2.Controls.Add(this.kryptonTextBox3);
-            this.groupBox2.Controls.Add(this.bunifuCustomLabel15);
-            this.groupBox2.Controls.Add(this.kryptonTextBox4);
-            this.groupBox2.Controls.Add(this.bunifuCustomLabel16);
-            this.groupBox2.Font = new System.Drawing.Font("Roboto", 10F);
-            this.groupBox2.Location = new System.Drawing.Point(362, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(454, 107);
-            this.groupBox2.TabIndex = 41;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Borrower Details";
-            // 
-            // btnReturnSearch
-            // 
-            this.btnReturnSearch.Location = new System.Drawing.Point(367, 24);
-            this.btnReturnSearch.Name = "btnReturnSearch";
-            this.btnReturnSearch.Size = new System.Drawing.Size(81, 56);
-            this.btnReturnSearch.TabIndex = 40;
-            this.btnReturnSearch.Values.Text = "Search";
-            // 
-            // kryptonTextBox3
-            // 
-            this.kryptonTextBox3.Location = new System.Drawing.Point(82, 58);
-            this.kryptonTextBox3.Name = "kryptonTextBox3";
-            this.kryptonTextBox3.Size = new System.Drawing.Size(279, 23);
-            this.kryptonTextBox3.TabIndex = 39;
-            // 
-            // bunifuCustomLabel15
-            // 
-            this.bunifuCustomLabel15.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuCustomLabel15.AutoSize = true;
-            this.bunifuCustomLabel15.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel15.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel15.Location = new System.Drawing.Point(31, 59);
-            this.bunifuCustomLabel15.Name = "bunifuCustomLabel15";
-            this.bunifuCustomLabel15.Size = new System.Drawing.Size(53, 21);
-            this.bunifuCustomLabel15.TabIndex = 38;
-            this.bunifuCustomLabel15.Text = "Name :";
-            // 
-            // kryptonTextBox4
-            // 
-            this.kryptonTextBox4.Location = new System.Drawing.Point(82, 24);
-            this.kryptonTextBox4.Name = "kryptonTextBox4";
-            this.kryptonTextBox4.Size = new System.Drawing.Size(279, 23);
-            this.kryptonTextBox4.TabIndex = 37;
-            // 
-            // bunifuCustomLabel16
-            // 
-            this.bunifuCustomLabel16.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuCustomLabel16.AutoSize = true;
-            this.bunifuCustomLabel16.BackColor = System.Drawing.SystemColors.Window;
-            this.bunifuCustomLabel16.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel16.Location = new System.Drawing.Point(5, 23);
-            this.bunifuCustomLabel16.Name = "bunifuCustomLabel16";
-            this.bunifuCustomLabel16.Size = new System.Drawing.Size(79, 21);
-            this.bunifuCustomLabel16.TabIndex = 32;
-            this.bunifuCustomLabel16.Text = "Username :";
+            this.tabPage16.Text = "Borrowed";
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.dgvRequest);
             this.tabPage11.Controls.Add(this.groupBox6);
             this.tabPage11.Controls.Add(this.btnNewRequest);
-            this.tabPage11.Controls.Add(this.dgvRequest);
             this.tabPage11.Controls.Add(this.bunifuCustomLabel1);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
@@ -735,7 +248,7 @@
             this.btnNewRequest.Depth = 0;
             this.btnNewRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewRequest.Icon = null;
-            this.btnNewRequest.Location = new System.Drawing.Point(1021, 497);
+            this.btnNewRequest.Location = new System.Drawing.Point(1027, 497);
             this.btnNewRequest.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnNewRequest.Name = "btnNewRequest";
             this.btnNewRequest.Primary = true;
@@ -744,63 +257,6 @@
             this.btnNewRequest.Text = "New Request";
             this.btnNewRequest.UseVisualStyleBackColor = true;
             this.btnNewRequest.Click += new System.EventHandler(this.materialRaisedButton1_Click);
-            // 
-            // dgvRequest
-            // 
-            this.dgvRequest.AllowUserToAddRows = false;
-            this.dgvRequest.AllowUserToDeleteRows = false;
-            this.dgvRequest.AllowUserToResizeColumns = false;
-            this.dgvRequest.AllowUserToResizeRows = false;
-            this.dgvRequest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvRequest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvRequest.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvRequest.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvRequest.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvRequest.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvRequest.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
-            this.dgvRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRequest.DefaultCellStyle = dataGridViewCellStyle16;
-            this.dgvRequest.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvRequest.EnableHeadersVisualStyles = false;
-            this.dgvRequest.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvRequest.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvRequest.Location = new System.Drawing.Point(9, 69);
-            this.dgvRequest.MultiSelect = false;
-            this.dgvRequest.Name = "dgvRequest";
-            this.dgvRequest.ReadOnly = true;
-            this.dgvRequest.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRequest.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.dgvRequest.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvRequest.RowTemplate.Height = 30;
-            this.dgvRequest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRequest.Size = new System.Drawing.Size(1138, 422);
-            this.dgvRequest.TabIndex = 46;
-            this.dgvRequest.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.dgvRequest.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRequest_CellContentDoubleClick);
             // 
             // bunifuCustomLabel1
             // 
@@ -815,26 +271,6 @@
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(100, 26);
             this.bunifuCustomLabel1.TabIndex = 44;
             this.bunifuCustomLabel1.Text = "Request List";
-            // 
-            // tabPage12
-            // 
-            this.tabPage12.Location = new System.Drawing.Point(4, 22);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(1154, 606);
-            this.tabPage12.TabIndex = 5;
-            this.tabPage12.Text = "Reports";
-            this.tabPage12.UseVisualStyleBackColor = true;
-            // 
-            // tabPage13
-            // 
-            this.tabPage13.Location = new System.Drawing.Point(4, 22);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(1154, 606);
-            this.tabPage13.TabIndex = 6;
-            this.tabPage13.Text = "User Profile";
-            this.tabPage13.UseVisualStyleBackColor = true;
             // 
             // lblCurrentUser
             // 
@@ -868,11 +304,240 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click_1);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dgvDeployed);
+            this.tabPage1.Controls.Add(this.bunifuCustomLabel3);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1154, 547);
+            this.tabPage1.TabIndex = 8;
+            this.tabPage1.Text = "Deployed";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuCustomLabel2.AutoSize = true;
+            this.bunifuCustomLabel2.BackColor = System.Drawing.Color.SlateGray;
+            this.bunifuCustomLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Roboto Condensed", 13F);
+            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(7, 18);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(227, 26);
+            this.bunifuCustomLabel2.TabIndex = 45;
+            this.bunifuCustomLabel2.Text = "Current Borrowed Equipments";
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.SlateGray;
+            this.bunifuCustomLabel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Roboto Condensed", 13F);
+            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(9, 16);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(223, 26);
+            this.bunifuCustomLabel3.TabIndex = 47;
+            this.bunifuCustomLabel3.Text = "Current Deployed Equipments";
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(12, 12);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
+            this.btnRefresh.Size = new System.Drawing.Size(90, 34);
+            this.btnRefresh.TabIndex = 29;
+            this.btnRefresh.Values.Text = "Refresh Tables";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // dgvRequest
+            // 
+            this.dgvRequest.AllowUserToAddRows = false;
+            this.dgvRequest.AllowUserToDeleteRows = false;
+            this.dgvRequest.AllowUserToResizeRows = false;
+            this.dgvRequest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvRequest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvRequest.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvRequest.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvRequest.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvRequest.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvRequest.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Semilight", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRequest.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvRequest.EnableHeadersVisualStyles = false;
+            this.dgvRequest.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvRequest.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvRequest.Location = new System.Drawing.Point(8, 53);
+            this.dgvRequest.MultiSelect = false;
+            this.dgvRequest.Name = "dgvRequest";
+            this.dgvRequest.ReadOnly = true;
+            this.dgvRequest.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRequest.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvRequest.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvRequest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRequest.Size = new System.Drawing.Size(1132, 438);
+            this.dgvRequest.TabIndex = 49;
+            // 
+            // dgvBorrowed
+            // 
+            this.dgvBorrowed.AllowUserToAddRows = false;
+            this.dgvBorrowed.AllowUserToDeleteRows = false;
+            this.dgvBorrowed.AllowUserToOrderColumns = true;
+            this.dgvBorrowed.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvBorrowed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvBorrowed.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvBorrowed.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvBorrowed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBorrowed.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvBorrowed.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBorrowed.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Semilight", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBorrowed.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvBorrowed.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvBorrowed.EnableHeadersVisualStyles = false;
+            this.dgvBorrowed.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvBorrowed.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvBorrowed.Location = new System.Drawing.Point(7, 47);
+            this.dgvBorrowed.MultiSelect = false;
+            this.dgvBorrowed.Name = "dgvBorrowed";
+            this.dgvBorrowed.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBorrowed.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvBorrowed.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvBorrowed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBorrowed.Size = new System.Drawing.Size(1137, 486);
+            this.dgvBorrowed.TabIndex = 46;
+            // 
+            // dgvDeployed
+            // 
+            this.dgvDeployed.AllowUserToAddRows = false;
+            this.dgvDeployed.AllowUserToDeleteRows = false;
+            this.dgvDeployed.AllowUserToResizeRows = false;
+            this.dgvDeployed.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDeployed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvDeployed.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvDeployed.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvDeployed.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvDeployed.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvDeployed.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDeployed.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvDeployed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semilight", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDeployed.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dgvDeployed.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvDeployed.EnableHeadersVisualStyles = false;
+            this.dgvDeployed.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvDeployed.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvDeployed.Location = new System.Drawing.Point(6, 45);
+            this.dgvDeployed.MultiSelect = false;
+            this.dgvDeployed.Name = "dgvDeployed";
+            this.dgvDeployed.ReadOnly = true;
+            this.dgvDeployed.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDeployed.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            this.dgvDeployed.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvDeployed.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvDeployed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDeployed.Size = new System.Drawing.Size(1138, 506);
+            this.dgvDeployed.TabIndex = 48;
+            // 
+            // aNS_SEIS_TVDataSet7
+            // 
+            this.aNS_SEIS_TVDataSet7.DataSetName = "ANS_SEIS_TVDataSet7";
+            this.aNS_SEIS_TVDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spDeploymentViewTeacherBindingSource
+            // 
+            this.spDeploymentViewTeacherBindingSource.DataMember = "sp_DeploymentViewTeacher";
+            this.spDeploymentViewTeacherBindingSource.DataSource = this.aNS_SEIS_TVDataSet7;
+            // 
+            // sp_DeploymentViewTeacherTableAdapter
+            // 
+            this.sp_DeploymentViewTeacherTableAdapter.ClearBeforeFill = true;
+            // 
             // TeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1157, 735);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lblCurrentUser);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.materialTabSelector2);
@@ -881,30 +546,23 @@
             this.MinimizeBox = false;
             this.Name = "TeacherForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Teacher Form";
             this.Load += new System.EventHandler(this.TeacherForm_Load);
             this.materialTabControl2.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.materialTabControl3.ResumeLayout(false);
-            this.tabPage17.ResumeLayout(false);
-            this.tabPage17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX4)).EndInit();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvToBeBorrowed)).EndInit();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.tabPage18.ResumeLayout(false);
-            this.tabPage18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.tabPage16.ResumeLayout(false);
+            this.tabPage16.PerformLayout();
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeployed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDeploymentViewTeacherBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -918,43 +576,8 @@
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector3;
         private MaterialSkin.Controls.MaterialTabControl materialTabControl3;
         private System.Windows.Forms.TabPage tabPage16;
-        private System.Windows.Forms.TabPage tabPage17;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton6;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
-        private System.Windows.Forms.Label label3;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX4;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private MetroFramework.Controls.MetroTextBox txtSearchBorrow;
-        private System.Windows.Forms.Label label4;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dgvToBeBorrowed;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSearchBorrower;
-        private System.Windows.Forms.Label label2;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtBorrowerFullname;
-        private System.Windows.Forms.Label label1;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtBorrowerUsername;
-        private System.Windows.Forms.TabPage tabPage18;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddList;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRmvList;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnClrList;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRtrnSlip;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel22;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX2;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel20;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnReturnSearch;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox3;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel15;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox4;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel16;
         private System.Windows.Forms.TabPage tabPage11;
-        private MetroFramework.Controls.MetroGrid dgvRequest;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private System.Windows.Forms.TabPage tabPage12;
-        private System.Windows.Forms.TabPage tabPage13;
         private MaterialSkin.Controls.MaterialRaisedButton btnNewRequest;
         private System.Windows.Forms.Label lblCurrentUser;
         private MaterialSkin.Controls.MaterialFlatButton btnLogout;
@@ -964,5 +587,16 @@
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoApproved;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoPendingRequest;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdoAllRequest;
+        private System.Windows.Forms.TabPage tabPage1;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRefresh;
+        private MetroFramework.Controls.MetroGrid dgvRequest;
+        private MetroFramework.Controls.MetroGrid dgvBorrowed;
+        private MetroFramework.Controls.MetroGrid dgvDeployed;
+        private System.Windows.Forms.BindingSource spDeploymentViewTeacherBindingSource;
+        private ANS_SEIS_TVDataSet7 aNS_SEIS_TVDataSet7;
+        private ANS_SEIS_TVDataSet7TableAdapters.sp_DeploymentViewTeacherTableAdapter sp_DeploymentViewTeacherTableAdapter;
     }
 }

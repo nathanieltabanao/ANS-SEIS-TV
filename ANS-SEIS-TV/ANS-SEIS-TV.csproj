@@ -136,6 +136,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ANS_SEIS_TVDataSet6.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ANS_SEIS_TVDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ANS_SEIS_TVDataSet7.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BorrowDetail.cs" />
     <Compile Include="FinalizeBorrow.cs">
       <SubType>Form</SubType>
@@ -530,6 +535,17 @@
     </None>
     <None Include="ANS_SEIS_TVDataSet6.xss">
       <DependentUpon>ANS_SEIS_TVDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="ANS_SEIS_TVDataSet7.xsc">
+      <DependentUpon>ANS_SEIS_TVDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="ANS_SEIS_TVDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ANS_SEIS_TVDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ANS_SEIS_TVDataSet7.xss">
+      <DependentUpon>ANS_SEIS_TVDataSet7.xsd</DependentUpon>
     </None>
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
