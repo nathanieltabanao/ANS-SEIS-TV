@@ -173,11 +173,35 @@
     <Compile Include="frmDeployment.Designer.cs">
       <DependentUpon>frmDeployment.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDeploymentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeploymentReport.Designer.cs">
+      <DependentUpon>frmDeploymentReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEquipmmentStatus.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEquipmmentStatus.Designer.cs">
       <DependentUpon>frmEquipmmentStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInventoryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventoryReport.Designer.cs">
+      <DependentUpon>frmInventoryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReservationReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReservationReport.Designer.cs">
+      <DependentUpon>frmReservationReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReservationSlip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReservationSlip.Designer.cs">
+      <DependentUpon>frmReservationSlip.cs</DependentUpon>
     </Compile>
     <Compile Include="rptBorrowSlip.cs">
       <AutoGen>True</AutoGen>
@@ -523,8 +547,20 @@
     <EmbeddedResource Include="frmDeployment.resx">
       <DependentUpon>frmDeployment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDeploymentReport.resx">
+      <DependentUpon>frmDeploymentReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEquipmmentStatus.resx">
       <DependentUpon>frmEquipmmentStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventoryReport.resx">
+      <DependentUpon>frmInventoryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReservationReport.resx">
+      <DependentUpon>frmReservationReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReservationSlip.resx">
+      <DependentUpon>frmReservationSlip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptBorrowSlip.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
