@@ -236,7 +236,14 @@ namespace ANS_SEIS_TV
             var results = (from TBLEQUIPMENTDETAIL in db.TBLEQUIPMENTDETAILs
                            select TBLEQUIPMENTDETAIL.EQUIPMENT_QUANTITY).Sum();
 
-            return int.Parse(results.Value.ToString());
+            if (results==null)
+            {
+                return 0;
+            }
+            else
+            {
+                return int.Parse(results.Value.ToString());
+            }
         }
 
         public int GetTotalEquipmentBorrowedQuantity()
@@ -244,7 +251,14 @@ namespace ANS_SEIS_TV
             var results = (from TBLBORROWED in db.TBLBORROWEDs
                            select TBLBORROWED.Quantity).Sum();
 
-            return int.Parse(results.Value.ToString());
+            if (results == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return int.Parse(results.Value.ToString());
+            }
         }
 
         public int GetTotalEquipmentReservedQuantity()
@@ -269,7 +283,14 @@ namespace ANS_SEIS_TV
                            where TBLREQUESTTABLE.REQUESTSTATUSID == 300
                            select TBLREQUESTTABLE.GENID).Count();
 
-            return int.Parse(results.ToString());
+            if (results == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return int.Parse(results.ToString());
+            }
         }
 
         public int GetTotalNumberOfDamagedEquipment()
@@ -277,7 +298,14 @@ namespace ANS_SEIS_TV
             var results = (from TBLEQUIPMENTSTATUS in db.TBLEQUIPMENTSTATUS
                            select TBLEQUIPMENTSTATUS.BadCondition).Sum();
 
-            return int.Parse(results.Value.ToString());
+            if (results == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return int.Parse(results.Value.ToString());
+            }
         }
 
         public int GetTotalNumberOfReservations()
@@ -285,7 +313,14 @@ namespace ANS_SEIS_TV
             var results = (from TBLEQUIPMENTRESERVATION in db.TBLEQUIPMENTRESERVATIONs
                            select TBLEQUIPMENTRESERVATION.ReservationID).Count();
 
-            return int.Parse(results.ToString());
+            if (results == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return int.Parse(results.ToString());
+            }
         }
 
         public string GetTeacherNameFromFacility(string RoomNo)

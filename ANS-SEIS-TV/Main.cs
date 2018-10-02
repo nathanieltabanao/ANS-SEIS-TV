@@ -247,34 +247,41 @@ namespace ANS_SEIS_TV
         // Nethod for user registration
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            AddUser();
+            if (string.IsNullOrEmpty(txtUsername.Text.Trim()) || string.IsNullOrEmpty(txtFirstName.Text.Trim()) || string.IsNullOrEmpty(txtLastName.Text.Trim()) || string.IsNullOrEmpty(txtContactNumber.Text.Trim())) 
+            {
+                MetroMessageBox.Show(this, "Please fill all necessary information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                AddUser();
 
-            // Load everything to user Library
-            u.GENID = u.UserID();
-            u.ID = txtUserID.Text;
-            u.Username = txtUsername.Text;
-            u.Password = txtPassword.Text;
-            u.FirstName = txtFirstName.Text;
-            u.MiddleName = txtMiddleName.Text;
-            u.LastName = txtLastName.Text;
-            u.ContactNumber = txtContactNumber.Text;
+                // Load everything to user Library
+                u.GENID = u.UserID();
+                u.ID = txtUserID.Text;
+                u.Username = txtUsername.Text;
+                u.Password = txtPassword.Text;
+                u.FirstName = txtFirstName.Text;
+                u.MiddleName = txtMiddleName.Text;
+                u.LastName = txtLastName.Text;
+                u.ContactNumber = txtContactNumber.Text;
 
-            // The actual method to insert the user
-            u.UserInsert();
+                // The actual method to insert the user
+                u.UserInsert();
 
-            // CLears the fields
-            ClearUser();
+                // CLears the fields
+                ClearUser();
 
-            // Update dayun table
-            UpdateAllTable();
+                // Update dayun table
+                UpdateAllTable();
 
-            // Update User ID
-            u.ID = u.CurrentID;
-            u.Action = "Registered a new User";
+                // Update User ID
+                u.ID = u.CurrentID;
+                u.Action = "Registered a new User";
 
-            // Action Report duhhh
-            u.ActionReport();
-            rdoAdmin.Checked = true;
+                // Action Report duhhh
+                u.ActionReport();
+                rdoAdmin.Checked = true;
+            }
         }
         
 
@@ -423,7 +430,7 @@ namespace ANS_SEIS_TV
 
             if (string.IsNullOrWhiteSpace(drpEquipmentType.Text))
             {
-                MessageBox.Show("Please choose Equipment Type!");
+                MetroMessageBox.Show(this, "Please choose Equipment Type!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -474,14 +481,6 @@ namespace ANS_SEIS_TV
                     // Generate barocodo
                     s.GenerateBarcode(eq.EquipmentBarcode.ToString());
 
-                    //Image img = Image.FromFile(s.SavePath);
-                    //byte[] arr;
-
-                    //using (MemoryStream ms = new MemoryStream())
-                    //{
-                    //    img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                    //    arr = ms.ToArray();
-                    //}
 
                     String strBLOBFilePath = s.SavePath;//Modify this path as needed.
 
@@ -521,13 +520,6 @@ namespace ANS_SEIS_TV
                     MetroMessageBox.Show(this, "Equipment Succesfully Registered", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
-            //if (bgwEquipmentRegistration.IsBusy != true)
-            //{
-            //    bgwEquipmentRegistration.RunWorkerAsync();
-            //    LoadingScreen l = new LoadingScreen();
-            //    l.ShowDialog();
-            //}
         }
 
         // Defunct na ni siya kay error 
@@ -536,7 +528,6 @@ namespace ANS_SEIS_TV
             BackgroundWorker worker = sender as BackgroundWorker;
 
             System.Threading.Thread.Sleep(2000);
-            
         }
 
 
@@ -667,6 +658,7 @@ namespace ANS_SEIS_TV
             dgvRequest.DataSource = db.sp_ViewDeniedRequest();
         }
 
+        // Request Load
         private void dgvRequest_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             RequestInformation r = new RequestInformation();
@@ -683,7 +675,7 @@ namespace ANS_SEIS_TV
             r.RequestMessage = g.RequestContent;
             r.CurrentGENID = CurrentGENID;
 
-            if (r.RequestStatus=="OPEN")
+            if (r.RequestStatus=="NEW REQUEST")
             {
                 db.sp_RequestViewed(r.RequestID);
                 r.RequestStatus = "PENDING";
@@ -927,7 +919,7 @@ namespace ANS_SEIS_TV
             }
         }
 
-
+        // Save Reservation Info
         private void btnFinalizeReservation_Click(object sender, EventArgs e)
         {
             FinalizeReservation r = new FinalizeReservation();
@@ -1016,15 +1008,22 @@ namespace ANS_SEIS_TV
             int totalquantity = g.GetTotalEquipmentQuantity();
             int totaldamaged = g.GetTotalNumberOfDamagedEquipment();
 
-            double borrowed = ((double)totalborrowed / (double)totalquantity) * 100;
+            if (totalquantity==0)
+            {
+                totalquantity = totaldamaged = totalborrowed = 0;
+            }
+            else
+            {
+                double borrowed = ((double)totalborrowed / (double)totalquantity) * 100;
 
-            double damaged = ((double)totaldamaged / (double)totalquantity) * 100;
+                double damaged = ((double)totaldamaged / (double)totalquantity) * 100;
 
-            cpbBorrowed.Text = Math.Round(borrowed, 1).ToString();
-            cpbBorrowed.Value = Convert.ToInt32(borrowed);
+                cpbBorrowed.Text = Math.Round(borrowed, 1).ToString();
+                cpbBorrowed.Value = Convert.ToInt32(borrowed);
 
-            cpbDamaged.Text = Math.Round(damaged, 1).ToString();
-            cpbDamaged.Value = Convert.ToInt32(damaged);
+                cpbDamaged.Text = Math.Round(damaged, 1).ToString();
+                cpbDamaged.Value = Convert.ToInt32(damaged);
+            }
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -1204,7 +1203,86 @@ namespace ANS_SEIS_TV
                 }
 
                 d.ShowDialog();
+
+                dgvEquipmentDeployList.Rows.Clear();
+                drpDeploymentDestination.Text = "";
             }
+        }
+
+        private void btnViewPullOutDetails_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPullOutTransactionID.Text.Trim()))
+            {
+                if (string.IsNullOrEmpty(drpPullOutLocation.Text.Trim()))
+                {
+                    MetroMessageBox.Show(this, "Please input Transaction ID or Room No", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    dgvPullOutView.DataSource = db.sp_ViewDeployedEquipmentsFacilityID(g.GetFacilityID(drpPullOutLocation.Text));
+
+                    int q = 0;
+
+                    for (int i = 0; i < dgvPullOutView.Rows.Count; i++)
+                    {
+                        q += Convert.ToInt32(dgvPullOutView.Rows[i].Cells[2].Value);
+                    }
+
+                    lblPulloutTotalBorrowed.Text = q.ToString();
+                }
+            }
+            else
+            {
+                dgvPullOutView.DataSource = db.sp_ViewDeployedEquipmentsTransactionID(Convert.ToInt32(txtPullOutTransactionID.Text));
+
+                int q = 0;
+
+                for (int i = 0; i < dgvPullOutView.Rows.Count; i++)
+                {
+                    q += Convert.ToInt32(dgvPullOutView.Rows[i].Cells[2].Value);
+                }
+
+                lblPulloutTotalBorrowed.Text = q.ToString();
+            }
+        }
+
+        private void dgvPullOutView_CellValidating(object sender,DataGridViewCellValidatingEventArgs e)
+        {
+            if (e.ColumnIndex == 4) // 1 should be your column index
+            {
+                int i;
+
+                if (!int.TryParse(Convert.ToString(e.FormattedValue), out i))
+                {
+                    e.Cancel = true;
+                    label1.Text = "please enter numeric";
+                }
+                else
+                {
+                    // the input is numeric 
+                }
+            }
+        }
+
+        /// <summary>
+        /// Pull Out Code
+        /// </summary>
+
+
+        private void drpPullOutLocation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblPullOutTeacher.Text = g.GetTeacherNameFromFacility(drpPullOutLocation.Text);
+            lblPullOutRmName.Text = g.GetRoomName(drpPullOutLocation.Text);
+            lblPullOutRoom.Text = drpPullOutLocation.Text;
+
+            int q = 0;
+
+            for (int i = 0; i < dgvPullOutView.Rows.Count; i++)
+            {
+                q += Convert.ToInt32(dgvPullOutView.Rows[i].Cells[2].Value);
+            }
+
+            lblPulloutTotalBorrowed.Text = q.ToString();
         }
 
         private void RequestGridUpdate()
@@ -1440,25 +1518,6 @@ namespace ANS_SEIS_TV
 
         }
 
-        private void btnViewPullOutDetails_Click_1(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtPullOutTransactionID.Text.Trim()))
-            {
-                if (string.IsNullOrEmpty(drpPullOutLocation.Text.Trim()))
-                {
-                    MetroMessageBox.Show(this, "Please input Transaction ID or Room No", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    dgvPullOutView.DataSource = db.sp_ViewDeployedEquipmentsFacilityID(g.GetFacilityID(drpPullOutLocation.Text));
-                }
-            }
-            else
-            {
-                dgvPullOutView.DataSource = db.sp_ViewDeployedEquipmentsTransactionID(Convert.ToInt32(txtPullOutTransactionID.Text));
-            }
-        }
-
         private void label31_Click(object sender, EventArgs e)
         {
 
@@ -1478,5 +1537,7 @@ namespace ANS_SEIS_TV
         {
 
         }
+
+        
     }
 }
