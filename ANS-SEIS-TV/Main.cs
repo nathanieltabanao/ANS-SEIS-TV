@@ -1568,5 +1568,37 @@ namespace ANS_SEIS_TV
         {
 
         }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            g.GetUsername(CurrentGENID);
+            g.GetFullname();
+            frmCurrentBorrowed f = new frmCurrentBorrowed(g.Fullname, DateTime.Now);
+            f.ShowDialog();
+        }
+
+        private void bunifuFlatButton2_Click(object sender, EventArgs e)
+        {
+            frmDeploymentReport f = new frmDeploymentReport(CurrentGENID, DateTime.Now);
+            f.ShowDialog();
+        }
+
+        private void bunifuFlatButton3_Click(object sender, EventArgs e)
+        {
+            frmReservationReport f = new frmReservationReport(CurrentGENID, DateTime.Now);
+            f.ShowDialog();
+        }
+
+        private void bunifuFlatButton4_Click(object sender, EventArgs e)
+        {
+            frmEquipmmentStatus f = new frmEquipmmentStatus(CurrentGENID);
+            f.ShowDialog();
+        }
+
+        private void bunifuFlatButton5_Click(object sender, EventArgs e)
+        {
+            frmInventoryReport f = new frmInventoryReport(CurrentGENID, DateTime.Now);
+            f.ShowDialog();
+        }
     }
 }

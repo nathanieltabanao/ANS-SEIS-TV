@@ -69,6 +69,9 @@ namespace ANS_SEIS_TV
 
             db.sp_NewBorrowBarcodeInsert(TransactionID, bytBLOBData, s.SavePath);
             MetroMessageBox.Show(this, "Transaction Complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            frmReservationSlip f = new frmReservationSlip(TransactionID, AdminID, ReserveeID, ReservationDate);
+            f.ShowDialog();
             this.Close();
         }
     }
