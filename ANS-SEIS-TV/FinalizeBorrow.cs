@@ -37,7 +37,7 @@ namespace ANS_SEIS_TV
 
         DataClasses1DataContext db = new DataClasses1DataContext();
 
-        fromPrint f;
+        fromBorrowSlip f;
 
         StuffLibrary s = new StuffLibrary();
 
@@ -153,7 +153,7 @@ namespace ANS_SEIS_TV
             else
             {
                 MetroMessageBox.Show(this, "Transaction Complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                f = new fromPrint(TransactionID, BorrowerName, DateTime.Parse(DateTime.Now.ToShortDateString()), AdminName);
+                f = new fromBorrowSlip(TransactionID, BorrowerName, DateTime.Parse(DateTime.Now.ToShortDateString()), AdminName);
                 f.ShowDialog();
                 btnSubmit.Enabled = false;
                 this.Dispose(); 

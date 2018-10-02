@@ -155,11 +155,29 @@
       <DependentUpon>BorrowReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FinalizePullOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinalizePullOut.Designer.cs">
+      <DependentUpon>FinalizePullOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCurrentBorrowed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCurrentBorrowed.Designer.cs">
+      <DependentUpon>frmCurrentBorrowed.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDeployment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDeployment.Designer.cs">
       <DependentUpon>frmDeployment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEquipmmentStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEquipmmentStatus.Designer.cs">
+      <DependentUpon>frmEquipmmentStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="rptBorrowSlip.cs">
       <AutoGen>True</AutoGen>
@@ -230,11 +248,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="fromPrint.cs">
+    <Compile Include="fromBorrowSlip.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fromPrint.Designer.cs">
-      <DependentUpon>fromPrint.cs</DependentUpon>
+    <Compile Include="fromBorrowSlip.Designer.cs">
+      <DependentUpon>fromBorrowSlip.cs</DependentUpon>
     </Compile>
     <Compile Include="GetSomethingFromServer.cs" />
     <Compile Include="LoadingScreen.cs">
@@ -293,11 +311,11 @@
     <Compile Include="FinalizeReservation.Designer.cs">
       <DependentUpon>FinalizeReservation.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReturnFinalize.cs">
+    <Compile Include="FinalizeReturn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReturnFinalize.Designer.cs">
-      <DependentUpon>ReturnFinalize.cs</DependentUpon>
+    <Compile Include="FinalizeReturn.Designer.cs">
+      <DependentUpon>FinalizeReturn.cs</DependentUpon>
     </Compile>
     <Compile Include="ReturningForm.cs">
       <SubType>Form</SubType>
@@ -496,8 +514,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BorrowReport.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="FinalizePullOut.resx">
+      <DependentUpon>FinalizePullOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCurrentBorrowed.resx">
+      <DependentUpon>frmCurrentBorrowed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDeployment.resx">
       <DependentUpon>frmDeployment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEquipmmentStatus.resx">
+      <DependentUpon>frmEquipmmentStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptBorrowSlip.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -526,8 +553,8 @@
     <EmbeddedResource Include="FirstLoginForm.resx">
       <DependentUpon>FirstLoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fromPrint.resx">
-      <DependentUpon>fromPrint.cs</DependentUpon>
+    <EmbeddedResource Include="fromBorrowSlip.resx">
+      <DependentUpon>fromBorrowSlip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingScreen.resx">
       <DependentUpon>LoadingScreen.cs</DependentUpon>
@@ -554,8 +581,8 @@
     <EmbeddedResource Include="FinalizeReservation.resx">
       <DependentUpon>FinalizeReservation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReturnFinalize.resx">
-      <DependentUpon>ReturnFinalize.cs</DependentUpon>
+    <EmbeddedResource Include="FinalizeReturn.resx">
+      <DependentUpon>FinalizeReturn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReturningForm.resx">
       <DependentUpon>ReturningForm.cs</DependentUpon>
@@ -670,6 +697,8 @@
     <None Include="Resources\splash1.png" />
     <None Include="Resources\splash2.png" />
     <None Include="Resources\icons8-print-32.png" />
+    <None Include="Resources\icon-print1.png" />
+    <None Include="Resources\icon-print2.png" />
     <Content Include="UIDESIGN_LOGIN.jpg" />
   </ItemGroup>
   <ItemGroup>

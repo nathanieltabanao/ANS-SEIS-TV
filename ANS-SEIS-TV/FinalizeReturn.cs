@@ -14,9 +14,9 @@ using MaterialSkin.Controls;
 
 namespace ANS_SEIS_TV
 {
-    public partial class ReturnFinalize : MetroForm
+    public partial class FinalizeReturn : MetroForm
     {
-        public ReturnFinalize()
+        public FinalizeReturn()
         {
             InitializeComponent();
 
@@ -82,8 +82,8 @@ namespace ANS_SEIS_TV
                 }
 
 
-                bool isSelected = Convert.ToBoolean(row.Cells[3].Value);
-                if (isSelected)
+                // bool isSelected = Convert.ToBoolean(row.Cells[3].Value);
+                if (Convert.ToBoolean(row.Cells[3].Value)) // should be isSelected but deprecated for speed issues
                 {
                     bool GoodCondition = Convert.ToBoolean(row.Cells[4].Value);
 

@@ -1,6 +1,6 @@
 ﻿namespace ANS_SEIS_TV
 {
-    partial class fromPrint
+    partial class fromBorrowSlip
     {
         /// <summary>
         /// Required designer variable.

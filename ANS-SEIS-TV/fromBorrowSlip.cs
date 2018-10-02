@@ -16,7 +16,7 @@ using MaterialSkin.Controls;
 
 namespace ANS_SEIS_TV
 {
-    public partial class fromPrint : MetroForm
+    public partial class fromBorrowSlip : MetroForm
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
 
@@ -26,7 +26,7 @@ namespace ANS_SEIS_TV
         public string Attendant;
         public DataSet Details;
 
-        public fromPrint(int TID, string BorrowerName, DateTime BorrowDate, string AdminName)
+        public fromBorrowSlip(int TID, string BorrowerName, DateTime BorrowDate, string AdminName)
         {
             InitializeComponent();
 

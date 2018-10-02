@@ -74,5 +74,10 @@ namespace ANS_SEIS_TV
         {
             db.sp_ReturnReservedEquipment(TransactionID, EQID, IsReturned);
         }
+
+        public void DeploymentPullOut(string RoomN, int EQID, int Qty)
+        {
+            db.sp_DeploymentPullOut(RoomN, EQID, Qty);
+        }
     }
 }

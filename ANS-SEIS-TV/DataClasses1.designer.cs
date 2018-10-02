@@ -311,6 +311,13 @@ namespace ANS_SEIS_TV
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DeploymentPullOut")]
+		public int sp_DeploymentPullOut([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RoomNo", DbType="VarChar(10)")] string roomNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EquipmentID", DbType="Int")] System.Nullable<int> equipmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), roomNo, equipmentID, quantity);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DeploymentReport")]
 		public ISingleResult<sp_DeploymentReportResult> sp_DeploymentReport()
 		{

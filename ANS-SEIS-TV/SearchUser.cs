@@ -62,13 +62,25 @@ namespace ANS_SEIS_TV
 
         private void dgvSearch_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ID = dgvUser.CurrentRow.Cells[0].Value.ToString();
-            Username = dgvUser.CurrentRow.Cells[1].Value.ToString();
-            FirstName = dgvUser.CurrentRow.Cells[2].Value.ToString();
-            MiddleName = dgvUser.CurrentRow.Cells[3].Value.ToString();
-            LastName = dgvUser.CurrentRow.Cells[4].Value.ToString();
-            Fullname = FirstName + " " + MiddleName + " " + LastName;
-            this.Close();
+            if (rdoTeacher.Checked==true)
+            {
+                ID = dgvUser.CurrentRow.Cells[0].Value.ToString();
+                Username = dgvUser.CurrentRow.Cells[1].Value.ToString();
+                FirstName = dgvUser.CurrentRow.Cells[2].Value.ToString();
+                MiddleName = dgvUser.CurrentRow.Cells[3].Value.ToString();
+                LastName = dgvUser.CurrentRow.Cells[4].Value.ToString();
+                Fullname = FirstName + " " + MiddleName + " " + LastName;
+                this.Close();
+            }
+            else
+            {
+                ID = dgvUser.CurrentRow.Cells[0].Value.ToString();
+                Username = dgvUser.CurrentRow.Cells[1].Value.ToString();
+                FirstName = dgvUser.CurrentRow.Cells[2].Value.ToString();
+                Fullname = FirstName;
+                this.Close();
+            }
+            
         }
 
         private void SearchUser_KeyPress(object sender, KeyPressEventArgs e)

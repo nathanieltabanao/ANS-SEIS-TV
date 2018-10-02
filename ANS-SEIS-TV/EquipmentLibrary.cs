@@ -71,5 +71,15 @@ namespace ANS_SEIS_TV
         {
             db.sp_EquipmentStatusItemDelete(EQID);
         }
+
+        public void NewEquipmentPullOut(int EQID)
+        {
+            db.sp_PullOutNewEquipment(EQID, 0);
+        }
+
+        public void PullOutEquipmentEDIt(int EQID, int Qty)
+        {
+            db.sp_PullOutEquipment(EQID, Qty);
+        }
     }
 }
