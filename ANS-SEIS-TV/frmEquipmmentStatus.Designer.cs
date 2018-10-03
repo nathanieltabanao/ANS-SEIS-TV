@@ -42,7 +42,7 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(20, 60);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(760, 370);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1023, 561);
             this.crystalReportViewer1.TabIndex = 0;
             // 
             // crystalReportViewer2
@@ -58,7 +58,7 @@
             this.crystalReportViewer2.ShowLogo = false;
             this.crystalReportViewer2.ShowParameterPanelButton = false;
             this.crystalReportViewer2.ShowRefreshButton = false;
-            this.crystalReportViewer2.Size = new System.Drawing.Size(760, 370);
+            this.crystalReportViewer2.Size = new System.Drawing.Size(1023, 561);
             this.crystalReportViewer2.TabIndex = 1;
             this.crystalReportViewer2.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
@@ -71,7 +71,10 @@
             this.crystalReportViewer3.Location = new System.Drawing.Point(20, 60);
             this.crystalReportViewer3.Name = "crystalReportViewer3";
             this.crystalReportViewer3.ReportSource = this.rptEquipmentStatus1;
-            this.crystalReportViewer3.Size = new System.Drawing.Size(760, 370);
+            this.crystalReportViewer3.ShowCloseButton = false;
+            this.crystalReportViewer3.ShowLogo = false;
+            this.crystalReportViewer3.ShowParameterPanelButton = false;
+            this.crystalReportViewer3.Size = new System.Drawing.Size(1023, 561);
             this.crystalReportViewer3.TabIndex = 2;
             this.crystalReportViewer3.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             this.crystalReportViewer3.Load += new System.EventHandler(this.crystalReportViewer3_Load);
@@ -80,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1063, 641);
             this.Controls.Add(this.crystalReportViewer3);
             this.Controls.Add(this.crystalReportViewer2);
             this.Controls.Add(this.crystalReportViewer1);

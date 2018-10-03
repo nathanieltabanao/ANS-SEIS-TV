@@ -269,11 +269,11 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_AccountRecoveryResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewReservedEquipment")]
-		public ISingleResult<sp_ViewReservedEquipmentResult> sp_ViewReservedEquipment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewTransactionBarcode")]
+		public ISingleResult<sp_ViewTransactionBarcodeResult> sp_ViewTransactionBarcode([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchBarcode", DbType="Int")] System.Nullable<int> searchBarcode)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID);
-			return ((ISingleResult<sp_ViewReservedEquipmentResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchBarcode);
+			return ((ISingleResult<sp_ViewTransactionBarcodeResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_BorrowAddQuantity")]
@@ -389,9 +389,9 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentReservationReport")]
-		public ISingleResult<sp_EquipmentReservationReportResult> sp_EquipmentReservationReport()
+		public ISingleResult<sp_EquipmentReservationReportResult> sp_EquipmentReservationReport([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDate", DbType="DateTime")] System.Nullable<System.DateTime> startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndDate", DbType="DateTime")] System.Nullable<System.DateTime> endDate)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), startDate, endDate);
 			return ((ISingleResult<sp_EquipmentReservationReportResult>)(result.ReturnValue));
 		}
 		
@@ -519,6 +519,13 @@ namespace ANS_SEIS_TV
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionDate, transactionEvent, admin);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_PulledEquipmentsView")]
+		public ISingleResult<sp_PulledEquipmentsViewResult> sp_PulledEquipmentsView()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_PulledEquipmentsViewResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_PullOutEquipment")]
@@ -808,11 +815,11 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_ViewPendingRequestResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewTransactionBarcode")]
-		public ISingleResult<sp_ViewTransactionBarcodeResult> sp_ViewTransactionBarcode([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchBarcode", DbType="Int")] System.Nullable<int> searchBarcode)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewReservedEquipment")]
+		public ISingleResult<sp_ViewReservedEquipmentResult> sp_ViewReservedEquipment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchBarcode);
-			return ((ISingleResult<sp_ViewTransactionBarcodeResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID);
+			return ((ISingleResult<sp_ViewReservedEquipmentResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3771,81 +3778,27 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
-	public partial class sp_ViewReservedEquipmentResult
+	public partial class sp_ViewTransactionBarcodeResult
 	{
 		
-		private System.Nullable<int> _TransactionID;
+		private string _BWBarcodePath;
 		
-		private System.Nullable<int> _EQUIPMENT_ID;
-		
-		private string _EQUIPMENT_NAME;
-		
-		private System.Nullable<int> _Quantity;
-		
-		public sp_ViewReservedEquipmentResult()
+		public sp_ViewTransactionBarcodeResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionID", DbType="Int")]
-		public System.Nullable<int> TransactionID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BWBarcodePath", DbType="VarChar(MAX)")]
+		public string BWBarcodePath
 		{
 			get
 			{
-				return this._TransactionID;
+				return this._BWBarcodePath;
 			}
 			set
 			{
-				if ((this._TransactionID != value))
+				if ((this._BWBarcodePath != value))
 				{
-					this._TransactionID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_ID", DbType="Int")]
-		public System.Nullable<int> EQUIPMENT_ID
-		{
-			get
-			{
-				return this._EQUIPMENT_ID;
-			}
-			set
-			{
-				if ((this._EQUIPMENT_ID != value))
-				{
-					this._EQUIPMENT_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_NAME", DbType="VarChar(200)")]
-		public string EQUIPMENT_NAME
-		{
-			get
-			{
-				return this._EQUIPMENT_NAME;
-			}
-			set
-			{
-				if ((this._EQUIPMENT_NAME != value))
-				{
-					this._EQUIPMENT_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
-		public System.Nullable<int> Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this._Quantity = value;
+					this._BWBarcodePath = value;
 				}
 			}
 		}
@@ -4968,6 +4921,68 @@ namespace ANS_SEIS_TV
 				if ((this._EQBarcodepath != value))
 				{
 					this._EQBarcodepath = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_PulledEquipmentsViewResult
+	{
+		
+		private string _EQUIPMENT_NAME;
+		
+		private string _EQUIPMENT_DESCRIPTION;
+		
+		private System.Nullable<int> _QUANTITY;
+		
+		public sp_PulledEquipmentsViewResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_NAME", DbType="VarChar(200)")]
+		public string EQUIPMENT_NAME
+		{
+			get
+			{
+				return this._EQUIPMENT_NAME;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_NAME != value))
+				{
+					this._EQUIPMENT_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_DESCRIPTION", DbType="VarChar(100)")]
+		public string EQUIPMENT_DESCRIPTION
+		{
+			get
+			{
+				return this._EQUIPMENT_DESCRIPTION;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_DESCRIPTION != value))
+				{
+					this._EQUIPMENT_DESCRIPTION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUANTITY", DbType="Int")]
+		public System.Nullable<int> QUANTITY
+		{
+			get
+			{
+				return this._QUANTITY;
+			}
+			set
+			{
+				if ((this._QUANTITY != value))
+				{
+					this._QUANTITY = value;
 				}
 			}
 		}
@@ -7243,27 +7258,81 @@ namespace ANS_SEIS_TV
 		}
 	}
 	
-	public partial class sp_ViewTransactionBarcodeResult
+	public partial class sp_ViewReservedEquipmentResult
 	{
 		
-		private string _BWBarcodePath;
+		private System.Nullable<int> _TransactionID;
 		
-		public sp_ViewTransactionBarcodeResult()
+		private System.Nullable<int> _EQUIPMENT_ID;
+		
+		private string _EQUIPMENT_NAME;
+		
+		private System.Nullable<int> _Quantity;
+		
+		public sp_ViewReservedEquipmentResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BWBarcodePath", DbType="VarChar(MAX)")]
-		public string BWBarcodePath
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionID", DbType="Int")]
+		public System.Nullable<int> TransactionID
 		{
 			get
 			{
-				return this._BWBarcodePath;
+				return this._TransactionID;
 			}
 			set
 			{
-				if ((this._BWBarcodePath != value))
+				if ((this._TransactionID != value))
 				{
-					this._BWBarcodePath = value;
+					this._TransactionID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_ID", DbType="Int")]
+		public System.Nullable<int> EQUIPMENT_ID
+		{
+			get
+			{
+				return this._EQUIPMENT_ID;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_ID != value))
+				{
+					this._EQUIPMENT_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EQUIPMENT_NAME", DbType="VarChar(200)")]
+		public string EQUIPMENT_NAME
+		{
+			get
+			{
+				return this._EQUIPMENT_NAME;
+			}
+			set
+			{
+				if ((this._EQUIPMENT_NAME != value))
+				{
+					this._EQUIPMENT_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
 				}
 			}
 		}

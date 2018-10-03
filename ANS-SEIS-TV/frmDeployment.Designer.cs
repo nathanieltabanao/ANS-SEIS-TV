@@ -41,7 +41,6 @@
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ShowCloseButton = false;
             this.crystalReportViewer1.ShowLogo = false;
-            this.crystalReportViewer1.ShowRefreshButton = false;
             this.crystalReportViewer1.Size = new System.Drawing.Size(760, 370);
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.Tag = "";
