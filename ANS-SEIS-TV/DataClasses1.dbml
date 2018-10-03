@@ -258,13 +258,10 @@
       <Column Name="USERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_ViewReservedEquipment" Method="sp_ViewReservedEquipment">
-    <Parameter Name="TransactionID" Parameter="transactionID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ViewReservedEquipmentResult">
-      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+  <Function Name="dbo.sp_ViewTransactionBarcode" Method="sp_ViewTransactionBarcode">
+    <Parameter Name="SearchBarcode" Parameter="searchBarcode" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ViewTransactionBarcodeResult">
+      <Column Name="BWBarcodePath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_BorrowAddQuantity" Method="sp_BorrowAddQuantity">
@@ -380,6 +377,8 @@
     </ElementType>
   </Function>
   <Function Name="dbo.sp_EquipmentReservationReport" Method="sp_EquipmentReservationReport">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
     <ElementType Name="sp_EquipmentReservationReportResult">
       <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="[Reserved By]" Member="Reserved_By" Type="System.String" DbType="VarChar(302)" CanBeNull="true" />
@@ -514,6 +513,13 @@
     <Parameter Name="TransactionEvent" Parameter="transactionEvent" Type="System.String" DbType="VarChar(150)" />
     <Parameter Name="Admin" Parameter="admin" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_PulledEquipmentsView" Method="sp_PulledEquipmentsView">
+    <ElementType Name="sp_PulledEquipmentsViewResult">
+      <Column Name="EQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="EQUIPMENT_DESCRIPTION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
   </Function>
   <Function Name="dbo.sp_PullOutEquipment" Method="sp_PullOutEquipment">
     <Parameter Name="EQUIPMENT_ID" Parameter="eQUIPMENT_ID" Type="System.Int32" DbType="Int" />
@@ -855,10 +861,13 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_ViewTransactionBarcode" Method="sp_ViewTransactionBarcode">
-    <Parameter Name="SearchBarcode" Parameter="searchBarcode" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ViewTransactionBarcodeResult">
-      <Column Name="BWBarcodePath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+  <Function Name="dbo.sp_ViewReservedEquipment" Method="sp_ViewReservedEquipment">
+    <Parameter Name="TransactionID" Parameter="transactionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ViewReservedEquipmentResult">
+      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

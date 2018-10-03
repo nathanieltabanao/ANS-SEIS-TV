@@ -313,6 +313,7 @@ namespace ANS_SEIS_TV
 
         private void btnUserClear_Click(object sender, EventArgs e)
         {
+            txtContactNumber.Text = txtFirstName.Text = txtLastName.Text = txtMiddleName.Text = txtSearchUser.Text = txtUsername.Text = null;
             AddUser();
         }
 
@@ -816,6 +817,8 @@ namespace ANS_SEIS_TV
             }
         }
 
+        int OTID;
+
         //search for transaction
         private void btnReturnSearch_Click_1(object sender, EventArgs e)
         {
@@ -826,6 +829,8 @@ namespace ANS_SEIS_TV
             else
             {
                 dgvCurrentBorrowed.DataSource = db.sp_ViewBorrowedEquipment(int.Parse(txtReturnID.Text));
+                OTID = Convert.ToInt32(txtReturnID.Text);
+                txtReturnID.Text = null;
             }
         }
 
@@ -857,12 +862,12 @@ namespace ANS_SEIS_TV
                     r.dgvTransaction.Rows.Add(row);
                 }
 
-                r.OldTransactionID = int.Parse(txtReturnID.Text);
+                r.OldTransactionID = OTID;
                 t.TransactionID();
                 r.dgvTransaction.AllowUserToAddRows = false;
                 r.dgvTransaction.Refresh();
                 r.TransactionID = t.TID;
-                r.BorrowerID = g.GetBorrowerGENID(int.Parse(txtReturnID.Text));
+                r.BorrowerID = g.GetBorrowerGENID(OTID);
                 g.GetUsername(r.BorrowerID);
                 r.Borrower = g.Username;
                 r.Action = "Returning an Equipment";
@@ -940,31 +945,44 @@ namespace ANS_SEIS_TV
         // Save Reservation Info
         private void btnFinalizeReservation_Click(object sender, EventArgs e)
         {
-            FinalizeReservation r = new FinalizeReservation();
-
-            DataGridViewRow row = new DataGridViewRow();
-
-            for (int i = 0; i < dgvEquipmentToReserve.Rows.Count; i++)
+            if (dgvEquipmentToReserve.Rows.Count==0)
             {
-                row = (DataGridViewRow)dgvEquipmentToReserve.Rows[i].Clone();
-                int intColindex = 0;
-                foreach (DataGridViewCell cell in dgvEquipmentToReserve.Rows[i].Cells)
-                {
-                    row.Cells[intColindex].Value = cell.Value;
-                    intColindex++;
-                }
-                r.dgvReservation.Rows.Add(row);     
+                MetroMessageBox.Show(this, "Reservation list is empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (string.IsNullOrEmpty(txtReserverFullname.Text.Trim())|| string.IsNullOrEmpty(txtReserverUsername.Text.Trim()))
+            {
+                MetroMessageBox.Show(this, "Please select client!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                FinalizeReservation r = new FinalizeReservation();
 
-            t.TransactionID();
-            r.dgvReservation.Refresh();
-            r.TransactionID = t.TID;
-            r.Reservee = txtReserverUsername.Text;
-            r.Action = "Reserved an Equipment";
-            r.TransactionType = "Equipment Reservation";
-            r.AdminID = CurrentGENID;
-            r.ReservationDate = dtpReseravationDate.Value;
-            r.ShowDialog();
+                DataGridViewRow row = new DataGridViewRow();
+
+                for (int i = 0; i < dgvEquipmentToReserve.Rows.Count; i++)
+                {
+                    row = (DataGridViewRow)dgvEquipmentToReserve.Rows[i].Clone();
+                    int intColindex = 0;
+                    foreach (DataGridViewCell cell in dgvEquipmentToReserve.Rows[i].Cells)
+                    {
+                        row.Cells[intColindex].Value = cell.Value;
+                        intColindex++;
+                    }
+                    r.dgvReservation.Rows.Add(row);
+                }
+
+                t.TransactionID();
+                r.dgvReservation.Refresh();
+                r.TransactionID = t.TID;
+                r.Reservee = txtReserverUsername.Text;
+                r.Action = "Reserved an Equipment";
+                r.TransactionType = "Equipment Reservation";
+                r.AdminID = CurrentGENID;
+                r.ReservationDate = dtpReseravationDate.Value;
+                r.ShowDialog();
+
+                dgvEquipmentToReserve.Rows.Clear();
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -1010,6 +1028,18 @@ namespace ANS_SEIS_TV
             dgvUserRegister.DataSource = db.sp_UserView();
 
             dgvRequest.DataSource = db.sp_ViewOpenRequest();
+
+            dgvBorrowReport.DataSource = db.sp_BorrowedReport();
+
+            dgvReservationReport.DataSource = db.sp_EquipmentReservationReport(DateTime.Now, DateTime.Now.AddDays(7));
+
+            dgvEquipmentStatusReport.DataSource = db.sp_EquipmentStatusReport();
+
+            dgvPullOutReports.DataSource = db.sp_PulledEquipmentsView();
+
+            dgvReturnedReport.DataSource = db.sp_ReturnedReport();
+
+            dgvDeployReport.DataSource = db.sp_DeploymentReport(); ;
 
             eq.SearchKey = "";
             txtEquipmentID.Text = eq.EquipmentID().ToString();
@@ -1229,11 +1259,16 @@ namespace ANS_SEIS_TV
 
         private void btnViewPullOutDetails_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtPullOutTransactionID.Text.Trim()))
+            int PTID;
+
+            if (string.IsNullOrWhiteSpace(txtPullOutTraansactionID.Text.Trim()))
             {
+                
+
                 if (string.IsNullOrEmpty(drpPullOutLocation.Text.Trim()))
                 {
                     MetroMessageBox.Show(this, "Please input Transaction ID or Room No", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ClearSearch();
                 }
                 else
                 {
@@ -1247,21 +1282,39 @@ namespace ANS_SEIS_TV
                     }
 
                     lblPulloutTotalBorrowed.Text = q.ToString();
+
+                    ClearSearch();
                 }
             }
             else
             {
-                dgvPullOutView.DataSource = db.sp_ViewDeployedEquipmentsTransactionID(Convert.ToInt32(txtPullOutTransactionID.Text));
-
-                int q = 0;
-
-                for (int i = 0; i < dgvPullOutView.Rows.Count; i++)
+                if (int.TryParse(txtPullOutTraansactionID.Text,out PTID))
                 {
-                    q += Convert.ToInt32(dgvPullOutView.Rows[i].Cells[2].Value);
+                    dgvPullOutView.DataSource = db.sp_ViewDeployedEquipmentsTransactionID(Convert.ToInt32(txtPullOutTraansactionID.Text));
+
+                    int q = 0;
+
+                    for (int i = 0; i < dgvPullOutView.Rows.Count; i++)
+                    {
+                        q += Convert.ToInt32(dgvPullOutView.Rows[i].Cells[2].Value);
+                    }
+
+                    lblPulloutTotalBorrowed.Text = q.ToString();
+                    ClearSearch();
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "Invalid Transcation ID!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPullOutTraansactionID.Text = null;
+
                 }
 
-                lblPulloutTotalBorrowed.Text = q.ToString();
             }
+        }
+
+        public void ClearSearch()
+        {
+            txtPullOutTraansactionID.Text = null;
         }
 
         private void dgvPullOutView_CellValidating(object sender,DataGridViewCellValidatingEventArgs e)
@@ -1305,30 +1358,32 @@ namespace ANS_SEIS_TV
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            // from
-            // dgvPullOutView
-            // dgvPullOutView
-
-            // to
-            // dgvPullOutFinal
-            // 
-            FinalizePullOut f = new FinalizePullOut(CurrentGENID,g.GetFacilyTeacherGENID(drpPullOutLocation.Text),lblPullOutRoom.Text,lblPullOutRmName.Text);
-
-            DataGridViewRow row = new DataGridViewRow();
-
-            for (int i = 0; i < dgvPullOutView.Rows.Count; i++)
+            if (dgvPullOutView.Rows.Count==0)
             {
-                row = (DataGridViewRow)dgvPullOutView.Rows[i].Clone();
-                int intColIndex = 0;
-                foreach (DataGridViewCell cell in dgvPullOutView.Rows[i].Cells)
-                {
-                    row.Cells[intColIndex].Value = cell.Value;
-                    intColIndex++;
-                }
-                f.dgvPullOutFinal.Rows.Add(row);
+                MetroMessageBox.Show(this, "Pull-Out list is empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else
+            {
+                FinalizePullOut f = new FinalizePullOut(CurrentGENID, g.GetFacilyTeacherGENID(drpPullOutLocation.Text), lblPullOutRoom.Text, lblPullOutRmName.Text);
 
-            f.ShowDialog();
+                DataGridViewRow row = new DataGridViewRow();
+
+                for (int i = 0; i < dgvPullOutView.Rows.Count; i++)
+                {
+                    row = (DataGridViewRow)dgvPullOutView.Rows[i].Clone();
+                    int intColIndex = 0;
+                    foreach (DataGridViewCell cell in dgvPullOutView.Rows[i].Cells)
+                    {
+                        row.Cells[intColIndex].Value = cell.Value;
+                        intColIndex++;
+                    }
+                    f.dgvPullOutFinal.Rows.Add(row);
+                }
+
+                f.ShowDialog();
+
+                dgvPullOutView.Rows.Clear();
+            }
         }
 
         private void RequestGridUpdate()
@@ -1613,6 +1668,25 @@ namespace ANS_SEIS_TV
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
             frmInventoryReport f = new frmInventoryReport(CurrentGENID, DateTime.Now);
+            f.ShowDialog();
+        }
+
+        private void btnReservationClear_Click(object sender, EventArgs e)
+        {
+            dgvEquipmentToReserve.Rows.Clear();
+        }
+
+        private void btnReservationRemove_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in this.dgvEquipmentToReserve.SelectedRows)
+            {
+                dgvEquipmentToReserve.Rows.RemoveAt(item.Index);
+            }
+        }
+
+        private void bunifuFlatButton6_Click(object sender, EventArgs e)
+        {
+            frmEquipmentsReport f = new frmEquipmentsReport(CurrentGENID);
             f.ShowDialog();
         }
     }

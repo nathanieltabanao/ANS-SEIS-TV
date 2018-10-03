@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.rptEquipmentReservation1 = new ANS_SEIS_TV.rptEquipmentReservation();
             this.rptInventoryReport1 = new ANS_SEIS_TV.rptInventoryReport();
+            this.rptEquipmentReservation1 = new ANS_SEIS_TV.rptEquipmentReservation();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -45,7 +45,6 @@
             this.crystalReportViewer1.ShowCloseButton = false;
             this.crystalReportViewer1.ShowLogo = false;
             this.crystalReportViewer1.ShowParameterPanelButton = false;
-            this.crystalReportViewer1.ShowRefreshButton = false;
             this.crystalReportViewer1.Size = new System.Drawing.Size(760, 370);
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;

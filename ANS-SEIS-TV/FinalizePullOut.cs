@@ -80,24 +80,31 @@ namespace ANS_SEIS_TV
                 bool isSeleted = Convert.ToBoolean(row.Cells[3].Value);
                 if (isSeleted)
                 {
-                    if (int.TryParse(row.Cells["PullOutQty"].Value.ToString(),out BadEQ))
+                    if (string.IsNullOrEmpty(row.Cells["PullOutQty"].Value.ToString().Trim()))
                     {
-                        int Avail = Convert.ToInt32(row.Cells[2].Value.ToString());
-                        if (Avail >= BadEQ) 
-                        {
-                            int Value = g.GetPullOutQuantity(Convert.ToInt32(row.Cells[0].Value.ToString())); // this will be the one to modify this shit
-                            eq.PullOutEquipmentEDIt(Convert.ToInt32(row.Cells[0].Value.ToString()), (Value - BadEQ));
-
-                            t.DeploymentPullOut(RoomNumber, Convert.ToInt32(row.Cells[0].Value.ToString()), BadEQ);
-                        }
-                        else
-                        {
-                            MetroMessageBox.Show(this, "You cannot Pull-Out more than what is available", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        MetroMessageBox.Show(this, "Please input number of equipment to pull-out", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MetroMessageBox.Show(this, "Please input an whole number!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (int.TryParse(row.Cells["PullOutQty"].Value.ToString(), out BadEQ))
+                        {
+                            int Avail = Convert.ToInt32(row.Cells[2].Value.ToString());
+                            if (Avail >= BadEQ)
+                            {
+                                int Value = g.GetPullOutQuantity(Convert.ToInt32(row.Cells[0].Value.ToString())); // this will be the one to modify this shit
+                                eq.PullOutEquipmentEDIt(Convert.ToInt32(row.Cells[0].Value.ToString()), (Value - BadEQ));
+
+                                t.DeploymentPullOut(RoomNumber, Convert.ToInt32(row.Cells[0].Value.ToString()), BadEQ);
+                            }
+                            else
+                            {
+                                MetroMessageBox.Show(this, "You cannot Pull-Out more than what is available", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            MetroMessageBox.Show(this, "Please input an whole number!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
                 else
@@ -115,8 +122,8 @@ namespace ANS_SEIS_TV
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            //MetroMessageBox.Show(this, "Deployment Record Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //this.Dispose();
+            MetroMessageBox.Show(this, "Deployment Record Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Dispose();
         }
     }
 }

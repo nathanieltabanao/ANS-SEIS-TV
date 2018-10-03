@@ -184,6 +184,12 @@
     <Compile Include="frmDeploymentReport.Designer.cs">
       <DependentUpon>frmDeploymentReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEquipmentsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEquipmentsReport.Designer.cs">
+      <DependentUpon>frmEquipmentsReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEquipmmentStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -406,6 +412,12 @@
       <DependentUpon>rptReturned.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptReturnedEquipmentsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReturnedEquipmentsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SearchUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -566,6 +578,9 @@
     <EmbeddedResource Include="frmDeploymentReport.resx">
       <DependentUpon>frmDeploymentReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEquipmentsReport.resx">
+      <DependentUpon>frmEquipmentsReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEquipmmentStatus.resx">
       <DependentUpon>frmEquipmmentStatus.cs</DependentUpon>
     </EmbeddedResource>
@@ -673,6 +688,10 @@
     <EmbeddedResource Include="rptReturned.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptReturned.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptReturnedEquipmentsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReturnedEquipmentsReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchUser.resx">
       <DependentUpon>SearchUser.cs</DependentUpon>

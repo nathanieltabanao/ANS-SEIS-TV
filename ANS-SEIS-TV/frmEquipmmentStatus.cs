@@ -37,7 +37,12 @@ namespace ANS_SEIS_TV
         {
             rptEquipmentStatus1.SetParameterValue("pProcessedBy", AdminName);
             rptEquipmentStatus1.SetParameterValue("pDateBorrowed", DateTime.Now.ToShortDateString());
+            crystalReportViewer1.ReportSource = rptEquipmentStatus1;
+            
+            crystalReportViewer2.ReportSource = rptEquipmentStatus1;
+            
             crystalReportViewer3.ReportSource = rptEquipmentStatus1;
+
         }
     }
 }
