@@ -373,5 +373,23 @@ namespace ANS_SEIS_TV
 
             return Convert.ToInt32(results.FirstOrDefault().Value.ToString());
         }
+
+        public int GetNewRequests()
+        {
+            var results = (from TBLREQUESTTABLE in db.TBLREQUESTTABLEs
+                           where TBLREQUESTTABLE.REQUESTSTATUSID == 300
+                           select TBLREQUESTTABLE.REQUESTID).Count();
+
+            return Convert.ToInt32(results.ToString());
+        }
+
+        public int GetPendingRequests()
+        {
+            var results = (from TBLREQUESTTABLE in db.TBLREQUESTTABLEs
+                           where TBLREQUESTTABLE.REQUESTSTATUSID == 301
+                           select TBLREQUESTTABLE.REQUESTID).Count();
+
+            return Convert.ToInt32(results.ToString());
+        }
     }
 }

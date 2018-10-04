@@ -202,6 +202,18 @@
     <Compile Include="frmInventoryReport.Designer.cs">
       <DependentUpon>frmInventoryReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPulledOutReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPulledOutReport.Designer.cs">
+      <DependentUpon>frmPulledOutReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRequestReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRequestReport.Designer.cs">
+      <DependentUpon>frmRequestReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReservationReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -394,6 +406,12 @@
       <DependentUpon>rptInventoryReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptPulledOutEquipment.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPulledOutEquipment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="rptRequests.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -429,6 +447,12 @@
     </Compile>
     <Compile Include="SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="student.Designer.cs">
+      <DependentUpon>student.cs</DependentUpon>
     </Compile>
     <Compile Include="StuffLibrary.cs" />
     <Compile Include="TaskWindowControl.cs">
@@ -587,6 +611,12 @@
     <EmbeddedResource Include="frmInventoryReport.resx">
       <DependentUpon>frmInventoryReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPulledOutReport.resx">
+      <DependentUpon>frmPulledOutReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRequestReport.resx">
+      <DependentUpon>frmRequestReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReservationReport.resx">
       <DependentUpon>frmReservationReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -677,6 +707,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptInventoryReport.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptPulledOutEquipment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPulledOutEquipment.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="rptRequests.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptRequests.cs</LastGenOutput>
@@ -698,6 +732,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="student.resx">
+      <DependentUpon>student.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TaskWindowControl.resx">
       <DependentUpon>TaskWindowControl.cs</DependentUpon>

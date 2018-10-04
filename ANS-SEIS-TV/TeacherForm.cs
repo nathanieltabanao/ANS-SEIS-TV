@@ -39,7 +39,6 @@ namespace ANS_SEIS_TV
 
             // Not advised but cge nalang
             t.Abort();
-
         }
 
         EquipmentLibrary e = new EquipmentLibrary();

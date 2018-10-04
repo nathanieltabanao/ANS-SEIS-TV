@@ -1689,5 +1689,17 @@ namespace ANS_SEIS_TV
             frmEquipmentsReport f = new frmEquipmentsReport(CurrentGENID);
             f.ShowDialog();
         }
+
+        private void bunifuFlatButton8_Click(object sender, EventArgs e)
+        {
+            frmRequestReport f = new frmRequestReport(CurrentGENID);
+            f.ShowDialog();
+        }
+
+        private void bunifuFlatButton7_Click(object sender, EventArgs e)
+        {
+            frmPulledOutReport f = new frmPulledOutReport(CurrentGENID);
+            f.ShowDialog();
+        }
     }
 }

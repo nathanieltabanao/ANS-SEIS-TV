@@ -4999,6 +4999,8 @@ namespace ANS_SEIS_TV
 		
 		private System.Nullable<System.DateTime> _DATEREQUESTED;
 		
+		private string _STATUSDESCRIPTION;
+		
 		public sp_RequestReportResult()
 		{
 		}
@@ -5063,6 +5065,22 @@ namespace ANS_SEIS_TV
 				if ((this._DATEREQUESTED != value))
 				{
 					this._DATEREQUESTED = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUSDESCRIPTION", DbType="VarChar(15)")]
+		public string STATUSDESCRIPTION
+		{
+			get
+			{
+				return this._STATUSDESCRIPTION;
+			}
+			set
+			{
+				if ((this._STATUSDESCRIPTION != value))
+				{
+					this._STATUSDESCRIPTION = value;
 				}
 			}
 		}
