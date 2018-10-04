@@ -265,6 +265,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtReserverUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.label38 = new System.Windows.Forms.Label();
+            this.bunifuFlatButton7 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.label39 = new System.Windows.Forms.Label();
+            this.bunifuFlatButton8 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label37 = new System.Windows.Forms.Label();
             this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label36 = new System.Windows.Forms.Label();
@@ -3360,6 +3364,10 @@
             // 
             // tabPage12
             // 
+            this.tabPage12.Controls.Add(this.label38);
+            this.tabPage12.Controls.Add(this.bunifuFlatButton7);
+            this.tabPage12.Controls.Add(this.label39);
+            this.tabPage12.Controls.Add(this.bunifuFlatButton8);
             this.tabPage12.Controls.Add(this.label37);
             this.tabPage12.Controls.Add(this.bunifuFlatButton6);
             this.tabPage12.Controls.Add(this.label36);
@@ -3380,11 +3388,105 @@
             this.tabPage12.Text = "Reports";
             this.tabPage12.UseVisualStyleBackColor = true;
             // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(748, 272);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(388, 30);
+            this.label38.TabIndex = 19;
+            this.label38.Text = "Print Reports For Pulled-Out Equipments";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuFlatButton7
+            // 
+            this.bunifuFlatButton7.Activecolor = System.Drawing.Color.DimGray;
+            this.bunifuFlatButton7.BackColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton7.BorderRadius = 0;
+            this.bunifuFlatButton7.ButtonText = "Print";
+            this.bunifuFlatButton7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton7.DisabledColor = System.Drawing.Color.PeachPuff;
+            this.bunifuFlatButton7.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton7.Iconimage = global::ANS_SEIS_TV.Properties.Resources.icon_print2;
+            this.bunifuFlatButton7.Iconimage_right = null;
+            this.bunifuFlatButton7.Iconimage_right_Selected = null;
+            this.bunifuFlatButton7.Iconimage_Selected = null;
+            this.bunifuFlatButton7.IconMarginLeft = 0;
+            this.bunifuFlatButton7.IconMarginRight = 0;
+            this.bunifuFlatButton7.IconRightVisible = false;
+            this.bunifuFlatButton7.IconRightZoom = 0D;
+            this.bunifuFlatButton7.IconVisible = false;
+            this.bunifuFlatButton7.IconZoom = 90D;
+            this.bunifuFlatButton7.IsTab = false;
+            this.bunifuFlatButton7.Location = new System.Drawing.Point(842, 305);
+            this.bunifuFlatButton7.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.bunifuFlatButton7.Name = "bunifuFlatButton7";
+            this.bunifuFlatButton7.Normalcolor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton7.OnHovercolor = System.Drawing.Color.LightGray;
+            this.bunifuFlatButton7.OnHoverTextColor = System.Drawing.Color.LightGray;
+            this.bunifuFlatButton7.selected = false;
+            this.bunifuFlatButton7.Size = new System.Drawing.Size(138, 76);
+            this.bunifuFlatButton7.TabIndex = 18;
+            this.bunifuFlatButton7.Text = "Print";
+            this.bunifuFlatButton7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuFlatButton7.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton7.TextFont = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton7.Click += new System.EventHandler(this.bunifuFlatButton7_Click);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(748, 90);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(361, 30);
+            this.label39.TabIndex = 17;
+            this.label39.Text = "Print Reports For Equipment Requests";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuFlatButton8
+            // 
+            this.bunifuFlatButton8.Activecolor = System.Drawing.Color.DimGray;
+            this.bunifuFlatButton8.BackColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton8.BorderRadius = 0;
+            this.bunifuFlatButton8.ButtonText = "Print";
+            this.bunifuFlatButton8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton8.DisabledColor = System.Drawing.Color.PeachPuff;
+            this.bunifuFlatButton8.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton8.Iconimage = global::ANS_SEIS_TV.Properties.Resources.icon_print2;
+            this.bunifuFlatButton8.Iconimage_right = null;
+            this.bunifuFlatButton8.Iconimage_right_Selected = null;
+            this.bunifuFlatButton8.Iconimage_Selected = null;
+            this.bunifuFlatButton8.IconMarginLeft = 0;
+            this.bunifuFlatButton8.IconMarginRight = 0;
+            this.bunifuFlatButton8.IconRightVisible = false;
+            this.bunifuFlatButton8.IconRightZoom = 0D;
+            this.bunifuFlatButton8.IconVisible = false;
+            this.bunifuFlatButton8.IconZoom = 90D;
+            this.bunifuFlatButton8.IsTab = false;
+            this.bunifuFlatButton8.Location = new System.Drawing.Point(842, 128);
+            this.bunifuFlatButton8.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.bunifuFlatButton8.Name = "bunifuFlatButton8";
+            this.bunifuFlatButton8.Normalcolor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton8.OnHovercolor = System.Drawing.Color.LightGray;
+            this.bunifuFlatButton8.OnHoverTextColor = System.Drawing.Color.LightGray;
+            this.bunifuFlatButton8.selected = false;
+            this.bunifuFlatButton8.Size = new System.Drawing.Size(138, 76);
+            this.bunifuFlatButton8.TabIndex = 16;
+            this.bunifuFlatButton8.Text = "Print";
+            this.bunifuFlatButton8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuFlatButton8.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton8.TextFont = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton8.Click += new System.EventHandler(this.bunifuFlatButton8_Click);
+            // 
             // label37
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(674, 392);
+            this.label37.Location = new System.Drawing.Point(411, 365);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(371, 30);
             this.label37.TabIndex = 15;
@@ -3412,7 +3514,7 @@
             this.bunifuFlatButton6.IconVisible = false;
             this.bunifuFlatButton6.IconZoom = 90D;
             this.bunifuFlatButton6.IsTab = false;
-            this.bunifuFlatButton6.Location = new System.Drawing.Point(778, 430);
+            this.bunifuFlatButton6.Location = new System.Drawing.Point(505, 398);
             this.bunifuFlatButton6.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.bunifuFlatButton6.Name = "bunifuFlatButton6";
             this.bunifuFlatButton6.Normalcolor = System.Drawing.Color.Gray;
@@ -3431,7 +3533,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(43, 392);
+            this.label36.Location = new System.Drawing.Point(15, 365);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(386, 30);
             this.label36.TabIndex = 13;
@@ -3459,7 +3561,7 @@
             this.bunifuFlatButton3.IconVisible = false;
             this.bunifuFlatButton3.IconZoom = 90D;
             this.bunifuFlatButton3.IsTab = false;
-            this.bunifuFlatButton3.Location = new System.Drawing.Point(157, 425);
+            this.bunifuFlatButton3.Location = new System.Drawing.Point(129, 398);
             this.bunifuFlatButton3.Name = "bunifuFlatButton3";
             this.bunifuFlatButton3.Normalcolor = System.Drawing.Color.Gray;
             this.bunifuFlatButton3.OnHovercolor = System.Drawing.Color.LightGray;
@@ -3477,7 +3579,7 @@
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(648, 46);
+            this.label35.Location = new System.Drawing.Point(385, 19);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(391, 30);
             this.label35.TabIndex = 12;
@@ -3505,7 +3607,7 @@
             this.bunifuFlatButton2.IconVisible = false;
             this.bunifuFlatButton2.IconZoom = 90D;
             this.bunifuFlatButton2.IsTab = false;
-            this.bunifuFlatButton2.Location = new System.Drawing.Point(768, 81);
+            this.bunifuFlatButton2.Location = new System.Drawing.Point(505, 54);
             this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuFlatButton2.Name = "bunifuFlatButton2";
             this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.Gray;
@@ -3524,7 +3626,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(48, 213);
+            this.label34.Location = new System.Drawing.Point(20, 186);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(366, 30);
             this.label34.TabIndex = 11;
@@ -3552,7 +3654,7 @@
             this.bunifuFlatButton5.IconVisible = false;
             this.bunifuFlatButton5.IconZoom = 90D;
             this.bunifuFlatButton5.IsTab = false;
-            this.bunifuFlatButton5.Location = new System.Drawing.Point(157, 248);
+            this.bunifuFlatButton5.Location = new System.Drawing.Point(129, 221);
             this.bunifuFlatButton5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuFlatButton5.Name = "bunifuFlatButton5";
             this.bunifuFlatButton5.Normalcolor = System.Drawing.Color.Gray;
@@ -3571,7 +3673,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(64, 51);
+            this.label33.Location = new System.Drawing.Point(36, 24);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(340, 30);
             this.label33.TabIndex = 10;
@@ -3599,7 +3701,7 @@
             this.bunifuFlatButton1.IconVisible = false;
             this.bunifuFlatButton1.IconZoom = 90D;
             this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(157, 81);
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(129, 54);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Gray;
             this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.LightGray;
@@ -3617,7 +3719,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(674, 210);
+            this.label32.Location = new System.Drawing.Point(411, 183);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(335, 30);
             this.label32.TabIndex = 9;
@@ -3645,7 +3747,7 @@
             this.bunifuFlatButton4.IconVisible = false;
             this.bunifuFlatButton4.IconZoom = 90D;
             this.bunifuFlatButton4.IsTab = false;
-            this.bunifuFlatButton4.Location = new System.Drawing.Point(778, 248);
+            this.bunifuFlatButton4.Location = new System.Drawing.Point(505, 221);
             this.bunifuFlatButton4.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.bunifuFlatButton4.Name = "bunifuFlatButton4";
             this.bunifuFlatButton4.Normalcolor = System.Drawing.Color.Gray;
@@ -4025,7 +4127,6 @@
             this.rdoStudent.AutoSize = true;
             this.rdoStudent.BackColor = System.Drawing.Color.Transparent;
             this.rdoStudent.Depth = 0;
-            this.rdoStudent.Enabled = false;
             this.rdoStudent.Font = new System.Drawing.Font("Roboto", 10F);
             this.rdoStudent.Location = new System.Drawing.Point(256, 18);
             this.rdoStudent.Margin = new System.Windows.Forms.Padding(0);
@@ -4193,7 +4294,7 @@
             this.Controls.Add(this.materialTabControl2);
             this.KeyPreview = true;
             this.MaximizeBox = false;
-        //    this.Name = "Main";
+            // this.Name = "Main";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TransparencyKey = System.Drawing.SystemColors.AppWorkspace;
@@ -4564,5 +4665,9 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label37;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton6;
+        private System.Windows.Forms.Label label38;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton7;
+        private System.Windows.Forms.Label label39;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton8;
     }
 }

@@ -16,14 +16,14 @@ namespace ANS_SEIS_TV {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptRequests : ReportClass {
+    public class rptPulledOutEquipment : ReportClass {
         
-        public rptRequests() {
+        public rptPulledOutEquipment() {
         }
         
         public override string ResourceName {
             get {
-                return "rptRequests.rpt";
+                return "rptPulledOutEquipment.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ANS_SEIS_TV {
         
         public override string FullResourceName {
             get {
-                return "ANS_SEIS_TV.rptRequests.rpt";
+                return "ANS_SEIS_TV.rptPulledOutEquipment.rpt";
             }
             set {
                 // Do nothing
@@ -103,28 +103,12 @@ namespace ANS_SEIS_TV {
                 return this.DataDefinition.ParameterFields[1];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_pNew {
-            get {
-                return this.DataDefinition.ParameterFields[2];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_pPending {
-            get {
-                return this.DataDefinition.ParameterFields[3];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptRequests : Component, ICachedReport {
+    public class CachedrptPulledOutEquipment : Component, ICachedReport {
         
-        public CachedrptRequests() {
+        public CachedrptPulledOutEquipment() {
         }
         
         [Browsable(false)]
@@ -161,7 +145,7 @@ namespace ANS_SEIS_TV {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptRequests rpt = new rptRequests();
+            rptPulledOutEquipment rpt = new rptPulledOutEquipment();
             rpt.Site = this.Site;
             return rpt;
         }

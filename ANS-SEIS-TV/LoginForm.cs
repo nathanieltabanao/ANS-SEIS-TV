@@ -79,6 +79,10 @@ namespace ANS_SEIS_TV
                     {
                         TeacherLogin();
                     }
+                    else if (g.UsertypeID==112)
+                    {
+                        StudentLogin();
+                    }
                 }
                 else
                 {
@@ -110,6 +114,13 @@ namespace ANS_SEIS_TV
             Main m = new Main();
             m.CurrentUser = txtUsername.Text;
             m.Show();
+        }
+
+        private void StudentLogin()
+        {
+            student stu = new student();
+            stu.CurrentUsername = txtUsername.Text;
+            stu.Show();
         }
 
         private void FirstLogin()
