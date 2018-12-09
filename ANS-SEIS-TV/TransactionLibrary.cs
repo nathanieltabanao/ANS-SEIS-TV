@@ -24,9 +24,9 @@ namespace ANS_SEIS_TV
             db.sp_NewRequest(GENID, Subject, Content, Date, StatusID,0);
         }
 
-        public void NewBorrowed(int TransactionID, int WhoBorrowed, int EQID, DateTime DateBorrowed, int Quantity, bool IsReturned, bool IsGoodCondition)
+        public void NewBorrowed(int TransactionID, int WhoBorrowed, int EQID, DateTime DateBorrowed, int Quantity, bool IsReturned)
         {
-            db.sp_NewBorrow(TransactionID, WhoBorrowed, EQID, DateBorrowed, Quantity,IsReturned,IsGoodCondition);
+            db.sp_NewBorrow(TransactionID, WhoBorrowed, EQID, DateBorrowed, Quantity, IsReturned);
         }
 
         public void NewTransaction(DateTime DateTransacted,string Action,int AdminID)
@@ -60,9 +60,9 @@ namespace ANS_SEIS_TV
             db.sp_ReturnEquipments(TransactionID, EquipmentID, Quantity, DateReturned, GENID);
         }
 
-        public void ReturnEquipmentEdit(int TransactionID, int EquipmentID, bool Returned, bool GoodCondition)
+        public void ReturnEquipmentEdit(int TransactionID, int EquipmentID, int EQty, bool Returned)
         {
-            db.sp_EquipmentReturning(TransactionID, EquipmentID, GoodCondition, Returned);
+            db.sp_EquipmentReturning(TransactionID, EquipmentID, EQty, Returned);
         }
 
         public void NewEquipmentReservation(int TransactionID, int WhoReserved, int EQID, DateTime DateBorrowed, int Qty, bool IsReturned)

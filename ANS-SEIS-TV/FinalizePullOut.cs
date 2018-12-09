@@ -18,6 +18,7 @@ namespace ANS_SEIS_TV
     public partial class FinalizePullOut : MetroForm
     {
         int AdminID, TeacherID, TID;
+        public int Done { get; set; }
         string TeacherName, AdminName, RoomNumber, RoomName;
         
 
@@ -45,6 +46,7 @@ namespace ANS_SEIS_TV
 
             RoomNumber = RMNUm;
             RoomName = RMName;
+            Done = 0;
         }
 
         private void FinalizePullOut_Load(object sender, EventArgs e)
@@ -63,6 +65,7 @@ namespace ANS_SEIS_TV
         {
             if (backgroundWorker1.IsBusy != true)
             {
+                Done = 1;
                 backgroundWorker1.RunWorkerAsync();
                 LoadingScreen2 l = new LoadingScreen2();
                 l.ShowDialog();
