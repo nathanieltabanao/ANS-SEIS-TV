@@ -96,7 +96,7 @@ namespace ANS_SEIS_TV
             db.sp_NewDeployment(t.TID, g.GetFacilityID(Room));
             foreach (DataGridViewRow row in dgvDeployList.Rows)
             {
-                t.NewBorrowed(t.TID, Teacher, Convert.ToInt32(row.Cells[0].Value), DateTime.Now, Convert.ToInt32(row.Cells[2].Value), false, false);
+                t.NewBorrowed(t.TID, Teacher, Convert.ToInt32(row.Cells[0].Value), DateTime.Now, Convert.ToInt32(row.Cells[2].Value), false);
                 t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) + Convert.ToInt32(row.Cells[2].Value));
             }
             s.GenerateBarcode(t.TID.ToString());

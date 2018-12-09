@@ -34,11 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSubmit = new MaterialSkin.Controls.MaterialFlatButton();
             this.dgvTransaction = new MetroFramework.Controls.MetroGrid();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsReturned = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.IsGoodCondition = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lblTransactionType = new System.Windows.Forms.Label();
             this.lblTransactionID = new System.Windows.Forms.Label();
             this.lblBorrower = new System.Windows.Forms.Label();
@@ -46,6 +41,11 @@
             this.metroStyleExtender1 = new MetroFramework.Components.MetroStyleExtender(this.components);
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsReturned = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.QuantityToReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
@@ -98,7 +98,7 @@
             this.Name,
             this.Quantity,
             this.IsReturned,
-            this.IsGoodCondition});
+            this.QuantityToReturn});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -127,36 +127,6 @@
             this.dgvTransaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTransaction.Size = new System.Drawing.Size(535, 283);
             this.dgvTransaction.TabIndex = 9;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 48;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.Width = 75;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.Width = 93;
-            // 
-            // IsReturned
-            // 
-            this.IsReturned.HeaderText = "IsReturned";
-            this.IsReturned.Name = "IsReturned";
-            this.IsReturned.Width = 89;
-            // 
-            // IsGoodCondition
-            // 
-            this.IsGoodCondition.HeaderText = "IsGoodCondition";
-            this.IsGoodCondition.Name = "IsGoodCondition";
-            this.IsGoodCondition.Width = 131;
             // 
             // lblTransactionType
             // 
@@ -207,7 +177,37 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted_1);
             // 
-            // ReturnFinalize
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 48;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            this.Name.Width = 75;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 93;
+            // 
+            // IsReturned
+            // 
+            this.IsReturned.HeaderText = "IsReturned";
+            this.IsReturned.Name = "IsReturned";
+            this.IsReturned.Width = 89;
+            // 
+            // QuantityToReturn
+            // 
+            this.QuantityToReturn.HeaderText = "Quantity To Return";
+            this.QuantityToReturn.Name = "QuantityToReturn";
+            this.QuantityToReturn.Width = 106;
+            // 
+            // FinalizeReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -221,7 +221,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Movable = false;
-            //this.Name = "ReturnFinalize";
+            // this.Name = "FinalizeReturn";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             this.ShowInTaskbar = false;
@@ -250,6 +250,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsReturned;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn IsGoodCondition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityToReturn;
     }
 }

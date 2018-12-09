@@ -49,6 +49,8 @@ namespace ANS_SEIS_TV
         public int BorrowerID { get; set; }
         public string AdminName;
         public string BorrowerName { get; set; }
+
+        public int Done { get; set; }
         
 
         private void FinalizeTransaction_Load(object sender, EventArgs e)
@@ -60,6 +62,7 @@ namespace ANS_SEIS_TV
             lblTransactionType.Text = "Transaction Type : " + TransactionType;
             lblTransactionID.Text = "Transaction ID : " + TransactionID;
             lblDate.Text = "Transaction Date :" + DateTime.Now.ToShortDateString();
+            Done = 0;
         }
 
         public DataGridView CopyDataGridView(DataGridView dgv_org)
@@ -106,6 +109,7 @@ namespace ANS_SEIS_TV
                 backgroundWorker1.RunWorkerAsync();
                 LoadingScreen2 l = new LoadingScreen2();
                 l.ShowDialog();
+                Done = 1;
             }
 
 
@@ -128,7 +132,7 @@ namespace ANS_SEIS_TV
             t.NewTransaction(DateTime.Now, Action, AdminID);
             foreach (DataGridViewRow row in dgvTransaction.Rows)
             {
-                t.NewBorrowed(TransactionID, g.GetGENID(Borrower), Convert.ToInt32(row.Cells[0].Value), DateTime.Now, Convert.ToInt32(row.Cells[2].Value), false, false);
+                t.NewBorrowed(TransactionID, g.GetGENID(Borrower), Convert.ToInt32(row.Cells[0].Value), DateTime.Now, Convert.ToInt32(row.Cells[2].Value), false);
                 t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) + Convert.ToInt32(row.Cells[2].Value));
             }
             s.GenerateBarcode(TransactionID.ToString());

@@ -514,7 +514,7 @@ namespace ANS_SEIS_TV
                     t.NewTransaction(DateTime.Now, t.Action, CurrentGENID);
 
                     //commented cuz ok na
-                    t.NewBorrowed(t.TID, CurrentGENID, eq.ID, DateTime.Now, 0, true, true);
+                    t.NewBorrowed(t.TID, CurrentGENID, eq.ID, DateTime.Now, 0, true);
                     t.NewEquipmentAdded(eq.ID, 0);
 
                     //for the borrowing
@@ -807,12 +807,19 @@ namespace ANS_SEIS_TV
                     f.TransactionType = "Equipment Borrowing";
                     f.AdminID = CurrentGENID;
                     f.AdminName = g.Fullname;
-
                     f.ShowDialog();
-                    dgvBorrowList.Rows.Clear();
-                    txtBorrowerFullname.Text = null;
-                    txtBorrowerUsername.Text = null;
-                    UpdateAllTable();
+
+                    if (f.Done==0)
+                    {
+
+                    }
+                    else
+                    {
+                        dgvBorrowList.Rows.Clear();
+                        txtBorrowerFullname.Text = null;
+                        txtBorrowerUsername.Text = null;
+                        UpdateAllTable();
+                    }
                 }
             }
         }
@@ -1381,8 +1388,14 @@ namespace ANS_SEIS_TV
                 }
 
                 f.ShowDialog();
+                if (f.Done==0)
+                {
 
-                dgvPullOutView.Rows.Clear();
+                }
+                else
+                {
+                    dgvPullOutView.Rows.Clear();
+                }
             }
         }
 

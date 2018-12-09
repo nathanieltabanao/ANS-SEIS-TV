@@ -166,11 +166,6 @@
             this.tabPage18 = new System.Windows.Forms.TabPage();
             this.btnReturnSelected = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dgvCurrentBorrowed = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsReturned = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.goodConditionDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.spViewBorrowedEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aNS_SEIS_TVDataSet = new ANS_SEIS_TV.ANS_SEIS_TVDataSet();
             this.bunifuCustomLabel20 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -328,6 +323,11 @@
             this.btnRefresh = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tBLFACILITIESTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet5TableAdapters.TBLFACILITIESTableAdapter();
             this.sp_ViewDeployedEquipmentsTransactionIDTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet6TableAdapters.sp_ViewDeployedEquipmentsTransactionIDTableAdapter();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsReturned = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.QtyToReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
@@ -2051,7 +2051,7 @@
             this.nameDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
             this.IsReturned,
-            this.goodConditionDataGridViewCheckBoxColumn});
+            this.QtyToReturn});
             this.dgvCurrentBorrowed.DataSource = this.spViewBorrowedEquipmentBindingSource;
             this.dgvCurrentBorrowed.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgvCurrentBorrowed.Location = new System.Drawing.Point(6, 112);
@@ -2059,44 +2059,6 @@
             this.dgvCurrentBorrowed.Size = new System.Drawing.Size(1131, 390);
             this.dgvCurrentBorrowed.TabIndex = 70;
             this.dgvCurrentBorrowed.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCurrentBorrowed_CellContentClick);
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Width = 47;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 68;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quantityDataGridViewTextBoxColumn.Width = 82;
-            // 
-            // IsReturned
-            // 
-            this.IsReturned.DataPropertyName = "Returned?";
-            this.IsReturned.HeaderText = "Returned?";
-            this.IsReturned.Name = "IsReturned";
-            this.IsReturned.Width = 70;
-            // 
-            // goodConditionDataGridViewCheckBoxColumn
-            // 
-            this.goodConditionDataGridViewCheckBoxColumn.DataPropertyName = "Good Condition?";
-            this.goodConditionDataGridViewCheckBoxColumn.HeaderText = "Good Condition?";
-            this.goodConditionDataGridViewCheckBoxColumn.Name = "goodConditionDataGridViewCheckBoxColumn";
-            this.goodConditionDataGridViewCheckBoxColumn.Width = 97;
             // 
             // spViewBorrowedEquipmentBindingSource
             // 
@@ -4282,6 +4244,43 @@
             // 
             this.sp_ViewDeployedEquipmentsTransactionIDTableAdapter.ClearBeforeFill = true;
             // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Width = 47;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 68;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantityDataGridViewTextBoxColumn.Width = 82;
+            // 
+            // IsReturned
+            // 
+            this.IsReturned.DataPropertyName = "Returned?";
+            this.IsReturned.HeaderText = "Returned?";
+            this.IsReturned.Name = "IsReturned";
+            this.IsReturned.Width = 70;
+            // 
+            // QtyToReturn
+            // 
+            this.QtyToReturn.HeaderText = "Quantity to Return";
+            this.QtyToReturn.Name = "QtyToReturn";
+            this.QtyToReturn.Width = 91;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4516,11 +4515,6 @@
         private ANS_SEIS_TVDataSetTableAdapters.sp_ViewBorrowedEquipmentTableAdapter sp_ViewBorrowedEquipmentTableAdapter;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvCurrentBorrowed;
         private MaterialSkin.Controls.MaterialRaisedButton btnReturnSelected;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn IsReturned;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn goodConditionDataGridViewCheckBoxColumn;
         private System.Windows.Forms.TabPage tabPage1;
         private DevComponents.DotNetBar.Controls.DataGridViewX dgvEquipmentToReserve;
         private System.Windows.Forms.GroupBox groupBox11;
@@ -4669,5 +4663,10 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton7;
         private System.Windows.Forms.Label label39;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsReturned;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QtyToReturn;
     }
 }

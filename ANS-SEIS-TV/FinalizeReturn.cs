@@ -69,42 +69,66 @@ namespace ANS_SEIS_TV
             t.NewTransaction(DateTime.Now, Action, AdminID);
 
             int GoodEQ = 0, BadEQ=0;
-            
+
+            t.NewTransaction(DateTime.Now, Action, AdminID);
+
             foreach (DataGridViewRow row in dgvTransaction.Rows)
             {
-                if (Convert.ToBoolean(row.Cells[4].Value))
-                {
-                    GoodEQ += Convert.ToInt32(row.Cells[2].Value);
-                }
-                else
-                {
-                    BadEQ += Convert.ToInt32(row.Cells[2].Value);
-                }
-
-
+                int ReturnQty = 0;
+                
+                
                 // bool isSelected = Convert.ToBoolean(row.Cells[3].Value);
                 if (Convert.ToBoolean(row.Cells[3].Value)) // should be isSelected but deprecated for speed issues
                 {
-                    bool GoodCondition = Convert.ToBoolean(row.Cells[4].Value);
+                    // bool GoodCondition = Convert.ToBoolean(row.Cells[4].Value);
+                    
 
-                    t.NewTransaction(DateTime.Now, Action, AdminID);
+                    if (string.IsNullOrEmpty(row.Cells["QuantityToReturn"].Value.ToString().Trim()))
+                    {
+                        MetroMessageBox.Show(this, "Please input number of equipment to return", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if (int.TryParse(row.Cells["QuantityToReturn"].Value.ToString(),out ReturnQty))
+                        {
 
-                    t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) - Convert.ToInt32(row.Cells[2].Value));
-                    //g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) - Convert.ToInt32(row.Cells[2].Value))
-                    //spits total number of that is borrowed then minus the returned number
+                            // if checked then count 
+                            
+                         GoodEQ = Convert.ToInt32(row.Cells[4].Value);
+                         BadEQ = Convert.ToInt32(row.Cells[2].Value) - GoodEQ;
 
-                    t.ReturnEquipment(TransactionID, Convert.ToInt32(row.Cells[0].Value), Convert.ToInt32(row.Cells[2].Value), DateTime.Now, BorrowerID);
-                    t.ReturnEquipmentEdit(OldTransactionID, Convert.ToInt32(row.Cells[0].Value), true,GoodCondition);
+                            t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) - GoodEQ);
+                            //g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) - Convert.ToInt32(row.Cells[2].Value))
+                            //spits total number of that is borrowed then minus the returned number
 
-                    // Cell [0] is Equipment ID
-                    // Good EQ is always padung deduction so current Good Eq - Bad nga gi returend
-                    // Bad EQ is always pasaka kay bad EQ + current nga gi returend
-                    eq.EquipmentStatusEdit(Convert.ToInt32(row.Cells[0].Value), g.GetQuantityGoodConditionEQ(Convert.ToInt32(row.Cells[0].Value)) - BadEQ, g.GetQuantityBadConditionEQ(Convert.ToInt32(row.Cells[0].Value)) + BadEQ);
+
+                            t.ReturnEquipment(TransactionID, Convert.ToInt32(row.Cells[0].Value), GoodEQ, DateTime.Now, BorrowerID);
+
+                            if (Convert.ToInt32(row.Cells[2].Value) == GoodEQ)
+                            {
+                                t.ReturnEquipmentEdit(OldTransactionID, Convert.ToInt32(row.Cells[0].Value), 0, true);
+                            }
+                            else
+                            {
+                                t.ReturnEquipmentEdit(OldTransactionID, Convert.ToInt32(row.Cells[0].Value), 0, false);
+                            }
+
+                            // Cell [0] is Equipment ID
+                            // Good EQ is always padung deduction so current Good Eq - Bad nga gi returend
+                            // Bad EQ is always pasaka kay bad EQ + current nga gi returend
+                            eq.EquipmentStatusEdit(Convert.ToInt32(row.Cells[0].Value), g.GetQuantityGoodConditionEQ(Convert.ToInt32(row.Cells[0].Value)) - BadEQ, g.GetQuantityBadConditionEQ(Convert.ToInt32(row.Cells[0].Value)) + BadEQ);
+                        }
+                    }
+
+                    
+                    
+                    
                 }
                 else
                 {
 
                 }
+                GoodEQ = BadEQ = 0;
             }
         }
 

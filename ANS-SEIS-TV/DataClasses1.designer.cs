@@ -396,9 +396,9 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_EquipmentReturning")]
-		public int sp_EquipmentReturning([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EquipmentID", DbType="Int")] System.Nullable<int> equipmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGoodCondition", DbType="Bit")] System.Nullable<bool> isGoodCondition, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsReturned", DbType="Bit")] System.Nullable<bool> isReturned)
+		public int sp_EquipmentReturning([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EquipmentID", DbType="Int")] System.Nullable<int> equipmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Qty", DbType="Int")] System.Nullable<int> qty, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsReturned", DbType="Bit")] System.Nullable<bool> isReturned)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, equipmentID, isGoodCondition, isReturned);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, equipmentID, qty, isReturned);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -452,9 +452,9 @@ namespace ANS_SEIS_TV
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NewBorrow")]
-		public int sp_NewBorrow([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WhoBorrowed", DbType="Int")] System.Nullable<int> whoBorrowed, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DATEBORROWED", DbType="DateTime")] System.Nullable<System.DateTime> dATEBORROWED, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGoodCondition", DbType="Bit")] System.Nullable<bool> isGoodCondition, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsReturned", DbType="Bit")] System.Nullable<bool> isReturned)
+		public int sp_NewBorrow([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransactionID", DbType="Int")] System.Nullable<int> transactionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WhoBorrowed", DbType="Int")] System.Nullable<int> whoBorrowed, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EQUIPMENT_ID", DbType="Int")] System.Nullable<int> eQUIPMENT_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DATEBORROWED", DbType="DateTime")] System.Nullable<System.DateTime> dATEBORROWED, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Quantity", DbType="Int")] System.Nullable<int> quantity, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsReturned", DbType="Bit")] System.Nullable<bool> isReturned)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, whoBorrowed, eQUIPMENT_ID, dATEBORROWED, quantity, isGoodCondition, isReturned);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transactionID, whoBorrowed, eQUIPMENT_ID, dATEBORROWED, quantity, isReturned);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -1209,8 +1209,6 @@ namespace ANS_SEIS_TV
 		
 		private System.Nullable<int> _Quantity;
 		
-		private System.Nullable<bool> _IsGoodCondition;
-		
 		private System.Nullable<bool> _IsReturned;
 		
 		public TBLBORROWED()
@@ -1309,22 +1307,6 @@ namespace ANS_SEIS_TV
 				if ((this._Quantity != value))
 				{
 					this._Quantity = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsGoodCondition", DbType="Bit")]
-		public System.Nullable<bool> IsGoodCondition
-		{
-			get
-			{
-				return this._IsGoodCondition;
-			}
-			set
-			{
-				if ((this._IsGoodCondition != value))
-				{
-					this._IsGoodCondition = value;
 				}
 			}
 		}
@@ -6735,8 +6717,6 @@ namespace ANS_SEIS_TV
 		
 		private System.Nullable<bool> _Returned_;
 		
-		private System.Nullable<bool> _Good_Condition_;
-		
 		public sp_ViewBorrowedEquipmentResult()
 		{
 		}
@@ -6801,22 +6781,6 @@ namespace ANS_SEIS_TV
 				if ((this._Returned_ != value))
 				{
 					this._Returned_ = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Good Condition?]", Storage="_Good_Condition_", DbType="Bit")]
-		public System.Nullable<bool> Good_Condition_
-		{
-			get
-			{
-				return this._Good_Condition_;
-			}
-			set
-			{
-				if ((this._Good_Condition_ != value))
-				{
-					this._Good_Condition_ = value;
 				}
 			}
 		}
