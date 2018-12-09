@@ -675,7 +675,6 @@
   </Function>
   <Function Name="dbo.sp_UserDelete" Method="sp_UserDelete">
     <Parameter Name="ID" Parameter="iD" Type="System.String" DbType="VarChar(50)" />
-    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_UserEdit" Method="sp_UserEdit">
     <Parameter Name="GENID" Parameter="gENID" Type="System.Int32" DbType="Int" />
