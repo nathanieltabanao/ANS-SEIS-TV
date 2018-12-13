@@ -391,5 +391,14 @@ namespace ANS_SEIS_TV
 
             return Convert.ToInt32(results.ToString());
         }
+
+        public int GetTotalAmountBorrowed(int GENID)
+        {
+            var results = from TBLUSERUSAGESTATISTIC in db.TBLUSERUSAGESTATISTICs
+                          where TBLUSERUSAGESTATISTIC.GENID == GENID
+                          select TBLUSERUSAGESTATISTIC.TotalBorrowedEquipments;
+
+            return Convert.ToInt32(results.FirstOrDefault().Value.ToString());
+        }
     }
 }
