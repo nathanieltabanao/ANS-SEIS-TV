@@ -1408,6 +1408,11 @@ UPDATE TBLUSERUSAGESTATISTICS
 SET TotalBorrowedEquipments=@TotalBorrowedEquipments
 WHERE GENID=@GENID
 
+CREATE PROC sp_ViewBorrowStatistics
+as
+SELECT TBLUSERDETAILS.FIRSTNAME+' '+TBLUSERDETAILS.MIDDLENAME +' '+ TBLUSERDETAILS.LASTNAME as "Name", TBLUSERUSAGESTATISTICS.TotalBorrowedEquipments from TBLUSERUSAGESTATISTICS
+inner join TBLUSERDETAILS on TBLUSERUSAGESTATISTICS.GENID=TBLUSERDETAILS.GENID
+
 -------------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------
@@ -1494,3 +1499,5 @@ INNER JOIN TBLTRANSACTION ON TBLBORROWED.TransactionID=TBLTRANSACTION.Transactio
 
 
 	SELECT * FROM TBLBORROWED
+
+SELECT GENID,TotalBorrowedEquipments FROM TBLUSERUSAGESTATISTICS

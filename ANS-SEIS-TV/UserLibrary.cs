@@ -181,6 +181,7 @@ namespace ANS_SEIS_TV
             //db.sp_UserInsert(null, ID, Username, Password, FirstName, MiddleName, LastName, Address, Birthdate, Email, SecurityQuestion, SecurityAnswer, Usertype,IsFirstLogin);
 
             db.sp_UserInsert(ID, Username, Password, FirstName, MiddleName, LastName, ContactNumber, null, null, Usertype, IsFirstLogin);
+            db.sp_AddUserToStatics(GENID, 0);
 
             //db.sp_UserActionReport(CurrentUserID, CurrentUsername, "Registered a user", DateTime.Now);
         }

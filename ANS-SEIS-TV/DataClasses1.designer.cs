@@ -801,6 +801,13 @@ namespace ANS_SEIS_TV
 			return ((ISingleResult<sp_ViewBorrowedEquipmentResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewBorrowStatistics")]
+		public ISingleResult<sp_ViewBorrowStatisticsResult> sp_ViewBorrowStatistics()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_ViewBorrowStatisticsResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewDeniedRequest")]
 		public ISingleResult<sp_ViewDeniedRequestResult> sp_ViewDeniedRequest()
 		{
@@ -6865,6 +6872,50 @@ namespace ANS_SEIS_TV
 				if ((this._Returned_ != value))
 				{
 					this._Returned_ = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ViewBorrowStatisticsResult
+	{
+		
+		private string _Column1;
+		
+		private System.Nullable<int> _TotalBorrowedEquipments;
+		
+		public sp_ViewBorrowStatisticsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="VarChar(302)")]
+		public string Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalBorrowedEquipments", DbType="Int")]
+		public System.Nullable<int> TotalBorrowedEquipments
+		{
+			get
+			{
+				return this._TotalBorrowedEquipments;
+			}
+			set
+			{
+				if ((this._TotalBorrowedEquipments != value))
+				{
+					this._TotalBorrowedEquipments = value;
 				}
 			}
 		}

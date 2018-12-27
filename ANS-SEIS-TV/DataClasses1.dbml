@@ -832,6 +832,12 @@
       <Column Name="[Returned?]" Member="Returned_" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_ViewBorrowStatistics" Method="sp_ViewBorrowStatistics">
+    <ElementType Name="sp_ViewBorrowStatisticsResult">
+      <Column Name="" Member="Column1" Type="System.String" DbType="VarChar(302)" CanBeNull="true" />
+      <Column Name="TotalBorrowedEquipments" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.sp_ViewDeniedRequest" Method="sp_ViewDeniedRequest">
     <ElementType Name="sp_ViewDeniedRequestResult">
       <Column Name="[Request ID]" Member="Request_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
