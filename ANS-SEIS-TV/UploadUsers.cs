@@ -80,14 +80,41 @@ namespace ANS_SEIS_TV
                 }
                 finally
                 {
-                    dgvInventoryUpload.DataSource = data;
+                    dgvUserUpload.DataSource = data;
                 }
             }
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
+            UserLibrary u = new UserLibrary();
 
+            foreach(DataGridViewRow row in dgvUserUpload.Rows)
+            {
+                u.GENID = u.UserID();
+
+                if (Convert.ToInt32(row.Cells[5].Value)==110)
+                {
+                    u.ID = "AD-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
+                }
+                else if (Convert.ToInt32(row.Cells[5].Value) == 111)
+                {
+                    u.ID = "TR-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
+                }
+                else if (Convert.ToInt32(row.Cells[5].Value) == 112)
+                {
+                    u.ID = "ST-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
+                }
+
+                u.Username = row.Cells[0].Value.ToString();
+                u.Password = "1234";
+                u.FirstName = row.Cells[1].Value.ToString();
+                u.MiddleName = row.Cells[2].Value.ToString();
+                u.LastName = row.Cells[3].Value.ToString();
+                u.ContactNumber = row.Cells[4].Value.ToString();
+                u.Usertype = Convert.ToInt32(row.Cells[5].Value);
+                u.UserInsert();
+            }
         }
     }
 }

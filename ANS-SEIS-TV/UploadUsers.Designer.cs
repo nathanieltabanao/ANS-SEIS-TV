@@ -39,10 +39,10 @@
             this.btnPreview = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnOpenFileDialog = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txtFileLocation = new System.Windows.Forms.TextBox();
-            this.dgvInventoryUpload = new MetroFramework.Controls.MetroGrid();
+            this.dgvUserUpload = new MetroFramework.Controls.MetroGrid();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.LocationToolTip = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventoryUpload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserUpload)).BeginInit();
             this.SuspendLayout();
             // 
             // btnUpload
@@ -113,39 +113,44 @@
             this.txtFileLocation.Size = new System.Drawing.Size(671, 20);
             this.txtFileLocation.TabIndex = 9;
             // 
-            // dgvInventoryUpload
+            // dgvUserUpload
             // 
-            this.dgvInventoryUpload.AllowUserToResizeRows = false;
-            this.dgvInventoryUpload.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvUserUpload.AllowUserToAddRows = false;
+            this.dgvUserUpload.AllowUserToDeleteRows = false;
+            this.dgvUserUpload.AllowUserToResizeRows = false;
+            this.dgvUserUpload.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvInventoryUpload.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvInventoryUpload.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvInventoryUpload.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvInventoryUpload.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgvUserUpload.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvUserUpload.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvUserUpload.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvUserUpload.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvUserUpload.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInventoryUpload.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvInventoryUpload.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUserUpload.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUserUpload.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInventoryUpload.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvInventoryUpload.EnableHeadersVisualStyles = false;
-            this.dgvInventoryUpload.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvInventoryUpload.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvInventoryUpload.Location = new System.Drawing.Point(23, 152);
-            this.dgvInventoryUpload.Name = "dgvInventoryUpload";
-            this.dgvInventoryUpload.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvUserUpload.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvUserUpload.EnableHeadersVisualStyles = false;
+            this.dgvUserUpload.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvUserUpload.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvUserUpload.Location = new System.Drawing.Point(23, 152);
+            this.dgvUserUpload.MultiSelect = false;
+            this.dgvUserUpload.Name = "dgvUserUpload";
+            this.dgvUserUpload.ReadOnly = true;
+            this.dgvUserUpload.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -153,11 +158,11 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInventoryUpload.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvInventoryUpload.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvInventoryUpload.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInventoryUpload.Size = new System.Drawing.Size(702, 317);
-            this.dgvInventoryUpload.TabIndex = 8;
+            this.dgvUserUpload.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvUserUpload.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvUserUpload.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUserUpload.Size = new System.Drawing.Size(702, 317);
+            this.dgvUserUpload.TabIndex = 8;
             // 
             // openFileDialog1
             // 
@@ -180,7 +185,7 @@
             this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.btnOpenFileDialog);
             this.Controls.Add(this.txtFileLocation);
-            this.Controls.Add(this.dgvInventoryUpload);
+            this.Controls.Add(this.dgvUserUpload);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UploadUsers";
@@ -188,7 +193,7 @@
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             this.ShowInTaskbar = false;
             this.Text = "User Upload";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventoryUpload)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserUpload)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,7 +208,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnPreview;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnOpenFileDialog;
         private System.Windows.Forms.TextBox txtFileLocation;
-        private MetroFramework.Controls.MetroGrid dgvInventoryUpload;
+        private MetroFramework.Controls.MetroGrid dgvUserUpload;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolTip LocationToolTip;
     }

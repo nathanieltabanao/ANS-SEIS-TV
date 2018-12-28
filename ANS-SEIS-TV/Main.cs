@@ -283,7 +283,7 @@ namespace ANS_SEIS_TV
 
                 // The actual method to insert the user
                 u.UserInsert();
-
+                u.AddUserToStatistics(u.GENID);
                 // CLears the fields
                 ClearUser();
 
