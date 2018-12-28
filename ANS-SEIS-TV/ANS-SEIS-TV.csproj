@@ -543,6 +543,18 @@
       <DependentUpon>TransactionDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="TransactionLibrary.cs" />
+    <Compile Include="UploadInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadInventory.Designer.cs">
+      <DependentUpon>UploadInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UploadUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadUsers.Designer.cs">
+      <DependentUpon>UploadUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Upolodo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -822,6 +834,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionDetails.resx">
       <DependentUpon>TransactionDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadInventory.resx">
+      <DependentUpon>UploadInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadUsers.resx">
+      <DependentUpon>UploadUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Upolodo.resx">
       <DependentUpon>Upolodo.cs</DependentUpon>

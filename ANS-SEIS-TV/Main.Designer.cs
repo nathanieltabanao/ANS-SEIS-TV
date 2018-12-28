@@ -316,6 +316,8 @@
             this.rdoStudent = new MaterialSkin.Controls.MaterialRadioButton();
             this.rdoTeacher = new MaterialSkin.Controls.MaterialRadioButton();
             this.rdoAdmin = new MaterialSkin.Controls.MaterialRadioButton();
+            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.aNSSEISTVDataSet5BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnLogout = new MaterialSkin.Controls.MaterialFlatButton();
             this.lblCurrentUser = new System.Windows.Forms.Label();
@@ -332,8 +334,8 @@
             this.btnRefresh = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tBLFACILITIESTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet5TableAdapters.TBLFACILITIESTableAdapter();
             this.sp_ViewDeployedEquipmentsTransactionIDTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet6TableAdapters.sp_ViewDeployedEquipmentsTransactionIDTableAdapter();
-            this.tabPage20 = new System.Windows.Forms.TabPage();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage21 = new System.Windows.Forms.TabPage();
+            this.tabPage22 = new System.Windows.Forms.TabPage();
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
@@ -400,13 +402,13 @@
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNSSEISTVDataSet5BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spEquipmentViewBarcodePathBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spTransactionSearchDateBindingSource)).BeginInit();
-            this.tabPage20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTabSelector2
@@ -478,6 +480,7 @@
             this.materialTabControl3.Controls.Add(this.tabPage10);
             this.materialTabControl3.Controls.Add(this.tabPage11);
             this.materialTabControl3.Controls.Add(this.tabPage1);
+            this.materialTabControl3.Controls.Add(this.tabPage21);
             this.materialTabControl3.Depth = 0;
             this.materialTabControl3.Location = new System.Drawing.Point(0, 37);
             this.materialTabControl3.MouseState = MaterialSkin.MouseState.HOVER;
@@ -913,7 +916,7 @@
             this.dtpTransactionTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpTransactionTo.Checked = false;
             this.dtpTransactionTo.Location = new System.Drawing.Point(593, 32);
-            this.dtpTransactionTo.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpTransactionTo.MinimumSize = new System.Drawing.Size(4, 29);
             this.dtpTransactionTo.Name = "dtpTransactionTo";
             this.dtpTransactionTo.Size = new System.Drawing.Size(184, 29);
             this.dtpTransactionTo.TabIndex = 4;
@@ -934,7 +937,7 @@
             this.dtpTransactionFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpTransactionFrom.Checked = false;
             this.dtpTransactionFrom.Location = new System.Drawing.Point(341, 33);
-            this.dtpTransactionFrom.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpTransactionFrom.MinimumSize = new System.Drawing.Size(4, 29);
             this.dtpTransactionFrom.Name = "dtpTransactionFrom";
             this.dtpTransactionFrom.Size = new System.Drawing.Size(184, 29);
             this.dtpTransactionFrom.TabIndex = 2;
@@ -3200,7 +3203,7 @@
             // 
             this.dtpReseravationDate.Location = new System.Drawing.Point(128, 26);
             this.dtpReseravationDate.MinDate = new System.DateTime(2018, 9, 11, 0, 0, 0, 0);
-            this.dtpReseravationDate.MinimumSize = new System.Drawing.Size(4, 29);
+            this.dtpReseravationDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpReseravationDate.Name = "dtpReseravationDate";
             this.dtpReseravationDate.Size = new System.Drawing.Size(400, 29);
             this.dtpReseravationDate.TabIndex = 4;
@@ -3801,6 +3804,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabControl4.Controls.Add(this.tabPage25);
             this.materialTabControl4.Controls.Add(this.tabPage20);
+            this.materialTabControl4.Controls.Add(this.tabPage22);
             this.materialTabControl4.Depth = 0;
             this.materialTabControl4.Location = new System.Drawing.Point(12, 38);
             this.materialTabControl4.MouseState = MaterialSkin.MouseState.HOVER;
@@ -4184,6 +4188,35 @@
             this.rdoAdmin.UseVisualStyleBackColor = false;
             this.rdoAdmin.CheckedChanged += new System.EventHandler(this.rdoAdmin_CheckedChanged_1);
             // 
+            // tabPage20
+            // 
+            this.tabPage20.Controls.Add(this.chart1);
+            this.tabPage20.Location = new System.Drawing.Point(4, 22);
+            this.tabPage20.Name = "tabPage20";
+            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage20.Size = new System.Drawing.Size(1154, 555);
+            this.tabPage20.TabIndex = 6;
+            this.tabPage20.Text = "Top Borrowers";
+            this.tabPage20.UseVisualStyleBackColor = true;
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(6, 6);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Name";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(1120, 534);
+            this.chart1.TabIndex = 50;
+            this.chart1.Text = "Top Borrowers";
+            title1.Name = "Top Borrowers";
+            this.chart1.Titles.Add(title1);
+            // 
             // aNSSEISTVDataSet5BindingSource
             // 
             this.aNSSEISTVDataSet5BindingSource.DataSource = this.aNS_SEIS_TVDataSet5;
@@ -4290,34 +4323,25 @@
             // 
             this.sp_ViewDeployedEquipmentsTransactionIDTableAdapter.ClearBeforeFill = true;
             // 
-            // tabPage20
+            // tabPage21
             // 
-            this.tabPage20.Controls.Add(this.chart1);
-            this.tabPage20.Location = new System.Drawing.Point(4, 22);
-            this.tabPage20.Name = "tabPage20";
-            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage20.Size = new System.Drawing.Size(1154, 555);
-            this.tabPage20.TabIndex = 6;
-            this.tabPage20.Text = "Top Borrowers";
-            this.tabPage20.UseVisualStyleBackColor = true;
+            this.tabPage21.Location = new System.Drawing.Point(4, 22);
+            this.tabPage21.Name = "tabPage21";
+            this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage21.Size = new System.Drawing.Size(1143, 547);
+            this.tabPage21.TabIndex = 9;
+            this.tabPage21.Text = "Inventory Upload";
+            this.tabPage21.UseVisualStyleBackColor = true;
             // 
-            // chart1
+            // tabPage22
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(6, 6);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Name";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1120, 534);
-            this.chart1.TabIndex = 50;
-            this.chart1.Text = "Top Borrowers";
-            title1.Name = "Top Borrowers";
-            this.chart1.Titles.Add(title1);
+            this.tabPage22.Location = new System.Drawing.Point(4, 22);
+            this.tabPage22.Name = "tabPage22";
+            this.tabPage22.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage22.Size = new System.Drawing.Size(1154, 555);
+            this.tabPage22.TabIndex = 7;
+            this.tabPage22.Text = "Upload Users";
+            this.tabPage22.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -4434,13 +4458,13 @@
             this.groupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage20.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNSSEISTVDataSet5BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spEquipmentViewBarcodePathBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spTransactionSearchDateBindingSource)).EndInit();
-            this.tabPage20.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4710,5 +4734,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn QtyToReturn;
         private System.Windows.Forms.TabPage tabPage20;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.TabPage tabPage21;
+        private System.Windows.Forms.TabPage tabPage22;
     }
 }
