@@ -1363,13 +1363,59 @@ WHERE TransactionID=@SearchBarcode
 
 -------------------------------------------------------------------------------------------------
 
--- THINGS ABOUT BARCODES STARTS HERE
+-- THINGS ABOUT BARCODES ENDS HERE
 
 
 -------------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------
 
+
+
+
+
+-- THINGS ABOUT STATISTICS ENDS HERE
+
+
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+SELECT * FROM TBLUSERUSAGESTATISTICS
+
+CREATE TABLE TBLUSERUSAGESTATISTICS
+(
+	UserCount INT UNIQUE IDENTITY(12000000,1),
+	GENID INT foreign key references tbluserdetails(GENID),
+	TotalBorrowedEquipments int
+)
+
+CREATE PROC sp_AddUserToStatics
+(
+	@GENID INT,
+	@TotalBorrowedEquipments INT
+)
+as
+INSERT INTO TBLUSERUSAGESTATISTICS
+VALUES (@GENID,@TotalBorrowedEquipments)
+
+CREATE PROC sp_UserBorrowAdd
+(
+	@GENID INT,
+	@TotalBorrowedEquipments INT
+)
+as
+UPDATE TBLUSERUSAGESTATISTICS
+SET TotalBorrowedEquipments=@TotalBorrowedEquipments
+WHERE GENID=@GENID
+
+CREATE PROC sp_ViewBorrowStatistics
+as
+SELECT TBLUSERDETAILS.FIRSTNAME+' '+TBLUSERDETAILS.MIDDLENAME +' '+ TBLUSERDETAILS.LASTNAME as "Name", TBLUSERUSAGESTATISTICS.TotalBorrowedEquipments from TBLUSERUSAGESTATISTICS
+inner join TBLUSERDETAILS on TBLUSERUSAGESTATISTICS.GENID=TBLUSERDETAILS.GENID
+
+-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
 
 
 
@@ -1396,6 +1442,13 @@ values	('AD-1000000','nate','1234','Nathaniel Angelico','Borres','Tabanao','0939
 		('TR-1000002','alyza','1234','Alyza Mae','Dunno','Sericon','03123456789','test','test','111','1'),
 		('TR-1000003','jbrown','1234','John Brown','Renegado','Geonson','123123123','test','test','111','1'),
 		('TR-1000004','test','1234','test','test','test','test','test','test','111','1')
+
+INSERT INTO TBLUSERUSAGESTATISTICS
+VALUES	(1000000,0),
+		(1000001,0),
+		(1000002,0),
+		(1000003,0),
+		(1000004,0)
 
 
 
@@ -1446,3 +1499,5 @@ INNER JOIN TBLTRANSACTION ON TBLBORROWED.TransactionID=TBLTRANSACTION.Transactio
 
 
 	SELECT * FROM TBLBORROWED
+
+SELECT GENID,TotalBorrowedEquipments FROM TBLUSERUSAGESTATISTICS

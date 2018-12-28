@@ -13,6 +13,7 @@ using MetroFramework;
 using System.Data.Linq;
 using System.Threading;
 using System.IO;
+using System.Data.SqlClient;
 
 
 namespace ANS_SEIS_TV
@@ -285,6 +286,7 @@ namespace ANS_SEIS_TV
 
                 // CLears the fields
                 ClearUser();
+
 
                 // Update dayun table
                 UpdateAllTable();
@@ -1024,6 +1026,23 @@ namespace ANS_SEIS_TV
             }
         }
 
+        private void fillChart()
+        {
+            SqlConnection con = new SqlConnection("Data Source=NATHANIEL-VX15;Initial Catalog=ANS_SEIS_TV;Integrated Security=true;");
+            DataSet ds = new DataSet();
+            con.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter("SELECT TBLUSERDETAILS.FIRSTNAME+' '+TBLUSERDETAILS.MIDDLENAME +' '+ TBLUSERDETAILS.LASTNAME as 'Name', TBLUSERUSAGESTATISTICS.TotalBorrowedEquipments from TBLUSERUSAGESTATISTICS inner join TBLUSERDETAILS on TBLUSERUSAGESTATISTICS.GENID = TBLUSERDETAILS.GENID", con);
+            adapt.Fill(ds);
+            chart1.DataSource = ds;
+            //set the member of the chart data source used to data bind to the X-values of the series  
+            chart1.Series["Name"].XValueMember = "Name";
+            //set the member columns of the chart data source used to data bind to the X-values of the series  
+            chart1.Series["Name"].YValueMembers = "TotalBorrowedEquipments";
+            //chart1.Titles.Add("Top Borrowers Chart");
+            con.Close();
+
+        }
+
         private void TableUpdate()
         {
             dgvToBeBorrowed.DataSource = db.sp_EquipmentBorrowableView(SearchKey);
@@ -1079,6 +1098,8 @@ namespace ANS_SEIS_TV
                 cpbDamaged.Text = Math.Round(damaged, 1).ToString();
                 cpbDamaged.Value = Convert.ToInt32(damaged);
             }
+
+            fillChart();
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)

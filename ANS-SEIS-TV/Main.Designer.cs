@@ -73,6 +73,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.materialTabSelector2 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl2 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
@@ -166,6 +170,11 @@
             this.tabPage18 = new System.Windows.Forms.TabPage();
             this.btnReturnSelected = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dgvCurrentBorrowed = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsReturned = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.QtyToReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.spViewBorrowedEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aNS_SEIS_TVDataSet = new ANS_SEIS_TV.ANS_SEIS_TVDataSet();
             this.bunifuCustomLabel20 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -323,11 +332,8 @@
             this.btnRefresh = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tBLFACILITIESTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet5TableAdapters.TBLFACILITIESTableAdapter();
             this.sp_ViewDeployedEquipmentsTransactionIDTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet6TableAdapters.sp_ViewDeployedEquipmentsTransactionIDTableAdapter();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsReturned = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.QtyToReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
@@ -399,6 +405,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.spEquipmentViewBarcodePathBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spTransactionSearchDateBindingSource)).BeginInit();
+            this.tabPage20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTabSelector2
@@ -905,7 +913,7 @@
             this.dtpTransactionTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpTransactionTo.Checked = false;
             this.dtpTransactionTo.Location = new System.Drawing.Point(593, 32);
-            this.dtpTransactionTo.MinimumSize = new System.Drawing.Size(4, 29);
+            this.dtpTransactionTo.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpTransactionTo.Name = "dtpTransactionTo";
             this.dtpTransactionTo.Size = new System.Drawing.Size(184, 29);
             this.dtpTransactionTo.TabIndex = 4;
@@ -926,7 +934,7 @@
             this.dtpTransactionFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpTransactionFrom.Checked = false;
             this.dtpTransactionFrom.Location = new System.Drawing.Point(341, 33);
-            this.dtpTransactionFrom.MinimumSize = new System.Drawing.Size(4, 29);
+            this.dtpTransactionFrom.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpTransactionFrom.Name = "dtpTransactionFrom";
             this.dtpTransactionFrom.Size = new System.Drawing.Size(184, 29);
             this.dtpTransactionFrom.TabIndex = 2;
@@ -1288,7 +1296,7 @@
             this.dgvBorrowReport.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvBorrowReport.RowTemplate.Height = 30;
             this.dgvBorrowReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBorrowReport.Size = new System.Drawing.Size(1111, 438);
+            this.dgvBorrowReport.Size = new System.Drawing.Size(503, 438);
             this.dgvBorrowReport.TabIndex = 47;
             this.dgvBorrowReport.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
@@ -2059,6 +2067,43 @@
             this.dgvCurrentBorrowed.Size = new System.Drawing.Size(1131, 390);
             this.dgvCurrentBorrowed.TabIndex = 70;
             this.dgvCurrentBorrowed.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCurrentBorrowed_CellContentClick);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Width = 47;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 68;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantityDataGridViewTextBoxColumn.Width = 82;
+            // 
+            // IsReturned
+            // 
+            this.IsReturned.DataPropertyName = "Returned?";
+            this.IsReturned.HeaderText = "Returned?";
+            this.IsReturned.Name = "IsReturned";
+            this.IsReturned.Width = 70;
+            // 
+            // QtyToReturn
+            // 
+            this.QtyToReturn.HeaderText = "Quantity to Return";
+            this.QtyToReturn.Name = "QtyToReturn";
+            this.QtyToReturn.Width = 91;
             // 
             // spViewBorrowedEquipmentBindingSource
             // 
@@ -3755,6 +3800,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabControl4.Controls.Add(this.tabPage25);
+            this.materialTabControl4.Controls.Add(this.tabPage20);
             this.materialTabControl4.Depth = 0;
             this.materialTabControl4.Location = new System.Drawing.Point(12, 38);
             this.materialTabControl4.MouseState = MaterialSkin.MouseState.HOVER;
@@ -4244,42 +4290,34 @@
             // 
             this.sp_ViewDeployedEquipmentsTransactionIDTableAdapter.ClearBeforeFill = true;
             // 
-            // iDDataGridViewTextBoxColumn
+            // tabPage20
             // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Width = 47;
+            this.tabPage20.Controls.Add(this.chart1);
+            this.tabPage20.Location = new System.Drawing.Point(4, 22);
+            this.tabPage20.Name = "tabPage20";
+            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage20.Size = new System.Drawing.Size(1154, 555);
+            this.tabPage20.TabIndex = 6;
+            this.tabPage20.Text = "Top Borrowers";
+            this.tabPage20.UseVisualStyleBackColor = true;
             // 
-            // nameDataGridViewTextBoxColumn
+            // chart1
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 68;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quantityDataGridViewTextBoxColumn.Width = 82;
-            // 
-            // IsReturned
-            // 
-            this.IsReturned.DataPropertyName = "Returned?";
-            this.IsReturned.HeaderText = "Returned?";
-            this.IsReturned.Name = "IsReturned";
-            this.IsReturned.Width = 70;
-            // 
-            // QtyToReturn
-            // 
-            this.QtyToReturn.HeaderText = "Quantity to Return";
-            this.QtyToReturn.Name = "QtyToReturn";
-            this.QtyToReturn.Width = 91;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(6, 6);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Name";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(1120, 534);
+            this.chart1.TabIndex = 50;
+            this.chart1.Text = "Top Borrowers";
+            title1.Name = "Top Borrowers";
+            this.chart1.Titles.Add(title1);
             // 
             // Main
             // 
@@ -4293,7 +4331,7 @@
             this.Controls.Add(this.materialTabControl2);
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            // this.Name = "Main";
+            //this.Name = "Main";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TransparencyKey = System.Drawing.SystemColors.AppWorkspace;
@@ -4401,6 +4439,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.spEquipmentViewBarcodePathBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spTransactionSearchDateBindingSource)).EndInit();
+            this.tabPage20.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4668,5 +4708,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsReturned;
         private System.Windows.Forms.DataGridViewTextBoxColumn QtyToReturn;
+        private System.Windows.Forms.TabPage tabPage20;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

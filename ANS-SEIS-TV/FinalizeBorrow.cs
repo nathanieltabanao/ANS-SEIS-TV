@@ -125,6 +125,7 @@ namespace ANS_SEIS_TV
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            int Quantity = 0;
             BackgroundWorker worker = sender as BackgroundWorker;
 
             System.Threading.Thread.Sleep(2000);
@@ -134,8 +135,11 @@ namespace ANS_SEIS_TV
             {
                 t.NewBorrowed(TransactionID, g.GetGENID(Borrower), Convert.ToInt32(row.Cells[0].Value), DateTime.Now, Convert.ToInt32(row.Cells[2].Value), false);
                 t.BorrowableEditQuantity(Convert.ToInt32(row.Cells[0].Value), g.GetEquipmentBorrowableQuantity(Convert.ToInt32(row.Cells[0].Value)) + Convert.ToInt32(row.Cells[2].Value));
+                Quantity = Quantity + Convert.ToInt32(row.Cells[2].Value);
             }
             s.GenerateBarcode(TransactionID.ToString());
+
+            db.sp_UserBorrowAdd(g.GetGENID(Borrower), g.GetTotalAmountBorrowed(g.GetGENID(Borrower)) + Quantity);
 
             String strBLOBFilePath = s.SavePath;//Modify this path as needed.
 
