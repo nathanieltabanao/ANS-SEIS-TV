@@ -1735,5 +1735,17 @@ namespace ANS_SEIS_TV
             frmPulledOutReport f = new frmPulledOutReport(CurrentGENID);
             f.ShowDialog();
         }
+
+        private void btnGroupUpload_Click(object sender, EventArgs e)
+        {
+            UploadInventory u = new UploadInventory();
+            u.ShowDialog();
+        }
+
+        private void btnBatchUser_Click(object sender, EventArgs e)
+        {
+            UploadUsers u = new UploadUsers();
+            u.ShowDialog();
+        }
     }
 }

@@ -143,6 +143,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvUserUpload.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvUserUpload.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvUserUpload.EnableHeadersVisualStyles = false;
             this.dgvUserUpload.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvUserUpload.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));

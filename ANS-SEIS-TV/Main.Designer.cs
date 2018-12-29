@@ -334,8 +334,11 @@
             this.btnRefresh = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tBLFACILITIESTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet5TableAdapters.TBLFACILITIESTableAdapter();
             this.sp_ViewDeployedEquipmentsTransactionIDTableAdapter = new ANS_SEIS_TV.ANS_SEIS_TVDataSet6TableAdapters.sp_ViewDeployedEquipmentsTransactionIDTableAdapter();
-            this.tabPage21 = new System.Windows.Forms.TabPage();
-            this.tabPage22 = new System.Windows.Forms.TabPage();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.btnGroupUpload = new MaterialSkin.Controls.MaterialFlatButton();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.btnBatchUser = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialTabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.materialTabControl3.SuspendLayout();
@@ -409,6 +412,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.spEquipmentViewBarcodePathBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spTransactionSearchDateBindingSource)).BeginInit();
+            this.groupBox16.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            this.groupBox18.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabSelector2
@@ -480,7 +486,6 @@
             this.materialTabControl3.Controls.Add(this.tabPage10);
             this.materialTabControl3.Controls.Add(this.tabPage11);
             this.materialTabControl3.Controls.Add(this.tabPage1);
-            this.materialTabControl3.Controls.Add(this.tabPage21);
             this.materialTabControl3.Depth = 0;
             this.materialTabControl3.Location = new System.Drawing.Point(0, 37);
             this.materialTabControl3.MouseState = MaterialSkin.MouseState.HOVER;
@@ -492,18 +497,11 @@
             // tabPage14
             // 
             this.tabPage14.BackColor = System.Drawing.Color.White;
+            this.tabPage14.Controls.Add(this.groupBox17);
+            this.tabPage14.Controls.Add(this.groupBox16);
             this.tabPage14.Controls.Add(this.dgvEquipment);
-            this.tabPage14.Controls.Add(this.drpEquipmentType);
             this.tabPage14.Controls.Add(this.txtSearchEquipment);
-            this.tabPage14.Controls.Add(this.btnClearEquipment);
-            this.tabPage14.Controls.Add(this.groupBox3);
-            this.tabPage14.Controls.Add(this.btnDeleteEquipment);
-            this.tabPage14.Controls.Add(this.btnAddEquipment);
-            this.tabPage14.Controls.Add(this.btnEditEquipment);
-            this.tabPage14.Controls.Add(this.bunifuCustomLabel10);
-            this.tabPage14.Controls.Add(this.txtEquipmentID);
             this.tabPage14.Controls.Add(this.bunifuCustomLabel11);
-            this.tabPage14.Controls.Add(this.bunifuCustomLabel12);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
@@ -577,7 +575,7 @@
             "201 - Computer Equipment",
             "202 - Culinary Equipment",
             "203 - Automotive Equipment"});
-            this.drpEquipmentType.Location = new System.Drawing.Point(126, 99);
+            this.drpEquipmentType.Location = new System.Drawing.Point(125, 63);
             this.drpEquipmentType.Name = "drpEquipmentType";
             this.drpEquipmentType.Size = new System.Drawing.Size(252, 21);
             this.drpEquipmentType.TabIndex = 57;
@@ -604,9 +602,9 @@
             // 
             // btnClearEquipment
             // 
-            this.btnClearEquipment.Location = new System.Drawing.Point(8, 321);
+            this.btnClearEquipment.Location = new System.Drawing.Point(3, 285);
             this.btnClearEquipment.Name = "btnClearEquipment";
-            this.btnClearEquipment.Size = new System.Drawing.Size(90, 34);
+            this.btnClearEquipment.Size = new System.Drawing.Size(85, 34);
             this.btnClearEquipment.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnClearEquipment.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
             this.btnClearEquipment.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
@@ -625,7 +623,7 @@
             this.groupBox3.Controls.Add(this.materialLabel6);
             this.groupBox3.Controls.Add(this.txtEquipmentDescription);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox3.Location = new System.Drawing.Point(4, 162);
+            this.groupBox3.Location = new System.Drawing.Point(3, 126);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(386, 153);
             this.groupBox3.TabIndex = 51;
@@ -710,9 +708,9 @@
             // 
             // btnDeleteEquipment
             // 
-            this.btnDeleteEquipment.Location = new System.Drawing.Point(111, 321);
+            this.btnDeleteEquipment.Location = new System.Drawing.Point(94, 285);
             this.btnDeleteEquipment.Name = "btnDeleteEquipment";
-            this.btnDeleteEquipment.Size = new System.Drawing.Size(90, 34);
+            this.btnDeleteEquipment.Size = new System.Drawing.Size(85, 34);
             this.btnDeleteEquipment.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnDeleteEquipment.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
             this.btnDeleteEquipment.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
@@ -723,9 +721,9 @@
             // 
             // btnAddEquipment
             // 
-            this.btnAddEquipment.Location = new System.Drawing.Point(317, 321);
+            this.btnAddEquipment.Location = new System.Drawing.Point(276, 285);
             this.btnAddEquipment.Name = "btnAddEquipment";
-            this.btnAddEquipment.Size = new System.Drawing.Size(90, 34);
+            this.btnAddEquipment.Size = new System.Drawing.Size(85, 34);
             this.btnAddEquipment.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnAddEquipment.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
             this.btnAddEquipment.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
@@ -736,9 +734,9 @@
             // 
             // btnEditEquipment
             // 
-            this.btnEditEquipment.Location = new System.Drawing.Point(216, 321);
+            this.btnEditEquipment.Location = new System.Drawing.Point(185, 285);
             this.btnEditEquipment.Name = "btnEditEquipment";
-            this.btnEditEquipment.Size = new System.Drawing.Size(90, 34);
+            this.btnEditEquipment.Size = new System.Drawing.Size(85, 34);
             this.btnEditEquipment.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnEditEquipment.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
             this.btnEditEquipment.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
@@ -752,7 +750,7 @@
             this.bunifuCustomLabel10.AutoSize = true;
             this.bunifuCustomLabel10.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.bunifuCustomLabel10.Location = new System.Drawing.Point(0, 100);
+            this.bunifuCustomLabel10.Location = new System.Drawing.Point(-1, 64);
             this.bunifuCustomLabel10.Name = "bunifuCustomLabel10";
             this.bunifuCustomLabel10.Size = new System.Drawing.Size(120, 20);
             this.bunifuCustomLabel10.TabIndex = 49;
@@ -761,7 +759,7 @@
             // txtEquipmentID
             // 
             this.txtEquipmentID.Enabled = false;
-            this.txtEquipmentID.Location = new System.Drawing.Point(126, 52);
+            this.txtEquipmentID.Location = new System.Drawing.Point(125, 16);
             this.txtEquipmentID.Name = "txtEquipmentID";
             this.txtEquipmentID.Size = new System.Drawing.Size(252, 23);
             this.txtEquipmentID.TabIndex = 48;
@@ -783,7 +781,7 @@
             this.bunifuCustomLabel12.AutoSize = true;
             this.bunifuCustomLabel12.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.bunifuCustomLabel12.Location = new System.Drawing.Point(7, 52);
+            this.bunifuCustomLabel12.Location = new System.Drawing.Point(6, 16);
             this.bunifuCustomLabel12.Name = "bunifuCustomLabel12";
             this.bunifuCustomLabel12.Size = new System.Drawing.Size(113, 20);
             this.bunifuCustomLabel12.TabIndex = 46;
@@ -3203,7 +3201,7 @@
             // 
             this.dtpReseravationDate.Location = new System.Drawing.Point(128, 26);
             this.dtpReseravationDate.MinDate = new System.DateTime(2018, 9, 11, 0, 0, 0, 0);
-            this.dtpReseravationDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpReseravationDate.MinimumSize = new System.Drawing.Size(4, 29);
             this.dtpReseravationDate.Name = "dtpReseravationDate";
             this.dtpReseravationDate.Size = new System.Drawing.Size(400, 29);
             this.dtpReseravationDate.TabIndex = 4;
@@ -3804,7 +3802,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabControl4.Controls.Add(this.tabPage25);
             this.materialTabControl4.Controls.Add(this.tabPage20);
-            this.materialTabControl4.Controls.Add(this.tabPage22);
             this.materialTabControl4.Depth = 0;
             this.materialTabControl4.Location = new System.Drawing.Point(12, 38);
             this.materialTabControl4.MouseState = MaterialSkin.MouseState.HOVER;
@@ -3815,6 +3812,7 @@
             // 
             // tabPage25
             // 
+            this.tabPage25.Controls.Add(this.groupBox18);
             this.tabPage25.Controls.Add(this.txtSearchUser);
             this.tabPage25.Controls.Add(this.bunifuCustomLabel7);
             this.tabPage25.Controls.Add(this.dgvUserRegister);
@@ -3892,7 +3890,7 @@
             // 
             this.btnUserClear.Location = new System.Drawing.Point(21, 385);
             this.btnUserClear.Name = "btnUserClear";
-            this.btnUserClear.Size = new System.Drawing.Size(90, 34);
+            this.btnUserClear.Size = new System.Drawing.Size(85, 34);
             this.btnUserClear.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnUserClear.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
             this.btnUserClear.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
@@ -3905,7 +3903,7 @@
             // 
             this.btnDeleteUser.Location = new System.Drawing.Point(117, 385);
             this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(90, 34);
+            this.btnDeleteUser.Size = new System.Drawing.Size(85, 34);
             this.btnDeleteUser.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnDeleteUser.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
             this.btnDeleteUser.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
@@ -3918,7 +3916,7 @@
             // 
             this.btnAddUser.Location = new System.Drawing.Point(309, 385);
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(90, 34);
+            this.btnAddUser.Size = new System.Drawing.Size(85, 34);
             this.btnAddUser.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnAddUser.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
             this.btnAddUser.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
@@ -3931,7 +3929,7 @@
             // 
             this.btnEditUser.Location = new System.Drawing.Point(213, 385);
             this.btnEditUser.Name = "btnEditUser";
-            this.btnEditUser.Size = new System.Drawing.Size(90, 34);
+            this.btnEditUser.Size = new System.Drawing.Size(85, 34);
             this.btnEditUser.StateNormal.Back.Color1 = System.Drawing.Color.DarkSlateGray;
             this.btnEditUser.StateNormal.Back.Color2 = System.Drawing.Color.DarkSlateGray;
             this.btnEditUser.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
@@ -4323,25 +4321,76 @@
             // 
             this.sp_ViewDeployedEquipmentsTransactionIDTableAdapter.ClearBeforeFill = true;
             // 
-            // tabPage21
+            // groupBox16
             // 
-            this.tabPage21.Location = new System.Drawing.Point(4, 22);
-            this.tabPage21.Name = "tabPage21";
-            this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage21.Size = new System.Drawing.Size(1143, 547);
-            this.tabPage21.TabIndex = 9;
-            this.tabPage21.Text = "Inventory Upload";
-            this.tabPage21.UseVisualStyleBackColor = true;
+            this.groupBox16.Controls.Add(this.bunifuCustomLabel12);
+            this.groupBox16.Controls.Add(this.txtEquipmentID);
+            this.groupBox16.Controls.Add(this.drpEquipmentType);
+            this.groupBox16.Controls.Add(this.bunifuCustomLabel10);
+            this.groupBox16.Controls.Add(this.btnEditEquipment);
+            this.groupBox16.Controls.Add(this.btnClearEquipment);
+            this.groupBox16.Controls.Add(this.btnAddEquipment);
+            this.groupBox16.Controls.Add(this.groupBox3);
+            this.groupBox16.Controls.Add(this.btnDeleteEquipment);
+            this.groupBox16.Location = new System.Drawing.Point(3, 47);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(387, 339);
+            this.groupBox16.TabIndex = 59;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Individual Upload";
             // 
-            // tabPage22
+            // btnGroupUpload
             // 
-            this.tabPage22.Location = new System.Drawing.Point(4, 22);
-            this.tabPage22.Name = "tabPage22";
-            this.tabPage22.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage22.Size = new System.Drawing.Size(1154, 555);
-            this.tabPage22.TabIndex = 7;
-            this.tabPage22.Text = "Upload Users";
-            this.tabPage22.UseVisualStyleBackColor = true;
+            this.btnGroupUpload.AutoSize = true;
+            this.btnGroupUpload.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGroupUpload.Depth = 0;
+            this.btnGroupUpload.Icon = null;
+            this.btnGroupUpload.Location = new System.Drawing.Point(4, 17);
+            this.btnGroupUpload.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnGroupUpload.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnGroupUpload.Name = "btnGroupUpload";
+            this.btnGroupUpload.Primary = false;
+            this.btnGroupUpload.Size = new System.Drawing.Size(122, 36);
+            this.btnGroupUpload.TabIndex = 60;
+            this.btnGroupUpload.Text = "batch upload";
+            this.btnGroupUpload.UseVisualStyleBackColor = true;
+            this.btnGroupUpload.Click += new System.EventHandler(this.btnGroupUpload_Click);
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.btnGroupUpload);
+            this.groupBox17.Location = new System.Drawing.Point(3, 406);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(148, 73);
+            this.groupBox17.TabIndex = 61;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Group Upload";
+            // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.btnBatchUser);
+            this.groupBox18.Location = new System.Drawing.Point(6, 436);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(148, 73);
+            this.groupBox18.TabIndex = 62;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "Group Upload";
+            // 
+            // btnBatchUser
+            // 
+            this.btnBatchUser.AutoSize = true;
+            this.btnBatchUser.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnBatchUser.Depth = 0;
+            this.btnBatchUser.Icon = null;
+            this.btnBatchUser.Location = new System.Drawing.Point(11, 19);
+            this.btnBatchUser.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnBatchUser.Name = "btnBatchUser";
+            this.btnBatchUser.Primary = true;
+            this.btnBatchUser.Size = new System.Drawing.Size(122, 36);
+            this.btnBatchUser.TabIndex = 0;
+            this.btnBatchUser.Text = "batch upload";
+            this.btnBatchUser.UseVisualStyleBackColor = true;
+            this.btnBatchUser.Click += new System.EventHandler(this.btnBatchUser_Click);
             // 
             // Main
             // 
@@ -4465,6 +4514,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.spEquipmentViewBarcodePathBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aNS_SEIS_TVDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spTransactionSearchDateBindingSource)).EndInit();
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
+            this.groupBox18.ResumeLayout(false);
+            this.groupBox18.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4734,7 +4789,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn QtyToReturn;
         private System.Windows.Forms.TabPage tabPage20;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.TabPage tabPage21;
-        private System.Windows.Forms.TabPage tabPage22;
+        private System.Windows.Forms.GroupBox groupBox17;
+        private MaterialSkin.Controls.MaterialFlatButton btnGroupUpload;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.GroupBox groupBox18;
+        private MaterialSkin.Controls.MaterialRaisedButton btnBatchUser;
     }
 }
