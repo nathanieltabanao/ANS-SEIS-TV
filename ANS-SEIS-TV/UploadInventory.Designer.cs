@@ -195,7 +195,6 @@
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
             this.ShowInTaskbar = false;
             this.Text = "Invetory Upload";
-            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventoryUpload)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

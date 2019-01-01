@@ -190,7 +190,7 @@ namespace ANS_SEIS_TV
 
         public void UserDelete()
         {
-            db.sp_UserDelete(ID);
+            db.sp_UserDelete(ID,GENID);
         }
 
         public void UserLogin(/*string Username,string Password*/)
