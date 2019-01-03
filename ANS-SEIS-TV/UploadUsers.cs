@@ -26,7 +26,11 @@ namespace ANS_SEIS_TV
 
             this.BorderStyle = MetroFormBorderStyle.FixedSingle;
             this.ShadowType = MetroFormShadowType.AeroShadow;
+
+            IsUploaded = 0;
         }
+
+        public int IsUploaded { get; set; }
 
         private void btnOpenFileDialog_Click(object sender, EventArgs e)
         {
@@ -87,33 +91,67 @@ namespace ANS_SEIS_TV
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
+            if (backgroundWorker1.IsBusy == false)
+            {
+                backgroundWorker1.RunWorkerAsync();
+                LoadingScreen2 l = new LoadingScreen2();
+                l.ShowDialog();
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
             UserLibrary u = new UserLibrary();
 
-            foreach(DataGridViewRow row in dgvUserUpload.Rows)
+            foreach (DataGridViewRow row in dgvUserUpload.Rows)
             {
-                u.GENID = u.UserID();
+                for (int i = 0; i < row.Cells.Count; i++)
+                {
+                    if (row.Cells[i].Value == null || row.Cells[i].Value == DBNull.Value || String.IsNullOrWhiteSpace(row.Cells[i].Value.ToString()))
+                    {
 
-                if (Convert.ToInt32(row.Cells[5].Value)==110)
-                {
-                    u.ID = "AD-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
-                }
-                else if (Convert.ToInt32(row.Cells[5].Value) == 111)
-                {
-                    u.ID = "TR-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
-                }
-                else if (Convert.ToInt32(row.Cells[5].Value) == 112)
-                {
-                    u.ID = "ST-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
-                }
+                    }
+                    else
+                    {
+                        u.GENID = u.UserID();
 
-                u.Username = row.Cells[0].Value.ToString();
-                u.Password = "1234";
-                u.FirstName = row.Cells[1].Value.ToString();
-                u.MiddleName = row.Cells[2].Value.ToString();
-                u.LastName = row.Cells[3].Value.ToString();
-                u.ContactNumber = row.Cells[4].Value.ToString();
-                u.Usertype = Convert.ToInt32(row.Cells[5].Value);
-                u.UserInsert();
+                        if (Convert.ToInt32(row.Cells[5].Value) == 110)
+                        {
+                            u.ID = "AD-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
+                        }
+                        else if (Convert.ToInt32(row.Cells[5].Value) == 111)
+                        {
+                            u.ID = "TR-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
+                        }
+                        else if (Convert.ToInt32(row.Cells[5].Value) == 112)
+                        {
+                            u.ID = "ST-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
+                        }
+
+                        u.Username = row.Cells[0].Value.ToString();
+                        u.Password = "1234";
+                        u.FirstName = row.Cells[1].Value.ToString();
+                        u.MiddleName = row.Cells[2].Value.ToString();
+                        u.LastName = row.Cells[3].Value.ToString();
+                        u.ContactNumber = row.Cells[4].Value.ToString();
+                        u.Usertype = Convert.ToInt32(row.Cells[5].Value);
+                        u.UserInsert();
+                    }
+                }
+            }
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                MetroMessageBox.Show(this, "Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                IsUploaded = 1;
+                MetroMessageBox.Show(this, "User Upload Complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Dispose();
             }
         }
     }

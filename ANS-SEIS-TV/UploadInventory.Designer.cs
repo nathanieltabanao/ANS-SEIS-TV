@@ -42,6 +42,7 @@
             this.txtSheetName = new System.Windows.Forms.TextBox();
             this.LocationToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnUpload = new MaterialSkin.Controls.MaterialFlatButton();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventoryUpload)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,6 +175,13 @@
             this.btnUpload.UseVisualStyleBackColor = true;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // UploadInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,5 +221,6 @@
         private System.Windows.Forms.TextBox txtSheetName;
         private System.Windows.Forms.ToolTip LocationToolTip;
         private MaterialSkin.Controls.MaterialFlatButton btnUpload;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

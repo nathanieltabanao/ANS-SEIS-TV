@@ -47,11 +47,9 @@ namespace ANS_SEIS_TV
 
             u.ID = g.ID;
 
-            //g.GetUserType();
-
             u.Usertype = g.UsertypeID;
 
-            u.UserLogin(/*txtUsername.Text, txtPassword.Text*/);
+            u.UserLogin();
 
 
             if (u.LoginResult == 1)
@@ -60,16 +58,13 @@ namespace ANS_SEIS_TV
                 this.Hide();
                 
                 u.CurrentUsername = u.Username;
-                //u.CurrentUserID = u.ReturnUserID();
-                //u.UserLoginLog();
-
-                
+                              
                 g.GetFirstLogin();
 
                 this.Hide();
 
-                if (g.FirstLogin==0)
-                {
+                //if (g.FirstLogin==0)
+                //{
                     g.GetUserType();
                     if (g.UsertypeID==110)
                     {
@@ -83,11 +78,11 @@ namespace ANS_SEIS_TV
                     {
                         StudentLogin();
                     }
-                }
-                else
-                {
-                    FirstLogin();
-                }
+                //}
+                //else
+                //{
+                //    FirstLogin();
+                //}
                 
             }
             else
@@ -95,7 +90,7 @@ namespace ANS_SEIS_TV
                 MessageBox.Show("Invalid Username or Password!");
                 txtPassword.Text = "";
                 FailedCount++;
-                if (FailedCount >= 3) 
+                if (FailedCount >= 3)
                 {
                     lblForgot.Text = "Forgot Password?";
                 }
@@ -128,7 +123,6 @@ namespace ANS_SEIS_TV
             FirstLoginForm f = new FirstLoginForm();
             f.Username = txtUsername.Text;
             MessageBox.Show("Please setup your account");
-            //this.Hide();
             f.Show();
         }
 
