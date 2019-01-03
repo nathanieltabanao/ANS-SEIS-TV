@@ -858,10 +858,6 @@ WHERE TBLTRANSACTION.TransactionEvent like '%'+@EventType+'%' AND TBLTRANSACTION
 --inner join TBLUSERDETAILS ON TBLTRANSACTION.GENID=TBLUSERDETAILS.GENID
 --WHERE TBLTRANSACTION.TransactionEvent='' AND TBLTRANSACTION.TransactionDate BETWEEN '9/4/18' AND '9/5/18'
 
-SELECT * FROM TBLDEPLOYMENT
-INNER JOIN TBLTRANSACTION ON TBLDEPLOYMENT.TransactionID=TBLTRANSACTION.TransactionID
-
-
 -------------------------------------------------------------------------------------------------
 
 SELECT * FROM TBLBORROWED

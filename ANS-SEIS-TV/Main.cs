@@ -1026,6 +1026,7 @@ namespace ANS_SEIS_TV
             }
         }
 
+        // for bar graph
         private void fillChart()
         {
             SqlConnection con = new SqlConnection("Data Source=NATHANIEL-VX15;Initial Catalog=ANS_SEIS_TV;Integrated Security=true;");
@@ -1740,6 +1741,10 @@ namespace ANS_SEIS_TV
         {
             UploadInventory u = new UploadInventory();
             u.ShowDialog();
+            if (u.IsUploaded==1)
+            {
+                UpdateAllTable();
+            }
         }
 
         private void btnBatchUser_Click(object sender, EventArgs e)

@@ -8,7 +8,6 @@
       <Column Name="DATE_RETURNED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DESIGNATION_STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="TBLUSERDETAIL_EQUIPMENT_DESIGNATION" Member="TBLUSERDETAIL" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_EQUIPMENT_DESIGNATION" Member="TBLUSERDETAIL1" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.USERTYPE" Member="USERTYPEs">
@@ -17,8 +16,6 @@
       <Column Name="USERTYPE_DESCRIPTION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="USERTYPE_TBLSTUDENTDETAIL" Member="TBLSTUDENTDETAILs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLSTUDENTDETAIL" />
       <Association Name="USERTYPE_TBLUSERDETAIL" Member="TBLUSERDETAILs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLUSERDETAIL" />
-      <Association Name="USERTYPE_TBLSTUDENTDETAIL1" Member="TBLSTUDENTDETAIL1s" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLSTUDENTDETAIL1" />
-      <Association Name="USERTYPE_TBLUSERDETAIL1" Member="TBLUSERDETAIL1s" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLUSERDETAIL1" />
     </Type>
   </Table>
   <Table Name="dbo.REQUESTSTATUS" Member="REQUESTSTATUS">
@@ -26,7 +23,6 @@
       <Column Name="REQUESTSTATUSID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="STATUSDESCRIPTION" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
       <Association Name="REQUESTSTATUS_TBLREQUESTTABLE" Member="TBLREQUESTTABLEs" ThisKey="REQUESTSTATUSID" OtherKey="REQUESTSTATUSID" Type="TBLREQUESTTABLE" />
-      <Association Name="REQUESTSTATUS_TBLREQUESTTABLE1" Member="TBLREQUESTTABLE1s" ThisKey="REQUESTSTATUSID" OtherKey="REQUESTSTATUSID" Type="TBLREQUESTTABLE1" />
     </Type>
   </Table>
   <Table Name="dbo.TBLBORRIWINGBARCODE" Member="TBLBORRIWINGBARCODEs">
@@ -36,7 +32,6 @@
       <Column Name="BorrowingBarcode" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="BWBarcodePath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Association Name="TBLTRANSACTION_TBLBORRIWINGBARCODE" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION1_TBLBORRIWINGBARCODE" Member="TBLTRANSACTION1" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLBORROWED" Member="TBLBORROWEDs">
@@ -51,9 +46,6 @@
       <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWED" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
       <Association Name="TBLTRANSACTION_TBLBORROWED" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
       <Association Name="TBLUSERDETAIL_TBLBORROWED" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLBORROWED" Member="TBLEQUIPMENTDETAIL1" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION1_TBLBORROWED" Member="TBLTRANSACTION1" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION1" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLBORROWED" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLBORROWQUANTITY" Member="TBLBORROWQUANTITies">
@@ -62,7 +54,6 @@
       <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWQUANTITY" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLBORROWQUANTITY" Member="TBLEQUIPMENTDETAIL1" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLDEPLOYMENT" Member="TBLDEPLOYMENTs">
@@ -72,8 +63,6 @@
       <Column Name="FacilitiyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TBLFACILITy_TBLDEPLOYMENT" Member="TBLFACILITy" ThisKey="FacilitiyID" OtherKey="FacilityID" Type="TBLFACILITy" IsForeignKey="true" />
       <Association Name="TBLTRANSACTION_TBLDEPLOYMENT" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
-      <Association Name="TBLFACILITy1_TBLDEPLOYMENT" Member="TBLFACILITy1" ThisKey="FacilitiyID" OtherKey="FacilityID" Type="TBLFACILITy1" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION1_TBLDEPLOYMENT" Member="TBLTRANSACTION1" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLEQUIPMENTBARCODE" Member="TBLEQUIPMENTBARCODEs">
@@ -83,7 +72,6 @@
       <Column Name="EquipmentBarcode" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="EQBarcodepath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTBARCODE" Member="TBLEQUIPMENTDETAIL" ThisKey="Equipment_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLEQUIPMENTBARCODE" Member="TBLEQUIPMENTDETAIL1" ThisKey="Equipment_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLEQUIPMENTDETAILS" Member="TBLEQUIPMENTDETAILs">
@@ -101,15 +89,7 @@
       <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTSTATUS" Member="TBLEQUIPMENTSTATUS" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTSTATUS" />
       <Association Name="TBLEQUIPMENTDETAIL_TBLPULLEDOUTEQUIPMENT" Member="TBLPULLEDOUTEQUIPMENTs" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLPULLEDOUTEQUIPMENT" />
       <Association Name="TBLEQUIPMENTDETAIL_TBLRETURNEDEQUIPMENT" Member="TBLRETURNEDEQUIPMENTs" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLRETURNEDEQUIPMENT" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWED1" Member="TBLBORROWED1s" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLBORROWED1" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWQUANTITY1" Member="TBLBORROWQUANTITY1s" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLBORROWQUANTITY1" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTBARCODE1" Member="TBLEQUIPMENTBARCODE1s" ThisKey="EQUIPMENT_ID" OtherKey="Equipment_ID" Type="TBLEQUIPMENTBARCODE1" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTRESERVATION1" Member="TBLEQUIPMENTRESERVATION1s" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTRESERVATION1" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTSTATUS1" Member="TBLEQUIPMENTSTATUS1s" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTSTATUS1" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLPULLEDOUTEQUIPMENT1" Member="TBLPULLEDOUTEQUIPMENT1s" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLPULLEDOUTEQUIPMENT1" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLRETURNEDEQUIPMENT1" Member="TBLRETURNEDEQUIPMENT1s" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLRETURNEDEQUIPMENT1" />
       <Association Name="TBLEQUIPMENTTYPE_TBLEQUIPMENTDETAIL" Member="TBLEQUIPMENTTYPE" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQUIPMENTTYPE" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTTYPE1_TBLEQUIPMENTDETAIL" Member="TBLEQUIPMENTTYPE1" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQUIPMENTTYPE1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLEQUIPMENTRESERVATION" Member="TBLEQUIPMENTRESERVATIONs">
@@ -124,9 +104,6 @@
       <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTRESERVATION" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
       <Association Name="TBLTRANSACTION_TBLEQUIPMENTRESERVATION" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
       <Association Name="TBLUSERDETAIL_TBLEQUIPMENTRESERVATION" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLEQUIPMENTRESERVATION" Member="TBLEQUIPMENTDETAIL1" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION1_TBLEQUIPMENTRESERVATION" Member="TBLTRANSACTION1" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION1" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLEQUIPMENTRESERVATION" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLEQUIPMENTSTATUS" Member="TBLEQUIPMENTSTATUS">
@@ -136,7 +113,6 @@
       <Column Name="GoodCondition" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="BadCondition" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTSTATUS" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLEQUIPMENTSTATUS" Member="TBLEQUIPMENTDETAIL1" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLEQUIPMENTTYPE" Member="TBLEQUIPMENTTYPEs">
@@ -144,7 +120,6 @@
       <Column Name="EQUIPMENT_TYPE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="EQUIPMENT_TYPE_DESCRIPTION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="TBLEQUIPMENTTYPE_TBLEQUIPMENTDETAIL" Member="TBLEQUIPMENTDETAILs" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQUIPMENTDETAIL" />
-      <Association Name="TBLEQUIPMENTTYPE_TBLEQUIPMENTDETAIL1" Member="TBLEQUIPMENTDETAIL1s" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQUIPMENTDETAIL1" />
     </Type>
   </Table>
   <Table Name="dbo.TBLFACILITIES" Member="TBLFACILITies">
@@ -155,9 +130,7 @@
       <Column Name="FacilityType" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="FacilityRoomNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="TBLFACILITy_TBLDEPLOYMENT" Member="TBLDEPLOYMENTs" ThisKey="FacilityID" OtherKey="FacilitiyID" Type="TBLDEPLOYMENT" />
-      <Association Name="TBLFACILITy_TBLDEPLOYMENT1" Member="TBLDEPLOYMENT1s" ThisKey="FacilityID" OtherKey="FacilitiyID" Type="TBLDEPLOYMENT1" />
       <Association Name="TBLUSERDETAIL_TBLFACILITy" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLFACILITy" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLPULLEDOUTEQUIPMENT" Member="TBLPULLEDOUTEQUIPMENTs">
@@ -166,7 +139,6 @@
       <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TBLEQUIPMENTDETAIL_TBLPULLEDOUTEQUIPMENT" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLPULLEDOUTEQUIPMENT" Member="TBLEQUIPMENTDETAIL1" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLREQUESTREPLY" Member="TBLREQUESTREPLies">
@@ -178,8 +150,6 @@
       <Column Name="DateReplied" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="TBLREQUESTTABLE_TBLREQUESTREPLY" Member="TBLREQUESTTABLE" ThisKey="REQUESTID" OtherKey="REQUESTID" Type="TBLREQUESTTABLE" IsForeignKey="true" />
       <Association Name="TBLUSERDETAIL_TBLREQUESTREPLY" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLREQUESTTABLE1_TBLREQUESTREPLY" Member="TBLREQUESTTABLE1" ThisKey="REQUESTID" OtherKey="REQUESTID" Type="TBLREQUESTTABLE1" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLREQUESTREPLY" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLREQUESTTABLE" Member="TBLREQUESTTABLEs">
@@ -192,11 +162,8 @@
       <Column Name="REQUESTSTATUSID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ISOPENED" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TBLREQUESTTABLE_TBLREQUESTREPLY" Member="TBLREQUESTREPLies" ThisKey="REQUESTID" OtherKey="REQUESTID" Type="TBLREQUESTREPLY" />
-      <Association Name="TBLREQUESTTABLE_TBLREQUESTREPLY1" Member="TBLREQUESTREPLY1s" ThisKey="REQUESTID" OtherKey="REQUESTID" Type="TBLREQUESTREPLY1" />
       <Association Name="REQUESTSTATUS_TBLREQUESTTABLE" Member="REQUESTSTATUS" ThisKey="REQUESTSTATUSID" OtherKey="REQUESTSTATUSID" Type="REQUESTSTATUS" IsForeignKey="true" />
       <Association Name="TBLUSERDETAIL_TBLREQUESTTABLE" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="REQUESTSTATUS1_TBLREQUESTTABLE" Member="REQUESTSTATUS1" ThisKey="REQUESTSTATUSID" OtherKey="REQUESTSTATUSID" Type="REQUESTSTATUS1" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLREQUESTTABLE" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLRETURNEDEQUIPMENTS" Member="TBLRETURNEDEQUIPMENTs">
@@ -210,9 +177,6 @@
       <Association Name="TBLEQUIPMENTDETAIL_TBLRETURNEDEQUIPMENT" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
       <Association Name="TBLTRANSACTION_TBLRETURNEDEQUIPMENT" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
       <Association Name="TBLUSERDETAIL_TBLRETURNEDEQUIPMENT" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLRETURNEDEQUIPMENT" Member="TBLEQUIPMENTDETAIL1" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION1_TBLRETURNEDEQUIPMENT" Member="TBLTRANSACTION1" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION1" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLRETURNEDEQUIPMENT" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLSTUDENTDETAILS" Member="TBLSTUDENTDETAILs">
@@ -223,7 +187,6 @@
       <Column Name="NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="USERTYPE_TBLSTUDENTDETAIL" Member="USERTYPE" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="USERTYPE" IsForeignKey="true" />
-      <Association Name="USERTYPE1_TBLSTUDENTDETAIL" Member="USERTYPE1" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="USERTYPE1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLTRANSACTION" Member="TBLTRANSACTIONs">
@@ -237,13 +200,7 @@
       <Association Name="TBLTRANSACTION_TBLDEPLOYMENT" Member="TBLDEPLOYMENTs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLDEPLOYMENT" />
       <Association Name="TBLTRANSACTION_TBLEQUIPMENTRESERVATION" Member="TBLEQUIPMENTRESERVATIONs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLEQUIPMENTRESERVATION" />
       <Association Name="TBLTRANSACTION_TBLRETURNEDEQUIPMENT" Member="TBLRETURNEDEQUIPMENTs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLRETURNEDEQUIPMENT" />
-      <Association Name="TBLTRANSACTION_TBLBORRIWINGBARCODE1" Member="TBLBORRIWINGBARCODE1s" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLBORRIWINGBARCODE1" />
-      <Association Name="TBLTRANSACTION_TBLBORROWED1" Member="TBLBORROWED1s" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLBORROWED1" />
-      <Association Name="TBLTRANSACTION_TBLDEPLOYMENT1" Member="TBLDEPLOYMENT1s" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLDEPLOYMENT1" />
-      <Association Name="TBLTRANSACTION_TBLEQUIPMENTRESERVATION1" Member="TBLEQUIPMENTRESERVATION1s" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLEQUIPMENTRESERVATION1" />
-      <Association Name="TBLTRANSACTION_TBLRETURNEDEQUIPMENT1" Member="TBLRETURNEDEQUIPMENT1s" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLRETURNEDEQUIPMENT1" />
       <Association Name="TBLUSERDETAIL_TBLTRANSACTION" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLTRANSACTION" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLUSERACTIONREPORT" Member="TBLUSERACTIONREPORTs">
@@ -253,7 +210,6 @@
       <Column Name="Action" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Timestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="TBLUSERDETAIL_TBLUSERACTIONREPORT" Member="TBLUSERDETAIL" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLUSERACTIONREPORT" Member="TBLUSERDETAIL1" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLUSERDETAILS" Member="TBLUSERDETAILs">
@@ -281,19 +237,7 @@
       <Association Name="TBLUSERDETAIL_TBLUSERACTIONREPORT" Member="TBLUSERACTIONREPORTs" ThisKey="ID" OtherKey="ID" Type="TBLUSERACTIONREPORT" />
       <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT" Member="TBLUSERLOGINREPORTs" ThisKey="ID" OtherKey="ID" Type="TBLUSERLOGINREPORT" />
       <Association Name="TBLUSERDETAIL_TBLUSERUSAGESTATISTIC" Member="TBLUSERUSAGESTATISTICs" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERUSAGESTATISTIC" />
-      <Association Name="TBLUSERDETAIL_EQUIPMENT_DESIGNATION1" Member="EQUIPMENT_DESIGNATION1s" ThisKey="ID" OtherKey="ID" Type="EQUIPMENT_DESIGNATION1" />
-      <Association Name="TBLUSERDETAIL_TBLBORROWED1" Member="TBLBORROWED1s" ThisKey="GENID" OtherKey="GENID" Type="TBLBORROWED1" />
-      <Association Name="TBLUSERDETAIL_TBLEQUIPMENTRESERVATION1" Member="TBLEQUIPMENTRESERVATION1s" ThisKey="GENID" OtherKey="GENID" Type="TBLEQUIPMENTRESERVATION1" />
-      <Association Name="TBLUSERDETAIL_TBLFACILITy1" Member="TBLFACILITy1s" ThisKey="GENID" OtherKey="GENID" Type="TBLFACILITy1" />
-      <Association Name="TBLUSERDETAIL_TBLREQUESTREPLY1" Member="TBLREQUESTREPLY1s" ThisKey="GENID" OtherKey="GENID" Type="TBLREQUESTREPLY1" />
-      <Association Name="TBLUSERDETAIL_TBLREQUESTTABLE1" Member="TBLREQUESTTABLE1s" ThisKey="GENID" OtherKey="GENID" Type="TBLREQUESTTABLE1" />
-      <Association Name="TBLUSERDETAIL_TBLRETURNEDEQUIPMENT1" Member="TBLRETURNEDEQUIPMENT1s" ThisKey="GENID" OtherKey="GENID" Type="TBLRETURNEDEQUIPMENT1" />
-      <Association Name="TBLUSERDETAIL_TBLTRANSACTION1" Member="TBLTRANSACTION1s" ThisKey="GENID" OtherKey="GENID" Type="TBLTRANSACTION1" />
-      <Association Name="TBLUSERDETAIL_TBLUSERACTIONREPORT1" Member="TBLUSERACTIONREPORT1s" ThisKey="ID" OtherKey="ID" Type="TBLUSERACTIONREPORT1" />
-      <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT1" Member="TBLUSERLOGINREPORT1s" ThisKey="ID" OtherKey="ID" Type="TBLUSERLOGINREPORT1" />
-      <Association Name="TBLUSERDETAIL_TBLUSERUSAGESTATISTIC1" Member="TBLUSERUSAGESTATISTIC1s" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERUSAGESTATISTIC1" />
       <Association Name="USERTYPE_TBLUSERDETAIL" Member="USERTYPE" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="USERTYPE" IsForeignKey="true" />
-      <Association Name="USERTYPE1_TBLUSERDETAIL" Member="USERTYPE1" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="USERTYPE1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLUSERLOGINREPORT" Member="TBLUSERLOGINREPORTs">
@@ -304,7 +248,6 @@
       <Column Name="Action" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="Timestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT" Member="TBLUSERDETAIL" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLUSERLOGINREPORT" Member="TBLUSERDETAIL1" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TBLUSERUSAGESTATISTICS" Member="TBLUSERUSAGESTATISTICs">
@@ -313,323 +256,6 @@
       <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TotalBorrowedEquipments" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TBLUSERDETAIL_TBLUSERUSAGESTATISTIC" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLUSERUSAGESTATISTIC" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.EQUIPMENT_DESIGNATION" Member="EQUIPMENT_DESIGNATION1s">
-    <Type Name="EQUIPMENT_DESIGNATION1">
-      <Column Name="EQ_DESIGNATION_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="DATE_DESIGNATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DATE_RETURNED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DESIGNATION_STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="TBLUSERDETAIL_EQUIPMENT_DESIGNATION1" Member="TBLUSERDETAIL" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_EQUIPMENT_DESIGNATION1" Member="TBLUSERDETAIL1" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.USERTYPE" Member="USERTYPE1s">
-    <Type Name="USERTYPE1">
-      <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="USERTYPE_DESCRIPTION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="USERTYPE1_TBLSTUDENTDETAIL" Member="TBLSTUDENTDETAILs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLSTUDENTDETAIL" />
-      <Association Name="USERTYPE1_TBLUSERDETAIL" Member="TBLUSERDETAILs" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLUSERDETAIL" />
-      <Association Name="USERTYPE1_TBLSTUDENTDETAIL1" Member="TBLSTUDENTDETAIL1s" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLSTUDENTDETAIL1" />
-      <Association Name="USERTYPE1_TBLUSERDETAIL1" Member="TBLUSERDETAIL1s" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="TBLUSERDETAIL1" />
-    </Type>
-  </Table>
-  <Table Name="dbo.REQUESTSTATUS" Member="REQUESTSTATUS1s">
-    <Type Name="REQUESTSTATUS1">
-      <Column Name="REQUESTSTATUSID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="STATUSDESCRIPTION" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Association Name="REQUESTSTATUS1_TBLREQUESTTABLE" Member="TBLREQUESTTABLEs" ThisKey="REQUESTSTATUSID" OtherKey="REQUESTSTATUSID" Type="TBLREQUESTTABLE" />
-      <Association Name="REQUESTSTATUS1_TBLREQUESTTABLE1" Member="TBLREQUESTTABLE1s" ThisKey="REQUESTSTATUSID" OtherKey="REQUESTSTATUSID" Type="TBLREQUESTTABLE1" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLBORRIWINGBARCODE" Member="TBLBORRIWINGBARCODE1s">
-    <Type Name="TBLBORRIWINGBARCODE1">
-      <Column Name="BarcodeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BorrowingBarcode" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BWBarcodePath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="TBLTRANSACTION_TBLBORRIWINGBARCODE1" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION1_TBLBORRIWINGBARCODE1" Member="TBLTRANSACTION1" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLBORROWED" Member="TBLBORROWED1s">
-    <Type Name="TBLBORROWED1">
-      <Column Name="BorrowID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DATEBORROWED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IsReturned" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWED1" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL_TBLBORROWED1" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION_TBLBORROWED1" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLBORROWED1" Member="TBLEQUIPMENTDETAIL1" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION1_TBLBORROWED1" Member="TBLTRANSACTION1" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION1" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLBORROWED1" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLBORROWQUANTITY" Member="TBLBORROWQUANTITY1s">
-    <Type Name="TBLBORROWQUANTITY1">
-      <Column Name="BORROWID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLBORROWQUANTITY1" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLBORROWQUANTITY1" Member="TBLEQUIPMENTDETAIL1" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLDEPLOYMENT" Member="TBLDEPLOYMENT1s">
-    <Type Name="TBLDEPLOYMENT1">
-      <Column Name="DeploymentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FacilitiyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TBLFACILITy_TBLDEPLOYMENT1" Member="TBLFACILITy" ThisKey="FacilitiyID" OtherKey="FacilityID" Type="TBLFACILITy" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION_TBLDEPLOYMENT1" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
-      <Association Name="TBLFACILITy1_TBLDEPLOYMENT1" Member="TBLFACILITy1" ThisKey="FacilitiyID" OtherKey="FacilityID" Type="TBLFACILITy1" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION1_TBLDEPLOYMENT1" Member="TBLTRANSACTION1" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLEQUIPMENTBARCODE" Member="TBLEQUIPMENTBARCODE1s">
-    <Type Name="TBLEQUIPMENTBARCODE1">
-      <Column Name="BarcodeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Equipment_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EquipmentBarcode" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="EQBarcodepath" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTBARCODE1" Member="TBLEQUIPMENTDETAIL" ThisKey="Equipment_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLEQUIPMENTBARCODE1" Member="TBLEQUIPMENTDETAIL1" ThisKey="Equipment_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLEQUIPMENTDETAILS" Member="TBLEQUIPMENTDETAIL1s">
-    <Type Name="TBLEQUIPMENTDETAIL1">
-      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="EQUIPMENT_NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="EQUIPMENT_DESCRIPTION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="EQUIPMENT_TYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EQUIPMENT_QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ISBORROWABLE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLBORROWED" Member="TBLBORROWEDs" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLBORROWED" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLBORROWED1" Member="TBLBORROWED1s" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLBORROWED1" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLBORROWQUANTITY" Member="TBLBORROWQUANTITies" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLBORROWQUANTITY" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLBORROWQUANTITY1" Member="TBLBORROWQUANTITY1s" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLBORROWQUANTITY1" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLEQUIPMENTBARCODE" Member="TBLEQUIPMENTBARCODEs" ThisKey="EQUIPMENT_ID" OtherKey="Equipment_ID" Type="TBLEQUIPMENTBARCODE" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLEQUIPMENTBARCODE1" Member="TBLEQUIPMENTBARCODE1s" ThisKey="EQUIPMENT_ID" OtherKey="Equipment_ID" Type="TBLEQUIPMENTBARCODE1" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLEQUIPMENTRESERVATION" Member="TBLEQUIPMENTRESERVATIONs" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTRESERVATION" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLEQUIPMENTSTATUS" Member="TBLEQUIPMENTSTATUS" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTSTATUS" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLPULLEDOUTEQUIPMENT" Member="TBLPULLEDOUTEQUIPMENTs" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLPULLEDOUTEQUIPMENT" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLRETURNEDEQUIPMENT" Member="TBLRETURNEDEQUIPMENTs" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLRETURNEDEQUIPMENT" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLEQUIPMENTRESERVATION1" Member="TBLEQUIPMENTRESERVATION1s" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTRESERVATION1" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLEQUIPMENTSTATUS1" Member="TBLEQUIPMENTSTATUS1s" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTSTATUS1" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLPULLEDOUTEQUIPMENT1" Member="TBLPULLEDOUTEQUIPMENT1s" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLPULLEDOUTEQUIPMENT1" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLRETURNEDEQUIPMENT1" Member="TBLRETURNEDEQUIPMENT1s" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLRETURNEDEQUIPMENT1" />
-      <Association Name="TBLEQUIPMENTTYPE_TBLEQUIPMENTDETAIL1" Member="TBLEQUIPMENTTYPE" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQUIPMENTTYPE" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTTYPE1_TBLEQUIPMENTDETAIL1" Member="TBLEQUIPMENTTYPE1" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQUIPMENTTYPE1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLEQUIPMENTRESERVATION" Member="TBLEQUIPMENTRESERVATION1s">
-    <Type Name="TBLEQUIPMENTRESERVATION1">
-      <Column Name="ReservationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DateReserved" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IsReturned" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTRESERVATION1" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLEQUIPMENTRESERVATION1" Member="TBLEQUIPMENTDETAIL1" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL_TBLEQUIPMENTRESERVATION1" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION_TBLEQUIPMENTRESERVATION1" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION1_TBLEQUIPMENTRESERVATION1" Member="TBLTRANSACTION1" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION1" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLEQUIPMENTRESERVATION1" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLEQUIPMENTSTATUS" Member="TBLEQUIPMENTSTATUS1s">
-    <Type Name="TBLEQUIPMENTSTATUS1">
-      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GoodCondition" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BadCondition" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLEQUIPMENTSTATUS1" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLEQUIPMENTSTATUS1" Member="TBLEQUIPMENTDETAIL1" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLEQUIPMENTTYPE" Member="TBLEQUIPMENTTYPE1s">
-    <Type Name="TBLEQUIPMENTTYPE1">
-      <Column Name="EQUIPMENT_TYPE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="EQUIPMENT_TYPE_DESCRIPTION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Association Name="TBLEQUIPMENTTYPE1_TBLEQUIPMENTDETAIL" Member="TBLEQUIPMENTDETAILs" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQUIPMENTDETAIL" />
-      <Association Name="TBLEQUIPMENTTYPE1_TBLEQUIPMENTDETAIL1" Member="TBLEQUIPMENTDETAIL1s" ThisKey="EQUIPMENT_TYPE_ID" OtherKey="EQUIPMENT_TYPE_ID" Type="TBLEQUIPMENTDETAIL1" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLFACILITIES" Member="TBLFACILITy1s">
-    <Type Name="TBLFACILITy1">
-      <Column Name="FacilityID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FacilityName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FacilityType" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="FacilityRoomNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Association Name="TBLFACILITy1_TBLDEPLOYMENT" Member="TBLDEPLOYMENTs" ThisKey="FacilityID" OtherKey="FacilitiyID" Type="TBLDEPLOYMENT" />
-      <Association Name="TBLFACILITy1_TBLDEPLOYMENT1" Member="TBLDEPLOYMENT1s" ThisKey="FacilityID" OtherKey="FacilitiyID" Type="TBLDEPLOYMENT1" />
-      <Association Name="TBLUSERDETAIL_TBLFACILITy1" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLFACILITy1" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLPULLEDOUTEQUIPMENT" Member="TBLPULLEDOUTEQUIPMENT1s">
-    <Type Name="TBLPULLEDOUTEQUIPMENT1">
-      <Column Name="PullOutID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLPULLEDOUTEQUIPMENT1" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLPULLEDOUTEQUIPMENT1" Member="TBLEQUIPMENTDETAIL1" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLREQUESTREPLY" Member="TBLREQUESTREPLY1s">
-    <Type Name="TBLREQUESTREPLY1">
-      <Column Name="ReplyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="REQUESTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ReplyContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="DateReplied" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="TBLUSERDETAIL_TBLREQUESTREPLY1" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLREQUESTTABLE_TBLREQUESTREPLY1" Member="TBLREQUESTTABLE" ThisKey="REQUESTID" OtherKey="REQUESTID" Type="TBLREQUESTTABLE" IsForeignKey="true" />
-      <Association Name="TBLREQUESTTABLE1_TBLREQUESTREPLY1" Member="TBLREQUESTTABLE1" ThisKey="REQUESTID" OtherKey="REQUESTID" Type="TBLREQUESTTABLE1" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLREQUESTREPLY1" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLREQUESTTABLE" Member="TBLREQUESTTABLE1s">
-    <Type Name="TBLREQUESTTABLE1">
-      <Column Name="REQUESTID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="REQUESTHEADER" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="REQUESTCONTENT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="DATEREQUESTED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="REQUESTSTATUSID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ISOPENED" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TBLREQUESTTABLE1_TBLREQUESTREPLY" Member="TBLREQUESTREPLies" ThisKey="REQUESTID" OtherKey="REQUESTID" Type="TBLREQUESTREPLY" />
-      <Association Name="TBLREQUESTTABLE1_TBLREQUESTREPLY1" Member="TBLREQUESTREPLY1s" ThisKey="REQUESTID" OtherKey="REQUESTID" Type="TBLREQUESTREPLY1" />
-      <Association Name="TBLUSERDETAIL_TBLREQUESTTABLE1" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="REQUESTSTATUS_TBLREQUESTTABLE1" Member="REQUESTSTATUS" ThisKey="REQUESTSTATUSID" OtherKey="REQUESTSTATUSID" Type="REQUESTSTATUS" IsForeignKey="true" />
-      <Association Name="REQUESTSTATUS1_TBLREQUESTTABLE1" Member="REQUESTSTATUS1" ThisKey="REQUESTSTATUSID" OtherKey="REQUESTSTATUSID" Type="REQUESTSTATUS1" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLREQUESTTABLE1" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLRETURNEDEQUIPMENTS" Member="TBLRETURNEDEQUIPMENT1s">
-    <Type Name="TBLRETURNEDEQUIPMENT1">
-      <Column Name="ReturnID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TransactionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EQUIPMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DateReturned" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TBLEQUIPMENTDETAIL_TBLRETURNEDEQUIPMENT1" Member="TBLEQUIPMENTDETAIL" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL" IsForeignKey="true" />
-      <Association Name="TBLEQUIPMENTDETAIL1_TBLRETURNEDEQUIPMENT1" Member="TBLEQUIPMENTDETAIL1" ThisKey="EQUIPMENT_ID" OtherKey="EQUIPMENT_ID" Type="TBLEQUIPMENTDETAIL1" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL_TBLRETURNEDEQUIPMENT1" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION_TBLRETURNEDEQUIPMENT1" Member="TBLTRANSACTION" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION" IsForeignKey="true" />
-      <Association Name="TBLTRANSACTION1_TBLRETURNEDEQUIPMENT1" Member="TBLTRANSACTION1" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLTRANSACTION1" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLRETURNEDEQUIPMENT1" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLSTUDENTDETAILS" Member="TBLSTUDENTDETAIL1s">
-    <Type Name="TBLSTUDENTDETAIL1">
-      <Column Name="GENID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="NAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="USERTYPE_TBLSTUDENTDETAIL1" Member="USERTYPE" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="USERTYPE" IsForeignKey="true" />
-      <Association Name="USERTYPE1_TBLSTUDENTDETAIL1" Member="USERTYPE1" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="USERTYPE1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLTRANSACTION" Member="TBLTRANSACTION1s">
-    <Type Name="TBLTRANSACTION1">
-      <Column Name="TransactionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TransactionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TransactionEvent" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TBLTRANSACTION1_TBLBORRIWINGBARCODE" Member="TBLBORRIWINGBARCODEs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLBORRIWINGBARCODE" />
-      <Association Name="TBLTRANSACTION1_TBLBORRIWINGBARCODE1" Member="TBLBORRIWINGBARCODE1s" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLBORRIWINGBARCODE1" />
-      <Association Name="TBLTRANSACTION1_TBLBORROWED" Member="TBLBORROWEDs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLBORROWED" />
-      <Association Name="TBLTRANSACTION1_TBLBORROWED1" Member="TBLBORROWED1s" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLBORROWED1" />
-      <Association Name="TBLTRANSACTION1_TBLDEPLOYMENT" Member="TBLDEPLOYMENTs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLDEPLOYMENT" />
-      <Association Name="TBLTRANSACTION1_TBLDEPLOYMENT1" Member="TBLDEPLOYMENT1s" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLDEPLOYMENT1" />
-      <Association Name="TBLTRANSACTION1_TBLEQUIPMENTRESERVATION" Member="TBLEQUIPMENTRESERVATIONs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLEQUIPMENTRESERVATION" />
-      <Association Name="TBLTRANSACTION1_TBLEQUIPMENTRESERVATION1" Member="TBLEQUIPMENTRESERVATION1s" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLEQUIPMENTRESERVATION1" />
-      <Association Name="TBLTRANSACTION1_TBLRETURNEDEQUIPMENT" Member="TBLRETURNEDEQUIPMENTs" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLRETURNEDEQUIPMENT" />
-      <Association Name="TBLTRANSACTION1_TBLRETURNEDEQUIPMENT1" Member="TBLRETURNEDEQUIPMENT1s" ThisKey="TransactionID" OtherKey="TransactionID" Type="TBLRETURNEDEQUIPMENT1" />
-      <Association Name="TBLUSERDETAIL_TBLTRANSACTION1" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLTRANSACTION1" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLUSERACTIONREPORT" Member="TBLUSERACTIONREPORT1s">
-    <Type Name="TBLUSERACTIONREPORT1">
-      <Column Name="ActionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Action" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Timestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="TBLUSERDETAIL_TBLUSERACTIONREPORT1" Member="TBLUSERDETAIL" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLUSERACTIONREPORT1" Member="TBLUSERDETAIL1" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLUSERDETAILS" Member="TBLUSERDETAIL1s">
-    <Type Name="TBLUSERDETAIL1">
-      <Column Name="GENID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="FIRSTNAME" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="MIDDLENAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="LASTNAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="CONTACT_NUMBER" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="SECURITY_QUESTION" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="SECURITY_ANSWER" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="USERTYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ISFIRSTLOGIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TBLUSERDETAIL1_EQUIPMENT_DESIGNATION" Member="EQUIPMENT_DESIGNATIONs" ThisKey="ID" OtherKey="ID" Type="EQUIPMENT_DESIGNATION" />
-      <Association Name="TBLUSERDETAIL1_EQUIPMENT_DESIGNATION1" Member="EQUIPMENT_DESIGNATION1s" ThisKey="ID" OtherKey="ID" Type="EQUIPMENT_DESIGNATION1" />
-      <Association Name="TBLUSERDETAIL1_TBLBORROWED" Member="TBLBORROWEDs" ThisKey="GENID" OtherKey="GENID" Type="TBLBORROWED" />
-      <Association Name="TBLUSERDETAIL1_TBLBORROWED1" Member="TBLBORROWED1s" ThisKey="GENID" OtherKey="GENID" Type="TBLBORROWED1" />
-      <Association Name="TBLUSERDETAIL1_TBLEQUIPMENTRESERVATION" Member="TBLEQUIPMENTRESERVATIONs" ThisKey="GENID" OtherKey="GENID" Type="TBLEQUIPMENTRESERVATION" />
-      <Association Name="TBLUSERDETAIL1_TBLEQUIPMENTRESERVATION1" Member="TBLEQUIPMENTRESERVATION1s" ThisKey="GENID" OtherKey="GENID" Type="TBLEQUIPMENTRESERVATION1" />
-      <Association Name="TBLUSERDETAIL1_TBLFACILITy" Member="TBLFACILITies" ThisKey="GENID" OtherKey="GENID" Type="TBLFACILITy" />
-      <Association Name="TBLUSERDETAIL1_TBLFACILITy1" Member="TBLFACILITy1s" ThisKey="GENID" OtherKey="GENID" Type="TBLFACILITy1" />
-      <Association Name="TBLUSERDETAIL1_TBLREQUESTREPLY" Member="TBLREQUESTREPLies" ThisKey="GENID" OtherKey="GENID" Type="TBLREQUESTREPLY" />
-      <Association Name="TBLUSERDETAIL1_TBLREQUESTREPLY1" Member="TBLREQUESTREPLY1s" ThisKey="GENID" OtherKey="GENID" Type="TBLREQUESTREPLY1" />
-      <Association Name="TBLUSERDETAIL1_TBLREQUESTTABLE" Member="TBLREQUESTTABLEs" ThisKey="GENID" OtherKey="GENID" Type="TBLREQUESTTABLE" />
-      <Association Name="TBLUSERDETAIL1_TBLREQUESTTABLE1" Member="TBLREQUESTTABLE1s" ThisKey="GENID" OtherKey="GENID" Type="TBLREQUESTTABLE1" />
-      <Association Name="TBLUSERDETAIL1_TBLRETURNEDEQUIPMENT" Member="TBLRETURNEDEQUIPMENTs" ThisKey="GENID" OtherKey="GENID" Type="TBLRETURNEDEQUIPMENT" />
-      <Association Name="TBLUSERDETAIL1_TBLRETURNEDEQUIPMENT1" Member="TBLRETURNEDEQUIPMENT1s" ThisKey="GENID" OtherKey="GENID" Type="TBLRETURNEDEQUIPMENT1" />
-      <Association Name="TBLUSERDETAIL1_TBLTRANSACTION" Member="TBLTRANSACTIONs" ThisKey="GENID" OtherKey="GENID" Type="TBLTRANSACTION" />
-      <Association Name="TBLUSERDETAIL1_TBLTRANSACTION1" Member="TBLTRANSACTION1s" ThisKey="GENID" OtherKey="GENID" Type="TBLTRANSACTION1" />
-      <Association Name="TBLUSERDETAIL1_TBLUSERACTIONREPORT" Member="TBLUSERACTIONREPORTs" ThisKey="ID" OtherKey="ID" Type="TBLUSERACTIONREPORT" />
-      <Association Name="TBLUSERDETAIL1_TBLUSERACTIONREPORT1" Member="TBLUSERACTIONREPORT1s" ThisKey="ID" OtherKey="ID" Type="TBLUSERACTIONREPORT1" />
-      <Association Name="TBLUSERDETAIL1_TBLUSERLOGINREPORT" Member="TBLUSERLOGINREPORTs" ThisKey="ID" OtherKey="ID" Type="TBLUSERLOGINREPORT" />
-      <Association Name="TBLUSERDETAIL1_TBLUSERUSAGESTATISTIC" Member="TBLUSERUSAGESTATISTICs" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERUSAGESTATISTIC" />
-      <Association Name="TBLUSERDETAIL1_TBLUSERLOGINREPORT1" Member="TBLUSERLOGINREPORT1s" ThisKey="ID" OtherKey="ID" Type="TBLUSERLOGINREPORT1" />
-      <Association Name="TBLUSERDETAIL1_TBLUSERUSAGESTATISTIC1" Member="TBLUSERUSAGESTATISTIC1s" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERUSAGESTATISTIC1" />
-      <Association Name="USERTYPE_TBLUSERDETAIL1" Member="USERTYPE" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="USERTYPE" IsForeignKey="true" />
-      <Association Name="USERTYPE1_TBLUSERDETAIL1" Member="USERTYPE1" ThisKey="USERTYPE_ID" OtherKey="USERTYPE_ID" Type="USERTYPE1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLUSERLOGINREPORT" Member="TBLUSERLOGINREPORT1s">
-    <Type Name="TBLUSERLOGINREPORT1">
-      <Column Name="LoginID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="password" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Action" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Timestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="TBLUSERDETAIL_TBLUSERLOGINREPORT1" Member="TBLUSERDETAIL" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLUSERLOGINREPORT1" Member="TBLUSERDETAIL1" ThisKey="ID" OtherKey="ID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBLUSERUSAGESTATISTICS" Member="TBLUSERUSAGESTATISTIC1s">
-    <Type Name="TBLUSERUSAGESTATISTIC1">
-      <Column Name="UserCount" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="GENID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalBorrowedEquipments" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TBLUSERDETAIL_TBLUSERUSAGESTATISTIC1" Member="TBLUSERDETAIL" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL" IsForeignKey="true" />
-      <Association Name="TBLUSERDETAIL1_TBLUSERUSAGESTATISTIC1" Member="TBLUSERDETAIL1" ThisKey="GENID" OtherKey="GENID" Type="TBLUSERDETAIL1" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_AccountRecovery" Method="sp_AccountRecovery">
