@@ -62,29 +62,35 @@ namespace ANS_SEIS_TV
             {
                 // C:// could be  path
                 // C:\\Users\Nathaniel Angelico\Desktop\\
-                String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + locationPath + ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
-
-                OleDbConnection con = new OleDbConnection(constr);
-                OleDbCommand oconn = new OleDbCommand("Select * From [" + name + "$]", con);
-
-                con.Open();
-
-                OleDbDataAdapter sda = new OleDbDataAdapter(oconn);
-                DataTable data = new DataTable();
                 try
                 {
+                    String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + locationPath + ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
+
+                    OleDbConnection con = new OleDbConnection(constr);
+                    OleDbCommand oconn = new OleDbCommand("Select * From [" + name + "$]", con);
+
+                    con.Open();
+
+                    OleDbDataAdapter sda = new OleDbDataAdapter(oconn);
+                    DataTable data = new DataTable();
                     sda.Fill(data);
+                    dgvUserUpload.DataSource = data;
                 }
-                catch (COMException ce)
+                catch (Exception)
                 {
-                    if (ce.ErrorCode ==Convert.ToInt32(0x80004005))
-                    {
-                        MetroMessageBox.Show(this, "Incorrect Sheet Name or Sheet Name not Found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MetroMessageBox.Show(this, "Incorrect Sheet Name or Sheet Name not Found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
-                    dgvUserUpload.DataSource = data;
+                    
+                }
+
+                int colCount = dgvUserUpload.Rows[0].Cells.Count;
+
+                if (colCount > 6 || colCount < 6) 
+                {
+                    MetroMessageBox.Show(this, "Incorrect Sheet Format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dgvUserUpload.DataSource = null;
                 }
             }
         }
@@ -102,9 +108,12 @@ namespace ANS_SEIS_TV
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             UserLibrary u = new UserLibrary();
+            int Upload = 0;
 
             foreach (DataGridViewRow row in dgvUserUpload.Rows)
             {
+                u.GENID = u.UserID();
+                                
                 for (int i = 0; i < row.Cells.Count; i++)
                 {
                     if (row.Cells[i].Value == null || row.Cells[i].Value == DBNull.Value || String.IsNullOrWhiteSpace(row.Cells[i].Value.ToString()))
@@ -113,8 +122,6 @@ namespace ANS_SEIS_TV
                     }
                     else
                     {
-                        u.GENID = u.UserID();
-
                         if (Convert.ToInt32(row.Cells[5].Value) == 110)
                         {
                             u.ID = "AD-" + (u.UserID() + 1).ToString().PadLeft(5, '0');
@@ -135,8 +142,15 @@ namespace ANS_SEIS_TV
                         u.LastName = row.Cells[3].Value.ToString();
                         u.ContactNumber = row.Cells[4].Value.ToString();
                         u.Usertype = Convert.ToInt32(row.Cells[5].Value);
-                        u.UserInsert();
+
+                        Upload = 1;
                     }
+                }
+
+                if (Upload==1)
+                {
+                    u.UserInsert();
+                    Upload = 0;
                 }
             }
         }
