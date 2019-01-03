@@ -75,30 +75,34 @@ namespace ANS_SEIS_TV
             {
                 // C:// could be  path
                 // C:\\Users\Nathaniel Angelico\Desktop\\
-                String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + locationPath + ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
-
-                OleDbConnection con = new OleDbConnection(constr);
-                OleDbCommand oconn = new OleDbCommand("Select * From [" + name + "$]", con);
-
-                con.Open();
-
-                OleDbDataAdapter sda = new OleDbDataAdapter(oconn);
-                DataTable data = new DataTable();
+               
                 try
                 {
+                    String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + locationPath + ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
+
+                    OleDbConnection con = new OleDbConnection(constr);
+                    OleDbCommand oconn = new OleDbCommand("Select * From [" + name + "$]", con);
+
+                    con.Open();
+
+                    OleDbDataAdapter sda = new OleDbDataAdapter(oconn);
+                    DataTable data = new DataTable();
                     sda.Fill(data);
-                }
-                catch (COMException ce)
-                {
-                    if (ce.ErrorCode == Convert.ToInt32(0x80004005))
-                    {
-                        MetroMessageBox.Show(this, "Incorrect Sheet Name or Sheet Name not Found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                finally
-                {
                     dgvInventoryUpload.DataSource = data;
                 }
+                catch (Exception)
+                {
+                    MetroMessageBox.Show(this, "Incorrect Sheet Name or Sheet Name not Found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                int colCount = dgvInventoryUpload.Rows[0].Cells.Count;
+
+                if (colCount < 4 || colCount > 4) 
+                {
+                    MetroMessageBox.Show(this, "Incorrect Sheet Format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dgvInventoryUpload.DataSource = null;
+                }
+                
             }
         }
         private void btnUpload_Click(object sender, EventArgs e)
@@ -113,12 +117,23 @@ namespace ANS_SEIS_TV
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            int Upload = 0;
             t.TransactionID();
             eq.ID = db.sp_EquipmentID(); // Get Equipment ID
             t.Action = "Registered an Equipment";
             t.NewTransaction(DateTime.Now, t.Action, 1000000);
+
             foreach (DataGridViewRow row in dgvInventoryUpload.Rows)
             {
+                eq.ID = db.sp_EquipmentID(); // Get Equipment ID
+
+                // Load stuff sa Equipment Library
+                eq.EquipmentBarcode = eq.ID.ToString();
+                eq.EquipmentName = row.Cells[0].Value.ToString();
+                eq.EquipmentDescription = row.Cells[1].Value.ToString();
+                eq.EquipmentTypeID = Convert.ToInt32(row.Cells[2].Value);
+                eq.EquipmentQuantity = Convert.ToInt32(row.Cells[3].Value);
+
                 for (int i = 0; i < row.Cells.Count; i++)
                 {
                     if (row.Cells[i].Value == null || row.Cells[i].Value == DBNull.Value || String.IsNullOrWhiteSpace(row.Cells[i].Value.ToString()))
@@ -127,49 +142,46 @@ namespace ANS_SEIS_TV
                     }
                     else
                     {
-                        eq.ID = db.sp_EquipmentID(); // Get Equipment ID
-
-                        // Load stuff sa Equipment Library
-                        eq.EquipmentBarcode = eq.ID.ToString();
-                        eq.EquipmentName = row.Cells[0].Value.ToString();
-                        eq.EquipmentDescription = row.Cells[1].Value.ToString();
-                        eq.EquipmentTypeID = Convert.ToInt32(row.Cells[2].Value);
-                        eq.EquipmentQuantity = Convert.ToInt32(row.Cells[3].Value);
-
-                        eq.EquipmentInsert(); // Save data to Database
-
-                        // Generate barocodo
-                        s.GenerateBarcode(eq.EquipmentBarcode.ToString());
-
-
-                        String strBLOBFilePath = s.SavePath;//Modify this path as needed.
-
-                        //Read jpg into file stream, and from there into Byte array.
-                        FileStream fsBLOBFile = new FileStream(strBLOBFilePath, FileMode.Open, FileAccess.Read);
-                        Byte[] bytBLOBData = new Byte[fsBLOBFile.Length];
-                        fsBLOBFile.Read(bytBLOBData, 0, bytBLOBData.Length);
-                        fsBLOBFile.Close();
-
-                        // Insert Barcode sa databse
-                        db.sp_NewEquipmentBarcodeInsert(Convert.ToInt32(eq.EquipmentBarcode), bytBLOBData, s.SavePath);
-
-                        t.NewEquipmentAdded(eq.ID, 0);
-                        //t.Action = "Registered an Equipment";
-                        //t.NewTransaction(DateTime.Now, t.Action, CurrentGENID);
-
-                        //commented cuz ok na
-                        t.NewBorrowed(t.TID, 1000000, eq.ID, DateTime.Now, 0, true);
-                        t.NewEquipmentAdded(eq.ID, 0);
-
-
-                        //for the borrowing
-                        // for status btaw na hahahaha
-                        eq.EquipmentStatusAdd(eq.ID, eq.EquipmentQuantity);
-
-
-                        // for PullOut
-                        eq.NewEquipmentPullOut(eq.ID);
+                        Upload = 1;
                     }
+                }
+
+                if (Upload==1)
+                {
+                    eq.EquipmentInsert(); // Save data to Database
+
+                    // Generate barocodo
+                    s.GenerateBarcode(eq.EquipmentBarcode.ToString());
+
+
+                    String strBLOBFilePath = s.SavePath;//Modify this path as needed.
+
+                    //Read jpg into file stream, and from there into Byte array.
+                    FileStream fsBLOBFile = new FileStream(strBLOBFilePath, FileMode.Open, FileAccess.Read);
+                    Byte[] bytBLOBData = new Byte[fsBLOBFile.Length];
+                    fsBLOBFile.Read(bytBLOBData, 0, bytBLOBData.Length);
+                    fsBLOBFile.Close();
+
+                    // Insert Barcode sa databse
+                    db.sp_NewEquipmentBarcodeInsert(Convert.ToInt32(eq.EquipmentBarcode), bytBLOBData, s.SavePath);
+
+                    t.NewEquipmentAdded(eq.ID, 0);
+                    //t.Action = "Registered an Equipment";
+                    //t.NewTransaction(DateTime.Now, t.Action, CurrentGENID);
+
+                    //commented cuz ok na
+                    t.NewBorrowed(t.TID, 1000000, eq.ID, DateTime.Now, 0, true);
+                    t.NewEquipmentAdded(eq.ID, 0);
+
+
+                    //for the borrowing
+                    // for status btaw na hahahaha
+                    eq.EquipmentStatusAdd(eq.ID, eq.EquipmentQuantity);
+
+
+                    // for PullOut
+                    eq.NewEquipmentPullOut(eq.ID);
+                    Upload = 0;
                 }
             }
         }
