@@ -99,7 +99,10 @@ namespace ANS_SEIS_TV
         }
         private void btnUpload_Click(object sender, EventArgs e)
         {
-
+            t.TransactionID();
+            eq.ID = db.sp_EquipmentID(); // Get Equipment ID
+            t.Action = "Registered an Equipment";
+            t.NewTransaction(DateTime.Now, t.Action, 1000000);
             foreach (DataGridViewRow row in dgvInventoryUpload.Rows)
             {
                 eq.ID = db.sp_EquipmentID(); // Get Equipment ID
@@ -131,18 +134,19 @@ namespace ANS_SEIS_TV
                 t.NewEquipmentAdded(eq.ID, 0);
                 //t.Action = "Registered an Equipment";
                 //t.NewTransaction(DateTime.Now, t.Action, CurrentGENID);
-                t.TransactionID();
+                
                 //commented cuz ok na
                 t.NewBorrowed(t.TID, 1000000, eq.ID, DateTime.Now, 0, true);
                 t.NewEquipmentAdded(eq.ID, 0);
 
+                
                 //for the borrowing
                 // for status btaw na hahahaha
                 eq.EquipmentStatusAdd(eq.ID, eq.EquipmentQuantity);
 
+                
                 // for PullOut
                 eq.NewEquipmentPullOut(eq.ID);
-
             }
         }
     }
