@@ -75,32 +75,37 @@ namespace ANS_SEIS_TV
             {
                 // C:// could be  path
                 // C:\\Users\Nathaniel Angelico\Desktop\\
-               
+                String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + locationPath + ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
+
+                OleDbConnection con = new OleDbConnection(constr);
+                OleDbCommand oconn = new OleDbCommand("Select * From [" + name + "$]", con);
+
+                con.Open();
+
+                OleDbDataAdapter sda = new OleDbDataAdapter(oconn);
+                DataTable data = new DataTable();
+
                 try
                 {
-                    String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + locationPath + ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
-
-                    OleDbConnection con = new OleDbConnection(constr);
-                    OleDbCommand oconn = new OleDbCommand("Select * From [" + name + "$]", con);
-
-                    con.Open();
-
-                    OleDbDataAdapter sda = new OleDbDataAdapter(oconn);
-                    DataTable data = new DataTable();
                     sda.Fill(data);
-                    dgvInventoryUpload.DataSource = data;
+                    
                 }
                 catch (Exception)
                 {
                     MetroMessageBox.Show(this, "Incorrect Sheet Name or Sheet Name not Found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                int colCount = dgvInventoryUpload.Rows[0].Cells.Count;
+                dgvInventoryUpload.DataSource = data;
 
-                if (colCount < 4 || colCount > 4) 
+                if (dgvInventoryUpload.Rows.Count > 0) 
                 {
-                    MetroMessageBox.Show(this, "Incorrect Sheet Format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    dgvInventoryUpload.DataSource = null;
+                    int colCount = dgvInventoryUpload.Rows[0].Cells.Count;
+
+                    if (colCount < 4 || colCount > 4)
+                    {
+                        MetroMessageBox.Show(this, "Incorrect Sheet Format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dgvInventoryUpload.DataSource = null;
+                    }
                 }
                 
             }
